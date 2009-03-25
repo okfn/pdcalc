@@ -1,4 +1,4 @@
-import pdw.copyright
+import pdw.pd
 from datetime import datetime
 
 class TestCopyrightStatus:
@@ -12,46 +12,76 @@ class TestCopyrightStatus:
     def setUp(self):
         class X:
             pass
-        stub_artist = X()
-        stub_artist.death_date = self.date1
-        stub_work = X()
-        stub_work.creators = [ stub_artist ]
-        stub_perf = X()
-        stub_perf.work = stub_work
-        stub_perf.performance_date = self.date2
-        self.perf = stub_perf
+        artist = X()
+        artist.death_date = self.date1
+        work = X()
+        work.persons = [ artist ]
+        item = X()
+        item.work = work
+        item.date = self.date2
+        self.item = item
 
     def test_out_of_authorial_copyright(self):
-        out = pdw.copyright.out_of_authorial_copyright(self.date1)
+        out = pdw.pd.out_of_authorial_copyright(self.date1)
         assert out == True
-        out = pdw.copyright.out_of_authorial_copyright(self.date2)
+        out = pdw.pd.out_of_authorial_copyright(self.date2)
         assert out == False
 
     def test_out_of_recording_copyright(self):
-        out = pdw.copyright.out_of_recording_copyright(self.date2)
+        out = pdw.pd.out_of_recording_copyright(self.date2)
         assert out == True
 
     def test_copyright_status_1(self):
-        out = pdw.copyright.copyright_status(self.perf)
-        assert out == pdw.copyright.CopyrightStatus.OUT
+        out = pdw.pd.copyright_status(self.item)
+        assert out == pdw.pd.CopyrightStatus.OUT
 
     def test_copyright_status_2(self):
-        self.perf.performance_date = self.date3
-        out = pdw.copyright.copyright_status(self.perf)
-        assert out == pdw.copyright.CopyrightStatus.IN
+        self.item.date = self.date3
+        out = pdw.pd.copyright_status(self.item)
+        assert out == pdw.pd.CopyrightStatus.IN
         
     def test_copyright_status_3(self):
-        self.perf.work.creators[0].death_date = self.date2
-        out = pdw.copyright.copyright_status(self.perf)
-        assert out == pdw.copyright.CopyrightStatus.IN
+        self.item.work.persons[0].death_date = self.date2
+        out = pdw.pd.copyright_status(self.item)
+        assert out == pdw.pd.CopyrightStatus.IN
         
     def test_copyright_status_4(self):
-        self.perf.work = None
-        out = pdw.copyright.copyright_status(self.perf)
-        assert out == pdw.copyright.CopyrightStatus.UNKNOWN
+        self.item.work = None
+        out = pdw.pd.copyright_status(self.item)
+        assert out == pdw.pd.CopyrightStatus.UNKNOWN
         
     def test_copyright_status_5(self):
-        self.perf.work.creators[0].death_date = None
-        out = pdw.copyright.copyright_status(self.perf)
-        assert out == pdw.copyright.CopyrightStatus.UNKNOWN
+        self.item.work.persons[0].death_date = None
+        out = pdw.pd.copyright_status(self.item)
+        assert out == pdw.pd.CopyrightStatus.UNKNOWN
         
+
+class TestPDStatus:
+    calc = pdw.pd.PDCalculator()
+
+    @classmethod
+    def setup_class(self):
+        class X:
+            pass
+        artist = X()
+        artist.death_date = '1900'
+        artist.name = 'Test'
+        work = X()
+        work.id = u'abc'
+        work.persons = [ artist ]
+        item = X()
+        item.work = work
+        item.date = '1955'
+        self.work = work
+        self.item = item
+
+    def test_work_status(self):
+        self.calc.work_status(self.work)
+        assert self.calc.pdstatus == True, self.calc.pdstatus
+
+    def test_person_status(self):
+        self.calc.item_status(self.item)
+        assert self.calc.pdstatus == True, self.calc.pdstatus
+
+    # TODO: test using proper search
+    # TODO: much more testing

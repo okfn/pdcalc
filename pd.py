@@ -41,7 +41,10 @@ class CalculatorBase:
 class CalculatorUK(CalculatorBase):
     pass
 """
+import logging
 import datetime
+
+logger = logging.getLogger('pdw.pd')
 
 class CopyrightStatus:
     UNKNOWN = 0
@@ -71,17 +74,124 @@ def out_of_recording_copyright(release_date):
 def copyright_status(performance):
     if not performance.work:
         return CopyrightStatus.UNKNOWN
-    if len(performance.work.creators) == 0: # something wrong ...
+    if len(performance.work.persons) == 0: # something wrong ...
         return CopyrightStatus.UNKNOWN
-    for creator in performance.work.creators:
+    for creator in performance.work.persons:
         if creator.death_date:
             # TODO: deal with stuff like '?'
             if not out_of_authorial_copyright(creator.death_date):
                 return CopyrightStatus.IN
         else:
             return CopyrightStatus.UNKNOWN
-    if not out_of_recording_copyright(performance.performance_date):
+    if not out_of_recording_copyright(performance.date):
         return CopyrightStatus.IN
     return CopyrightStatus.OUT
 
+
+from pdw.search import Titlizer
+class PDCalculator(object):
+    '''A Public Domain Calculator.
+
+    Stateful: store pdstatus and info in variables of that name. Should call
+    reset before running with different data.
+    '''
+    def __init__(self, now=datetime.date.today().year, jurisdiction='uk'):
+        self.now = now
+        self.jurisdiction = jurisdiction
+        if self.jurisdiction != 'uk':
+            logger.warn('Only the UK jurisdiction is currently supported')
+        self.reset()
+
+    def reset(self):
+        self.info = { 'title': '',
+                'errors': '',
+                'warnings': [],
+                'authority': [] }
+        self.pdstatus = False
+
+    def work_status(self, work):
+        self.info['authority'].append(work.id)
+        for p in work.persons:
+            self.info['authority'].append([p.name, p.death_date])
+            if not p.death_date or p.death_date > '1933':
+                self.pdstatus = False
+        self.pdstatus = True
+
+    def item_status(self, item):
+        '''Calculate PD for an item.
+
+        1. match by work title and author simultaneously
+        2. If that fails search by author(s) and 
+        '''
+        self.info['warnings'].append('S1')
+        work = self.find_work(item)
+        if work:
+            self.work_status(work)
+            return
+        if not item.persons:
+            self.info['errors'] = 'ERROR: no authors for %s' % normtitle
+            return
+        self.info['warnings'].append('S2')
+        # try by (first) author alone
+        first_author_name = clean_name(item.persons[0].name)
+        self.status_by_name(first_author_name)
+
+    def find_work(self, item, search_if_not_there=True):
+        if item.work:
+            return item.work
+        elif not search_if_not_there:
+            return None
+
+        # TODO: put this under test
+        ngquery = model.Work.query.join(['contributors', 'person'])
+        normtitle = Titlizer.simplify_for_search(item.title)
+        self.info['title'] = normtitle
+        if not normtitle:
+            self.info['errors'] = 'ERROR: empty normalized title %s' % normtitle
+            return
+
+        # HACK: take first person
+        pdq = ngquery.filter(model.Work.title.ilike('%' + normtitle + '%'))
+        # FIXME: go through multiple persons ...
+        first_author_name = clean_name(item.persons[0].name)
+        pdq = pdq.filter(model.Person.name.ilike(first_author_name + '%'))
+        total = pdq.count()
+        # HACK take first match
+        if total > 1:
+            msg = '#%s matches, taking first one' % total
+            self.info['warnings'].append(msg)
+        work = pdq.first() 
+        return work
+
+    def person_status(self, person):
+        # NB: None < '1933'
+        if p.death_date is None:
+            score = -0.5
+        elif p.death_date < '1933':
+            score = 1
+        else:
+            score = -3
+        return score
+
+    def status_by_name(self, names):
+        '''Compute based on a list of author names alone.''' 
+        persons = model.Person.query.filter(
+                model.Person.name.ilike(first_author_name + '%')
+                ).limit(10).all()
+        if not persons:
+            self.info['warnings'].append('No person found with name: %s' % first_author_name)
+            return
+        # TODO: rather than require all to be PD pick those with most
+        # works
+        # self.info['warnings'].append('Found %s matching author name' % len(persons))
+        score = 0
+        for p in persons:
+            self.info['authority'].append([p.name, p.death_date])
+            # NB: None < '1933'
+            score += self.person_status(p)
+        if score > 0:
+            self.pdstatus = True
+            return
+        else:
+            return
 
