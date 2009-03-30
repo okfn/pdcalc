@@ -143,25 +143,7 @@ class PDCalculator(object):
             return None
 
         # TODO: put this under test
-        ngquery = model.Work.query.join(['contributors', 'person'])
-        normtitle = Titlizer.simplify_for_search(item.title)
-        self.info['title'] = normtitle
-        if not normtitle:
-            self.info['errors'] = 'ERROR: empty normalized title %s' % normtitle
-            return
-
-        # HACK: take first person
-        pdq = ngquery.filter(model.Work.title.ilike('%' + normtitle + '%'))
-        # FIXME: go through multiple persons ...
-        first_author_name = clean_name(item.persons[0].name)
-        pdq = pdq.filter(model.Person.name.ilike(first_author_name + '%'))
-        total = pdq.count()
-        # HACK take first match
-        if total > 1:
-            msg = '#%s matches, taking first one' % total
-            self.info['warnings'].append(msg)
-        work = pdq.first() 
-        return work
+        return search.get_work_for_item(item)
 
     def person_status(self, person):
         # NB: None < '1933'
