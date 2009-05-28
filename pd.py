@@ -36,144 +36,146 @@ class CopyrightStatus:
     # Flags etc
 
 class CalculatorBase:
-    def status(self, work):
+    def get_work_status(self, work):
 
 class CalculatorUK(CalculatorBase):
     pass
 """
 import logging
 import datetime
+import swiss
 
 logger = logging.getLogger('pdw.pd')
 
-class CopyrightStatus:
-    UNKNOWN = 0
-    OUT = 1
-    IN = 2
+def float_date(year, month=0, day=0):
+    return swiss.date.FlexiDate(year, month, day).as_float()
 
-today = datetime.date.today()
-def out_of_authorial_copyright(death_date, when=today):
-    '''
-    TODO: support birth_date (for cases where death_date not known)
+class PdStatus:
+    def __init__(self):
+        self.pd_prob = 0.0 # P(is PD)
+        self.uncertainty = 0.0
+        self.log = [] # strings
 
-    '''
-    life_plus_70 = datetime.date(death_date.year + 70, death_date.month,
-            death_date.day) 
-    if life_plus_70 <= when:
-        return True
+def determine_status(work, jurisdiction):
+    # now dispatch on jurisdiction (+ work type?)
+    if jurisdiction == 'canada':
+        pd_calculator = CalculatorCanada
     else:
-        return False
+        logger.error('Jurisdiction "%s" not currently supported.' % jurisdiction)
+        assert 0
+        
+    return pd_calculator(when=now).get_work_status(work)
 
-def out_of_recording_copyright(release_date):
-    # Europe is 50 years for US and elsewhere this will be different
-    today = datetime.date.today()
-    release_plus_50 = datetime.date(release_date.year + 50, release_date.month,
-            release_date.day) 
-    return release_plus_50 <= today
 
-def copyright_status(performance):
-    if not performance.work:
-        return CopyrightStatus.UNKNOWN
-    if len(performance.work.persons) == 0: # something wrong ...
-        return CopyrightStatus.UNKNOWN
-    for creator in performance.work.persons:
-        if creator.death_date:
-            # TODO: deal with stuff like '?'
-            if not out_of_authorial_copyright(creator.death_date):
-                return CopyrightStatus.IN
+class CalculatorBase(object):
+    def get_work_status(self, work):
+        raise NotImplementedError()
+
+class CalculatorUK(CalculatorBase):
+    def get_work_status(self, work):
+        raise NotImplementedError()
+
+class CalculatorCanada(CalculatorBase):
+    """A Public Domain Calculator
+    when=None means today's date
+    """
+    def __init__(self, when=None):
+        if when:
+            self._now = when
         else:
-            return CopyrightStatus.UNKNOWN
-    if not out_of_recording_copyright(performance.date):
-        return CopyrightStatus.IN
-    return CopyrightStatus.OUT
+            self._now = float_date(datetime.date.today().year)
+        self._jurisdiction = 'canada'
+
+    def get_work_status(self, work):
+        pdstatus = PdStatus()
+
+        # Call this when we know when pd expires
+        def pd_expires(expiry_date, pdstatus):
+            if expiry_date > self._now:
+                pdstatus.pd_prob = 0.0
+            else:
+                pdstatus.pd_prob = 1.0
+            return pdstatus        
+        
+        # Is it a photograph?
+        if work.type == 'photograph':
+            assert NotImplementedError
+        # NO
+        if not work.type:
+            pdstatus.log.append('Work type not given - assuming it is not a photograph')
+        pdstatus.log.append('Work is not a photograph')
+
+        # Is it crown author?
+        # NO
+        pdstatus.log.append('Assuming not a crown author')
+
+        # Is it an anonymous author?
+        is_anon = False
+        for person in work.persons:
+            if 'anon' in person.name.lower():
+                is_anon = True
+        if work.persons == []:
+            pdstatus.log.append('No authors given: assuming anonymous')
+            is_anon = True
+        if is_anon:
+            assert NotImplementedError
+        pdstatus.log.append('Author known')
+        # NO
+
+        # Are any authors living?
+        death_dates = [] # list of: (name, float date)
+        names = []
+        most_recent_death_date = 0.0
+        for person in work.persons:
+            death_date = person.death_date_ordered
+            death_dates.append((person.name, death_date))
+            if death_date and death_date > most_recent_death_date:
+                most_recent_death_date = death_date
+        an_author_lives = False
+        for name, death_date in death_dates:
+            if not death_date:
+                # alive: big assumption!
+                pdstatus.log.append('Author "%s" death date not given - assuming alive' % name)
+                an_author_lives = True
+        if an_author_lives:
+            # YES
+            pdstatus.log.append('Author alive %s' % repr(death_dates))
+            pdstatus.pd_prob = 0.0
+            pdstatus.uncertainty = 0.0
+            return pdstatus
+        # NO
+        pdstatus.log.append('Author dead %s' % (repr(death_dates)))
+
+        # Is it a published work?
+        if not work.item:
+            pdstatus.log.append('No item attached to work. Assuming this is a published work though.')
+        # YES
+        pdstatus.log.append('Published work')
+
+        # Any authors living on date of publication?
+        if most_recent_death_date > work.date_ordered:
+            # YES
+            pdstatus.log.append('Author living on date of publication (%s)' % work.date_ordered)
+            # DEATH + 50
+            pdstatus.log.append('PD expires at "death + 50" (%s + 50 = %s)' % (most_recent_death_date, most_recent_death_date + 50))
+            return pd_expires(most_recent_death_date + 50, pdstatus)
+        #NO
+        pdstatus.log.append('Author dead on date of publication (%s)' % work.date_ordered)
+
+        # Published before Jan 1, 1999?
+        if work.date_ordered < float_date(1999, 1, 1):
+            # YES
+            pdstatus.log.append('Published before Jan 1, 1999 (%s)' % work.date_ordered)
+
+            # PUBLICATION + 50
+            pdstatus.log.append('PD expires at "publication + 50" (%s + 50 = %s)' % (work.date_ordered, work.date_ordered + 50))
+            return pd_expires(work.date_ordered + 50, pdstatus)
+        # NO
+        pdstatus.log.append('Published after Jan 1, 1999 (%s)' % work.date_ordered)
+        # DEATH + 50
+        pdstatus.log.append('PD expires at "death + 50" (%s + 50 = %s)' % (most_recent_death_date, most_recent_death_date + 50))
+        return pd_expires(most_recent_death_date + 50, pdstatus)
 
 
-from pdw.search import Titlizer
-class PDCalculator(object):
-    '''A Public Domain Calculator.
-
-    Stateful: store pdstatus and info in variables of that name. Should call
-    reset before running with different data.
-    '''
-    def __init__(self, now=datetime.date.today().year, jurisdiction='uk'):
-        self.now = now
-        self.jurisdiction = jurisdiction
-        if self.jurisdiction != 'uk':
-            logger.warn('Only the UK jurisdiction is currently supported')
-        self.reset()
-
-    def reset(self):
-        self.info = { 'title': '',
-                'errors': '',
-                'warnings': [],
-                'authority': [] }
-        self.pdstatus = False
-
-    def work_status(self, work):
-        self.info['authority'].append(work.id)
-        for p in work.persons:
-            self.info['authority'].append([p.name, p.death_date])
-            if not p.death_date or p.death_date > '1933':
-                self.pdstatus = False
-        self.pdstatus = True
-
-    def item_status(self, item):
-        '''Calculate PD for an item.
-
-        1. match by work title and author simultaneously
-        2. If that fails search by author(s) and 
-        '''
-        self.info['warnings'].append('S1')
-        work = self.find_work(item)
-        if work:
-            self.work_status(work)
-            return
-        if not item.persons:
-            self.info['errors'] = 'ERROR: no authors for %s' % normtitle
-            return
-        self.info['warnings'].append('S2')
-        # try by (first) author alone
-        first_author_name = clean_name(item.persons[0].name)
-        self.status_by_name(first_author_name)
-
-    def find_work(self, item, search_if_not_there=True):
-        if item.work:
-            return item.work
-        elif not search_if_not_there:
-            return None
-
-        # TODO: put this under test
-        return search.get_work_for_item(item)
-
-    def person_status(self, person):
-        # NB: None < '1933'
-        if p.death_date is None:
-            score = -0.5
-        elif p.death_date < '1933':
-            score = 1
-        else:
-            score = -3
-        return score
-
-    def status_by_name(self, names):
-        '''Compute based on a list of author names alone.''' 
-        persons = model.Person.query.filter(
-                model.Person.name.ilike(first_author_name + '%')
-                ).limit(10).all()
-        if not persons:
-            self.info['warnings'].append('No person found with name: %s' % first_author_name)
-            return
-        # TODO: rather than require all to be PD pick those with most
-        # works
-        # self.info['warnings'].append('Found %s matching author name' % len(persons))
-        score = 0
-        for p in persons:
-            self.info['authority'].append([p.name, p.death_date])
-            # NB: None < '1933'
-            score += self.person_status(p)
-        if score > 0:
-            self.pdstatus = True
-            return
-        else:
-            return
+    
 
