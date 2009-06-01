@@ -52,9 +52,10 @@ def float_date(year, month=0, day=0):
 
 def determine_status(work, jurisdiction):
     # now dispatch on jurisdiction (+ work type?)
-    if jurisdiction == 'canada':
+    # note two letter country codes based on ISO 3166
+    if jurisdiction == 'ca':
         pd_calculator = CalculatorCanada
-    elif jurisdiction == 'uk':
+    elif jurisdiction in ('uk', 'gb') :
         pd_calculator = CalculatorUk
     else:
         logger.error('Jurisdiction "%s" not currently supported.' % jurisdiction)
@@ -87,9 +88,16 @@ class CalcParcel(object):
         self.uncertainty = 0.0
         self.log = [] # strings
 
+    def __str__(self):
+        return "date_pd=%s pd_prob=%s log=%s" % (self.date_pd, self.pd_prob, self.log)
+
 class CalculatorBase(object):
-    def __init__(self):
+    def __init__(self, when):
         self.author_list = None
+        if when:
+          self._now = when
+        else:
+            self._now = float_date(datetime.date.today().year)
     
     def get_work_status(self, work):
         raise NotImplementedError()
@@ -97,14 +105,14 @@ class CalculatorBase(object):
     def get_author_list(self, parcel):
         if self.author_list == None:
             self.author_list = []
-            for person in work.persons:
+            for person in parcel.work.persons:
                 self.author_list.append(person.name)
         return self.author_list
 
     def calc_anon(self, parcel):
         parcel.is_anon = False
         for person in parcel.work.persons:
-            if 'anon' in person.name.lower():
+            if person.name.lower() in ('anon', 'anon.', 'anonymous') :
                 parcel.is_anon = True
 
     def calc_death_dates(self, parcel):
@@ -126,13 +134,10 @@ class CalculatorBase(object):
         parcel.death_dates = death_dates
         parcel.most_recent_death_date = most_recent_death_date
         parcel.an_author_lives = an_author_lives
-        
 
-class CalculatorUK(CalculatorBase):
+class CalculatorUk(CalculatorBase):
     def __init__(self, when=None):
-        CalculatorBase.__init__(self)
-        self._now = when
-        self._jurisdiction = 'canada'
+        CalculatorBase.__init__(self, when)
 
     def get_work_status(self, parcel):
         assert type(parcel) == CalcParcel
@@ -144,49 +149,53 @@ class CalculatorUK(CalculatorBase):
                 parcel.pd_prob = 0.0
             else:
                 parcel.pd_prob = 1.0
+            parcel.uncertainty = 0.0
+            parcel.date_pd = expiry_date
+            parcel.calc_finished = True
             return parcel        
         
         # Is it a sound recording?
         if work.type == 'recording':
             # YES
             parcel.log.append('Sound recording')
-            # DEATH + 1st Jan + 50
-            expiry = float(int(most_recent_death_date + .999 + 50))
-            parcel.log.append('PD expires at "death + 1st Jan + 50" (%s + 50 = %s)' % (most_recent_death_date, most_recent_death_date + 50))
-            return pd_expires(most_recent_death_date + 50, parcel)
+            # PUB + 1st Jan + 50
+            pub_date = work.date_ordered
+            parcel.log.append('Assuming the date given for the work is the date of first publication: %s' % pub_date)
+            expiry = float(int(pub_date + 1 + 50))
+            parcel.log.append('PD expires at "first publication + 1st Jan + 50" (%s + 50 = %s)' % (pub_date, expiry))
+            return pd_expires(expiry, parcel)
         elif not work.type:
             # assume no
             parcel.log.append('No "type" stored - assuming literary work')
         else:
-            # NO
+            # no
             parcel.log.append('Literary / musical work (not sound recording) (%s)' % work.type)
+        # NO
 
         # Is it anonymous?
         self.calc_anon(parcel)
         if parcel.is_anon:
             # YES
-            parcel.log.append('Anonymous work - author %s' % self.get_author_list(parcel))
+            parcel.log.append('Anonymous work - %s' % self.get_author_list(parcel))
+            pub_date = work.date_ordered
             
-            # 
-            
-
+            # PUB + 1st Jan + 70 years
+            expiry = float(int(pub_date + 1 + 70))
+            parcel.log.append('PD expires at "first publication + 1st Jan + 70" (%s + 70 = %s)' % (pub_date, expiry))
+            return pd_expires(expiry, parcel)
         # NO
-        parcel.log.append('Sound recording')
-        # DEATH + 1st Jan + 50
-        expiry = float(int(most_recent_death_date + .999 + 50))
-        parcel.log.append('PD expires at "death + 1st Jan + 50" (%s + 50 = %s)' % (most_recent_death_date, most_recent_death_date + 50))
-        return pd_expires(most_recent_death_date + 50, parcel)
-
+        # DEATH + 1st Jan + 70 years
+        self.calc_death_dates(parcel)
+        expiry = float(int(parcel.most_recent_death_date + 1 + 70))
+        parcel.log.append('PD expires at "death + 1st Jan + 70" (%s + 70 = %s)' % (parcel.most_recent_death_date, expiry))
+        return pd_expires(expiry, parcel)
+            
 class CalculatorCanada(CalculatorBase):
     """A Public Domain Calculator
     when=None means today's date
     """
     def __init__(self, when=None):
-        if when:
-            self._now = when
-        else:
-            self._now = float_date(datetime.date.today().year)
-        self._jurisdiction = 'canada'
+        CalculatorBase.__init__(self, when)
 
     def get_work_status(self, parcel):
         assert type(parcel) == CalcParcel
@@ -233,7 +242,7 @@ class CalculatorCanada(CalculatorBase):
         parcel.log.append('Author dead %s' % (repr(parcel.death_dates)))
 
         # Is it a published work?
-        if not work.item:
+        if not work.items:
             parcel.log.append('No item attached to work. Assuming this is a published work though.')
         # YES
         parcel.log.append('Published work')
