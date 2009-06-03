@@ -45,6 +45,8 @@ import logging
 import datetime
 import swiss
 
+OLDEST_PERSON = 100
+
 logger = logging.getLogger('pdw.pd')
 
 def float_date(year, month=0, day=0):
@@ -121,12 +123,18 @@ class CalculatorBase(object):
         most_recent_death_date = 0.0
         for person in parcel.work.persons:
             death_date = person.death_date_ordered
+            # if we have no deathdate but do have a birthdate, assume
+            # death OLDEST_PERSON years after birth
+            if not death_date and person.birth_date_ordered:
+                death_date = person.birth_date_ordered + OLDEST_PERSON
+                parcel.log.append('Author "%s" death date not given - assuming died %s years after birth (%s + %s = %s)' % (person.name, OLDEST_PERSON, person.birth_date_ordered, OLDEST_PERSON, death_date))
             death_dates.append((person.name, death_date))
             if death_date and death_date > most_recent_death_date:
                 most_recent_death_date = death_date
         an_author_lives = False
         for name, death_date in death_dates:
             if not death_date:
+                # no birthday
                 # alive: big assumption!
                 parcel.log.append('Author "%s" death date not given - assuming alive (!)' % name)
                 an_author_lives = True
@@ -270,4 +278,5 @@ class CalculatorCanada(CalculatorBase):
         # DEATH + 50
         parcel.log.append('PD expires at "death + 50" (%s + 50 = %s)' % (parcel.most_recent_death_date, parcel.most_recent_death_date + 50))
         return pd_expires(parcel.most_recent_death_date + 50, parcel)
+
 
