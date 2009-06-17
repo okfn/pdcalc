@@ -336,3 +336,43 @@ class CalculatorCanada(CalculatorBase):
         return pd_expires(parcel.most_recent_death_date + 50, parcel)
 
 
+## Fast queries
+
+import pdw.model as model
+import pdw.search
+from sqlalchemy import sql
+import simplejson
+import time
+def fast_pd(extras_key=u'pd.pdw.fast'):
+    now = 2008
+    pd_year = now - 70
+    least_age_at_publication = 20
+    publication_pd = pd_year - (OLDEST_PERSON - least_age_at_publication)
+    # TODO: multi authors
+    # Rather than use insert into use select then insert
+    ptab = model.person_table
+    itab = model.item_table
+    q = sql.select([itab.c.id],
+        from_obj=pdw.search.QueryHelper.item_person()
+        )
+    q = q.where(sql.or_(
+            ptab.c.death_date_ordered <= pd_year,
+            ptab.c.birth_date_ordered <= pd_year - OLDEST_PERSON,
+            itab.c.date_ordered <= publication_pd,
+            ))
+    print q
+    start = time.time()
+    results = [ r[0] for r in q.execute().fetchall() ]
+    inserts = [ {
+        'table': u'item',
+        'fkid': id,
+        'key': extras_key,
+        # float in json is a string
+        'value': 1.0
+        }
+        for id in results
+        ]
+    if inserts:
+        model.metadata.bind.execute(model.extra_table.insert(), inserts)
+    logger.info('Time elapsed: %s' % (time.time() - start))
+
