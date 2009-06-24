@@ -376,23 +376,20 @@ def fast_pd(extras_key=FAST_PD_KEY):
                 'value': value }
             inserts.append(tdict)
         return inserts
+
+    cmd = model.extra_table.delete(model.extra_table.c.key==extras_key)
+    out = cmd.execute()
+    logger.info('Deleting all existing entries with key: %s' % extras_key)
+
     inserts = get_inserts(qout.execute().fetchall(), 1.0)
     if inserts:
         model.metadata.bind.execute(model.extra_table.insert(), inserts)
+    logger.info('Completed PD items')
+    logger.info('Time elapsed: %s' % (time.time() - start))
 
     inserts = get_inserts(qin.execute().fetchall(), 0.0)
     if inserts:
         model.metadata.bind.execute(model.extra_table.insert(), inserts)
+    logger.info('Completed Non-PD items')
     logger.info('Time elapsed: %s' % (time.time() - start))
-
-
-def pd_stats():
-    import pdw.search
-    itab = model.item_table
-    extras_key=u'pd.pdw.fast'
-    q = pdw.search.QueryHelper.join_extras(itab, extras_key, itab)
-    value = 1.0
-    q = q.count()
-    q = q.where(model.extra_table.c.value==value)
-    print q.execute().fetchall()
 
