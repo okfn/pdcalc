@@ -343,7 +343,8 @@ import pdw.search
 from sqlalchemy import sql
 import simplejson
 import time
-def fast_pd(extras_key=u'pd.pdw.fast'):
+FAST_PD_KEY = u'pd.pdw.fast'
+def fast_pd(extras_key=FAST_PD_KEY):
     now = 2008
     pd_year = now - 70
     least_age_at_publication = 20
@@ -355,24 +356,43 @@ def fast_pd(extras_key=u'pd.pdw.fast'):
     q = sql.select([itab.c.id],
         from_obj=pdw.search.QueryHelper.item_person()
         )
-    q = q.where(sql.or_(
-            ptab.c.death_date_ordered <= pd_year,
-            ptab.c.birth_date_ordered <= pd_year - OLDEST_PERSON,
-            itab.c.date_ordered <= publication_pd,
-            ))
-    print q
+    qout = q.where(sql.or_(
+        ptab.c.death_date_ordered <= pd_year,
+        ptab.c.birth_date_ordered <= pd_year - OLDEST_PERSON,
+        itab.c.date_ordered <= publication_pd,
+        ))
+    qin = q.where(sql.or_(
+        ptab.c.death_date_ordered > pd_year,
+        ptab.c.birth_date_ordered > pd_year - 30,
+        ))
     start = time.time()
-    results = [ r[0] for r in q.execute().fetchall() ]
-    inserts = [ {
-        'table': u'item',
-        'fkid': id,
-        'key': extras_key,
-        # float in json is a string
-        'value': 1.0
-        }
-        for id in results
-        ]
+    # results = [ r[0] for r in q.execute().fetchall() ]
+    def get_inserts(results, value):
+        inserts = []
+        for row in results:
+            tdict = { 'table': u'item',
+                'fkid': row[0],
+                'key': extras_key,
+                'value': value }
+            inserts.append(tdict)
+        return inserts
+    inserts = get_inserts(qout.execute().fetchall(), 1.0)
+    if inserts:
+        model.metadata.bind.execute(model.extra_table.insert(), inserts)
+
+    inserts = get_inserts(qin.execute().fetchall(), 0.0)
     if inserts:
         model.metadata.bind.execute(model.extra_table.insert(), inserts)
     logger.info('Time elapsed: %s' % (time.time() - start))
+
+
+def pd_stats():
+    import pdw.search
+    itab = model.item_table
+    extras_key=u'pd.pdw.fast'
+    q = pdw.search.QueryHelper.join_extras(itab, extras_key, itab)
+    value = 1.0
+    q = q.count()
+    q = q.where(model.extra_table.c.value==value)
+    print q.execute().fetchall()
 

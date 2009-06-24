@@ -311,15 +311,20 @@ class TestFastPd:
         myitem.persons.append(pdperson)
         myitem2 = model.Item()
         person = model.Person(name=u'testing-2', birth_date=u'1836')
+        nonpdperson = model.Person(name=u'testing-nonpd', death_date=u'1990')
         myitem2.persons.append(person)
         myitem3 = model.Item(title=u'testing-3', date=u'1856')
+        myitem4 = model.Item(title=u'nonpd')
+        myitem4.persons.append(nonpdperson)
         model.Session.commit()
         self.item_id = myitem.id
         self.item_id_2 = myitem2.id
         self.item_id_3 = myitem3.id
+        self.item_id_4 = myitem4.id
         model.Session.remove()
         self.startnum = model.Extra.query.count()
         pdw.pd.fast_pd()
+        model.Session.remove()
 
     @classmethod
     def teardown_class(self):
@@ -327,7 +332,7 @@ class TestFastPd:
 
     def test_total(self):
         out = model.Extra.query.all()
-        assert len(out) == self.startnum + 3
+        assert len(out) == self.startnum + 4
     
     def test_death_year(self):
         myitem = model.Item.query.get(self.item_id)
@@ -342,3 +347,6 @@ class TestFastPd:
         print myitem
         assert myitem.extras['pd.pdw.fast'] == 1.0, myitem.extras
 
+    def test_not_pd(self):
+        myitem = model.Item.query.get(self.item_id_4)
+        assert myitem.extras['pd.pdw.fast'] == 0.0, myitem.extras
