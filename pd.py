@@ -43,6 +43,7 @@ class CalculatorUK(CalculatorBase):
 """
 import logging
 import datetime
+
 import swiss
 
 OLDEST_PERSON = 100
@@ -165,7 +166,12 @@ class CalculatorUk(CalculatorBase):
             parcel.uncertainty = 0.0
             parcel.date_pd = expiry_date
             parcel.calc_finished = True
-            return parcel        
+            return parcel
+        def dont_know():
+            parcel.uncertainty = 1.0
+            parcel.pd_prob = 0.0
+            parcel.calc_finished = True
+            return parcel
         
         # Is it a sound recording?
         if work.type == 'recording':
@@ -174,6 +180,9 @@ class CalculatorUk(CalculatorBase):
             # PUB + 1st Jan + 50
             pub_date = work.date_ordered
             parcel.log.append('Assuming the date given for the work is the date of first publication: %s' % pub_date)
+            if not pub_date:
+                # TODO
+                return dont_know()
             expiry = float(int(pub_date + 1 + 50))
             parcel.log.append('PD expires at "first publication + 1st Jan + 50" (%s + 50 = %s)' % (pub_date, expiry))
             return pd_expires(expiry, parcel)
@@ -191,6 +200,9 @@ class CalculatorUk(CalculatorBase):
             # YES
             parcel.log.append('Anonymous work - %s' % self.get_author_list(parcel))
             pub_date = work.date_ordered
+            if not pub_date:
+                # TODO
+                return dont_know()
             
             # PUB + 1st Jan + 70 years
             expiry = float(int(pub_date + 1 + 70))
@@ -199,6 +211,9 @@ class CalculatorUk(CalculatorBase):
         # NO
         # DEATH + 1st Jan + 70 years
         self.calc_death_dates(parcel)
+        if not parcel.most_recent_death_date:
+            # TODO
+            return dont_know()
         expiry = float(int(parcel.most_recent_death_date + 1 + 70))
         parcel.log.append('PD expires at "death + 1st Jan + 70" (%s + 70 = %s)' % (parcel.most_recent_death_date, expiry))
         return pd_expires(expiry, parcel)
@@ -338,13 +353,14 @@ class CalculatorCanada(CalculatorBase):
 
 ## Fast queries
 
-import pdw.model as model
-import pdw.search
-from sqlalchemy import sql
-import simplejson
-import time
 FAST_PD_KEY = u'pd.pdw.fast'
 def fast_pd(extras_key=FAST_PD_KEY):
+    import pdw.model as model
+    import pdw.search
+    from sqlalchemy import sql
+    import simplejson
+    import time
+
     now = 2008
     pd_year = now - 70
     least_age_at_publication = 20
