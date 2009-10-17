@@ -324,6 +324,7 @@ class TestFastPd:
         model.Session.remove()
         self.startnum = model.Extra.query.count()
         pdw.pd.fast_pd()
+        pdw.pd.fast_pd_year()
         model.Session.remove()
 
     @classmethod
@@ -332,21 +333,27 @@ class TestFastPd:
 
     def test_total(self):
         out = model.Extra.query.all()
-        assert len(out) == self.startnum + 4
+        assert len(out) == self.startnum + 10, '\n'.join([ '%s' % e for e in
+            out])
     
     def test_death_year(self):
         myitem = model.Item.query.get(self.item_id)
         assert myitem.extras['pd.pdw.fast'] == 1.0, myitem.extras
+        assert myitem.extras['pd_year.life_plus_70'] == 1820, myitem.extras
 
     def test_by_birth_year(self):
         myitem = model.Item.query.get(self.item_id_2)
         assert myitem.extras['pd.pdw.fast'] == 1.0, myitem.extras
+        assert myitem.extras['pd_year.life_plus_70'] == 2006, myitem.extras
 
     def test_by_pubdate(self):
         myitem = model.Item.query.get(self.item_id_3)
         print myitem
         assert myitem.extras['pd.pdw.fast'] == 1.0, myitem.extras
+        assert myitem.extras['pd_year.life_plus_70'] == 1856+80+70, myitem.extras
 
     def test_not_pd(self):
         myitem = model.Item.query.get(self.item_id_4)
         assert myitem.extras['pd.pdw.fast'] == 0.0, myitem.extras
+        assert myitem.extras['pd_year.life_plus_70'] == 2060, myitem.extras
+
