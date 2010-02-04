@@ -1,9 +1,6 @@
 """Determine copyright status of works given relevant information such as
 creator death date.
 
-# TODO: internationalize this
-# TODO: function to calculate PD date (i.e. date at which work goes PD)
-
 Remarks
 =======
 
