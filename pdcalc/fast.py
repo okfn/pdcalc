@@ -63,7 +63,7 @@ def fast_pd(extras_key=FAST_PD_KEY):
 
 
 FAST_PD_YEAR_KEY = u'pd_year.life_plus_70'
-def fast_pd_year(extras_key=FAST_PD_YEAR_KEY):
+def fast_pd_year(extras_key=FAST_PD_YEAR_KEY, post_death_term=70):
     '''New approach:
 
         compute pd_year for each person/item/work
@@ -86,23 +86,25 @@ def fast_pd_year(extras_key=FAST_PD_YEAR_KEY):
     import time
 
     least_age_at_publication = 20
-    post_death_term = 70
     # TODO: multi authors
     # Rather than use insert into use select then insert
     ptab = model.person_table
     itab = model.item_table
-    q = sql.select([itab.c.id, ptab.c.death_date_ordered],
-        from_obj=pdw.search.QueryHelper.item_person()
-        )
-    q = q.where(ptab.c.death_date_ordered!=None)
-    # more complex algorithm
-    q_cmplx = sql.select([itab.c.id, sql.func.coalesce(ptab.c.death_date_ordered,
-        ptab.c.birth_date_ordered+OLDEST_PERSON,
-        itab.c.date_ordered + (OLDEST_PERSON - least_age_at_publication)) +
-        post_death_term
+    q = sql.select([
+        itab.c.id,
+        sql.func.coalesce(
+            ptab.c.death_date_ordered,
+            ptab.c.birth_date_ordered+OLDEST_PERSON,
+            itab.c.date_ordered + (OLDEST_PERSON - least_age_at_publication)
+        ) + post_death_term
         ],
         from_obj=pdw.search.QueryHelper.item_person()
         )
+    # simpler version
+    # q = sql.select([itab.c.id, ptab.c.death_date_ordered+post_death_term],
+    #    from_obj=pdw.search.QueryHelper.item_person()
+    #    )
+    # q = q.where(ptab.c.death_date_ordered!=None)
     start = time.time()
     def get_inserts(results):
         inserts = []

@@ -55,7 +55,7 @@ class TestPdStatusCanada:
         assert pdstatus.pd_prob == 0.0
 
     def test_work_status_3(self):
-        self.artist.death_date_ordered = 1960.0
+        self.artist.death_date_ordered = 1980.0
         self.work.date_ordered = 1945.0
 
         pdstatus = pd.determine_status(self.work, self.jurisdiction)
