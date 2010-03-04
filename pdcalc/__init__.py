@@ -43,9 +43,11 @@ import datetime
 
 import swiss
 
+logger = logging.getLogger('pdw.pd')
+
+
 OLDEST_PERSON = 100
 
-logger = logging.getLogger('pdw.pd')
 
 def float_date(year, month=0, day=0):
     return swiss.date.FlexiDate(year, month, day).as_float()
@@ -62,28 +64,12 @@ def determine_status(work, jurisdiction):
     else:
         logger.error('Jurisdiction "%s" not currently supported.' % jurisdiction)
         assert 0
+    return pd_calculator().get_work_status(work)
 
-    parcel = CalcParcel(work, jurisdiction)
-
-    return pd_calculator().get_work_status(parcel)
-
-
-class CalcParcel(object):
+class CalcResult(object):
+    '''A CalcResult object is returned by the calculator
     '''
-    A CalcParcel object is passed into the calculator
-    with the calculation request and stores calculation
-    results, to be returned to the caller.
-    '''
-    def __init__(self, work, jurisdiction, when=None):
-        # about the calc request
-        self.work = work
-        self.jurisdiction = jurisdiction
-        if when:
-            self.when = when
-        else:
-            self.when = float_date(datetime.date.today().year)
-
-        # results
+    def __init__(self):
         self.calc_finished = False
         self.date_pd = None
         self.pd_prob = 0.0 # P(is PD)
@@ -105,32 +91,33 @@ class CalculatorBase(object):
             self._now = float_date(datetime.date.today().year)
     
     def get_work_status(self, work):
-        raise NotImplementedError()
+        self.calc_result = CalcResult()
+        self.work = work
 
     def get_author_list(self, parcel):
         if self.author_list == None:
             self.author_list = []
-            for person in parcel.work.persons:
+            for person in self.work.persons:
                 self.author_list.append(person.name)
         return self.author_list
 
-    def calc_anon(self, parcel):
-        parcel.is_anon = False
-        for person in parcel.work.persons:
+    def calc_anon(self):
+        self.calc_result.is_anon = False
+        for person in self.work.persons:
             if person.name.lower() in ('anon', 'anon.', 'anonymous') :
-                parcel.is_anon = True
+                self.calc_result.is_anon = True
 
-    def calc_death_dates(self, parcel):
+    def calc_death_dates(self):
         death_dates = [] # list of: (name, float date)
         names = []
         most_recent_death_date = 0.0
-        for person in parcel.work.persons:
+        for person in self.work.persons:
             death_date = person.death_date_ordered
             # if we have no deathdate but do have a birthdate, assume
             # death OLDEST_PERSON years after birth
             if not death_date and person.birth_date_ordered:
                 death_date = person.birth_date_ordered + OLDEST_PERSON
-                parcel.log.append('Author "%s" death date not given - assuming died %s years after birth (%s + %s = %s)' % (person.name, OLDEST_PERSON, person.birth_date_ordered, OLDEST_PERSON, death_date))
+                self.calc_result.log.append('Author "%s" death date not given - assuming died %s years after birth (%s + %s = %s)' % (person.name, OLDEST_PERSON, person.birth_date_ordered, OLDEST_PERSON, death_date))
             death_dates.append((person.name, death_date))
             if death_date and death_date > most_recent_death_date:
                 most_recent_death_date = death_date
@@ -139,12 +126,12 @@ class CalculatorBase(object):
             if not death_date:
                 # no birthday
                 # alive: big assumption!
-                parcel.log.append('Author "%s" death date not given - assuming alive (!)' % name)
+                self.calc_result.log.append('Author "%s" death date not given - assuming alive (!)' % name)
                 an_author_lives = True
 
-        parcel.death_dates = death_dates
-        parcel.most_recent_death_date = most_recent_death_date
-        parcel.an_author_lives = an_author_lives
+        self.calc_result.death_dates = death_dates
+        self.calc_result.most_recent_death_date = most_recent_death_date
+        self.calc_result.an_author_lives = an_author_lives
 
 from uk import *
 from us import *
