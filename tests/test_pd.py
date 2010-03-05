@@ -1,5 +1,6 @@
 import pdw.pd as pd
 from datetime import datetime
+import json
 
 class TestPdStatusCanada:
     jurisdiction = 'ca'
@@ -356,4 +357,90 @@ class TestFastPd:
         myitem = model.Item.query.get(self.item_id_4)
         assert myitem.extras['pd.pdw.fast'] == 0.0, myitem.extras
         assert myitem.extras['pd_year.life_plus_70'] == 2060, myitem.extras
+
+import pdw.pd.api as api
+class TestApiJSON:
+    @classmethod
+    def setup_class(self):
+        self.json_data2 = {  "when": "20110101",
+                    "jurisdiction":"uk",
+                    "work": 
+                            {
+                                "title":"Collected Papers on the Public Domain (ed)", 
+                                "type": "text",
+                                "date" : "19230101",
+                                "creation_date" : "19220101",
+                                "persons" : 
+                                    [
+                                            {"name" : "Sturgeon, THeodore", 
+                                            "type" : "person",
+                                            "birth_date" :"19190101",
+                                            "death_date" : "19390205",
+                                            "country": "ca"
+                                            }
+                                    ]
+                            }
+                    }
+        self.json_data1 = {  "when": "20110101",
+                    "jurisdiction":"ca",
+                    "work": 
+                            {
+                                "title":"Collected Papers on the Public Domain (ed)", 
+                                "type": "text",
+                                "date" : "20030101",
+                                "creation_date" : "20030101",
+                                "persons" : 
+                                    [
+                                            {"name" : "Boyle, James", 
+                                            "type" : "person",
+                                            "birth_date" :"19590101",
+                                            "death_date" : "19890205",
+                                            "country": "uk"
+                                            }
+                                    ]
+                            }
+                    }
+        assert json
+
+    def creating_by_hand(self):
+        newperson = api.Person(name='Borges, Jorge Luis',
+                               death_date='1986',
+                               type='person')
+        newwork = api.Work(title='El Aleph',
+                           date='1949',
+                           creation_date='1919',
+                           type='text')
+        newwork.persons = [ newperson]
+        self.person = newperson
+        self.work = newwork
+        calc = pd.determine_status(newwork,'ca')
+        return calc
+
+    def test_uk(self):
+        '''
+        simple parsing of the json to create objects and pass them to the 
+        calculators / currently uk calculator is working. not Canadian one
+        '''
+        parsed = json.JSONDecoder(self.json_data2)
+        workdata = parsed.encoding['work']
+        jurisdiction = parsed.encoding['jurisdiction']
+        newwork = api.Work(**workdata)
+        calc = pd.determine_status(newwork,jurisdiction)
+        print parsed.encoding  
+
+        return calc
+
+    def test_ca(self):
+        '''
+        simple parsing of the json to create objects and pass them to the 
+        calculators / currently uk calculator is working. not Canadian one
+        '''
+        parsed = json.JSONDecoder(self.json_data1)
+        workdata = parsed.encoding['work']
+        jurisdiction = parsed.encoding['jurisdiction']
+        newwork = api.Work(**workdata)
+        calc = pd.determine_status(newwork,jurisdiction)
+        print parsed.encoding  
+
+        return calc
 
