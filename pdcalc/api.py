@@ -68,19 +68,23 @@ class Consultation(DomainObject):
         self.when = now.strftime("%Y%m%d")
         self.work = kwargs['work']
 
-
         for k,v in kwargs.items():
             setattr(self,k,v)
-    def calculate(self):
-        object = json.JSONDecoder(self.json_data)
-        print object.encoding
-        status = pd.determine_status(object.encoding,'uk')
-        return status
 
 
     def make_json(self,work):
         consult = []
         result = json.dump(work,consult)
         return result
+
+def calculate(json_data):
+    parsed = json.JSONDecoder(json_data)
+    workdata = parsed.encoding['work']
+    jurisdiction = parsed.encoding['jurisdiction']
+    newwork = Work(**workdata)
+    calc = pd.determine_status(newwork,jurisdiction)
+    print "Public domain probability: ", calc.pd_prob
+    print "Public domain uncertanty: ", calc.uncertainty
+    return calc
 
 

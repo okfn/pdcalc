@@ -386,7 +386,7 @@ class TestApiJSON:
                     "work": 
                             {
                                 "title":"Collected Papers on the Public Domain (ed)", 
-                                "type": "text",
+                                "type": "composition",
                                 "date" : "20030101",
                                 "creation_date" : "20030101",
                                 "persons" : 
@@ -443,4 +443,8 @@ class TestApiJSON:
         print parsed.encoding  
 
         return calc
+    def test_calculator_function(self):
+        assert api.calculate(self.json_data1)
+        assert api.calculate(self.json_data2)
+
 
