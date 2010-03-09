@@ -1,6 +1,9 @@
 import pdw.pd as pd
 from datetime import datetime
-import json
+try:
+    import json
+except ImportError:
+    import simplejson as json
 
 class TestPdStatusCanada:
     jurisdiction = 'ca'
@@ -358,11 +361,10 @@ class TestFastPd:
         assert myitem.extras['pd.pdw.fast'] == 0.0, myitem.extras
         assert myitem.extras['pd_year.life_plus_70'] == 2060, myitem.extras
 
-import pdw.pd.api as api
 class TestApiJSON:
     @classmethod
     def setup_class(self):
-        self.json_data2 = {  "when": "20110101",
+        self.json_data2 = json.dumps({  "when": "20110101",
                     "jurisdiction":"uk",
                     "work": 
                             {
@@ -372,21 +374,21 @@ class TestApiJSON:
                                 "creation_date" : "19220101",
                                 "persons" : 
                                     [
-                                            {"name" : "Sturgeon, THeodore", 
+                                            {"name" : "Sturgeon, Theodore", 
                                             "type" : "person",
-                                            "birth_date" :"19190101",
+                                            "birth_date" :"19090101",
                                             "death_date" : "19390205",
                                             "country": "ca"
                                             }
                                     ]
                             }
-                    }
-        self.json_data1 = {  "when": "20110101",
+                    })
+        self.json_data1 = json.dumps({  "when": "20110101",
                     "jurisdiction":"ca",
                     "work": 
                             {
                                 "title":"Collected Papers on the Public Domain (ed)", 
-                                "type": "composition",
+                                "type": "photograph",
                                 "date" : "20030101",
                                 "creation_date" : "20030101",
                                 "persons" : 
@@ -399,14 +401,14 @@ class TestApiJSON:
                                             }
                                     ]
                             }
-                    }
+                    })
         assert json
 
     def creating_by_hand(self):
-        newperson = api.Person(name='Borges, Jorge Luis',
+        newperson = model.Person(name='Borges, Jorge Luis',
                                death_date='1986',
                                type='person')
-        newwork = api.Work(title='El Aleph',
+        newwork = model.Work(title='El Aleph',
                            date='1949',
                            creation_date='1919',
                            type='text')
@@ -421,30 +423,28 @@ class TestApiJSON:
         simple parsing of the json to create objects and pass them to the 
         calculators / currently uk calculator is working. not Canadian one
         '''
-        parsed = json.JSONDecoder(self.json_data2)
-        workdata = parsed.encoding['work']
-        jurisdiction = parsed.encoding['jurisdiction']
-        newwork = api.Work(**workdata)
+        parsed = json.loads(self.json_data2)
+        workdata = parsed['work']
+        jurisdiction = parsed['jurisdiction']
+        newwork = model.Work.from_dict(workdata)
         calc = pd.determine_status(newwork,jurisdiction)
-        print parsed.encoding  
 
+        print parsed  
         return calc
 
     def test_ca(self):
         '''
         simple parsing of the json to create objects and pass them to the 
         calculators / currently uk calculator is working. not Canadian one
-        '''
-        parsed = json.JSONDecoder(self.json_data1)
-        workdata = parsed.encoding['work']
-        jurisdiction = parsed.encoding['jurisdiction']
-        newwork = api.Work(**workdata)
-        calc = pd.determine_status(newwork,jurisdiction)
-        print parsed.encoding  
 
-        return calc
-    def test_calculator_function(self):
-        assert api.calculate(self.json_data1)
-        assert api.calculate(self.json_data2)
+        '''
+        parsed = json.loads(self.json_data1)
+        workdata = parsed['work']
+        jurisdiction = parsed['jurisdiction']
+        newwork = model.Work.from_dict(workdata)
+        calc = pd.determine_status(newwork,jurisdiction)
+
+        print parsed  
+        assert calc.log>0
 
 

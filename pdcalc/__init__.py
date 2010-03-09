@@ -42,19 +42,28 @@ import logging
 import datetime
 
 import swiss
+try:
+    import json
+except ImportError:
+    import simplejson as json
+
+#from sqlalchemy import orm
+import pdw
+
 
 logger = logging.getLogger('pdw.pd')
 
 
 OLDEST_PERSON = 100
 
-
+now = datetime.datetime.now()
 def float_date(year, month=0, day=0):
     return swiss.date.FlexiDate(year, month, day).as_float()
 
 def determine_status(work, jurisdiction):
     # now dispatch on jurisdiction (+ work type?)
     # note two letter country codes based on ISO 3166
+    # 
     if jurisdiction == 'us':
         pd_calculator = CalculatorUnitedStates
     elif jurisdiction == 'ca':
@@ -62,9 +71,28 @@ def determine_status(work, jurisdiction):
     elif jurisdiction in ('uk', 'gb') :
         pd_calculator = CalculatorUk
     else:
-        logger.error('Jurisdiction "%s" not currently supported.' % jurisdiction)
+        logger.error('Jurisdiction "%s" not currently supported. Try us,ca,uk' % jurisdiction)
         assert 0
     return pd_calculator().get_work_status(work)
+
+def determine_status_from_raw(json_data):
+    '''
+    To create a Work object and analize its pd status from a 
+    python or json dict
+    '''
+
+    params = json.loads(json_data)
+    jur = params['jurisdiction'] 
+
+    work =  pdw.model.Work.from_dict(params['work'])
+
+    calculation = determine_status(work, jur)
+    result = json.dumps({'pd_probability': calculation.pd_prob,
+                        'confidence': 1-calculation.uncertainty,
+                        'log': calculation.log,
+                        'input': params},indent=2)
+    return result
+
 
 class CalcResult(object):
     '''A CalcResult object is returned by the calculator

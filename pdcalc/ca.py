@@ -18,14 +18,16 @@ class CalculatorCanada(CalculatorBase):
         # Is it a photograph?
         if work.type == 'photograph':
             assert NotImplementedError
+        else:
+            self.calc_result.log.append('Work is not a photograph')
         # NO
         if not work.type:
             self.calc_result.log.append('Work type not given - assuming it is not a photograph')
-        self.calc_result.log.append('Work is not a photograph')
+        self.calc_result.log.append('Assuming not a crown author')
+
 
         # Is it crown author?
         # NO
-        self.calc_result.log.append('Assuming not a crown author')
 
         # Is it an anonymous author?
         self.calc_anon()
