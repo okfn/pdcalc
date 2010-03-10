@@ -417,31 +417,33 @@ class TestApiJSON:
         self.work = newwork
         calc = pd.determine_status(newwork,'ca')
         return calc
+        assert 'confidence' in calc.log
 
     def test_uk(self):
         '''
-        simple parsing of the json to create objects and pass them to the 
-        calculators / currently uk calculator is working. not Canadian one
+        test the calculator api for the UK
         '''
         parsed = json.loads(self.json_data2)
         workdata = parsed['work']
         jurisdiction = parsed['jurisdiction']
         newwork = model.Work.from_dict(workdata)
+        model.Session.remove()
         calc = pd.determine_status(newwork,jurisdiction)
 
         print parsed  
         return calc
+        assert calc.log>0
 
     def test_ca(self):
         '''
-        simple parsing of the json to create objects and pass them to the 
-        calculators / currently uk calculator is working. not Canadian one
+        test the calculator api for Canada
 
         '''
         parsed = json.loads(self.json_data1)
         workdata = parsed['work']
         jurisdiction = parsed['jurisdiction']
         newwork = model.Work.from_dict(workdata)
+        model.Session.remove()
         calc = pd.determine_status(newwork,jurisdiction)
 
         print parsed  

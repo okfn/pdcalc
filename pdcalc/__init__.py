@@ -57,13 +57,15 @@ logger = logging.getLogger('pdw.pd')
 OLDEST_PERSON = 100
 
 now = datetime.datetime.now()
+
 def float_date(year, month=0, day=0):
+    '''to convert a date in a float type'''
     return swiss.date.FlexiDate(year, month, day).as_float()
 
 def determine_status(work, jurisdiction):
     # now dispatch on jurisdiction (+ work type?)
     # note two letter country codes based on ISO 3166
-    # 
+    # need to add 'when' parameter here and deeper 
     if jurisdiction == 'us':
         pd_calculator = CalculatorUnitedStates
     elif jurisdiction == 'ca':
@@ -79,8 +81,9 @@ def determine_status_from_raw(json_data):
     '''
     To create a Work object and analize its pd status from a 
     python or json dict
+    @param  params: json formatted string
+    @type   params: string
     '''
-
     params = json.loads(json_data)
     jur = params['jurisdiction'] 
 
@@ -107,14 +110,28 @@ class CalcResult(object):
     def __str__(self):
         return "date_pd=%s pd_prob=%s log=%s" % (self.date_pd, self.pd_prob, self.log)
 
+    @classmethod
+    def to_dict(cls, self):
+        '''Creates a dict result to give back as json in the api
+        '''
+        out_dict = { 'confidence': 1-self.uncertainty,
+                    'pd probability': self.pd_prob,
+                    'date pd': self.date_pd,
+                    'log': self.log,
+                   }
+        return out_dict
+#TODO
+
 class CalculatorBase(object):
     """A Public Domain Calculator
     when=None means today's date
     """
     def __init__(self, when):
         self.author_list = None
+        self.death_dates = []
+        self.names = []
         if when:
-          self._now = when
+            self._now = when
         else:
             self._now = float_date(datetime.date.today().year)
     
