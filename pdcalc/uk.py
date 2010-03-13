@@ -2,10 +2,12 @@ from pdw.pd import CalculatorBase
 
 class CalculatorUk(CalculatorBase):
     def __init__(self, when=None):
-        CalculatorBase.__init__(self, when)
+        CalculatorBase.__init__(self,when)
 
     def get_work_status(self, work):
         super(CalculatorUk, self).get_work_status(work)
+        if self.when == None:
+            self.calc_result.log.append('No date was given. Calculating public domain for today')
 
         # Call this when we know when pd expires
         def pd_expires(expiry_date):

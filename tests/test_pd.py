@@ -364,20 +364,20 @@ class TestFastPd:
 class TestApiJSON:
     @classmethod
     def setup_class(self):
-        self.json_data2 = json.dumps({  "when": "20110101",
+        self.json_data2 = json.dumps({  
                     "jurisdiction":"uk",
                     "work": 
                             {
                                 "title":"Collected Papers on the Public Domain (ed)", 
                                 "type": "text",
-                                "date" : "19230101",
-                                "creation_date" : "19220101",
+                                "date" : "18230101",
+                                "creation_date" : "18220101",
                                 "persons" : 
                                     [
                                             {"name" : "Sturgeon, Theodore", 
                                             "type" : "person",
-                                            "birth_date" :"19090101",
-                                            "death_date" : "19390205",
+                                            "birth_date" :"18090101",
+                                            "death_date" : "18390205",
                                             "country": "ca"
                                             }
                                     ]
@@ -446,7 +446,25 @@ class TestApiJSON:
         model.Session.remove()
         calc = pd.determine_status(newwork,jurisdiction)
 
-        print parsed  
         assert calc.log>0
+
+    def test_pd_inthepast(self):
+        '''test calculator with date different than today'''
+        parsed = json.loads(self.json_data2)
+        workdata = parsed['work']
+        jurisdiction = parsed['jurisdiction']
+        newwork = model.Work.from_dict(workdata)
+        when = '1840' #one year after death of author...
+        model.Session.remove()
+        calc = pd.determine_status(newwork,jurisdiction,when)
+
+        assert calc.pd_prob == 0.0
+
+    def test_pd_from_json(self):
+        '''test import from raw json'''
+        calc = pd.determine_status_from_raw(self.json_data1)
+
+        assert 'pd_probability' in calc
+
 
 

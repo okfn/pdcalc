@@ -62,7 +62,7 @@ def float_date(year, month=0, day=0):
     '''to convert a date in a float type'''
     return swiss.date.FlexiDate(year, month, day).as_float()
 
-def determine_status(work, jurisdiction):
+def determine_status(work, jurisdiction, when=None):
     # now dispatch on jurisdiction (+ work type?)
     # note two letter country codes based on ISO 3166
     # need to add 'when' parameter here and deeper 
@@ -74,8 +74,8 @@ def determine_status(work, jurisdiction):
         pd_calculator = CalculatorUk
     else:
         logger.error('Jurisdiction "%s" not currently supported. Try us,ca,uk' % jurisdiction)
-        assert 0
-    return pd_calculator().get_work_status(work)
+        raise NotImplementedError, "Jurisdiction not currently supported. Try us,ca,uk"
+    return pd_calculator(when).get_work_status(work)
 
 def determine_status_from_raw(json_data):
     '''
@@ -88,13 +88,14 @@ def determine_status_from_raw(json_data):
     jur = params['jurisdiction'] 
 
     work =  pdw.model.Work.from_dict(params['work'])
+    if 'when' in params:
+        when = float_date(params['when'][:4])
+    else:
+        when = None
 
-    calculation = determine_status(work, jur)
-    result = json.dumps({'pd_probability': calculation.pd_prob,
-                        'confidence': 1-calculation.uncertainty,
-                        'log': calculation.log,
-                        'input': params},indent=2)
-    return result
+    calculation = determine_status(work, jur, when)
+    result = { 'input': params, 'result': calculation.to_dict() }
+    return json.dumps(result,indent=2)
 
 
 class CalcResult(object):
@@ -110,34 +111,34 @@ class CalcResult(object):
     def __str__(self):
         return "date_pd=%s pd_prob=%s log=%s" % (self.date_pd, self.pd_prob, self.log)
 
-    @classmethod
-    def to_dict(cls, self):
+    def to_dict(self):
         '''Creates a dict result to give back as json in the api
         '''
-        out_dict = { 'confidence': 1-self.uncertainty,
-                    'pd probability': self.pd_prob,
-                    'date pd': self.date_pd,
+        out_dict = { 'pd_uncertainty': self.uncertainty,
+                    'pd_probability': self.pd_prob,
+                    'death_dates': self.death_dates,
                     'log': self.log,
+                    'when': self.when,
                    }
         return out_dict
-#TODO
 
 class CalculatorBase(object):
     """A Public Domain Calculator
     when=None means today's date
     """
-    def __init__(self, when):
+    def __init__(self,when=None):
         self.author_list = None
         self.death_dates = []
         self.names = []
-        if when:
-            self._now = when
-        else:
-            self._now = float_date(datetime.date.today().year)
+        self.when = when
     
     def get_work_status(self, work):
         self.calc_result = CalcResult()
         self.work = work
+        if self.when:
+            self._now = float_date(self.when)
+        else:
+            self._now = float(int((datetime.datetime.now().year)))
 
     def get_author_list(self, parcel):
         if self.author_list == None:
@@ -177,6 +178,7 @@ class CalculatorBase(object):
         self.calc_result.death_dates = death_dates
         self.calc_result.most_recent_death_date = most_recent_death_date
         self.calc_result.an_author_lives = an_author_lives
+        self.calc_result.when = self._now
 
 from uk import *
 from us import *
