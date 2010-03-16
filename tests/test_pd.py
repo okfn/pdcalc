@@ -460,7 +460,7 @@ class TestApiJSON:
 
         assert calc.pd_prob == 0.0
 
-    def test_pd_from_json(self):
+    def test_pd_from_json_in_api(self):
         '''test import from raw json'''
         calc = pd.determine_status_from_raw(self.json_data1)
 
