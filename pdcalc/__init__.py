@@ -85,7 +85,10 @@ def determine_status_from_raw(json_data):
     @type   params: string
     '''
     params = json.loads(json_data)
-    jur = params['jurisdiction'] 
+    if 'jur' in params:
+        jur = params['jurisdiction'] 
+    else:
+        jur = 'uk'
 
     work =  pdw.model.Work.from_dict(params['work'])
     if 'when' in params:
@@ -150,7 +153,7 @@ class CalculatorBase(object):
     def calc_anon(self):
         self.calc_result.is_anon = False
         for person in self.work.persons:
-            if person.name.lower() in ('anon', 'anon.', 'anonymous') :
+            if person.name and person.name.lower() in ('anon', 'anon.', 'anonymous') :
                 self.calc_result.is_anon = True
 
     def calc_death_dates(self):
