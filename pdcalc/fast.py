@@ -1,6 +1,7 @@
 '''Fast (en-masse via sql) PD calculations.
 '''
 import logging
+import datetime
 
 from pdw.pd import OLDEST_PERSON
 
@@ -13,7 +14,7 @@ def fast_pd(extras_key=FAST_PD_KEY):
     from sqlalchemy import sql
     import time
 
-    now = 2008
+    now = datetime.date.today().year
     pd_year = now - 70
     least_age_at_publication = 20
     publication_pd = pd_year - (OLDEST_PERSON - least_age_at_publication)
