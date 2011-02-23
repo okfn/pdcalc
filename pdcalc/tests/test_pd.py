@@ -1,4 +1,4 @@
-import pdw.pd as pd
+import pdcalc.pd as pd
 from datetime import datetime
 try:
     import json
