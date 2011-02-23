@@ -1,4 +1,4 @@
-from pdw.pd import CalculatorBase
+from pdcalc.pd import CalculatorBase
 
 class CalculatorUk(CalculatorBase):
     def __init__(self, when=None):

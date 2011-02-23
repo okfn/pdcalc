@@ -5,6 +5,7 @@ try:
 except ImportError:
     import simplejson as json
 
+
 class TestPdStatusCanada:
     jurisdiction = 'ca'
 
@@ -346,10 +347,10 @@ class TestApiJSON:
         assert json
 
     def creating_by_hand(self):
-        newperson = model.Person(name='Borges, Jorge Luis',
+        newperson = pd.Person(name='Borges, Jorge Luis',
                                death_date='1986',
                                type='person')
-        newwork = model.Work(title='El Aleph',
+        newwork = pd.Work(title='El Aleph',
                            date='1949',
                            creation_date='1919',
                            type='text')
@@ -367,8 +368,7 @@ class TestApiJSON:
         parsed = json.loads(self.json_data2)
         workdata = parsed['work']
         jurisdiction = parsed['jurisdiction']
-        newwork = model.Work.from_dict(workdata)
-        model.Session.remove()
+        newwork = pd.Work.from_dict(workdata)
         calc = pd.determine_status(newwork,jurisdiction)
 
         print parsed  
@@ -383,8 +383,7 @@ class TestApiJSON:
         parsed = json.loads(self.json_data1)
         workdata = parsed['work']
         jurisdiction = parsed['jurisdiction']
-        newwork = model.Work.from_dict(workdata)
-        model.Session.remove()
+        newwork = pd.Work.from_dict(workdata)
         calc = pd.determine_status(newwork,jurisdiction)
 
         assert calc.log>0
@@ -394,9 +393,8 @@ class TestApiJSON:
         parsed = json.loads(self.json_data2)
         workdata = parsed['work']
         jurisdiction = parsed['jurisdiction']
-        newwork = model.Work.from_dict(workdata)
+        newwork = pd.Work.from_dict(workdata)
         when = '1840' #one year after death of author...
-        model.Session.remove()
         calc = pd.determine_status(newwork,jurisdiction,when)
 
         assert calc.pd_prob == 0.0

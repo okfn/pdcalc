@@ -1,4 +1,4 @@
-from pdw.pd import CalculatorBase
+from pdcalc.pd import CalculatorBase
 
 class CalculatorUnitedStates(CalculatorBase):
     def __init__(self, when=None):

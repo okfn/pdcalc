@@ -1,4 +1,4 @@
-from pdw.pd import *
+from pdcalc.pd import *
             
 class CalculatorCanada(CalculatorBase):
 

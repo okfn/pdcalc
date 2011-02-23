@@ -41,26 +41,28 @@ class CalculatorUK(CalculatorBase):
 import logging
 import datetime
 
-import swiss
 try:
     import json
 except ImportError:
     import simplejson as json
 
 #from sqlalchemy import orm
-import pdw
+import pdcalc
 
 
-logger = logging.getLogger('pdw.pd')
+logger = logging.getLogger('pdcalc.pd')
 
 
 OLDEST_PERSON = 100
 
 now = datetime.datetime.now()
 
-def float_date(year, month=0, day=0):
+def float_date(year, month=1, day=1):
     '''to convert a date in a float type'''
-    return swiss.date.FlexiDate(year, month, day).as_float()
+    if year is not None:
+        return float(int(year))
+    else:
+        return None
 
 def determine_status(work, jurisdiction, when=None):
     # now dispatch on jurisdiction (+ work type?)
@@ -90,7 +92,7 @@ def determine_status_from_raw(json_data):
     else:
         jur = 'uk'
 
-    work =  pdw.model.Work.from_dict(params['work'])
+    work = Work.from_dict(params['work'])
     if 'when' in params:
         when = float_date(params['when'][:4])
     else:
@@ -99,6 +101,74 @@ def determine_status_from_raw(json_data):
     calculation = determine_status(work, jur, when)
     result = { 'input': params, 'result': calculation.to_dict() }
     return json.dumps(result,indent=2)
+
+
+class WORK_TYPES:
+    text = u'text'
+    composition = u'composition'
+    recording = u'recording'
+    photograph = u'photograph'
+    video = u'video'
+    database = u'database'
+
+class ENTITY_TYPES:
+    person = u'person'
+    organization = u'organization'
+    unknown = u'unknown'
+
+class DomainObject(object):
+    def __init__(self):
+        self._data = {}
+
+    @classmethod
+    def from_dict(cls, dict_):
+        out = cls()
+        out._data.update(dict(dict_))
+        return out
+
+
+class Work(DomainObject):
+    def __init__(self):
+        self._data = {
+            'type': WORK_TYPES.text,
+            'items': [],
+            'persons': []
+            }
+
+    @property
+    def persons(self):
+        return [Person.from_dict(x) for x in self._data['persons']]
+
+    @property
+    def items(self):
+        return self._data['items']
+
+    @property
+    def date_ordered(self):
+        return float_date(self._data.get('date', None))
+
+    @property
+    def type(self):
+        return self._data['type']
+
+class Person(DomainObject):
+    def __init__(self):
+        self._data = {
+            'death_date': None,
+            'birth_date': None
+            }
+
+    @property
+    def name(self):
+        return self._data['name']
+
+    @property
+    def death_date_ordered(self):
+        return float_date(self._data.get('death_date', None))
+
+    @property
+    def birth_date_ordered(self):
+        return float_date(self._data.get('birth_date', None))
 
 
 class CalcResult(object):
@@ -186,5 +256,4 @@ class CalculatorBase(object):
 from uk import *
 from us import *
 from ca import *
-from fast import *
 
