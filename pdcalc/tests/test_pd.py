@@ -302,65 +302,6 @@ class TestPdStatusUnitedStates:
         assert pdstatus.pd_prob == 0.0
 
 
-from pdw.tests import *
-import pdw.pd
-import pdw.model as model
-class TestFastPd:
-    @classmethod
-    def setup_class(self):
-        TestController.create_fixtures()
-        pdperson = model.Person.query.filter_by(
-                name=TestController.fxt_name).first()
-        myitem = model.Item(title=u'testing')
-        myitem.persons.append(pdperson)
-        myitem2 = model.Item()
-        person = model.Person(name=u'testing-2', birth_date=u'1836')
-        nonpdperson = model.Person(name=u'testing-nonpd', death_date=u'1990')
-        myitem2.persons.append(person)
-        myitem3 = model.Item(title=u'testing-3', date=u'1856')
-        myitem4 = model.Item(title=u'nonpd')
-        myitem4.persons.append(nonpdperson)
-        model.Session.commit()
-        self.item_id = myitem.id
-        self.item_id_2 = myitem2.id
-        self.item_id_3 = myitem3.id
-        self.item_id_4 = myitem4.id
-        model.Session.remove()
-        self.startnum = model.Extra.query.count()
-        pdw.pd.fast_pd()
-        pdw.pd.fast_pd_year()
-        model.Session.remove()
-
-    @classmethod
-    def teardown_class(self):
-        model.repo.rebuild_db()
-
-    def test_total(self):
-        out = model.Extra.query.all()
-        assert len(out) == self.startnum + 10, '\n'.join([ '%s' % e for e in
-            out])
-    
-    def test_death_year(self):
-        myitem = model.Item.query.get(self.item_id)
-        assert myitem.extras['pd.pdw.fast'] == 1.0, myitem.extras
-        assert myitem.extras['pd_year.life_plus_70'] == 1820, myitem.extras
-
-    def test_by_birth_year(self):
-        myitem = model.Item.query.get(self.item_id_2)
-        assert myitem.extras['pd.pdw.fast'] == 1.0, myitem.extras
-        assert myitem.extras['pd_year.life_plus_70'] == 2006, myitem.extras
-
-    def test_by_pubdate(self):
-        myitem = model.Item.query.get(self.item_id_3)
-        print myitem
-        assert myitem.extras['pd.pdw.fast'] == 1.0, myitem.extras
-        assert myitem.extras['pd_year.life_plus_70'] == 1856+80+70, myitem.extras
-
-    def test_not_pd(self):
-        myitem = model.Item.query.get(self.item_id_4)
-        assert myitem.extras['pd.pdw.fast'] == 0.0, myitem.extras
-        assert myitem.extras['pd_year.life_plus_70'] == 2060, myitem.extras
-
 class TestApiJSON:
     @classmethod
     def setup_class(self):
