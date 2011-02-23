@@ -1,0 +1,7 @@
+syntax: glob
+*.pyc
+*.swp
+*.swo
+*.egg-info/*
+sandbox/*
+*.orig
