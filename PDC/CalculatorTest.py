@@ -11,6 +11,8 @@ import time
 from datetime import datetime
 from pprint import pprint
 
+import os.path
+
 bibo_to_pdc = {
     "literary": ["Book", "Document"],
     "artistic": [],
@@ -41,18 +43,35 @@ foaf_to_pdc = {
 def url_to_id(url):
     return url.replace("<http://bnb.bibliographica.org/entry/", "").replace(">", "")
 
-def load_from_web():
+def load(what):
+    if(os.path.isfile("data/%s.json" % what)):
+	return load_from_file(what)
+    else:
+	return load_from_web(what)
+
+def load_from_web(what):
     base_url = "http://bibliographica.org/search.json?q=%s"
-    target_url = base_url % '+'.join(sys.argv[1:])
+    target_url = base_url % what
     data = urllib2.urlopen(target_url).read()
+    
+    # save web-data to file: data/%s.json
+    myfile = open("data/%s.json" % what, 'w')
+    myfile.write(data)
+    myfile.close()
+
     data = json.loads(data)
     for i in range(len(data)):
-        data[i]["work"] = json.loads(urllib2.urlopen(data[i]["id"].replace("<", "").replace(">", "") + ".json").read())
+	d = urllib2.urlopen(data[i]["id"].replace("<", "").replace(">", "") + ".json").read();
+        data[i]["work"] = json.loads(d)
+	# save web-data to file: data/%s.json
+	myfile = open("data/%s.json" % url_to_id(data[i]["id"]), 'w')
+	myfile.write(d)
+	myfile.close()	
 
     return data
 
-def load_from_file():
-    data = open("data/%s.json" % '+'.join(sys.argv[1:]), 'r').read()
+def load_from_file(what):
+    data = open("data/%s.json" % what, 'r').read()
     data = json.loads(data)
     for i in range(len(data)):
         try:
@@ -65,7 +84,7 @@ def load_from_file():
 class Bibliographica:
     def __init__(self, raw_data):
         self.raw_data = raw_data
-        pprint(self.raw_data)
+        #pprint(self.raw_data)
         self.data = {}
         self.data["title"] = raw_data["title"]
         self.data["type"] = self.get_type(bibo_to_pdc, self.raw_data["work"]["type"][-1])
@@ -129,16 +148,19 @@ class Bibliographica:
     def get_type(self, base, data):
         return [k for k, v in base.iteritems() if data.split('/')[-1][:-1] in v][0]
             
-            
-data = load_from_web()
 
-for i in data:
-    test = Bibliographica(i)
-    test.data
-    #CalculatorBase.register_calculator("uk", CalculatorBase.CalculatorUK)
-    work = CalculatorBase.Work(test.data)
-    calcUK = CalculatorBase.CalculatorUK()
-    pprint(test.data)
-    print calcUK.get_status(work)
+if __name__ == "__main__":
+
+    args = '+'.join(sys.argv[1:])  
+    data = load(args)
+
+    for i in data:
+    	test = Bibliographica(i)
+    	test.data
+    	#CalculatorBase.register_calculator("uk", CalculatorBase.CalculatorUK)
+    	work = CalculatorBase.Work(test.data)
+    	calcUK = CalculatorBase.CalculatorUK()
+    	pprint(test.data)
+    	print calcUK.get_status(work)
 
 
