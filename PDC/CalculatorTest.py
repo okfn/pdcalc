@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 
-
 import CalculatorBase
 
 import urllib2
