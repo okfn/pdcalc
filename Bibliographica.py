@@ -3,6 +3,7 @@
 
 
 import CalculatorBase
+import CalculatorUK
 
 import urllib2
 import json
@@ -160,7 +161,7 @@ if __name__ == "__main__":
     	test.data
     	#CalculatorBase.register_calculator("uk", CalculatorBase.CalculatorUK)
     	work = CalculatorBase.Work(test.data)
-    	calcUK = CalculatorBase.CalculatorUK()
+    	calcUK = CalculatorUK.CalculatorUK()
     	pprint(test.data)
     	print calcUK.get_status(work)
 
