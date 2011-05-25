@@ -12,16 +12,13 @@ except ImportError:
     import simplejson as json
 
 
-logger = logging.getLogger('pdcalc.pd')
-
-assumptions = []
 
 EU_COUNTRIES = [ "se", "fi", "dk",  "ee", "lt", "lv", "pl", "de", "nl", "be", "fr", "lu", "es", "pt", "it", "gr", "sl", "au", "hu", "ro", "bg", "sk", "cz", "mt", "cy", "ie", "uk" ]
 EEA_COUNTRIES = list(EU_COUNTRIES) + ["is", "no"]
 
 
 
-TREATY_COUNTRIES = { "us": 70, "ca": 70 } # to be completed
+TREATY_COUNTRIES = { "us": 70, "ca": 70, "fr": 70 } # to be completed
 
 
 
@@ -66,12 +63,13 @@ def getstruct(blob):
 
 
 class LegalEntity:
-    def __init__(self, blob=None):
+    def __init__(self, work, blob=None):
         self.name = None
         self.death_date = None
         self.birth_date = None
         self.country = None
         self.type = None
+	self.work = work
         
         if blob:
             self.load(blob)
@@ -91,7 +89,7 @@ class LegalEntity:
         else:
             if self.birth_date:
                 self.death_date = self.birth_date + timedelta(days=36525)    # 100 years
-                assumptions.append("Didn't get date of death; assuming death after 100 years.")
+                self.work.assumptions.append("Didn't get date of death for Legal Entity %s: assuming death after 100 years." % self.name)
 
         self.country = person.get("country", None)
         try:    self.type = person.get("type")
@@ -129,7 +127,8 @@ class Work:
         self.published = True
         self.original = True
         self.changed = False;
-        
+	self.assumptions = [] #where all the assumption concerning this work will be collected       
+ 
         if blob:
             self.load(blob)
         
@@ -138,8 +137,8 @@ class Work:
             
         self.title = thing.get("title", None)
         self.original = thing.get("original", True);
-        self.authors = [LegalEntity(x) for x in thing.get("authors", [])]
-        self.publishers = [LegalEntity(x) for x in thing.get("publishers", [])]
+        self.authors = [LegalEntity(self,x) for x in thing.get("authors", [])]
+        self.publishers = [LegalEntity(self,x) for x in thing.get("publishers", [])]
 
 
         self.creationdate = thing.get("creation_date", None)
@@ -160,14 +159,22 @@ class Work:
     def str_to_datetime(self, date):
         return datetime.fromtimestamp(time.mktime(time.strptime(date, "%Y%m%d")))
 
-    
+    def is_db(self):
+	if self.type == "database": return True   
+ 
     def is_artistic(self):
         if self.type in ["literary", "dramatic", "artistic"]: return True
         elif self.type == "photograph" and self.original: return True
         else: return False
     
+    def is_corporate(self):
+	# is at least one of the authors an organisation?
+	for person in self.authors:
+		if person.type == "organisation": return True
+	return False
+
     def eea(self):
-        # is the author a citizen of the EEA?
+        # is at least one of the authors a citizen of the EEA?
         for person in self.authors:
             if person.type == "person" and person.is_eea(): return True
         # has the work been published in the EEA?
@@ -202,42 +209,6 @@ class Work:
         date = self.changed or self.date;
         return (when - date).days / 365.25
         
-        
-    
-calculators = {}
-
-
-def register_calculator(jurisdiction, calc):
-    calculators[jurisdiction.lower()] = calc
-
-
-class Calculator:
-    """A Public Domain Calculator
-        when=None means today's date
-    """
-    def __init__(self, where):
-        self.author_list = None
-        self.death_dates = []
-        self.names = []
-        self.when = when
-        self.where = where
-        
-        if calculators.has_key(self.where):
-            self.calc = calculators[self.where]()
-        else:
-            raise ValueError("No calculator for jurisdiction %s is known" % self.where)
-        
-    def get_status(self, work, when=None):
-        calc.get_status(work, when)
-        
-
-class CalculatorBase:
-    
-    def __init__(self):
-       pass
-
-    def get_status(self, work, when=None):
-        raise NotImplementedError("not implemented")
         
         
     

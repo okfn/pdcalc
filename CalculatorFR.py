@@ -2,12 +2,8 @@
 
 from Calculator import *
 
+from datetime import datetime
 
-import logging
-from datetime import datetime, timedelta
-
-import time
-import re
 
 try:
     import json
@@ -16,18 +12,37 @@ except ImportError:
 
 
     
-class CalculatorUK(CalculatorBase):
+class CalculatorFR(CalculatorBase):
 
     def __init__(self):
-	super(CalculatorUK, self).__init__()
-        #register_calculator("uk", CalculatorUK)
+	super(CalculatorFR, self).__init__()
 
-    def get_status(self, work, when=None):
+
+
+    def get_status(self, work, when=None): # when=None means today's date
         
 
 	if not when: when = datetime.now()
             
-        if work.is_artistic():
+	""" If the Work is an unoriginal database? """
+        if work.is_db():
+		self.assumptions.append("Assuming that the author of the work is also the right holder.")
+			
+		""" was the DB created by an individual or organisation resident or registrated in an EEA state? """ # no need to distinguish between corporate or individual because the consequences are the same
+		if not work.eea():	return False
+		
+		else:
+			""" was the DB made available to the public after its completion or last substantial change? """
+			if work.changed: 
+				return work.last_changed() < 15
+			else:
+				self.assumptions.append("Assuming that the DB was made available to the public after its completion or last substantial change.")
+					
+				""" was the DB made available to the public in the last 15 years? """
+				return work.publication_years() < 15
+							
+
+	elif work.is_artistic():
            
  
             if any(x.type == "person" for x in work.authors):
@@ -82,11 +97,11 @@ class CalculatorUK(CalculatorBase):
             raise ValueError("cannot get status")
 
 
-register_calculator("uk", CalculatorUK)
+register_calculator("fr", CalculatorFR)
         
 
 if __name__ == "__main__":
-    register_calculator("uk", CalculatorUK)
+    register_calculator("uk", CalculatorFR)
     data = json.dumps({ 
                             "title":"Collected Papers on the Public Domain (ed)", 
                             "type": "photograph",
@@ -110,7 +125,7 @@ if __name__ == "__main__":
                         })
     
     mywork = Work(data)
-    calcUK = CalculatorUK()
+    calcUK = CalculatorFR()
     print calcUK.get_status(mywork)
 
 

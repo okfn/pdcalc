@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 
 
-import CalculatorBase
+from Work import Work
+from Calculator import Calculator
 import CalculatorUK
+import CalculatorFR
 
 import urllib2
 import json
@@ -158,11 +160,19 @@ if __name__ == "__main__":
 
     for i in data:
     	test = Bibliographica(i)
-    	test.data
-    	#CalculatorBase.register_calculator("uk", CalculatorBase.CalculatorUK)
-    	work = CalculatorBase.Work(test.data)
-    	calcUK = CalculatorUK.CalculatorUK()
+    	work = Work(test.data)
+		
+
+	#CalculatorBase.register_calculator("uk", CalculatorBase.CalculatorUK)
+    	#calcUK = CalculatorUK()
+	#calcFR = CalculatorFR()
+
+	calcUK = Calculator("uk")	
+	calcFR = Calculator("fr")
+
+	print "###########################################################################################\n"
     	pprint(test.data)
-    	print calcUK.get_status(work)
+    	print "UK STATUS: %s" % calcUK.get_status(work)
+	print "FR STATUS: %s" % calcFR.get_status(work)
 
 
