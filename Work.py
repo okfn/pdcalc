@@ -36,8 +36,9 @@ WORK_TYPES = [
     "performance",
     "database",
     "broadcast",
-    "film"
-    "typographic"
+    "film",
+    "typographic",
+    "collective"
 ]
 
 ENTITY_TYPES = [
@@ -45,6 +46,7 @@ ENTITY_TYPES = [
     "organization",
     "government",
     "anonymous",
+    "pseudonym",
     "computer",
 ]
 
@@ -149,21 +151,30 @@ class Work:
             try: self.creationdate = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
             except: print "invalid format for creation_date: %s" % self.creationdate
 
-        try: self.date = thing.get("date")
-        except: raise ValueError("'date' is a mandatory field for works.")
+        try: 
+		date = thing.get("date")
+		self.date = self.str_to_datetime(date)
+	except: raise ValueError("'date' is a mandatory field for works.")
 
         try:    self.type = thing.get("type")
         except: raise ValueError("'type' is a mandatory field for works.")
     
 
     def str_to_datetime(self, date):
-        return datetime.fromtimestamp(time.mktime(time.strptime(date, "%Y%m%d")))
+	d = re.sub(r"\D+(\d\d\d\d)(\D+)?",r"\1", date);
+        if len(d) == 4: d += "0101"
+        try: date = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
+        except: print "invalid format for date: %s" % date
+	
+        #return datetime.fromtimestamp(time.mktime(time.strptime(self.date, "%Y%m%d")))
+	return date
+
 
     def is_db(self):
 	if self.type == "database": return True   
  
     def is_artistic(self):
-        if self.type in ["literary", "dramatic", "artistic"]: return True
+        if self.type in ["literary", "dramatic", "artistic", "collective"]: return True
         elif self.type == "photograph" and self.original: return True
         else: return False
     
@@ -198,9 +209,21 @@ class Work:
 
         return oldest
         
+  
+    def oldest_author_death(self):
+	death_oldest = 0
         
+	if self.oldest_author():
+		death_oldest = self.oldest_author().death_date
+        else:
+		self.assumptions.append("Didn't get date of death or birth; assuming death after 100 years from creation.")
+		death_oldest = self.creationdate + timedelta(days=365*100)
+
+	return death_oldest
+
+      
     def publication_years(self, when):
-        return (when - self.str_to_datetime(self.date)).days / 365.25
+        return (when - self.date).days / 365.25
         
     def creation_years(self, when):
         return (when - self.creationdate).days / 365.25
@@ -209,7 +232,8 @@ class Work:
         date = self.changed or self.date;
         return (when - date).days / 365.25
         
-        
+    
+   
         
     
         
