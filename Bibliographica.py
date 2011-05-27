@@ -45,7 +45,7 @@ foaf_to_pdc = {
 
 
 def url_to_id(url):
-    return url.replace("<http://bnb.bibliographica.org/entry/", "").replace(">", "")
+    return url.replace("http://bibliographica.org/entry/", "")
 
 def load(what):
     if(os.path.isfile("data/%s.json" % what)):
@@ -64,32 +64,37 @@ def load_from_web(what):
     myfile.close()
 
     data = json.loads(data)
+    data = data["response"]["docs"]
+
     for i in range(len(data)):
-	d = urllib2.urlopen(data[i]["id"].replace("<", "").replace(">", "") + ".json").read();
+	d = urllib2.urlopen(data[i]["uri"].replace("<", "").replace(">", "") + ".json").read();
         data[i]["work"] = json.loads(d)
 	# save web-data to file: data/%s.json
-	myfile = open("data/%s.json" % url_to_id(data[i]["id"]), 'w')
+	myfile = open("data/%s.json" % url_to_id(data[i]["uri"]), 'w')
 	myfile.write(d)
 	myfile.close()	
 
+	print "saving... %s.json" % url_to_id(data[i]["uri"])
     return data
 
 def load_from_file(what):
     data = open("data/%s.json" % what, 'r').read()
     data = json.loads(data)
+    data = data["response"]["docs"]   
+ 
     for i in range(len(data)):
-        try:
-            data[i]["file"] = url_to_id(data[i]["id"])
+	try:
+            data[i]["file"] = url_to_id(data[i]["uri"])
             data[i]["work"] = json.loads(open("data/%s.json" % data[i]["file"], 'r').read())
-        except:
+	except:
             print "cannot load %s" % data[i]["file"]
     return data
 
 class Bibliographica:
     def __init__(self, raw_data):
         self.raw_data = raw_data
-        #pprint(self.raw_data)
-        self.data = {}
+        
+	self.data = {}
         self.data["title"] = raw_data["title"]
         self.data["type"] = self.get_type(bibo_to_pdc, self.raw_data["work"]["type"][-1])
         self.data["date"] = self.get_date()
