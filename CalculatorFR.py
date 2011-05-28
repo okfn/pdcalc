@@ -4,6 +4,7 @@ from Calculator import *
 
 from datetime import datetime
 
+from Work import Work
 
 try:
     import json
@@ -68,7 +69,7 @@ class CalculatorFR(CalculatorBase):
 	    # """ identify the death of the last surviving author """
 	    last_death = work.oldest_author_death()
 
-	    print last_death.strftime("The date is %A (%a) %d/%m/%Y")
+	    #print last_death.strftime("The date is %A (%a) %d/%m/%Y")
 
 
 
@@ -166,40 +167,68 @@ class CalculatorFR(CalculatorBase):
                     return True 
             
 
+        # """ If the Work is a film """
+        elif work.type == "film":
+		
+		# """ was the film published within 50 years from the fixation ? """
+		if work.publication_years(work.creationdate) < 50:
+			
+			# """ was the film published more than 50 years ago? """
+			return work.publication_years(when) > 50
+
+		else:
+			# """ was the film fixated more than 50 years ago? """
+			return work.creation_years(when) > 50
 
 
 
+	# """ If the work is a phonogram """
+	elif work.type == "recording":
+		
+		# """ was the phonogram recorded whithin 50 years from the fixation ? """
+		if work.publication_years(work.creationdate) < 50:
+
+			# """ was the phonogram published more than 50 years ago? """
+			return work.publication_years(when) > 50
+
+		else:
+
+			# """ was the work communicated to the public within 50 years from fixation ? """
+			self.assumptions.append("Assuming that the work has been communicated to the public when it was first published.")
+			
+			if work.publication_years(work.creationdate) < 50:
+			
+				# """ was the work communicated to the public more than 50 years ago? """
+				return work.publication_years(when) > 50
+
+			else:
+
+				# """ was the work created more than 50 years ago? """
+				return work.creation_years(when) > 50
+
+	# """ If the work is a performance """
+	elif work.type == "performance":
+		
+		# """ was the work published wihin 50 years from the date of performance? """
+		if work.publication_years(work.creationdate) < 50:
+			
+			# """ was the work published more than 50 years ago? """
+			return work.publication_years(when) > 50
+
+		else:
+			# """ was the work performed more than 50 years ago? """
+			return work.creation_years(when) > 50
 
 
+	# """ If the work is a broadcasting """
+	elif work.type == "broadacst":
+		
+		# """ was the program first broadcasted more than 50 years ago? """
+		return work.publication_years(when) > 50
 
 
-            if any(x.type == "anonymous" or x.type == "organization" for x in work.authors):
-                
-                return work.publication_years > 70
-                
-            if any(x.type == "computer" for x in work.authors):
-                
-                return work.publication_years > 50
-                
-            if any(x.type == "government" for x in work.authors):
-                
-                if work.published: return work.creation_years > 125
-                else: return (work.creation_years.year > 125 or work.publication_years.year > 50)
-                    
-        elif work.type in ["recording", "broadcast", "performance"] or (work.type == "film" and work.original == False):
-            
-            return work.publication_years(when) > 50
-            
-        elif work.type == "database" and work.original == False:
-            
-            return work.last_changed() > 15
-            
-        elif work.type == "typographic":
-            
-            return work.publication_years() > 25
-            
         else:
-            raise ValueError("cannot get status")
+        	raise ValueError("cannot get status")
 
 
 register_calculator("fr", CalculatorFR)

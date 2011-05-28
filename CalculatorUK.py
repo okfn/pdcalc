@@ -15,6 +15,9 @@ except ImportError:
     import simplejson as json
 
 
+from Work import Work
+
+
     
 class CalculatorUK(CalculatorBase):
 
@@ -55,16 +58,17 @@ class CalculatorUK(CalculatorBase):
             
             if any(x.type == "anonymous" or x.type == "organization" for x in work.authors):
                 
-                return work.publication_years > 70
+                return work.publication_years(when) > 70
                 
             if any(x.type == "computer" for x in work.authors):
                 
-                return work.publication_years > 50
+                return work.publication_years(when) > 50
                 
             if any(x.type == "government" for x in work.authors):
                 
-                if work.published: return work.creation_years > 125
-                else: return (work.creation_years.year > 125 or work.publication_years.year > 50)
+                if work.published: return work.creation_years(when) > 125
+
+                else: return (work.creation_years(when) > 125 or work.publication_years(when) > 50)
                     
         elif work.type in ["recording", "broadcast", "performance"] or (work.type == "film" and work.original == False):
             
@@ -76,7 +80,7 @@ class CalculatorUK(CalculatorBase):
             
         elif work.type == "typographic":
             
-            return work.publication_years() > 25
+            return work.publication_years(when) > 25
             
         else:
             raise ValueError("cannot get status")

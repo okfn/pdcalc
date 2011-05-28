@@ -17,8 +17,10 @@ from pprint import pprint
 
 import os.path
 
+import re
+
 bibo_to_pdc = {
-    "literary": ["Book", "Document"],
+    "literary": ["Book", "Document", "ComputerFileFormats"],
     "artistic": [],
     "dramatic": [],
     "composition": [],
@@ -93,9 +95,15 @@ def load_from_file(what):
 class Bibliographica:
     def __init__(self, raw_data):
         self.raw_data = raw_data
-        
+       
+	print "************************\n%s\n\n" % raw_data
+	print "--------------------- %s\n" % raw_data["work"]["type"]
+ 
 	self.data = {}
         self.data["title"] = raw_data["title"]
+	print "trying to process type for %s" % self.raw_data["work"]["type"][-1]
+	if type(self.raw_data["work"]["type"]) is not list:
+		self.raw_data["work"]["type"] = [ self.raw_data["work"]["type"]]
         self.data["type"] = self.get_type(bibo_to_pdc, self.raw_data["work"]["type"][-1])
         self.data["date"] = self.get_date()
         self.data["creation_date"] = self.data["date"]
@@ -151,10 +159,19 @@ class Bibliographica:
 
     def get_date(self):
         #return datetime.fromtimestamp(time.mktime(time.strptime(self.raw_data["work"]["issued"].split('T')[0], "%Y-%m-%d")))
-        return self.raw_data["work"]["issued"].split('T')[0].replace('-', '')
-
+        if "issued" in self.raw_data["work"]:
+		return self.raw_data["work"]["issued"].split('T')[0].replace('-', '')
+	elif "descriptions" in self.raw_data["work"]:
+		print "YEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n"
+		for v in self.raw_data["work"]["descriptions"]: 
+			z = re.findall(r'[0-9]+', v)
+			pprint(z)
+			if len(z) >= 1:	
+				print "returnig... %s" % z[0]
+				return z[0]
 
     def get_type(self, base, data):
+	print "getting type for %s - with %s" %(base, data)
         return [k for k, v in base.iteritems() if data.split('/')[-1][:-1] in v][0]
             
 
