@@ -151,10 +151,11 @@ class CalculatorFR(CalculatorBase):
 
 
 register_calculator("fr", CalculatorFR)
-        
 
-if __name__ == "__main__":
-    register_calculator("uk", CalculatorFR)
+
+# Run this test: nosetests pdcalc/CalculatorFR.py
+def test():
+    register_calculator("fr", CalculatorFR)
     data = json.dumps({ 
         "title":"Collected Papers on the Public Domain (ed)", 
         "type": "photograph",
@@ -176,12 +177,9 @@ if __name__ == "__main__":
                 }
         ]
     })
-    
     mywork = Work(data)
     calcUK = CalculatorFR()
-    print calcUK.get_status(mywork)
-
-
+    assert not calcUK.get_status(mywork)
 
     data2 = {
             "title": "I love flowers",
@@ -198,7 +196,6 @@ if __name__ == "__main__":
                         }
                  ]
          }
-            
     mywork2 = Work(data2)
-    print calcUK.get_status(mywork2)
+    assert calcUK.get_status(mywork2)
 
