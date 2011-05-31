@@ -87,7 +87,7 @@ def load_from_file(what):
     for i in range(len(data)):
 	try:
             data[i]["file"] = url_to_id(data[i]["uri"])
-            data[i]["work"] = json.loads(open("data/%s.json" % data[i]["file"], 'r').read())
+            data[i]["work"] = json.loads(open("pdcalc/test/data/%s.json" % data[i]["file"], 'r').read())
 	except:
             print "cannot load %s" % data[i]["file"]
     return data
