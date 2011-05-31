@@ -141,11 +141,7 @@ class Work:
 
         self.creationdate = thing.get("creation_date", None)
         if self.creationdate:
-            d = self.creationdate
-            d = re.sub(r"\D+(\d\d\d\d)(\D+)?",r"\1", d); 
-            if len(d) == 4: d += "0101"
-            try: self.creationdate = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
-            except: print "invalid format for creation_date: %s" % self.creationdate
+            self.creationdate = self.str_to_datetime(self.creationdate)
 
         try: 
 		date = thing.get("date")
@@ -157,12 +153,13 @@ class Work:
     
 
     def str_to_datetime(self, date):
-	d = re.sub(r"\D+(\d\d\d\d)(\D+)?",r"\1", date);
+	d = re.sub(r"\D+(\d\d\d(\d|\?))(\D+)?",r"\1", date);
+        if re.match(r"\?", d): d = d.replace('?', '9')
+        d = re.sub(r"\[(\d+)]", r"\1", d)
+        if len(d) == 2: d += "00"
         if len(d) == 4: d += "0101"
         try: date = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
         except: print "invalid format for date: %s" % date
-	
-        #return datetime.fromtimestamp(time.mktime(time.strptime(self.date, "%Y%m%d")))
 	return date
 
 

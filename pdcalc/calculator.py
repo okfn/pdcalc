@@ -36,6 +36,9 @@ class Calculator:
             self.calc = calculators[self.where]()
         else:
             raise ValueError("No calculator for jurisdiction %s is known" % self.where)
+
+    def list(self): 
+        return calculators.keys()
         
     def get_status(self, work, when=None): # when=None means today's date
         return self.calc.get_status(work, when)

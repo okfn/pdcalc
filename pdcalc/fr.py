@@ -46,15 +46,16 @@ class CalculatorFR(CalculatorBase):
           
             # """ identify the death of the last surviving author """
             last_death = work.oldest_author_death()
-
             #print last_death.strftime("The date is %A (%a) %d/%m/%Y")
 
             # """ is the author from the EEA ? """
             if work.eea():
+
                 # """ is the work an anonymous/pseudonym work or a collective work ? """        
                 if any(x.type == "anonymous" or x.type == "pseudonym" for x in work.authors) or (work.type == "collective"):
                     # """ was the work published ? """
                     if work.date:
+
                         # """ was it published more than 70 years after creation? """
                         if work.creation_years(when) > 70:
 
@@ -70,10 +71,11 @@ class CalculatorFR(CalculatorBase):
                         return work.creation_years(when) > 70
 
                 elif any(x.type == "person" for x in work.authors):
+
                     # """ was the work published ? """    
                     if work.date:
                         # """ was it published after 70 years of the death of the last surviving author ? """
-                        if work.publication_years(last_death) > 70:
+                        if work.publication_years(last_death) < -70:
                             # """ was it publish more than 25 years ago? """
                             return work.publication_years(when) > 25
                         else:
@@ -159,7 +161,7 @@ register_calculator("fr", CalculatorFR)
 
 # Run this test: nosetests pdcalc/CalculatorFR.py
 def test():
-    calcFR = Calculator("fr")
+    calc = Calculator("fr")
     
     data = json.dumps({ 
         "title":"Collected Papers on the Public Domain (ed)", 
@@ -183,7 +185,7 @@ def test():
         ]
     })
     mywork = Work(data)
-    assert not calcFR.get_status(mywork)
+    assert not calc.get_status(mywork)
 
     data2 = {
             "title": "I love flowers",
@@ -201,5 +203,5 @@ def test():
                  ]
          }
     mywork = Work(data2)
-    assert calcFR.get_status(mywork)
+    assert calc.get_status(mywork)
 
