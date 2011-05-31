@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from Calculator import *
+from calculator import *
 
 
 import logging
@@ -15,7 +15,7 @@ except ImportError:
     import simplejson as json
 
 
-from Work import Work
+from work import Work
 
 
     

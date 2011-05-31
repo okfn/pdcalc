@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-from Calculator import *
+from calculator import *
 
 from datetime import datetime
 
-from Work import Work
+from work import Work
 
 try:
     import json

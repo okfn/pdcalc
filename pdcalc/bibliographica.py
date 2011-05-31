@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 
-from Work import Work
-from Calculator import Calculator
-import CalculatorUK
-import CalculatorFR
+from work import Work
+from calculator import Calculator
+import uk
+import fr
 
 import urllib2
 import json
@@ -184,10 +184,6 @@ if __name__ == "__main__":
     	test = Bibliographica(i)
     	work = Work(test.data)
 		
-
-	#CalculatorBase.register_calculator("uk", CalculatorBase.CalculatorUK)
-    	#calcUK = CalculatorUK()
-	#calcFR = CalculatorFR()
 
 	calcUK = Calculator("uk")	
 	calcFR = Calculator("fr")
