@@ -1,0 +1,325 @@
+{
+ "responseHeader":{
+  "status":0,
+  "QTime":0,
+  "params":{
+	"indent":"on",
+	"wt":"json",
+	"q":"01"}},
+ "response":{"numFound":16360,"start":0,"docs":[
+	{
+	 "uri":"http://bibliographica.org/entry/BB1712905",
+	 "ddc":[
+	  "741.6"],
+	 "lcsh":[
+	  "Commercial art.",
+	  "Design."],
+	 "f_placeofpublication":["Great Britain?]"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "publisher":[
+	  "Wig-01 <http://bibliographica.org/entity/E1339551>"],
+	 "title":[
+	  "Previous/next : a Wig-01 project : book 01."],
+	 "extent":["ca. [30] p"],
+	 "contributor":[
+	  "Wig-01 (Firm) <http://bibliographica.org/entity/E1339550>"],
+	 "description":[
+	  "Cover title."],
+	 "isbn":["urn:isbn:0955085500"],
+	 "f_title":["Previous/next : a Wig-01 project : book 01."],
+	 "f_contributor":["Wig-01 (Firm) <http://bibliographica.org/entity/E1339550>"],
+	 "f_publisher":["Wig-01 <http://bibliographica.org/entity/E1339551>"],
+	 "placeofpublication":[
+	  "Great Britain?]"],
+	 "issued":["c2005"],
+	 "bnb_id":["GBA691073"],
+	 "publisher_uris":["http://bibliographica.org/entity/E1339551"],
+	 "bl_id":["013565547"],
+	 "lcsh_inscheme":["Commercial art. <http://id.loc.gov/authorities#conceptScheme>","Design. <http://id.loc.gov/authorities#conceptScheme>"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1"],
+	 "f_subjects":["741.6","Commercial art.","Design."],
+	 "seeAlso":["http://www4.wiwiss.fu-berlin.de/bookmashup/books/0955085500","http://purl.org/NET/book/isbn/0955085500#book"],
+	 "language":["eng"],
+	 "contributor_uris":["http://bibliographica.org/entity/E1339550"],
+	 "ddc_inscheme":["741.6 <http://dewey.info/scheme/e22>"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB1425788",
+	 "f_contributor":["Jenkyns, Richard. <http://bibliographica.org/entity/E286667>"],
+	 "f_title":["Three classical poets : Sappho, Catullus and Juvenal"],
+	 "f_publisher":["Duckworth <http://bibliographica.org/entity/E55328>"],
+	 "ddc":[
+	  "884/.01",
+	  "874/.01",
+	  "874/.01",
+	  "871/.01",
+	  "884/.01",
+	  "871/.01"],
+	 "placeofpublication":[
+	  "London"],
+	 "keyword":[
+	  "Lyric poetry in Latin",
+	  "Catullus, Gaius Valerius",
+	  "Lyric poetry in Greek",
+	  "Sappho",
+	  "Juvenal",
+	  "Poetry in Latin"],
+	 "issued":["1982"],
+	 "f_placeofpublication":["London"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "bnb_id":["GB8207826"],
+	 "publisher":[
+	  "Duckworth <http://bibliographica.org/entity/E55328>"],
+	 "publisher_uris":["http://bibliographica.org/entity/E55328"],
+	 "bl_id":["008091633"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1"],
+	 "title":[
+	  "Three classical poets : Sappho, Catullus and Juvenal"],
+	 "extent":["ix,243p"],
+	 "description":[
+	  "Bibliography: p231-234. _ Includes index."],
+	 "contributor":[
+	  "Jenkyns, Richard. <http://bibliographica.org/entity/E286667>"],
+	 "isbn":["urn:isbn:0715616366"],
+	 "f_subjects":["884/.01","874/.01","874/.01","871/.01","884/.01","871/.01","Lyric poetry in Latin","Catullus, Gaius Valerius","Lyric poetry in Greek","Sappho","Juvenal","Poetry in Latin"],
+	 "seeAlso":["http://www4.wiwiss.fu-berlin.de/bookmashup/books/0715616366","http://purl.org/NET/book/isbn/0715616366#book"],
+	 "language":["eng"],
+	 "contributor_uris":["http://bibliographica.org/entity/E286667"],
+	 "ddc_inscheme":["884/.01 <http://dewey.info/scheme/e19>","874/.01 <http://dewey.info/scheme/e19>","874/.01 <http://dewey.info/scheme/e18>","871/.01 <http://dewey.info/scheme/e18>","884/.01 <http://dewey.info/scheme/e18>","871/.01 <http://dewey.info/scheme/e19>"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB3599041",
+	 "f_contributor":["LTSN-01 (Organization) <http://bibliographica.org/entity/E2112798>"],
+	 "f_title":["01 : the newsletter of LTSN-01."],
+	 "f_publisher":["LTSN-01 <http://bibliographica.org/entity/E2112799>"],
+	 "ddc":[
+	  "610.71141"],
+	 "placeofpublication":[
+	  "Newcastle upon Tyne"],
+	 "lcsh":[
+	  "LTSN-01 (Organization)--Periodicals.",
+	  "Medicine--Study and teaching--Great Britain--Periodicals."],
+	 "issued":["2003-"],
+	 "f_placeofpublication":["Newcastle upon Tyne"],
+	 "type":["http://purl.org/ontology/bibo/Document"],
+	 "bnb_id":["URN:ISSN:17408768"],
+	 "publisher":[
+	  "LTSN-01 <http://bibliographica.org/entity/E2112799>"],
+	 "publisher_uris":["http://bibliographica.org/entity/E2112799"],
+	 "bl_id":["007890982"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1"],
+	 "lcsh_inscheme":["LTSN-01 (Organization)--Periodicals. <http://id.loc.gov/authorities#conceptScheme>","Medicine--Study and teaching--Great Britain--Periodicals. <http://id.loc.gov/authorities#conceptScheme>"],
+	 "title":[
+	  "01 : the newsletter of LTSN-01."],
+	 "extent":["v"],
+	 "description":[
+	  "1 (Jan. 2003) was only issued in electronic format."],
+	 "contributor":[
+	  "LTSN-01 (Organization) <http://bibliographica.org/entity/E2112798>"],
+	 "f_subjects":["610.71141","LTSN-01 (Organization)--Periodicals.","Medicine--Study and teaching--Great Britain--Periodicals."],
+	 "language":["eng"],
+	 "contributor_uris":["http://bibliographica.org/entity/E2112798"],
+	 "ddc_inscheme":["610.71141 <http://dewey.info/scheme/e22>"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB609506",
+	 "f_contributor":["Yeates, Stephen. <http://bibliographica.org/entity/E545586>"],
+	 "f_title":["WoS 3 yearly report 2000 to end of 2003 report : report range: 01/01/2000 00:00:00 - 01/01/2002 24:00:00"],
+	 "f_publisher":["[HEAnet] <http://bibliographica.org/entity/E545587>"],
+	 "placeofpublication":[
+	  "Dublin]"],
+	 "lcsh":[
+	  "Online databases--Ireland--Evaluation.",
+	  "Machine-readable bibliographic data--Ireland--Evaluation."],
+	 "issued":["2002"],
+	 "f_placeofpublication":["Dublin]"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "bnb_id":["GBA318718"],
+	 "publisher_uris":["http://bibliographica.org/entity/E545587"],
+	 "publisher":[
+	  "[HEAnet] <http://bibliographica.org/entity/E545587>"],
+	 "bl_id":["007030940"],
+	 "lcsh_inscheme":["Online databases--Ireland--Evaluation. <http://id.loc.gov/authorities#conceptScheme>","Machine-readable bibliographic data--Ireland--Evaluation. <http://id.loc.gov/authorities#conceptScheme>"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1"],
+	 "title":[
+	  "WoS 3 yearly report 2000 to end of 2003 report : report range: 01/01/2000 00:00:00 - 01/01/2002 24:00:00"],
+	 "extent":["11 leaves"],
+	 "contributor":[
+	  "Yeates, Stephen. <http://bibliographica.org/entity/E545586>"],
+	 "f_subjects":["Online databases--Ireland--Evaluation.","Machine-readable bibliographic data--Ireland--Evaluation."],
+	 "language":["eng"],
+	 "contributor_uris":["http://bibliographica.org/entity/E545586"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB3291954",
+	 "f_title":["The Heritage of early Britain."],
+	 "f_publisher":["Bell <http://bibliographica.org/entity/E980650>"],
+	 "ddc":[
+	  "942.01"],
+	 "issued":["1952"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "bnb_id":["GB5204706"],
+	 "publisher_uris":["http://bibliographica.org/entity/E980650"],
+	 "publisher":[
+	  "Bell <http://bibliographica.org/entity/E980650>"],
+	 "bl_id":["007645805"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1"],
+	 "title":[
+	  "The Heritage of early Britain."],
+	 "extent":["196p.,ill.,19cm"],
+	 "f_subjects":["942.01"],
+	 "language":["eng"],
+	 "ddc_inscheme":["942.01 <http://dewey.info/scheme/e18>"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB1619104",
+	 "f_title":["The Anglo-Saxon Chronicle"],
+	 "f_publisher":["Dent; Dutton <http://bibliographica.org/entity/E83483>"],
+	 "ddc":[
+	  "942.01"],
+	 "issued":["1953"],
+	 "series_title":[
+	  "Everyman's library series;no.624 <http://bibliographica.org/series/S348429>"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "bnb_id":["GB5313052"],
+	 "publisher_uris":["http://bibliographica.org/entity/E83483"],
+	 "publisher":[
+	  "Dent; Dutton <http://bibliographica.org/entity/E83483>"],
+	 "bl_id":["008320085"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1","http://bibliographica.org/series/S348429"],
+	 "title":[
+	  "The Anglo-Saxon Chronicle"],
+	 "extent":["295p.,19cm"],
+	 "f_subjects":["942.01"],
+	 "language":["eng"],
+	 "ddc_inscheme":["942.01 <http://dewey.info/scheme/e18>"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB2003517",
+	 "f_title":["Antiquities."],
+	 "f_publisher":["Thames & Hudson <http://bibliographica.org/entity/E215219>"],
+	 "ddc":[
+	  "709.01"],
+	 "placeofpublication":[
+	  "London"],
+	 "lcsh":[
+	  "Classical antiquities."],
+	 "issued":["1997"],
+	 "f_placeofpublication":["London"],
+	 "bnb_id":["GB97X0184"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "publisher":[
+	  "Thames & Hudson <http://bibliographica.org/entity/E215219>"],
+	 "publisher_uris":["http://bibliographica.org/entity/E215219"],
+	 "bl_id":["008745025"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1"],
+	 "lcsh_inscheme":["Classical antiquities. <http://id.loc.gov/authorities#conceptScheme>"],
+	 "title":[
+	  "Antiquities."],
+	 "extent":["128p"],
+	 "isbn":["urn:isbn:050016021x","urn:isbn:0500170053"],
+	 "f_subjects":["709.01","Classical antiquities."],
+	 "seeAlso":["http://www4.wiwiss.fu-berlin.de/bookmashup/books/0500170053","http://purl.org/NET/book/isbn/0500170053#book","http://www4.wiwiss.fu-berlin.de/bookmashup/books/050016021x","http://purl.org/NET/book/isbn/050016021x#book"],
+	 "language":["eng"],
+	 "ddc_inscheme":["709.01 <http://dewey.info/scheme/e21>"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB1951534",
+	 "ddc":[
+	  "212/.01",
+	  "211/.01",
+	  "212/.01",
+	  "212/.1/01"],
+	 "lcsh":[
+	  "God."],
+	 "f_placeofpublication":["London","Notre Dame"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "publisher":[
+	  "University of Notre Dame Press <http://bibliographica.org/entity/E57456>"],
+	 "title":[
+	  "The searching mind : an introduction to a philosophy of God"],
+	 "extent":["viii,231p"],
+	 "contributor":[
+	  "Donceel, Joseph Florent. <http://bibliographica.org/entity/E1493214>"],
+	 "description":[
+	  "Bibliography: p.225-227. _ Includes index."],
+	 "isbn":["urn:isbn:026801700x","urn:isbn:0268017018"],
+	 "f_title":["The searching mind : an introduction to a philosophy of God"],
+	 "f_contributor":["Donceel, Joseph Florent. <http://bibliographica.org/entity/E1493214>"],
+	 "f_publisher":["University of Notre Dame Press <http://bibliographica.org/entity/E57456>"],
+	 "placeofpublication":[
+	  "London",
+	  "Notre Dame"],
+	 "issued":["1979"],
+	 "keyword":[
+	  "God",
+	  "Existence",
+	  "God",
+	  "Nature"],
+	 "bnb_id":["GB8014287"],
+	 "publisher_uris":["http://bibliographica.org/entity/E57456"],
+	 "bl_id":["008726439"],
+	 "lcsh_inscheme":["God. <http://id.loc.gov/authorities#conceptScheme>"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1"],
+	 "f_subjects":["212/.01","211/.01","212/.01","212/.1/01","God.","God","Existence","God","Nature"],
+	 "seeAlso":["http://www4.wiwiss.fu-berlin.de/bookmashup/books/0268017018","http://purl.org/NET/book/isbn/0268017018#book","http://www4.wiwiss.fu-berlin.de/bookmashup/books/026801700x","http://purl.org/NET/book/isbn/026801700x#book"],
+	 "language":["eng"],
+	 "contributor_uris":["http://bibliographica.org/entity/E1493214"],
+	 "ddc_inscheme":["212/.01 <http://dewey.info/scheme/e19>","211/.01 <http://dewey.info/scheme/e18>","212/.01 <http://dewey.info/scheme/e18>","212/.1/01 <http://dewey.info/scheme/e19>"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB58989",
+	 "f_title":["The Trade of king and priest"],
+	 "f_publisher":["Chancery Books <http://bibliographica.org/entity/E56729>"],
+	 "ddc":[
+	  "320.01"],
+	 "issued":["1966"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "bnb_id":["GB6621987"],
+	 "publisher_uris":["http://bibliographica.org/entity/E56729"],
+	 "publisher":[
+	  "Chancery Books <http://bibliographica.org/entity/E56729>"],
+	 "bl_id":["009026938"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1"],
+	 "title":[
+	  "The Trade of king and priest"],
+	 "extent":["116p.,19cm"],
+	 "f_subjects":["320.01"],
+	 "language":["eng"],
+	 "ddc_inscheme":["320.01 <http://dewey.info/scheme/e18>"]},
+	{
+	 "uri":"http://bibliographica.org/entry/BB1033743",
+	 "f_contributor":["Arnott, W. Geoffrey (William Geoffrey), 1930- <http://bibliographica.org/entity/E362010>"],
+	 "f_title":["Menander, Plautus, Terence"],
+	 "f_publisher":["Clarendon Press <http://bibliographica.org/entity/E10401>"],
+	 "ddc":[
+	  "872/.01",
+	  "882/.01",
+	  "872/.01",
+	  "882/.01"],
+	 "placeofpublication":[
+	  "Oxford"],
+	 "lcsh":[
+	  "Greek drama--History and criticism."],
+	 "keyword":[
+	  "Drama in Latin",
+	  "Menander",
+	  "342-292 B.C.",
+	  "Plautus, Titus Maccius",
+	  "Drama in Latin",
+	  "Terence",
+	  "Drama in Greek"],
+	 "issued":["1975"],
+	 "f_placeofpublication":["Oxford"],
+	 "series_title":[
+	  "'Greece & Rome' new surveys in the classics ; no.9 <http://bibliographica.org/series/S229891>"],
+	 "type":["http://purl.org/ontology/bibo/Document","http://purl.org/ontology/bibo/Book"],
+	 "bnb_id":["GB7606158"],
+	 "publisher":[
+	  "Clarendon Press <http://bibliographica.org/entity/E10401>"],
+	 "publisher_uris":["http://bibliographica.org/entity/E10401"],
+	 "bl_id":["009921576"],
+	 "series_uris":["http://ckan.net/package/jiscopenbib-bl_bnb-1","http://bibliographica.org/series/S229891"],
+	 "lcsh_inscheme":["Greek drama--History and criticism. <http://id.loc.gov/authorities#conceptScheme>"],
+	 "title":[
+	  "Menander, Plautus, Terence"],
+	 "extent":["62p"],
+	 "contributor":[
+	  "Arnott, W. Geoffrey (William Geoffrey), 1930- <http://bibliographica.org/entity/E362010>"],
+	 "f_subjects":["872/.01","882/.01","872/.01","882/.01","Greek drama--History and criticism.","Drama in Latin","Menander","342-292 B.C.","Plautus, Titus Maccius","Drama in Latin","Terence","Drama in Greek"],
+	 "language":["eng"],
+	 "contributor_uris":["http://bibliographica.org/entity/E362010"],
+	 "ddc_inscheme":["872/.01 <http://dewey.info/scheme/e18>","882/.01 <http://dewey.info/scheme/e18>","872/.01 <http://dewey.info/scheme/e19>","882/.01 <http://dewey.info/scheme/e19>"]}]
+ }}
