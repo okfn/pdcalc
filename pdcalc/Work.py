@@ -60,7 +60,6 @@ def getstruct(blob):
         struct = blob
     else:
         raise TypeError("Can only load strings or dictionaries.")
-        
     return struct
 
 
@@ -71,8 +70,7 @@ class LegalEntity:
         self.birth_date = None
         self.country = None
         self.type = None
-	self.work = work
-        
+        self.work = work
         if blob:
             self.load(blob)
         
@@ -110,12 +108,9 @@ class LegalEntity:
 
     def death_years(self, when):
         return (when - self.death_date).days / 365.25
-        
-    
-        
-                    
 
-class Work:
+
+class Work(object):
     def __init__(self, blob=None):
         self.type = None
         self.items = []
@@ -129,49 +124,56 @@ class Work:
         self.published = True
         self.original = True
         self.changed = False;
-	self.assumptions = [] #where all the assumption concerning this work will be collected       
+        self.assumptions = [] #where all the assumption concerning this work will be collected       
  
         if blob:
             self.load(blob)
         
     def load(self, blob):
         thing = getstruct(blob)
+        import pprint
+        pprint.pprint(thing)
             
         self.title = thing.get("title", None)
         self.original = thing.get("original", True);
         self.authors = [LegalEntity(self,x) for x in thing.get("authors", [])]
         self.publishers = [LegalEntity(self,x) for x in thing.get("publishers", [])]
-
-
         self.creationdate = thing.get("creation_date", None)
         if self.creationdate:
             d = self.creationdate
             d = re.sub(r"\D+(\d\d\d\d)(\D+)?",r"\1", d); 
             if len(d) == 4: d += "0101"
-            try: self.creationdate = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
-            except: print "invalid format for creation_date: %s" % self.creationdate
-
+            try:
+                self.creationdate = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
+            except:
+                # complete hack to deal with bad dates
+                # self.creationdate = None
+                self.creationdate = datetime(2000, 01, 01)
+                print "invalid format for creation_date: %s" % self.creationdate
         try: 
-		date = thing.get("date")
-		self.date = self.str_to_datetime(date)
-	except: raise ValueError("'date' is a mandatory field for works.")
-
-        try:    self.type = thing.get("type")
-        except: raise ValueError("'type' is a mandatory field for works.")
+            date = thing.get("date")
+            self.date = self.str_to_datetime(date)
+        except:
+            raise ValueError("'date' is a mandatory field for works.")
+        try:
+            self.type = thing.get("type")
+        except:
+            raise ValueError("'type' is a mandatory field for works.")
     
 
     def str_to_datetime(self, date):
-	d = re.sub(r"\D+(\d\d\d\d)(\D+)?",r"\1", date);
+        d = re.sub(r"\D+(\d\d\d\d)(\D+)?",r"\1", date);
         if len(d) == 4: d += "0101"
-        try: date = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
-        except: print "invalid format for date: %s" % date
-	
+        try:
+            date = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
+        except:
+            print "invalid format for date: %s" % date
+    
         #return datetime.fromtimestamp(time.mktime(time.strptime(self.date, "%Y%m%d")))
-	return date
-
+        return date
 
     def is_db(self):
-	if self.type == "database": return True   
+        if self.type == "database": return True   
  
     def is_artistic(self):
         if self.type in ["literary", "dramatic", "artistic", "collective"]: return True
@@ -179,10 +181,10 @@ class Work:
         else: return False
     
     def is_corporate(self):
-	# is at least one of the authors an organisation?
-	for person in self.authors:
-		if person.type == "organisation": return True
-	return False
+        # is at least one of the authors an organisation?
+        for person in self.authors:
+            if person.type == "organisation": return True
+        return False
 
     def eea(self):
         # is at least one of the authors a citizen of the EEA?
@@ -211,17 +213,16 @@ class Work:
         
   
     def oldest_author_death(self):
-	death_oldest = 0
-        
-	if self.oldest_author():
-		death_oldest = self.oldest_author().death_date
+        death_oldest = 0
+            
+        if self.oldest_author():
+            death_oldest = self.oldest_author().death_date
         else:
-		self.assumptions.append("Didn't get date of death or birth; assuming death after 100 years from creation.")
-		death_oldest = self.creationdate + timedelta(days=365*100)
+            self.assumptions.append("Didn't get date of death or birth; assuming death after 100 years from creation.")
+            death_oldest = self.creationdate + timedelta(days=365*100)
 
-	return death_oldest
+        return death_oldest
 
-      
     def publication_years(self, when):
         return (when - self.date).days / 365.25
         
