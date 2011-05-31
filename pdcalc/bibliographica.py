@@ -80,7 +80,7 @@ def load_from_web(what):
     return data
 
 def load_from_file(what):
-    data = open("data/%s.json" % what, 'r').read()
+    data = open(what, 'r').read()
     data = json.loads(data)
     data = data["response"]["docs"]   
  

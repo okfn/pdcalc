@@ -1,13 +1,8 @@
-# TODO: write tests using sample data in ./data
-
-import sys
-sys.path.append('..')
-
-import uk
-import fr
-from work import Work
-from calculator import * 
-from bibliographica import *
+import pdcalc.uk as uk
+import pdcalc.fr as fr
+from pdcalc.work import Work
+from pdcalc.calculator import * 
+from pdcalc.bibliographica import *
 
 from pprint import pprint
 
@@ -22,7 +17,7 @@ def test():
 
  
     #for f in [ '%02d' % i for i in range(2)]:
-    data = load_from_file("01")
+    data = load_from_file("pdcalc/test/data/01.json")
     results["uk"] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     results["fr"] = [0, 0, 0, 0, 1, 1, 1, 0, 1, 0]
 
