@@ -88,56 +88,55 @@ class CalculatorUK(CalculatorBase):
 
 register_calculator("uk", CalculatorUK)
         
+# Run this test: nosetests pdcalc/CalculatorFR.py
+def test():
 
-if __name__ == "__main__":
-    register_calculator("uk", CalculatorUK)
+    calc = Calculator("uk")
+
     data = json.dumps({ 
-                            "title":"Collected Papers on the Public Domain (ed)", 
-                            "type": "photograph",
-                        "date" : "20030101",
-                        "creation_date" : "20030101",
-                        "authors" : 
-                                        [
-                                                {"name" : "Boyle, James", 
-                                                "type" : "person",
-                                                "birth_date" :"19590101",
-                                                "death_date" : "19890205",
-                                                "country": "uk"
-                                                },
-                                                {"name" : "Schumann, Robert",
-                                                "type" : "person",
-                                                "birth_date" :"18590101",
-                                                "death_date" : "19990205",
-                                                "country": "uk"
-                                                }
-                                        ]
-                        })
+        "title":"Collected Papers on the Public Domain (ed)",
+        "type": "photograph",
+        "date" : "20030101",
+        "creation_date" : "20030101",
+        "authors" :
+        [
+                {"name" : "Boyle, James",
+                "type" : "person",
+                "birth_date" :"19590101",
+                "death_date" : "19890205",
+                "country": "uk"
+                },
+                {"name" : "Schumann, Robert",
+                "type" : "person",
+                "birth_date" :"18590101",
+                "death_date" : "19990205",
+                "country": "uk"
+                }
+        ]
+    })
     
     mywork = Work(data)
-    calcUK = CalculatorUK()
-    print calcUK.get_status(mywork)
+    assert not calc.get_status(mywork)
 
 
-
-    data2 = {
+    data = {
             "title": "I love flowers",
             "type": "recording",
             "date": "19450101",
             "creation_date": "19450101",
-                        "authors" :
-                                        [
-                                                {"name" : "Schumann, Robert",
-                                                "type" : "person",
-                                                "birth_date" :"18590101",
-                                                "death_date" : "18990205",
-                                                "country": "uk"
-                                                }
-                                         ]
-                         }
+            "authors" :
+                [
+                        {"name" : "Schumann, Robert",
+                        "type" : "person",
+                        "birth_date" :"18590101",
+                        "death_date" : "18990205",
+                        "country": "uk"
+                        }
+                 ]
+         }
 
-            
-    mywork2 = Work(data2)
-    print calcUK.get_status(mywork2)
+    mywork = Work(data)
+    assert calc.get_status(mywork)
 
 
     

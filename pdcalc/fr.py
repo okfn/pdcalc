@@ -118,6 +118,7 @@ class CalculatorFR(CalculatorBase):
             else:
                 # """ was the film fixated more than 50 years ago? """
                 return work.creation_years(when) > 50
+
         # """ If the work is a phonogram """
         elif work.type == "recording":
             # """ was the phonogram recorded whithin 50 years from the fixation ? """
@@ -133,6 +134,7 @@ class CalculatorFR(CalculatorBase):
                 else:
                     # """ was the work created more than 50 years ago? """
                     return work.creation_years(when) > 50
+
         # """ If the work is a performance """
         elif work.type == "performance":
             # """ was the work published wihin 50 years from the date of performance? """
@@ -142,10 +144,12 @@ class CalculatorFR(CalculatorBase):
             else:
                 # """ was the work performed more than 50 years ago? """
                 return work.creation_years(when) > 50
+
         # """ If the work is a broadcasting """
         elif work.type == "broadacst":
             # """ was the program first broadcasted more than 50 years ago? """
             return work.publication_years(when) > 50
+
         else:
             raise ValueError("cannot get status")
 
@@ -155,7 +159,8 @@ register_calculator("fr", CalculatorFR)
 
 # Run this test: nosetests pdcalc/CalculatorFR.py
 def test():
-    register_calculator("fr", CalculatorFR)
+    calcFR = Calculator("fr")
+    
     data = json.dumps({ 
         "title":"Collected Papers on the Public Domain (ed)", 
         "type": "photograph",
@@ -178,8 +183,7 @@ def test():
         ]
     })
     mywork = Work(data)
-    calcUK = CalculatorFR()
-    assert not calcUK.get_status(mywork)
+    assert not calcFR.get_status(mywork)
 
     data2 = {
             "title": "I love flowers",
@@ -196,6 +200,6 @@ def test():
                         }
                  ]
          }
-    mywork2 = Work(data2)
-    assert calcUK.get_status(mywork2)
+    mywork = Work(data2)
+    assert calcFR.get_status(mywork)
 
