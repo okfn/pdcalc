@@ -25,8 +25,8 @@ class CalculatorFR(CalculatorBase):
                 
             # """ was the DB created by an individual or organisation resident or registrated in an EEA state? """ 
             # no need to distinguish between corporate or individual because the consequences are the same
-            if not work.eea():    return False
-            
+            if not work.eea():
+                return False
             else:
                 # """ was the DB made available to the public after its completion or last substantial change? """
                 if work.changed: 
@@ -107,7 +107,7 @@ class CalculatorFR(CalculatorBase):
                 return ((when - last_death).days / 365.25) > work.treaty()        
 
             else:
-                self.assumptions.append("Work is not eligible for protection in because it has not been created in a EEA or Treaty country")
+                self.assumptions.append("Work is not eligible for protection because it has not been created in a EEA or Treaty country")
                 return True 
             
 
