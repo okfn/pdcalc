@@ -83,7 +83,8 @@ class CalculatorUK(CalculatorBase):
             return work.publication_years(when) > 25
             
         else:
-            raise ValueError("cannot get status")
+            raise ValueError("Do not know about this work type (%s) so cannot get status" %
+                    work.type)
 
 
 register_calculator("uk", CalculatorUK)
