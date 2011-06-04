@@ -1,10 +1,7 @@
-#!/usr/bin/env python
-
 import logging
 from datetime import datetime, timedelta
-
 import time
-import re
+import datautil.date
 
 try:
     import json
@@ -77,13 +74,10 @@ class LegalEntity:
         self.name = person.get("name", None)
         bd = person.get("birth_date", None)
         if bd:
-            try:    self.birth_date = datetime(int(bd[:4]), int(bd[4:6]), int(bd[6:8]))
-            except: raise ValueError("'birth_date' is malformed. Correct format is 'YYYYMMDD'")
+            self.birth_date = datautil.date.parse(bd).as_datetime()
         dd = person.get("death_date", None)
         if dd:
-            try:    self.death_date = datetime(int(dd[:4]), int(dd[4:6]), int(dd[6:8]))
-            except: raise ValueError("'death_date' is malformed. Correct format is 'YYYYMMDD'")
-
+            self.death_date = datautil.date.parse(dd).as_datetime()
         else:
             if self.birth_date:
                 self.death_date = self.birth_date + timedelta(days=36525)    # 100 years
@@ -142,10 +136,9 @@ class Work:
         self.creationdate = thing.get("creation_date", None)
         if self.creationdate:
             self.creationdate = self.str_to_datetime(self.creationdate)
-
-        try: 
-		date = thing.get("date")
-		self.date = self.str_to_datetime(date)
+        try:
+            date = thing.get("date")
+            self.date = self.str_to_datetime(date)
 	except: raise ValueError("'date' is a mandatory field for works.")
 
         try:    self.type = thing.get("type")
@@ -153,15 +146,7 @@ class Work:
     
 
     def str_to_datetime(self, date):
-	d = re.sub(r"\D+(\d\d\d(\d|\?))(\D+)?",r"\1", date);
-        if re.match(r"\?", d): d = d.replace('?', '9')
-        d = re.sub(r"\[(\d+)]", r"\1", d)
-        if len(d) == 2: d += "00"
-        if len(d) == 4: d += "0101"
-        try: date = datetime(int(d[:4]), int(d[4:6]), int(d[6:8]))
-        except: print "invalid format for date: %s" % date
-	return date
-
+        return datautil.date.parse(date).as_datetime()
 
     def is_db(self):
 	if self.type == "database": return True   

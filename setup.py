@@ -17,6 +17,7 @@ setup(
     test_suite='nose.collector',
     # package_data={'pdcalc': ['i18n/*/LC_MESSAGES/*.mo']},
     install_requires=[
+        'datautil'
         ],
     #message_extractors = {'pdcalc': [
     #        ('**.py', 'python', None),
