@@ -12,18 +12,20 @@ try:
 except ImportError:
     import simplejson as json
 
-
-
-
 logger = logging.getLogger('pdcalc.pd')
-
-
-
     
+
 calculators = {}
 
 def register_calculator(jurisdiction, calc):
     calculators[jurisdiction.lower()] = calc
+
+def get_calculator(jurisdiction):
+    cls = calculators.get(jurisdiction.lower())
+    if cls is not None:
+        return cls()
+    else:
+        return None
 
 
 class Calculator:
