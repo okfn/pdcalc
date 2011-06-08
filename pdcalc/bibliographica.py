@@ -51,9 +51,9 @@ def url_to_id(url):
 
 def load(what):
     if(os.path.isfile("data/%s.json" % what)):
-	return load_from_file(what)
+        return load_from_file(what)
     else:
-	return load_from_web(what)
+        return load_from_web(what)
 
 def load_from_web(what):
     base_url = "http://bibliographica.org/search.json?q=%s"
@@ -69,7 +69,7 @@ def load_from_web(what):
     data = data["response"]["docs"]
 
     for i in range(len(data)):
-	d = urllib2.urlopen(data[i]["uri"].replace("<", "").replace(">", "") + ".json").read();
+        d = urllib2.urlopen(data[i]["uri"].replace("<", "").replace(">", "") + ".json").read();
         data[i]["work"] = json.loads(d)
 	# save web-data to file: data/%s.json
 	myfile = open("data/%s.json" % url_to_id(data[i]["uri"]), 'w')
@@ -95,22 +95,23 @@ def load_from_file(what):
 class Bibliographica:
     def __init__(self, raw_data):
         self.raw_data = raw_data
-       
  
-	self.data = {}
+        self.data = {}
         self.data["title"] = raw_data["title"]
-	if type(self.raw_data["work"]["type"]) is not list:
-		self.raw_data["work"]["type"] = [ self.raw_data["work"]["type"]]
+        if type(self.raw_data["work"]["type"]) is not list:
+            self.raw_data["work"]["type"] = [ self.raw_data["work"]["type"]]
         self.data["type"] = self.get_type(bibo_to_pdc, self.raw_data["work"]["type"][-1])
         self.data["date"] = self.get_date()
         self.data["creation_date"] = self.data["date"]
 
         self.data["authors"] = self.get_authors() 
-        if not self.data["authors"]: self.data["authors"] = self.get_publishers()
+        if not self.data["authors"]:
+            self.data["authors"] = self.get_publishers()
         
     def get_publishers(self):
         authors = []
-        if not "publishers" in self.raw_data["work"].keys(): return 0
+        if not "publishers" in self.raw_data["work"].keys():
+            return 0
 
         if type(self.raw_data["work"]["publishers"]) is not list:
              self.raw_data["work"]["publishers"] = [self.raw_data["work"]["publishers"]]
