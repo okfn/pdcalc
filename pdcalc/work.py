@@ -119,7 +119,7 @@ class Work:
         self.published = True
         self.original = True
         self.changed = False;
-	self.assumptions = [] #where all the assumption concerning this work will be collected       
+        self.assumptions = [] #where all the assumption concerning this work will be collected       
  
         if blob:
             self.load(blob)
