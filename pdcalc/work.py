@@ -57,6 +57,12 @@ def getstruct(blob):
         
     return struct
 
+def get_date(indate):
+    try:
+        return datautil.date.parse(indate).as_datetime()
+    except:
+        # TODO: this is a hack!!
+        return datetime(2000, 1, 1)
 
 class LegalEntity:
     def __init__(self, work, blob=None):
@@ -74,10 +80,10 @@ class LegalEntity:
         self.name = person.get("name", None)
         bd = person.get("birth_date", None)
         if bd:
-            self.birth_date = datautil.date.parse(bd).as_datetime()
+            self.birth_date = get_date(bd)
         dd = person.get("death_date", None)
         if dd:
-            self.death_date = datautil.date.parse(dd).as_datetime()
+            self.death_date = get_date(dd)
         else:
             if self.birth_date:
                 self.death_date = self.birth_date + timedelta(days=36525)    # 100 years
@@ -146,7 +152,7 @@ class Work:
     
 
     def str_to_datetime(self, date):
-        return datautil.date.parse(date).as_datetime()
+        return get_date(date)
 
     def is_db(self):
 	if self.type == "database": return True   
@@ -189,15 +195,14 @@ class Work:
         
   
     def oldest_author_death(self):
-	death_oldest = 0
-        
-	if self.oldest_author():
-		death_oldest = self.oldest_author().death_date
+        death_oldest = 0
+        if self.oldest_author():
+            death_oldest = self.oldest_author().death_date
         else:
-		self.assumptions.append("Didn't get date of death or birth; assuming death after 100 years from creation.")
-		death_oldest = self.creationdate + timedelta(days=365*100)
+            self.assumptions.append("Didn't get date of death or birth; assuming death after 100 years from creation.")
+            death_oldest = self.creationdate + timedelta(days=365*100)
 
-	return death_oldest
+        return death_oldest
 
       
     def publication_years(self, when):
