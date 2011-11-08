@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bio="http://purl.org/vocab/bio/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:ISBD="http://iflastandards.info/ns/isbd/elements/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <bibo:Series rdf:about="http://bibliographica.org/series/S334011">
+    <dc:title>Routledge guides to literature</dc:title>
+  </bibo:Series>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3478848.rdf">
+    <foaf:primaryTopic>
+      <bibo:Book rdf:about="http://bibliographica.org/entry/BB3478848">
+        <dc:issued>2006-01-01T00:00:00Z</dc:issued>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/9780415255295#book"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/9780415255301#book"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/0415255309#book"/>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/9780415255295"/>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/0415255295"/>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/9780415255301"/>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/0415255309"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/0415255295#book"/>
+        <dc:subject>
+          <skos:Concept>
+            <skos:notation>823.8</skos:notation>
+            <skos:inScheme rdf:resource="http://dewey.info/scheme/e22"/>
+          </skos:Concept>
+        </dc:subject>
+        <dc:subject>
+          <skos:Concept>
+            <skos:prefLabel>Dickens, Charles, 1812-1870 Oliver Twist.</skos:prefLabel>
+            <skos:inScheme rdf:resource="http://id.loc.gov/authorities#conceptScheme"/>
+          </skos:Concept>
+        </dc:subject>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3478848.n3"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3478848.nt"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3478848.html"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3478848.rdf"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3478848.ttl"/>
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <bibo:identifier>http://www.loc.gov/catdir/toc/ecip0513/2005014270.html</bibo:identifier>
+        <bibo:identifier>GBA543980</bibo:identifier>
+        <dc:language>
+          <rdf:Description>
+            <rdf:value>eng</rdf:value>
+          </rdf:Description>
+        </dc:language>
+        <OV:blid>013205653</OV:blid>
+        <dc:description>Formerly CIP.</dc:description>
+        <dc:description>Includes bibliographical references and index.</dc:description>
+        <dc:publisher rdf:resource="http://bibliographica.org/entity/E30652"/>
+        <bibo:isbn>urn:isbn:9780415255301</bibo:isbn>
+        <bibo:isbn>urn:isbn:9780415255295</bibo:isbn>
+        <bibo:isbn>urn:isbn:0415255295</bibo:isbn>
+        <bibo:isbn>urn:isbn:0415255309</bibo:isbn>
+        <dc:extent>
+          <rdf:Description>
+            <rdfs:label>xix, 195 p</rdfs:label>
+          </rdf:Description>
+        </dc:extent>
+        <dc:isPartOf rdf:resource="http://bibliographica.org/series/S334011"/>
+        <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+        <dc:contributor rdf:resource="http://bibliographica.org/entity/E250434"/>
+        <dc:title>Charles Dickens's Oliver Twist : a sourcebook</dc:title>
+        <ISBD:hasPlaceOfPublicationProductionDistribution>
+          <rdf:Description>
+            <rdfs:label>London</rdfs:label>
+          </rdf:Description>
+        </ISBD:hasPlaceOfPublicationProductionDistribution>
+      </bibo:Book>
+    </foaf:primaryTopic>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3478848.n3">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB3478848"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E250434">
+    <bio:event>
+      <bio:Birth>
+        <bio:date>1967-01-01T00:00:00Z</bio:date>
+      </bio:Birth>
+    </bio:event>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3478848.ttl">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB3478848"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3478848.nt">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB3478848"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3478848.html">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB3478848"/>
+  </foaf:Document>
+</rdf:RDF>

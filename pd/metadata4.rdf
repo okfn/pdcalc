@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:ISBD="http://iflastandards.info/ns/isbd/elements/"
+  xmlns:dces="http://purl.org/dc/elements/1.1/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:time="http://www.w3.org/2006/time#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3493425.n3">
+    <foaf:primaryTopic>
+      <bibo:Document rdf:about="http://bibliographica.org/entry/BB3493425">
+        <dc:issued>2005-</dc:issued>
+        <dc:language>
+          <rdf:Description>
+            <rdf:value>eng</rdf:value>
+          </rdf:Description>
+        </dc:language>
+        <dces:date>
+          <time:Interval>
+            <time:hasEnd>
+              <time:Instant>
+                <time:inXSDDateTime>9999</time:inXSDDateTime>
+              </time:Instant>
+            </time:hasEnd>
+            <time:hasBeginning>
+              <time:Instant>
+                <time:inXSDDateTime>2005</time:inXSDDateTime>
+              </time:Instant>
+            </time:hasBeginning>
+          </time:Interval>
+        </dces:date>
+        <OV:blid>013252847</OV:blid>
+        <dc:publisher rdf:resource="http://bibliographica.org/entity/E2011908"/>
+        <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+        <bibo:identifier>URN:ISSN:17483662</bibo:identifier>
+        <bibo:identifier>GBA611960</bibo:identifier>
+        <dc:subject>
+          <skos:Concept>
+            <skos:inScheme rdf:resource="http://id.loc.gov/authorities#conceptScheme"/>
+            <skos:prefLabel>Banking law--Periodicals.</skos:prefLabel>
+          </skos:Concept>
+        </dc:subject>
+        <dc:subject>
+          <skos:Concept>
+            <skos:inScheme rdf:resource="http://dewey.info/scheme/e22"/>
+            <skos:notation>346.42082</skos:notation>
+          </skos:Concept>
+        </dc:subject>
+        <dc:subject>
+          <skos:Concept>
+            <skos:inScheme rdf:resource="http://id.loc.gov/authorities#conceptScheme"/>
+            <skos:prefLabel>Banking law--England--Periodicals.</skos:prefLabel>
+          </skos:Concept>
+        </dc:subject>
+        <dc:subject>
+          <skos:Concept>
+            <skos:inScheme rdf:resource="http://id.loc.gov/authorities#conceptScheme"/>
+            <skos:prefLabel>Banking law--Wales--Periodicals.</skos:prefLabel>
+          </skos:Concept>
+        </dc:subject>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3493425.html"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3493425.ttl"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3493425.nt"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3493425.n3"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB3493425.rdf"/>
+        <dc:accessRights>
+          <rdf:Description>
+            <rdfs:label>Current Copyright Fee: GBP80.00</rdfs:label>
+          </rdf:Description>
+        </dc:accessRights>
+        <ISBD:hasPlaceOfPublicationProductionDistribution>
+          <rdf:Description>
+            <rdfs:label>Hadleigh</rdfs:label>
+          </rdf:Description>
+        </ISBD:hasPlaceOfPublicationProductionDistribution>
+        <dc:extent>
+          <rdf:Description>
+            <rdfs:label>v</rdfs:label>
+          </rdf:Description>
+        </dc:extent>
+        <dc:title>Bankers' law.</dc:title>
+      </bibo:Document>
+    </foaf:primaryTopic>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3493425.ttl">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB3493425"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3493425.html">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB3493425"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3493425.rdf">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB3493425"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB3493425.nt">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB3493425"/>
+  </foaf:Document>
+</rdf:RDF>

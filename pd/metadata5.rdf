@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bio="http://purl.org/vocab/bio/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:ISBD="http://iflastandards.info/ns/isbd/elements/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E11571">
+    <bio:event>
+      <bio:Birth>
+        <bio:date>1812-01-01T00:00:00Z</bio:date>
+      </bio:Birth>
+    </bio:event>
+    <bio:event>
+      <bio:Death>
+        <bio:date>1870-01-01T00:00:00Z</bio:date>
+      </bio:Death>
+    </bio:event>
+    <skos:prefLabel>Dickens, Charles, 1812-1870</skos:prefLabel>
+    <foaf:name>Dickens, Charles</foaf:name>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB455088.nt">
+    <foaf:primaryTopic>
+      <bibo:Book rdf:about="http://bibliographica.org/entry/BB455088">
+        <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+        <bibo:identifier>GBA2U3982</bibo:identifier>
+        <dc:issued>2003-01-01T00:00:00Z</dc:issued>
+        <dc:language>
+          <rdf:Description>
+            <rdf:value>eng</rdf:value>
+          </rdf:Description>
+        </dc:language>
+        <OV:blid>006964589</OV:blid>
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <dc:subject>
+          <skos:Concept>
+            <skos:notation>823.914</skos:notation>
+            <skos:inScheme rdf:resource="http://dewey.info/scheme/e21"/>
+          </skos:Concept>
+        </dc:subject>
+        <dc:subject>
+          <skos:Concept>
+            <skos:prefLabel>Orphans--Juvenile fiction.</skos:prefLabel>
+            <skos:inScheme rdf:resource="http://id.loc.gov/authorities#conceptScheme"/>
+          </skos:Concept>
+        </dc:subject>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB455088.n3"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB455088.nt"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB455088.ttl"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB455088.rdf"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB455088.html"/>
+        <dc:description>Includes audio CD.</dc:description>
+        <dc:extent>
+          <rdf:Description>
+            <rdfs:label>1 v</rdfs:label>
+          </rdf:Description>
+        </dc:extent>
+        <ISBD:hasPlaceOfPublicationProductionDistribution>
+          <rdf:Description>
+            <rdfs:label>London</rdfs:label>
+          </rdf:Description>
+        </ISBD:hasPlaceOfPublicationProductionDistribution>
+        <bibo:isbn>urn:isbn:1904351824</bibo:isbn>
+        <dc:publisher rdf:resource="http://bibliographica.org/entity/E156245"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/1904351824#book"/>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/1904351824"/>
+        <dc:contributor rdf:resource="http://bibliographica.org/entity/E11571"/>
+        <dc:title>Oliver Twist</dc:title>
+      </bibo:Book>
+    </foaf:primaryTopic>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB455088.rdf">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB455088"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB455088.html">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB455088"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E156245">
+    <foaf:name>Ladybird</foaf:name>
+    <skos:prefLabel>Ladybird</skos:prefLabel>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB455088.ttl">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB455088"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB455088.n3">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB455088"/>
+  </foaf:Document>
+</rdf:RDF>

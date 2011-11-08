@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bio="http://purl.org/vocab/bio/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:ISBD="http://iflastandards.info/ns/isbd/elements/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2633117.html">
+    <foaf:primaryTopic>
+      <bibo:Book rdf:about="http://bibliographica.org/entry/BB2633117">
+        <dc:issued>2009-01-01T00:00:00Z</dc:issued>
+        <bibo:identifier>GBA998976</bibo:identifier>
+        <dc:title>After lives : a guide to heaven, hell, and purgatory</dc:title>
+        <dc:subject>
+          <skos:Concept>
+            <skos:inScheme rdf:resource="http://id.loc.gov/authorities#conceptScheme"/>
+            <skos:prefLabel>Future life--History of doctrines.</skos:prefLabel>
+          </skos:Concept>
+        </dc:subject>
+        <dc:subject>
+          <skos:Concept>
+            <skos:inScheme rdf:resource="http://dewey.info/scheme/e22"/>
+            <skos:notation>202.3</skos:notation>
+          </skos:Concept>
+        </dc:subject>
+        <ISBD:hasPlaceOfPublicationProductionDistribution>
+          <rdf:Description>
+            <rdfs:label>Oxford</rdfs:label>
+          </rdf:Description>
+        </ISBD:hasPlaceOfPublicationProductionDistribution>
+        <dc:description>Includes bibliographical references and index.</dc:description>
+        <dc:description>Formerly CIP.</dc:description>
+        <dc:publisher rdf:resource="http://bibliographica.org/entity/E10399"/>
+        <dc:contributor rdf:resource="http://bibliographica.org/entity/E64170"/>
+        <dc:tableOfContents>Dark futures. After lives -- Egypt -- Mesopotamia and Israel -- Greece and Rome -- The Christian beginnings -- Dante : Inferno -- Predestination : Augustine to Calvin and beyond -- The decline of hell -- Purgatory. Rome's happiest inspiration? -- Heaven. Heaven : Egypt, Mesopotamia, Israel -- Bodies fleshly and spiritual -- Dante : Paradiso -- Celestial pleasures : Renaissance and Reformation heavens -- Heavenly speculations -- Heaven seen and heard : Swedenborg -- With easy intercourse pass to and fro -- Scoring in heaven.</dc:tableOfContents>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2633117.html"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2633117.n3"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2633117.nt"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2633117.rdf"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2633117.ttl"/>
+        <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+        <OV:blid>015390751</OV:blid>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/0195092953"/>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/9780195092950"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/0195092953#book"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/9780195092950#book"/>
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <dc:extent>
+          <rdf:Description>
+            <rdfs:label>viii, 468 p</rdfs:label>
+          </rdf:Description>
+        </dc:extent>
+        <bibo:isbn>urn:isbn:9780195092950</bibo:isbn>
+        <bibo:isbn>urn:isbn:0195092953</bibo:isbn>
+        <dc:language>
+          <rdf:Description>
+            <rdf:value>eng</rdf:value>
+          </rdf:Description>
+        </dc:language>
+      </bibo:Book>
+    </foaf:primaryTopic>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2633117.n3">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2633117"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E64170">
+    <skos:prefLabel>Casey, John (John Peter Anthony), 1939-</skos:prefLabel>
+    <bio:event>
+      <bio:Birth>
+        <bio:date>1939-01-01T00:00:00Z</bio:date>
+      </bio:Birth>
+    </bio:event>
+    <foaf:name>Casey, John (John Peter Anthony)</foaf:name>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2633117.ttl">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2633117"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2633117.nt">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2633117"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E10399">
+    <foaf:name>Oxford University Press</foaf:name>
+    <skos:prefLabel>Oxford University Press</skos:prefLabel>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2633117.rdf">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2633117"/>
+  </foaf:Document>
+</rdf:RDF>

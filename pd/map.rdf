@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:flow="http://okfnpad.org/flow/0.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+
+ <flow:Map rdf:ID="n0o27">
+    <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a foaf:Document; foaf:primaryTopic ?y . { ?y a bibo:Book } UNION { ?y a bibo:Document } . }]]></flow:sparql>
+    <flow:assumption>"Assuming that on the Bibliographica DB a literary/artistic work qualifies as bibo:Book or bibo:Document"</flow:assumption>
+    <rdfs:domain rdf:resource="#n0" />
+    <rdfs:range rdf:resource="#o27" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n44o29">
+	<flow:sparql><![CDATA[ASK {?x ?y ?z }]]></flow:sparql>
+	<flow:assumption>"Assuming that the work is not a legal document or official document - since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n44" />
+	<rdfs:range rdf:resource="#o29" />
+</flow:Map>
+
+<flow:Map rdf:ID="n23o44">
+	<flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent; bio:event ?y . }]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n23" />
+	<rdfs:range rdf:resource="#o44" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n23o42">
+        <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ]]></flow:sparql-not>
+	<flow:assumption>"Assuming that a work with no Author + bio/event is an Anonymous/Pseudonymous work (we do not take into account Orphan Works)"</flow:assumption>
+        <rdfs:domain rdf:resource="#n23" />
+        <rdfs:range rdf:resource="#o42" />
+</flow:Map>
+
+<flow:Map rdf:ID="n34o41">
+	<flow:sparql><![CDATA[ASK {?x ?y ?z }]]></flow:sparql>
+	<flow:assumption>"Assuming that the author place of residence or nationality is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n34" />
+	<rdfs:range rdf:resource="#o41" />
+</flow:Map>
+
+<flow:Map rdf:ID="n41o1">
+	<flow:sparql><![CDATA[ASK {?x ?y ?z }]]></flow:sparql>
+	<flow:assumption>"The presence of a work on bibliographica consitutes a communication to the public"</flow:assumption>
+	<rdfs:domain rdf:resource="#n41" />
+	<rdfs:range rdf:resource="#o1" />
+</flow:Map>
+
+<flow:Map rdf:ID="n42o8">
+        <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/>  ASK { ?x a bio:Death ; bio:date ?ddate . ?w dc:issued ?pdate . FILTER( (?ddate, ?pdate) )} ]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n42" />
+	<rdfs:range rdf:resource="#o8" />
+</flow:Map>
+
+<flow:Map rdf:ID="n42o9">
+        <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:death ?y } ]]></flow:sparql>
+</flow:Map>
+</rdf:RDF>
