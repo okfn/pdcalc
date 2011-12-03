@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2181394.n3">
+    <foaf:primaryTopic>
+      <bibo:Book rdf:about="http://bibliographica.org/entry/BB2181394">
+        <bibo:identifier>GB5913551</bibo:identifier>
+        <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+        <dc:language>
+          <rdf:Description>
+            <rdf:value>eng</rdf:value>
+          </rdf:Description>
+        </dc:language>
+        <dc:issued>1959-01-01T00:00:00Z</dc:issued>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2181394.nt"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2181394.ttl"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2181394.n3"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2181394.html"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2181394.rdf"/>
+        <OV:blid>010928502</OV:blid>
+        <dc:title>The era of Goethe</dc:title>
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Document"/>
+        <dc:extent>
+          <rdf:Description>
+            <rdfs:label>193p.,ill.,23cm</rdfs:label>
+          </rdf:Description>
+        </dc:extent>
+        <dc:subject>
+          <skos:Concept>
+            <skos:notation>830.9006</skos:notation>
+            <skos:inScheme rdf:resource="http://dewey.info/scheme/e18"/>
+          </skos:Concept>
+        </dc:subject>
+        <dc:publisher rdf:resource="http://bibliographica.org/entity/E18958"/>
+      </bibo:Book>
+    </foaf:primaryTopic>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2181394.nt">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2181394"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E18958">
+    <skos:prefLabel>Blackwell</skos:prefLabel>
+    <foaf:name>Blackwell</foaf:name>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2181394.ttl">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2181394"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2181394.html">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2181394"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2181394.rdf">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2181394"/>
+  </foaf:Document>
+</rdf:RDF>

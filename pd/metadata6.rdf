@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bio="http://purl.org/vocab/bio/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <bibo:Document rdf:about="http://bibliographica.org/entry/BB2205576">
+    <bibo:identifier>GB6008061</bibo:identifier>
+    <dc:publisher>
+      <foaf:Agent rdf:about="http://bibliographica.org/entity/E196553">
+        <skos:prefLabel>Macdonald</skos:prefLabel>
+        <foaf:name>Macdonald</foaf:name>
+      </foaf:Agent>
+    </dc:publisher>
+    <rdf:type rdf:resource="http://purl.org/ontology/bibo/Book"/>
+    <dc:title>From Lake Garda to Sicily with Goethe, with original drawings and extracts from Goethe's 'Italian journey'</dc:title>
+    <OV:blid>010938345</OV:blid>
+    <dc:issued>1960-01-01T00:00:00Z</dc:issued>
+    <dc:language>
+      <rdf:Description>
+        <rdf:value>eng</rdf:value>
+      </rdf:Description>
+    </dc:language>
+    <dc:subject>
+      <skos:Concept>
+        <skos:notation>945.070924</skos:notation>
+        <skos:inScheme rdf:resource="http://dewey.info/scheme/e18"/>
+      </skos:Concept>
+    </dc:subject>
+    <dc:extent>
+      <rdf:Description>
+        <rdfs:label>117p.,ill.,31cm</rdfs:label>
+      </rdf:Description>
+    </dc:extent>
+    <dc:alternative>Italianische Reise</dc:alternative>
+    <dc:contributor>
+      <foaf:Agent rdf:about="http://bibliographica.org/entity/E50381">
+        <skos:prefLabel>Goethe, Johann Wolfgang von, 1749-1832</skos:prefLabel>
+        <foaf:name>Goethe, Johann Wolfgang von</foaf:name>
+        <bio:event>
+          <bio:Death>
+            <bio:date>1832-01-01T00:00:00Z</bio:date>
+          </bio:Death>
+        </bio:event>
+        <bio:event>
+          <bio:Birth>
+            <bio:date>1749-01-01T00:00:00Z</bio:date>
+          </bio:Birth>
+        </bio:event>
+      </foaf:Agent>
+    </dc:contributor>
+    <foaf:isPrimaryTopicOf>
+      <foaf:Document rdf:about="http://bibliographica.org/entry/BB2205576.ttl">
+        <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2205576"/>
+      </foaf:Document>
+    </foaf:isPrimaryTopicOf>
+    <foaf:isPrimaryTopicOf>
+      <foaf:Document rdf:about="http://bibliographica.org/entry/BB2205576.rdf">
+        <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2205576"/>
+      </foaf:Document>
+    </foaf:isPrimaryTopicOf>
+    <foaf:isPrimaryTopicOf>
+      <foaf:Document rdf:about="http://bibliographica.org/entry/BB2205576.html">
+        <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2205576"/>
+      </foaf:Document>
+    </foaf:isPrimaryTopicOf>
+    <foaf:isPrimaryTopicOf>
+      <foaf:Document rdf:about="http://bibliographica.org/entry/BB2205576.n3">
+        <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2205576"/>
+      </foaf:Document>
+    </foaf:isPrimaryTopicOf>
+    <foaf:isPrimaryTopicOf>
+      <foaf:Document rdf:about="http://bibliographica.org/entry/BB2205576.nt">
+        <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2205576"/>
+      </foaf:Document>
+    </foaf:isPrimaryTopicOf>
+    <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+  </bibo:Document>
+</rdf:RDF>
