@@ -118,27 +118,29 @@ class Mapping:
   def choose_node(self, model, map_list):
     for m in map_list:
       # if the sparql query returns 'true', we have a result
-      query = RDF.SPARQLQuery(str(m.sparql))
+      query = RDF.Query(str(m.sparql), query_language="sparql11")
+      #query = RDF.SPARQLQuery(str(m.sparql))
       result = query.execute(model)
 
       mini = 0
       if result.is_boolean() == False:
 #        raise Exception('The mapping must use only boolean Sparql queries.')
 	 for k in result:
-	#	print result 
+		print result 
 		mini = 1
-	#	print k
+		print k
       elif result.get_boolean() == True: mini = 1
      
       if(m.sparql_negate): 
-	print "NEGATING"
+	#print "NEGATING"
 	if(mini): mini = 0
 	else: mini = 1
  
       if mini == 1:
 	if(m.assumption):
 		self.assumptions.append(m.assumption)  
-		print('ASSUMPTIONS so far: ' + "\n".join(self.assumptions))
-        return m.range
+	#	print('ASSUMPTIONS so far: ' + "\n".join(self.assumptions))
+        	print("New assumption: " + m.assumption)
+	return m.range
 
     return None

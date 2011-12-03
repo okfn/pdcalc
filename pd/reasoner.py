@@ -64,7 +64,7 @@ class Reasoner:
       option = self.mapping.choose(self.model, n)
 
       # The option choosed is:
-      print 'Answer:', option.text
+      print 'Answer:', option.text, "\n"
       n = self.flow.node(option.node)
 
 # int main(...) { ...
