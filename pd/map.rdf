@@ -11,9 +11,16 @@
     <rdfs:range rdf:resource="#o27" />
   </flow:Map>
 
+<flow:Map rdf:ID="n44o30">
+	<flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix skos: <http://www.w3.org/2004/02/skos/core#> ASK { ?x a skos:Concept ;  skos:notation ?y . FILTER( xsd:float(?y) >= 340 && xsd:float(?y) < 350) } ]]></flow:sparql>
+	<flow:assumption>"Assuming that the work is a legal document if its dewey notation is within the range of 340 - 349"</flow:assumption>
+	<rdfs:domain rdf:resource="#n44" />
+	<rdfs:range rdf:resource="#o30" />
+</flow:Map>
+
 <flow:Map rdf:ID="n44o29">
-	<flow:sparql><![CDATA[ ASK {}]]></flow:sparql>
-	<flow:assumption>"Assuming that the work is not a legal document or official document - since no info is provided in the metadata"</flow:assumption>
+	<flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix skos: <http://www.w3.org/2004/02/skos/core#> ASK { ?x skos:notation ?y . FILTER( xsd:float(?y) >= 340 && xsd:float(?y) < 350) }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the work is not an  official document - since no info is provided in the metadata"</flow:assumption>
 	<rdfs:domain rdf:resource="#n44" />
 	<rdfs:range rdf:resource="#o29" />
 </flow:Map>
@@ -70,24 +77,28 @@
 
 <flow:Map rdf:ID="n32o17">
         <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Book ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )  } }]]></flow:sparql>
+	<flow:assumption>"Assuming that the year of publication is the first publication of the work (probably wrong assumption?)"</flow:assumption>
         <rdfs:domain rdf:resource="#n32" />
         <rdfs:range rdf:resource="#o17" />
 </flow:Map>
 
 <flow:Map rdf:ID="n32o16">
         <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Book ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )  } }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the year of publication is the first publication of the work (probably wrong assumption?)"</flow:assumption>
         <rdfs:domain rdf:resource="#n32" />
         <rdfs:range rdf:resource="#o16" />
 </flow:Map>
 
 <flow:Map rdf:ID="n43o14">
         <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Book ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )  } }]]></flow:sparql>
+	<flow:assumption>"Assuming that the year of publication is the first publication of the work (probably wrong assumption?)"</flow:assumption>
         <rdfs:domain rdf:resource="#n43" />
         <rdfs:range rdf:resource="#o14" />
 </flow:Map>
 
 <flow:Map rdf:ID="n43o15">
         <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Book ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )  } }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the year of publication is the first publication of the work (probably wrong assumption?)"</flow:assumption>
         <rdfs:domain rdf:resource="#n43" />
         <rdfs:range rdf:resource="#o15" />
 </flow:Map>
@@ -101,13 +112,13 @@
 
 
 <flow:Map rdf:ID="n40o83">
-       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Birth ; bio:date ?y .  FILTER ( year(xsd:dateTime(?y)) +170 <  year(now()) ) } UNION {  ?c a bio:Death ; bio:date ?d . FILTER ( year(xsd:dateTime(?d)) +70 <   year(now()) ) } }]]></flow:sparql>
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Birth ; bio:date ?y .  FILTER ( year(xsd:dateTime(?y)) +170 >  year(now()) ) } UNION {  ?c a bio:Death ; bio:date ?d . FILTER ( year(xsd:dateTime(?d)) +70 >   year(now()) ) } }]]></flow:sparql-not>
 	<rdfs:domain rdf:resource="#n40" />
 	<rdfs:range rdf:resource="#o83" />
 </flow:Map>
 
 <flow:Map rdf:ID="n40o84">
-       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Birth ; bio:date ?y .  FILTER ( year(xsd:dateTime(?y)) +170 <  year(now()) ) } UNION {  ?c a bio:Death ; bio:date ?d . FILTER ( year(xsd:dateTime(?d)) +70 <   year(now()) ) } }]]></flow:sparql-not>
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Birth ; bio:date ?y .  FILTER ( year(xsd:dateTime(?y)) +170 >  year(now()) ) } UNION {  ?c a bio:Death ; bio:date ?d . FILTER ( year(xsd:dateTime(?d)) +70 >   year(now()) ) } }]]></flow:sparql>
 	<rdfs:domain rdf:resource="#n40" />
 	<rdfs:range rdf:resource="#o84" />
 </flow:Map>
