@@ -22,9 +22,9 @@ class Node
     # Getting the configuration type (decision/answer)
     xml.elements.each('data') do |data|
       data.elements.each do |confNode|
-        if confNode.name == 'GenericNode' and
-           confNode.namespace == 'http://www.yworks.com/xml/graphml'
-          @question = true if confNode.attributes['configuration'] == 'com.yworks.flowchart.decision'
+        if confNode.name == 'ShapeNode' 
+	# and confNode.namespace == 'http://www.yworks.com/xml/graphml'
+          @question = true #if confNode.attributes['configuration'] == 'com.yworks.flowchart.decision'
 
           # Getting the text
           confNode.elements.each do |labelNode|
@@ -97,6 +97,7 @@ class Graphml2Rdf
       if ARGV[0].end_with?('z')
         gz = Zlib::GzipReader.new(StringIO.new(xml))
         xml = gz.read
+        print(xml)
       end
 
     begin
@@ -112,9 +113,11 @@ class Graphml2Rdf
       return
     end
 
+
     # For each node
     doc.elements.each('//node') { |element| manage_node element }
 
+    
     # For each edget
     doc.elements.each('//edge') { |element| manage_edge element }
 
