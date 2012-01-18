@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bio="http://purl.org/vocab/bio/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:ISBD="http://iflastandards.info/ns/isbd/elements/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB293499.ttl">
+    <foaf:primaryTopic>
+      <bibo:Document rdf:about="http://bibliographica.org/entry/BB293499">
+        <dc:contributor rdf:resource="http://bibliographica.org/entity/E288023"/>
+        <dc:contributor rdf:resource="http://bibliographica.org/entity/E81009"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB293499.ttl"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB293499.rdf"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB293499.html"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB293499.n3"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB293499.nt"/>
+        <dc:subject>
+          <skos:Concept>
+            <skos:prefLabel>Serial murderers--Wisconsin--Fiction.</skos:prefLabel>
+            <skos:inScheme rdf:resource="http://id.loc.gov/authorities#conceptScheme"/>
+          </skos:Concept>
+        </dc:subject>
+        <dc:subject>
+          <skos:Concept>
+            <skos:inScheme rdf:resource="http://dewey.info/scheme/e21"/>
+            <skos:notation>813.54</skos:notation>
+          </skos:Concept>
+        </dc:subject>
+        <dc:title>Black house</dc:title>
+        <bibo:identifier>GBA2X0145</bibo:identifier>
+        <ISBD:hasPlaceOfPublicationProductionDistribution>
+          <rdf:Description>
+            <rdfs:label>London</rdfs:label>
+          </rdf:Description>
+        </ISBD:hasPlaceOfPublicationProductionDistribution>
+        <bibo:isbn>urn:isbn:0007100442</bibo:isbn>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/0007100442"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/0007100442#book"/>
+        <dc:publisher rdf:resource="http://bibliographica.org/entity/E95680"/>
+        <OV:blid>009379032</OV:blid>
+        <dc:issued>c2001</dc:issued>
+        <dc:issued>(2002 [printing])</dc:issued>
+        <dc:extent>
+          <rdf:Description>
+            <rdfs:label>819 p</rdfs:label>
+          </rdf:Description>
+        </dc:extent>
+        <dc:language>
+          <rdf:Description>
+            <rdf:value>eng</rdf:value>
+          </rdf:Description>
+        </dc:language>
+        <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Book"/>
+      </bibo:Document>
+    </foaf:primaryTopic>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB293499.rdf">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB293499"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E288023">
+    <foaf:name>Straub, Peter</foaf:name>
+    <bio:event>
+      <bio:Birth>
+        <bio:date>1743-01-01T00:00:00Z</bio:date>
+      </bio:Birth>
+    </bio:event>
+    <skos:prefLabel>Straub, Peter, 1943-</skos:prefLabel>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB293499.html">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB293499"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB293499.n3">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB293499"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E95680">
+    <foaf:name>HarperCollins</foaf:name>
+    <skos:prefLabel>HarperCollins</skos:prefLabel>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB293499.nt">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB293499"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E81009">
+    <foaf:name>King, Stephen</foaf:name>
+    <bio:event>
+      <bio:Birth>
+        <bio:date>1847-01-01T00:00:00Z</bio:date>
+      </bio:Birth>
+    </bio:event>
+    <skos:prefLabel>King, Stephen, 1947-</skos:prefLabel>
+  </foaf:Agent>
+</rdf:RDF>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:ISBD="http://iflastandards.info/ns/isbd/elements/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E10349">
+    <skos:prefLabel>Collins</skos:prefLabel>
+    <foaf:name>Collins</foaf:name>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2105921.n3">
+    <foaf:primaryTopic>
+      <bibo:Book rdf:about="http://bibliographica.org/entry/BB2105921">
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/9780007259762#book"/>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/000725976x"/>
+        <rdfs:seeAlso rdf:resource="http://purl.org/NET/book/isbn/000725976x#book"/>
+        <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/9780007259762"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2105921.ttl"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2105921.nt"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2105921.n3"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2105921.rdf"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2105921.html"/>
+        <bibo:identifier>GBA799107</bibo:identifier>
+        <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+        <dc:language>
+          <rdf:Description>
+            <rdf:value>eng</rdf:value>
+          </rdf:Description>
+        </dc:language>
+        <ISBD:hasPlaceOfPublicationProductionDistribution>
+          <rdf:Description>
+            <rdfs:label>Glasgow</rdfs:label>
+          </rdf:Description>
+        </ISBD:hasPlaceOfPublicationProductionDistribution>
+        <dc:issued>2008-01-01T00:00:00Z</dc:issued>
+        <dc:extent>
+          <rdf:Description>
+            <rdfs:label>1 v</rdfs:label>
+          </rdf:Description>
+        </dc:extent>
+        <OV:blid>014463726</OV:blid>
+        <dc:subject>
+          <skos:Concept>
+            <skos:notation>440.5203</skos:notation>
+            <skos:inScheme rdf:resource="http://dewey.info/scheme/e22"/>
+          </skos:Concept>
+        </dc:subject>
+        <bibo:isbn>urn:isbn:9780007259762</bibo:isbn>
+        <bibo:isbn>urn:isbn:000725976x</bibo:isbn>
+        <dc:title>The Holy Bible ; King James version.</dc:title>
+        <dc:publisher rdf:resource="http://bibliographica.org/entity/E10349"/>
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Document"/>
+      </bibo:Book>
+    </foaf:primaryTopic>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2105921.html">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2105921"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2105921.ttl">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2105921"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2105921.rdf">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2105921"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB2105921.nt">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB2105921"/>
+  </foaf:Document>
+</rdf:RDF>

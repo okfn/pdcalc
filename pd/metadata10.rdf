@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:bibo="http://purl.org/ontology/bibo/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:OV="http://open.vocab.org/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB1488384.html">
+    <foaf:primaryTopic>
+      <bibo:Document rdf:about="http://bibliographica.org/entry/BB1488384">
+        <OV:blid>010300603</OV:blid>
+        <rdf:type rdf:resource="http://purl.org/ontology/bibo/Book"/>
+        <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
+        <dc:publisher rdf:resource="http://bibliographica.org/entity/E1185422"/>
+        <bibo:identifier>GB5815247</bibo:identifier>
+        <dc:issued>1958-01-01T00:00:00Z</dc:issued>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB1488384.html"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB1488384.rdf"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB1488384.ttl"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB1488384.nt"/>
+        <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB1488384.n3"/>
+        <dc:extent>
+          <rdf:Description>
+            <rdfs:label>18f.,33cm</rdfs:label>
+          </rdf:Description>
+        </dc:extent>
+        <dc:subject>
+          <skos:Concept>
+            <skos:inScheme rdf:resource="http://dewey.info/scheme/e18"/>
+            <skos:notation>342.4403</skos:notation>
+          </skos:Concept>
+        </dc:subject>
+        <dc:title>Draft of the new constitution of the French Republic : to be submitted to the French people in a referendum on the 28th September, 1958.</dc:title>
+        <dc:contributor rdf:resource="http://bibliographica.org/entity/E1185421"/>
+        <dc:language>
+          <rdf:Description>
+            <rdf:value>eng</rdf:value>
+          </rdf:Description>
+        </dc:language>
+      </bibo:Document>
+    </foaf:primaryTopic>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E1185422">
+    <foaf:name>Ambassade de France à Londres</foaf:name>
+    <skos:prefLabel>Ambassade de France à Londres</skos:prefLabel>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB1488384.rdf">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB1488384"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB1488384.n3">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB1488384"/>
+  </foaf:Document>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB1488384.ttl">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB1488384"/>
+  </foaf:Document>
+  <foaf:Agent rdf:about="http://bibliographica.org/entity/E1185421">
+    <foaf:name>France. Constitutions.</foaf:name>
+    <skos:prefLabel>France. Constitutions.</skos:prefLabel>
+  </foaf:Agent>
+  <foaf:Document rdf:about="http://bibliographica.org/entry/BB1488384.nt">
+    <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB1488384"/>
+  </foaf:Document>
+</rdf:RDF>
