@@ -9,7 +9,8 @@ class Node:
     self.options_list = []
 
   def is_question(self):
-    return self.question
+#    return self.question
+     return len(self._get_options())
 
   def _get_text(self):
     return self.text_value
