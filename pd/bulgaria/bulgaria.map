@@ -44,7 +44,7 @@ START OF FILM
     <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 < year(now()) )  } }]]></flow:sparql>
         <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first fixated  (bad assumption) "</flow:assumption>
     <rdfs:domain rdf:resource="#n5" />
-    <rdfs:range rdf:resource="#o56" />
+    <rdfs:range rdf:resource="#o66" />
 </flow:Map>
 
 <flow:Map rdf:ID="n5o67">

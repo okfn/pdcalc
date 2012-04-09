@@ -10,7 +10,7 @@
 >
   <foaf:Document rdf:about="http://bibliographica.org/entry/BB2181394.n3">
     <foaf:primaryTopic>
-      <bibo:Book rdf:about="http://bibliographica.org/entry/BB2181394">
+      <bibo:Document rdf:about="http://bibliographica.org/entry/BB2181394">
         <bibo:identifier>GB5913551</bibo:identifier>
         <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
         <dc:language>
@@ -18,7 +18,7 @@
             <rdf:value>eng</rdf:value>
           </rdf:Description>
         </dc:language>
-        <dc:issued>1959-01-01T00:00:00Z</dc:issued>
+        <dc:issued>1899-01-01T00:00:00Z</dc:issued>
         <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2181394.nt"/>
         <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2181394.ttl"/>
         <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB2181394.n3"/>
@@ -39,7 +39,7 @@
           </skos:Concept>
         </dc:subject>
         <dc:publisher rdf:resource="http://bibliographica.org/entity/E18958"/>
-      </bibo:Book>
+      </bibo:Document>
     </foaf:primaryTopic>
   </foaf:Document>
   <foaf:Document rdf:about="http://bibliographica.org/entry/BB2181394.nt">

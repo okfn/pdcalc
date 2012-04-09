@@ -8,7 +8,7 @@ Start of film
 <flow:Map rdf:ID="n0o20">
     <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:Film}]]></flow:sparql>
     <rdfs:domain rdf:resource="#n0" />
-    <rdfs:range rdf:resource="#o23" />
+    <rdfs:range rdf:resource="#o20" />
   </flow:Map>
 
 
@@ -668,15 +668,15 @@ STart of non origninal photograph
 <flow:Map rdf:ID="n46o45">
 	<flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:image; ?b dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )   }]]></flow:sparql>
         <flow:assumption>"No information provided about the date of creation: assuming that the Photograph dc:issued represents the time of creation (bad assumption) "</flow:assumption>
-    <rdfs:domain rdf:resource="#n45" />
-    <rdfs:range rdf:resource="#o38" />
+    <rdfs:domain rdf:resource="#n46" />
+    <rdfs:range rdf:resource="#o45" />
 </flow:Map>
 
 <flow:Map rdf:ID="n46o46">
         <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:image; ?b dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )   }]]></flow:sparql-not>
         <flow:assumption>"No information provided about the date of creation: assuming that the Photograph dc:issued represents the time of creation (bad assumption) "</flow:assumption>
-    <rdfs:domain rdf:resource="#n45" />
-    <rdfs:range rdf:resource="#o39" />
+    <rdfs:domain rdf:resource="#n46" />
+    <rdfs:range rdf:resource="#o46" />
 </flow:Map>
 
 End of PHoto

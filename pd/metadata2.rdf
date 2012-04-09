@@ -72,7 +72,7 @@
     <skos:prefLabel>Casey, John (John Peter Anthony), 1939-</skos:prefLabel>
     <bio:event>
       <bio:Birth>
-        <bio:date>1939-01-01T00:00:00Z</bio:date>
+        <bio:date>1000-01-01T00:00:00Z</bio:date>
       </bio:Birth>
     </bio:event>
     <foaf:name>Casey, John (John Peter Anthony)</foaf:name>

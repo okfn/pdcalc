@@ -14,7 +14,7 @@
   <foaf:Document rdf:about="http://bibliographica.org/entry/BB3493425.n3">
     <foaf:primaryTopic>
       <bibo:Document rdf:about="http://bibliographica.org/entry/BB3493425">
-        <dc:issued>2005-</dc:issued>
+        <dc:issued>1959-01-01T00:00:00Z</dc:issued>
         <dc:language>
           <rdf:Description>
             <rdf:value>eng</rdf:value>
@@ -48,7 +48,7 @@
         <dc:subject>
           <skos:Concept>
             <skos:inScheme rdf:resource="http://dewey.info/scheme/e22"/>
-            <skos:notation>346.42082</skos:notation>
+            <skos:notation>809.42082</skos:notation>
           </skos:Concept>
         </dc:subject>
         <dc:subject>
@@ -83,7 +83,7 @@
             <rdfs:label>v</rdfs:label>
           </rdf:Description>
         </dc:extent>
-        <dc:title>Bankers' law.</dc:title>
+        <dc:title>Peter Pan.</dc:title>
       </bibo:Document>
     </foaf:primaryTopic>
   </foaf:Document>

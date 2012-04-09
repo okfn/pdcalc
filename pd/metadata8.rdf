@@ -12,7 +12,7 @@
 >
   <foaf:Document rdf:about="http://bibliographica.org/entry/BB293499.ttl">
     <foaf:primaryTopic>
-      <bibo:Document rdf:about="http://bibliographica.org/entry/BB293499">
+      <bibo:Audio rdf:about="http://bibliographica.org/entry/BB293499">
         <dc:contributor rdf:resource="http://bibliographica.org/entity/E288023"/>
         <dc:contributor rdf:resource="http://bibliographica.org/entity/E81009"/>
         <foaf:isPrimaryTopicOf rdf:resource="http://bibliographica.org/entry/BB293499.ttl"/>
@@ -29,7 +29,7 @@
         <dc:subject>
           <skos:Concept>
             <skos:inScheme rdf:resource="http://dewey.info/scheme/e21"/>
-            <skos:notation>813.54</skos:notation>
+            <skos:notation>420.54</skos:notation>
           </skos:Concept>
         </dc:subject>
         <dc:title>Black house</dc:title>
@@ -58,21 +58,13 @@
         </dc:language>
         <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
         <rdf:type rdf:resource="http://purl.org/ontology/bibo/Book"/>
-      </bibo:Document>
+      </bibo:Audio>
     </foaf:primaryTopic>
   </foaf:Document>
   <foaf:Document rdf:about="http://bibliographica.org/entry/BB293499.rdf">
     <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB293499"/>
   </foaf:Document>
-  <foaf:Agent rdf:about="http://bibliographica.org/entity/E288023">
-    <foaf:name>Straub, Peter</foaf:name>
-    <bio:event>
-      <bio:Birth>
-        <bio:date>1743-01-01T00:00:00Z</bio:date>
-      </bio:Birth>
-    </bio:event>
-    <skos:prefLabel>Straub, Peter, 1943-</skos:prefLabel>
-  </foaf:Agent>
+  
   <foaf:Document rdf:about="http://bibliographica.org/entry/BB293499.html">
     <foaf:primaryTopic rdf:resource="http://bibliographica.org/entry/BB293499"/>
   </foaf:Document>
@@ -90,9 +82,19 @@
     <foaf:name>King, Stephen</foaf:name>
     <bio:event>
       <bio:Birth>
-        <bio:date>1847-01-01T00:00:00Z</bio:date>
+        <bio:date>1957-01-01T00:00:00Z</bio:date>
       </bio:Birth>
     </bio:event>
     <skos:prefLabel>King, Stephen, 1947-</skos:prefLabel>
   </foaf:Agent>
+<foaf:Agent rdf:about="http://bibliographica.org/entity/E81009">
+    <foaf:name>King, Stephen</foaf:name>
+    <bio:event>
+      <bio:Birth>
+        <bio:date>1967-01-01T00:00:00Z</bio:date>
+      </bio:Birth>
+    </bio:event>
+    <skos:prefLabel>King, Stephen, 1947-</skos:prefLabel>
+  </foaf:Agent>
+
 </rdf:RDF>

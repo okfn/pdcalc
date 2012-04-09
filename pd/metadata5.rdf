@@ -16,9 +16,10 @@
         <bio:date>1812-01-01T00:00:00Z</bio:date>
       </bio:Birth>
     </bio:event>
+
     <bio:event>
       <bio:Death>
-        <bio:date>1870-01-01T00:00:00Z</bio:date>
+        <bio:date>1600-01-01T00:00:00Z</bio:date>
       </bio:Death>
     </bio:event>
     <skos:prefLabel>Dickens, Charles, 1812-1870</skos:prefLabel>
@@ -26,10 +27,10 @@
   </foaf:Agent>
   <foaf:Document rdf:about="http://bibliographica.org/entry/BB455088.nt">
     <foaf:primaryTopic>
-      <bibo:Book rdf:about="http://bibliographica.org/entry/BB455088">
+      <bibo:Film rdf:about="http://bibliographica.org/entry/BB455088">
         <dc:isPartOf rdf:resource="http://ckan.net/package/jiscopenbib-bl_bnb-1"/>
         <bibo:identifier>GBA2U3982</bibo:identifier>
-        <dc:issued>2003-01-01T00:00:00Z</dc:issued>
+        <dc:issued>1950-01-01T00:00:00Z</dc:issued>
         <dc:language>
           <rdf:Description>
             <rdf:value>eng</rdf:value>
@@ -71,7 +72,7 @@
         <rdfs:seeAlso rdf:resource="http://www4.wiwiss.fu-berlin.de/bookmashup/books/1904351824"/>
         <dc:contributor rdf:resource="http://bibliographica.org/entity/E11571"/>
         <dc:title>Oliver Twist</dc:title>
-      </bibo:Book>
+      </bibo:Film>
     </foaf:primaryTopic>
   </foaf:Document>
   <foaf:Document rdf:about="http://bibliographica.org/entry/BB455088.rdf">

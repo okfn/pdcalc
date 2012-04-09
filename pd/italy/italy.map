@@ -573,7 +573,7 @@ START OF LITERARY ARTISTIC
 	<rdfs:domain rdf:resource="#n43" />
 	<rdfs:range rdf:resource="#o12" />
 </flow:Map>
-<flow:Map rdf:ID="n42o13">
+<flow:Map rdf:ID="n43o13">
 	<flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> SELECT  ?count (count(?bio) as ?x) WHERE { ?bio a bio:Birth } HAVING( count(?bio) > 1) ]]></flow:sparql>
 	<flow:assumption>"assuming that if there is more than one bio date in the metadata the work is collective "</flow:assumption>
 	<rdfs:domain rdf:resource="#n43" />
