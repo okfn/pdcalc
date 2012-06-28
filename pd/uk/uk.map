@@ -1,0 +1,1349 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:flow="http://okfnpad.org/flow/0.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+Start of film
+
+<flow:Map rdf:ID="n0o104">
+    <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:Film}]]></flow:sparql>
+    <rdfs:domain rdf:resource="#n0" />
+    <rdfs:range rdf:resource="#o104" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n1o117">
+    	  <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ]]></flow:sparql>
+	<flow:assumption>"Assuming that if the metadata contains a bio event then film has a principal director, author of screenplay, author of dialogue or composer of the music specially created for and used in the film."</flow:assumption>
+    <rdfs:domain rdf:resource="#n1" />
+    <rdfs:range rdf:resource="#o117" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n42o44">
+   <flow:sparql><![CDATA[ASK { } ]]></flow:sparql>
+        <flow:assumption>"Assuming that if the metadata contains a foaf:agent with a bio event then the identity of at least one of the following people known (5): the principal director, the author of the screenplay, the author of the dialogue or the composer of the music specially created for and used in the film"</flow:assumption>
+    <rdfs:domain rdf:resource="#n42" />
+    <rdfs:range rdf:resource="#o44" />
+</flow:Map>
+
+
+There is something drastically wrong with this query it seems to yeild correct answers only when the date of issue is past 1989 if its before its always yes even the the first part doesnt pan???
+NO
+<flow:Map rdf:ID="n71o113">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK { {?x a bio:Death; bio:date ?d . FILTER( year(xsd:dateTime(?d))  > 1970 )} UNION { ?y a bibo:Film; dc:issued ?b . FILTER( year(xsd:dateTime(?b)) <  1989 )} }]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n71" />
+	<rdfs:range rdf:resource="#o113" />
+</flow:Map>
+
+YES
+<flow:Map rdf:ID="n71o114">
+      <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> SELECT  ?x, ?y WHERE { ?x a bio:Death; bio:date ?d. ?y a bibo:Film; dc:issued ?b } HAVING( year(xsd:dateTime(?d))  < 1970 && year(xsd:dateTime(?b)) >  1989) ]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n71" />
+	<rdfs:range rdf:resource="#o114" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n44o64">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> SELECT  ?x WHERE { ?x a bio:Death; bio:date ?d } HAVING( year(xsd:dateTime(?d)) +70 >  year(now()) )  ]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n44" />
+	<rdfs:range rdf:resource="#o64" />
+</flow:Map>
+
+<flow:Map rdf:ID="n44o65">
+      <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> SELECT  ?x WHERE { ?x a bio:Death; bio:date ?d } HAVING( year(xsd:dateTime(?d)) +70 >   year(now()) )  ]]></flow:sparql-not>
+	<rdfs:domain rdf:resource="#n44" />
+	<rdfs:range rdf:resource="#o65" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n72o121">
+   <flow:sparql-not><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK {?a a bibo:Film. FILTER (year(now()) < 2039 ) } ]]></flow:sparql-not>
+  <rdfs:domain rdf:resource="#n72" />
+    <rdfs:range rdf:resource="#o121" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n72o122">
+   <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK {?a a bibo:Film. FILTER (year(now()) < 2039 ) } ]]></flow:sparql>
+  <rdfs:domain rdf:resource="#n72" />
+    <rdfs:range rdf:resource="#o122" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n77o167">
+    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) > 1939 )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first made public"</flow:assumption>
+    <rdfs:domain rdf:resource="#n77" />
+    <rdfs:range rdf:resource="#o167" />
+</flow:Map>
+
+<flow:Map rdf:ID="n77o168">
+    <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) > 1939 )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first made public"</flow:assumption>
+    <rdfs:domain rdf:resource="#n77" />
+    <rdfs:range rdf:resource="#o168" />
+</flow:Map>
+
+<flow:Map rdf:ID="n78o177">
+    <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 > year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first published (this is likely to be a wrong assumption as there is no data regarding fixation date in the metadata)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n78" />
+    <rdfs:range rdf:resource="#o177" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n78o178">
+    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 > year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first published (this is likely to be a wrong assumption as there is no data regarding fixation date in the metadata"</flow:assumption>
+    <rdfs:domain rdf:resource="#n78" />
+    <rdfs:range rdf:resource="#o178" />
+</flow:Map>
+<flow:Map rdf:ID="n42o45">
+   <flow:sparql-not><![CDATA[ASK { } ]]></flow:sparql-not>
+        <flow:assumption>"Assuming that if the metadata contains a foaf:agent with a bio event then the identity of at least one of the following people known (5): the principal director, the author of the screenplay, the author of the dialogue or the composer of the music specially created for and used in the film"</flow:assumption>
+    <rdfs:domain rdf:resource="#n42" />
+    <rdfs:range rdf:resource="#o45" />
+</flow:Map>
+
+ <flow:Map rdf:ID="n73o131">
+    <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) < 1989 )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first published (this is likely to be a wrong assumption as there is no data regarding fixation date in the metadata)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n73" />
+    <rdfs:range rdf:resource="#o131" />
+</flow:Map>
+
+<flow:Map rdf:ID="n45o75">
+    	 <flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"No info provided on whether the Film was published/communicated to the public within 70 years from fixation: assuming yes."</flow:assumption>
+    <rdfs:domain rdf:resource="#n45" />
+    <rdfs:range rdf:resource="#o75" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n46o83">
+    <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 < year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first made public"</flow:assumption>
+    <rdfs:domain rdf:resource="#n46" />
+    <rdfs:range rdf:resource="#o83" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n46o84">
+    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 < year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first made public"</flow:assumption>
+    <rdfs:domain rdf:resource="#n46" />
+    <rdfs:range rdf:resource="#o84" />
+</flow:Map>
+
+<flow:Map rdf:ID="n45o76">
+    	 <flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"No info provided on whether the Film was published/communicated to the public within 70 years from fixation: assuming yes."</flow:assumption>
+    <rdfs:domain rdf:resource="#n45" />
+    <rdfs:range rdf:resource="#o76" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n47o93">
+    <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 < year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was created"</flow:assumption>
+    <rdfs:domain rdf:resource="#n47" />
+    <rdfs:range rdf:resource="#o93" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n47o94">
+    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 < year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was created"</flow:assumption>
+    <rdfs:domain rdf:resource="#n47" />
+    <rdfs:range rdf:resource="#o94" />
+</flow:Map>
+
+<flow:Map rdf:ID="n73o132">
+    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) < 1989 )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first published (this is likely to be a wrong assumption as there is no data regarding fixation date in the metadata"</flow:assumption>
+    <rdfs:domain rdf:resource="#n73" />
+    <rdfs:range rdf:resource="#o132" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n75o151">
+    <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (1989 < year(xsd:dateTime(?b)) && 2039 > year(xsd:dateTime(?b)))  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first published "</flow:assumption>
+    <rdfs:domain rdf:resource="#n75" />
+    <rdfs:range rdf:resource="#o151" />
+</flow:Map>
+
+<flow:Map rdf:ID="n74o141">
+   <flow:sparql-not><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK {?a a bibo:Film. FILTER (year(now()) < 2039 ) } ]]></flow:sparql-not>
+  <rdfs:domain rdf:resource="#n74" />
+    <rdfs:range rdf:resource="#o141" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n74o142">
+   <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK {?a a bibo:Film. FILTER (year(now()) < 2039 ) } ]]></flow:sparql>
+  <rdfs:domain rdf:resource="#n74" />
+    <rdfs:range rdf:resource="#o142" />
+</flow:Map>
+
+
+
+
+<flow:Map rdf:ID="n75o152">
+    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (1989 < year(xsd:dateTime(?b)) && 2039 > year(xsd:dateTime(?b)))  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first published "</flow:assumption>
+    <rdfs:domain rdf:resource="#n75" />
+    <rdfs:range rdf:resource="#o152" />
+</flow:Map>
+
+<flow:Map rdf:ID="n76o159">
+    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 < year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first made public"</flow:assumption>
+    <rdfs:domain rdf:resource="#n76" />
+    <rdfs:range rdf:resource="#o159" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n76o160">
+    <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 < year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first made public"</flow:assumption>
+    <rdfs:domain rdf:resource="#n76" />
+    <rdfs:range rdf:resource="#o160" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n1o118">
+    	  <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {   ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) < 1989 )   }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that if the metadata does not contain a bio event then film doesn't have principal director, author of screenplay, author of dialogue or composer of the music specially created for and used in the film."</flow:assumption>
+    <rdfs:domain rdf:resource="#n1" />
+    <rdfs:range rdf:resource="#o118" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n43o56">
+    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 < year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first fixated (this is likely to be a wrong assumption as there is no data regarding fixation date in the metadata)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n43" />
+    <rdfs:range rdf:resource="#o56" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n43o57">
+    <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Film ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 < year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first fixated (this is likely to be a wrong assumption as there is no data regarding fixation date in the metadata"</flow:assumption>
+    <rdfs:domain rdf:resource="#n43" />
+    <rdfs:range rdf:resource="#o57" />
+</flow:Map>
+
+
+END OF FILM
+
+
+START OF UNORIGONAL DATABASE
+
+<flow:Map rdf:ID="n0o105">
+    <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:Collection}]]></flow:sparql>
+    <flow:assumption>"Assuming that a bibo:Collection is a Database"</flow:assumption>
+    <rdfs:domain rdf:resource="#n0" />
+    <rdfs:range rdf:resource="#o105" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n6o161">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ]]></flow:sparql>
+        <flow:assumption>"Assuming that the right holder of a Database with a foaf:Agent bio:event is a not a firm or a company"</flow:assumption>
+    <rdfs:domain rdf:resource="#n6" />
+    <rdfs:range rdf:resource="#o161" />
+</flow:Map>
+
+<flow:Map rdf:ID="n4o143">
+       <flow:sparql><![CDATA[ASK { } ]]></flow:sparql>
+        <flow:assumption>"No information provided concerning the nationality of the right holder: assuming EEA."</flow:assumption>
+    <rdfs:domain rdf:resource="#n4" />
+    <rdfs:range rdf:resource="#o143" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n5o153">
+       <flow:sparql><![CDATA[ASK { } ]]></flow:sparql>
+        <flow:assumption>"Publication on Bibliographica is evidence that the Database has been communicated to the public since it's last substantial change"</flow:assumption>
+    <rdfs:domain rdf:resource="#n5" />
+    <rdfs:range rdf:resource="#o153" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n36o183">
+        <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Collection ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +15 >  year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming the dc:issued represents the date at which the Database was communicated to the public"</flow:assumption>
+    <rdfs:domain rdf:resource="#n36" />
+    <rdfs:range rdf:resource="#o183" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n36o184">
+        <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Collection ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +15 >  year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming the dc:issued represents the date at which the Database was communicated to the public"</flow:assumption>
+    <rdfs:domain rdf:resource="#n36" />
+    <rdfs:range rdf:resource="#o184" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n5o154">
+       <flow:sparql-not><![CDATA[ASK { } ]]></flow:sparql-not>
+        <flow:assumption>"Publication on Bibliographica is evidence that the Database has been communicated to the public since its last substantial change"</flow:assumption>
+    <rdfs:domain rdf:resource="#n5" />
+    <rdfs:range rdf:resource="#o154" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n37o6">
+        <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Collection ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +15 >  year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"There is no metadata about dates of completion or substantial changes to a database so dc:issued is used in place of this data but this is almost certianly a bad assumption"</flow:assumption>
+    <rdfs:domain rdf:resource="#n37" />
+    <rdfs:range rdf:resource="#o6" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n37o7">
+        <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Collection ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +15 >  year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"There is no metadata about dates of completion or substantial changes to a database so dc:issued is used in place of this data but this is almost certianly a bad assumption"</flow:assumption>
+    <rdfs:domain rdf:resource="#n37" />
+    <rdfs:range rdf:resource="#o7" />
+  </flow:Map>
+
+
+
+<flow:Map rdf:ID="n4o144">
+       <flow:sparql-not><![CDATA[ASK { } ]]></flow:sparql-not>
+        <flow:assumption>"No information provided concerning the nationality of the right holder: assuming EEA."</flow:assumption>
+    <rdfs:domain rdf:resource="#n4" />
+    <rdfs:range rdf:resource="#o144" />
+  </flow:Map>
+
+
+
+
+
+<flow:Map rdf:ID="n6o162">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ]]></flow:sparql-not>
+        <flow:assumption>"Assuming that if the right holder of a Database is a foaf:Agent with a bio:event, it is a firm or a company"</flow:assumption>
+    <rdfs:domain rdf:resource="#n6" />
+    <rdfs:range rdf:resource="#o162" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n7o169">
+       <flow:sparql><![CDATA[ASK { } ]]></flow:sparql>
+        <flow:assumption>"No information provided concerning the country in which the database was formed: assuming EEA."</flow:assumption>
+    <rdfs:domain rdf:resource="#n7" />
+    <rdfs:range rdf:resource="#o169" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n8o179">
+       <flow:sparql><![CDATA[ASK { } ]]></flow:sparql>
+        <flow:assumption>"No information provided concerning the country of the companies  registered office, central administration, or principal place of business: assuming EEA."</flow:assumption>
+    <rdfs:domain rdf:resource="#n8" />
+    <rdfs:range rdf:resource="#o179" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n8o180">
+       <flow:sparql-not><![CDATA[ASK { } ]]></flow:sparql-not>
+        <flow:assumption>"No information provided concerning the country of the companies  registered office, central administration, or principal place of business: assuming EEA."</flow:assumption>
+    <rdfs:domain rdf:resource="#n8" />
+    <rdfs:range rdf:resource="#o180" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n7o170">
+       <flow:sparql-not><![CDATA[ASK { } ]]></flow:sparql-not>
+        <flow:assumption>"No information provided concerning the country in which the database was formed: assuming EEA."</flow:assumption>
+    <rdfs:domain rdf:resource="#n7" />
+    <rdfs:range rdf:resource="#o170" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n9o10">
+       <flow:sparql><![CDATA[ASK { } ]]></flow:sparql>
+        <flow:assumption>"No information provided concerning In which country does it have its registered office: assuming EEA"</flow:assumption>
+    <rdfs:domain rdf:resource="#n9" />
+    <rdfs:range rdf:resource="#o10" />
+  </flow:Map>
+0
+<flow:Map rdf:ID="n10o133">
+       <flow:sparql-not><![CDATA[ASK { } ]]></flow:sparql-not>
+        <flow:assumption>"No information provided concerning whether its operations genuinely linked on an ongoing basis with the economy of an EEA state: assuming EEA"</flow:assumption>
+    <rdfs:domain rdf:resource="#n10" />
+    <rdfs:range rdf:resource="#o133" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n10o134">
+       <flow:sparql><![CDATA[ASK { } ]]></flow:sparql>
+        <flow:assumption>"No information provided concerning whether its operations genuinely linked on an ongoing basis with the economy of an EEA state: assuming EEA"</flow:assumption>
+    <rdfs:domain rdf:resource="#n10" />
+    <rdfs:range rdf:resource="#o134" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n9o11">
+       <flow:sparql-not><![CDATA[ASK { } ]]></flow:sparql-not>
+        <flow:assumption>"No information provided concerning In which country does it have its registered office: assuming EEA"</flow:assumption>
+    <rdfs:domain rdf:resource="#n9" />
+    <rdfs:range rdf:resource="#o11" />
+  </flow:Map>
+
+
+End of Databases
+
+start of Broadcast
+
+<flow:Map rdf:ID="n0o106">
+    <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:AudioVisualDocument }]]></flow:sparql>
+    <flow:assumption>"Assuming that a broadcast is a bibo:AudioVisualDocument - THIS IS WRONG meta would need a broadcast tag to be filtered"</flow:assumption>
+    <rdfs:domain rdf:resource="#n0" />
+    <rdfs:range rdf:resource="#o106" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n13o163">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioVisualDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the programme was first broadcasted "</flow:assumption>
+    <rdfs:domain rdf:resource="#n13" />
+    <rdfs:range rdf:resource="#o163" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n13o164">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioVisualDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the programme was first broadcasted "</flow:assumption>
+    <rdfs:domain rdf:resource="#n13" />
+    <rdfs:range rdf:resource="#o164" />
+  </flow:Map>
+
+End of broadcast
+
+
+START OF PERFORMANCE 
+
+<flow:Map rdf:ID="n0o107">
+    <flow:sparql><![CDATA[ prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:Performance}]]></flow:sparql>
+    <rdfs:domain rdf:resource="#n0" />
+    <rdfs:range rdf:resource="#o107" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n14o171">
+       <flow:sparql><![CDATA[ ASK { }]]></flow:sparql>
+        <flow:assumption>"No information provided about the first fixation of the Performance: assuming it has been fixated within 50 years from the date of the performance."</flow:assumption>
+    <rdfs:domain rdf:resource="#n14" />
+    <rdfs:range rdf:resource="#o171" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n15o181">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Performance ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming the dc:issued represents the date of first communication or to the public or publishing date of the fixation"</flow:assumption>
+    <rdfs:domain rdf:resource="#n15" />
+    <rdfs:range rdf:resource="#o181" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n15o182">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Performance ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"AAssuming the dc:issued represents the date of first communication or to the public or publishing date of the fixation"</flow:assumption>
+    <rdfs:domain rdf:resource="#n15" />
+    <rdfs:range rdf:resource="#o182" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n14o172">
+       <flow:sparql-not><![CDATA[ ASK { }]]></flow:sparql-not>
+        <flow:assumption>"No information provided about the first fixation of the Performance: assuming it has been fixated within 50 years from the date of the performance."</flow:assumption>
+    <rdfs:domain rdf:resource="#n14" />
+    <rdfs:range rdf:resource="#o172" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n16o4">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Performance ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming the dc:issued represents the date the perfomance took place (which it does not in this case, more information is needed in the metadata for this to be answered properly)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n16" />
+    <rdfs:range rdf:resource="#o4" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n16o5">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Performance ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming the dc:issued represents the date the perfomance took place (which it does not in this case, more information is needed in the metadata for this to be answered properly)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n16" />
+    <rdfs:range rdf:resource="#o5" />
+  </flow:Map>
+
+END OF PERFOMANCE
+
+START OF PHONOGRAM
+
+<flow:Map rdf:ID="n0o108">
+    <flow:sparql><![CDATA[ prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:AudioDocument }]]></flow:sparql>
+    <rdfs:domain rdf:resource="#n0" />
+    <rdfs:range rdf:resource="#o108" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n17o14">
+       <flow:sparql><![CDATA[ ASK { }]]></flow:sparql>
+        <flow:assumption>"No information provided about the date of creation: assuming that the Phonogram has been published within 50 years of its creation"</flow:assumption>
+    <rdfs:domain rdf:resource="#n17" />
+    <rdfs:range rdf:resource="#o14" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n18o24">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date the phonogram was first published"</flow:assumption>
+    <rdfs:domain rdf:resource="#n18" />
+    <rdfs:range rdf:resource="#o24" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n18o25">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date the phonogram was first published"</flow:assumption>
+    <rdfs:domain rdf:resource="#n18" />
+    <rdfs:range rdf:resource="#o25" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n17o15">
+       <flow:sparql-not><![CDATA[ ASK { }]]></flow:sparql-not>
+        <flow:assumption>"No information provided about the date of creation: assuming that the Phonogram has been published within 50 years of its creation"</flow:assumption>
+    <rdfs:domain rdf:resource="#n17" />
+    <rdfs:range rdf:resource="#o15" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n19o38">
+       <flow:sparql-not><![CDATA[ ASK { }]]></flow:sparql-not>
+        <flow:assumption>"No information provided about the date of creation: assuming that the Phonogram has been communicated to the public or played in public within 50 years of its creation... assuming yes"</flow:assumption>
+    <rdfs:domain rdf:resource="#n19" />
+    <rdfs:range rdf:resource="#o38" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n35o173">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date the phonogram was first communicated to the public(which in this case it will not, more information is needed in the metadata to make a proper determination)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n35" />
+    <rdfs:range rdf:resource="#o173" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n35o174">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date the phonogram was first communicated to the public (which in this case it will not, more information is needed in the metadata to make a proper determination)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n35" />
+    <rdfs:range rdf:resource="#o174" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n81o12">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) > 1957 )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date the phonogram was first communicated to the public(which in this case it will not, more information is needed in the metadata to make a proper determination)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n81" />
+    <rdfs:range rdf:resource="#o12" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n81o13">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioDocument ; dc:issued ?b. FILTER (year(xsd:dateTime(?b)) > 1957 )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date the phonogram was first communicated to the public (which in this case it will not, more information is needed in the metadata to make a proper determination)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n81" />
+    <rdfs:range rdf:resource="#o13" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n82o22">
+   <flow:sparql-not><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK {?a a bibo:AudioDocument. FILTER (year(now()) < 2039 ) } ]]></flow:sparql-not>
+  <rdfs:domain rdf:resource="#n82" />
+    <rdfs:range rdf:resource="#o22" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n82o23">
+   <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK {?a a bibo:AudioDocument. FILTER (year(now()) < 2039 ) } ]]></flow:sparql>
+  <rdfs:domain rdf:resource="#n82" />
+    <rdfs:range rdf:resource="#o23" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n19o39">
+       <flow:sparql-not><![CDATA[ ASK { }]]></flow:sparql-not>
+        <flow:assumption>"No information provided about the date of creation: assuming that the Phonogram has been communicated to the public or played in public within 50 years of its creation... assuming yes"</flow:assumption>
+    <rdfs:domain rdf:resource="#n19" />
+    <rdfs:range rdf:resource="#o39" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n20o36">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date the phonogram was created"</flow:assumption>
+    <rdfs:domain rdf:resource="#n20" />
+    <rdfs:range rdf:resource="#o36" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n20o37">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:AudioDocument ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date the phonogram was created"</flow:assumption>
+    <rdfs:domain rdf:resource="#n20" />
+    <rdfs:range rdf:resource="#o37" />
+  </flow:Map>
+
+End of PHONOGRAM
+
+
+START OF LITERARY ARTISTIC 
+
+ <flow:Map rdf:ID="n0o109">
+    <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bibo: <http://purl.org/ontology/bibo/> prefix skos: <http://www.w3.org/2004/02/skos/core#> prefix xsd: <http://www.w3.org/2001/XMLSchema#> ASK {  { ?a a bibo:Book } UNION { ?a a bibo:Document }. }]]></flow:sparql>
+    <flow:assumption>"Assuming that in the database of Bibliographica a literary/artistic work necessarily qualifies as either bibo:Book or bibo:Document"</flow:assumption>
+    <rdfs:domain rdf:resource="#n0" />
+    <rdfs:range rdf:resource="#o109" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n49o115">
+	<flow:sparql><![CDATA[ prefix dc: <http://purl.org/dc/terms/> SELECT  ?title WHERE { ?x dc:title ?title FILTER regex( ?title, "peter pan", "i")  }]]></flow:sparql>
+	<flow:assumption>"Assuming that the work "Peter Pan" by Sir James Matthew Barrie or an adaptation of that work will be archived with a dewey notation that is 3.14"</flow:assumption>
+	<rdfs:domain rdf:resource="#n49" />
+	<rdfs:range rdf:resource="#o115" />
+</flow:Map>
+
+<flow:Map rdf:ID="n49o116">
+	<flow:sparql-not><![CDATA[ prefix dc: <http://purl.org/dc/terms/> SELECT  ?title WHERE { ?x dc:title ?title FILTER regex( ?title, "peter pan", "i")  }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the work "Peter Pan" by Sir James Matthew Barrie or an adaptation of that work will be archived within the dc title"</flow:assumption>
+	<rdfs:domain rdf:resource="#n49" />
+	<rdfs:range rdf:resource="#o116" />
+</flow:Map>
+
+<flow:Map rdf:ID="n22o50">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"Assuming that an Unknown work cannot be detected from the metadata at this time  "</flow:assumption>
+        <rdfs:domain rdf:resource="#n22" />
+        <rdfs:range rdf:resource="#o50" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n22o51">
+        <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK {  } ]]></flow:sparql>
+	<flow:assumption>"Assuming that a work with an Author + Name + bio event is an Natural person's work   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n22" />
+        <rdfs:range rdf:resource="#o51" />
+</flow:Map>
+
+<flow:Map rdf:ID="n60o18">
+        <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ]]></flow:sparql-not>
+	<flow:assumption>"Assuming that a work with no  bio/event is an anonymous or pseudonymous work  a "</flow:assumption>
+        <rdfs:domain rdf:resource="#n60" />
+        <rdfs:range rdf:resource="#o18" />
+</flow:Map>
+
+<flow:Map rdf:ID="n23o62">
+	<flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"Assuming that the author's place of residence or nationality is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n23" />
+	<rdfs:range rdf:resource="#o62" />
+</flow:Map>
+
+<flow:Map rdf:ID="n62o34">
+	<flow:sparql><![CDATA[prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}. ?a dc:issued ?b. FILTER(year(xsd:dateTime(?b)) < 1969)}]]></flow:sparql>
+	<flow:assumption>"since there is no way in the current metadata to distinguish between creation and publication dates the dc issued is assumed to represent the creation date and so for this question it is only considered if it was created/published before 1969"</flow:assumption>
+	<rdfs:domain rdf:resource="#n62" />
+	<rdfs:range rdf:resource="#o34" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n61o30">
+   <flow:sparql-not><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}. FILTER (year(now()) > 2039 ) } ]]></flow:sparql-not>
+  <rdfs:domain rdf:resource="#n61" />
+    <rdfs:range rdf:resource="#o30" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n61o31">
+   <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}. FILTER (year(now()) > 2039 ) } ]]></flow:sparql>
+  <rdfs:domain rdf:resource="#n61" />
+    <rdfs:range rdf:resource="#o31" />
+</flow:Map>
+
+<flow:Map rdf:ID="n68o89">
+   <flow:sparql-not><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}. ?a dc:issued ?b. FILTER(year(xsd:dateTime(?b)) < 2040) } ]]></flow:sparql-not>
+  <rdfs:domain rdf:resource="#n68" />
+    <rdfs:range rdf:resource="#o89" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n68o90">
+   <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}.?a dc:issued ?b. FILTER(year(xsd:dateTime(?b)) < 2040) } ]]></flow:sparql>
+  <rdfs:domain rdf:resource="#n68" />
+    <rdfs:range rdf:resource="#o90" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n29o123">
+       <flow:sparql><![CDATA[ ASK { }]]></flow:sparql>
+        <flow:assumption>"No information provided about the date of creation: assuming that the work has been published within 70 years of its creation"</flow:assumption>
+    <rdfs:domain rdf:resource="#n29" />
+    <rdfs:range rdf:resource="#o123" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n31o135">
+        <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a bibo:Book } UNION { ?a a bibo:Document }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )   }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that dc:issued represents the date which the work was first made available to the public (probably wrong assumption?)"</flow:assumption>
+        <rdfs:domain rdf:resource="#n31" />
+        <rdfs:range rdf:resource="#o135" />
+</flow:Map>
+
+<flow:Map rdf:ID="n31o136">
+        <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a bibo:Book } UNION { ?a a bibo:Document }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )   }]]></flow:sparql>
+	<flow:assumption>"Assuming that dc:issued represents the date which the work was first made available to the public (probably wrong assumption?)"</flow:assumption>
+        <rdfs:domain rdf:resource="#n31" />
+        <rdfs:range rdf:resource="#o136" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n29o124">
+       <flow:sparql-not><![CDATA[ ASK { }]]></flow:sparql-not>
+        <flow:assumption>"No information provided about the date of creation: assuming that the work has been published within 70 years of its creation"</flow:assumption>
+    <rdfs:domain rdf:resource="#n29" />
+    <rdfs:range rdf:resource="#o124" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n32o145">
+        <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a bibo:Book } UNION { ?a a bibo:Document }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that dc:issued represents the date of first publication or communication for the work (probably wrong assumption?)"</flow:assumption>
+        <rdfs:domain rdf:resource="#32" />
+        <rdfs:range rdf:resource="#o145" />
+</flow:Map>
+
+<flow:Map rdf:ID="n32o146">
+        <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }]]></flow:sparql>
+	<flow:assumption>"Assuming that dc:issued represents the date of first publication or communication for the work (probably wrong assumption?)"</flow:assumption>
+        <rdfs:domain rdf:resource="#n32" />
+        <rdfs:range rdf:resource="#o146" />
+</flow:Map>
+
+<flow:Map rdf:ID="n62o35">
+	<flow:sparql-not><![CDATA[prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}. ?a dc:issued ?b. FILTER(year(xsd:dateTime(?b)) < 1969)}]]></flow:sparql-not>
+	<flow:assumption>"since there is no way in the current metadata to distinguish between creation and publication dates the dc issued is assumed to represent the creation date and so for this question it is only considered if it was created/published before 1969"</flow:assumption>
+	<rdfs:domain rdf:resource="#n62" />
+	<rdfs:range rdf:resource="#o35" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n25o81">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"The presence of a work on bibliographica consitutes availability to the public"</flow:assumption>
+	<rdfs:domain rdf:resource="#n25" />
+	<rdfs:range rdf:resource="#o81" />
+</flow:Map>
+
+<flow:Map rdf:ID="n30o127">
+        <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a bibo:Book } UNION { ?a a bibo:Document }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )   }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that dc:issued represents the date which the work was first made available to the public (probably wrong assumption?)"</flow:assumption>
+        <rdfs:domain rdf:resource="#n30" />
+        <rdfs:range rdf:resource="#o127" />
+</flow:Map>
+
+<flow:Map rdf:ID="n30o128">
+        <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a bibo:Book } UNION { ?a a bibo:Document }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )   }]]></flow:sparql>
+	<flow:assumption>"Assuming that dc:issued represents the date which the work was first made available to the public (probably wrong assumption?)"</flow:assumption>
+        <rdfs:domain rdf:resource="#n31" />
+        <rdfs:range rdf:resource="#o128" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n25o82">
+	<flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"The presence of a work on bibliographica consitutes availability to the public"</flow:assumption>
+	<rdfs:domain rdf:resource="#n25" />
+	<rdfs:range rdf:resource="#o82" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n23o63">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the author's place of residence or nationality is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n23" />
+	<rdfs:range rdf:resource="#o63" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n24o72">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the country of origin of the work is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n24" />
+	<rdfs:range rdf:resource="#o72" />
+</flow:Map>
+
+<flow:Map rdf:ID="n26o91">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the nationality or place of residence or place of establishment of the author is Berne Trips since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n26" />
+	<rdfs:range rdf:resource="#o91" />
+</flow:Map>
+
+<flow:Map rdf:ID="n26o92">
+	<flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"Assuming that the nationality or place of residence or place of establishment of the author is Berne Trips since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n26" />
+	<rdfs:range rdf:resource="#o92" />
+</flow:Map>
+
+<flow:Map rdf:ID="n24o73">
+	<flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"Assuming that the country of origin of the work is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n24" />
+	<rdfs:range rdf:resource="#o73" />
+</flow:Map>
+
+<flow:Map rdf:ID="n24o74">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the country of origin of the work is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n24" />
+	<rdfs:range rdf:resource="#o74" />
+</flow:Map>
+
+
+
+
+Natrual Name Author
+
+<flow:Map rdf:ID="n60o19">
+        <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ]]></flow:sparql>
+	<flow:assumption>"Assuming that a work with no  bio/event is an anonymous or pseudonymous work "</flow:assumption>
+        <rdfs:domain rdf:resource="#n60" />
+        <rdfs:range rdf:resource="#o19" />
+</flow:Map>
+
+<flow:Map rdf:ID="n33o155">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the author's place of residence or nationality is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n33" />
+	<rdfs:range rdf:resource="#o155" />
+</flow:Map>
+
+<flow:Map rdf:ID="n70o97">
+	<flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"Assuming that the country of origin of the work is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n70" />
+	<rdfs:range rdf:resource="#o97" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n70o98">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the country of origin of the work is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n70" />
+	<rdfs:range rdf:resource="#o98" />
+</flow:Map>
+
+<flow:Map rdf:ID="n70o99">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"Assuming that the country of origin of the work is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n70" />
+	<rdfs:range rdf:resource="#o99" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n33o156">
+	<flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"Assuming that the author's place of residence or nationality is EEA since no info is provided in the metadata"</flow:assumption>
+	<rdfs:domain rdf:resource="#n33" />
+	<rdfs:range rdf:resource="#o156" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n63o46">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK { {?x a bio:Death; bio:date ?d . FILTER( year(xsd:dateTime(?d))  < 1970 )} UNION { ?y a foaf:Document; dc:issued ?b . FILTER( year(xsd:dateTime(?b)) <  1989 )} }]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n63" />
+	<rdfs:range rdf:resource="#o46" />
+</flow:Map>
+
+<flow:Map rdf:ID="n64o58">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Photo ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) < 1957 )  } }]]></flow:sparql>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the work was created"</flow:assumption>
+    <rdfs:domain rdf:resource="#n64" />
+    <rdfs:range rdf:resource="#o58" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n39o28">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"The presence of a work on bibliographica consitutes availability to the public"</flow:assumption>
+	<rdfs:domain rdf:resource="#n39" />
+	<rdfs:range rdf:resource="#o28" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n38o16">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Birth ; bio:date ?y .  FILTER ( year(xsd:dateTime(?y)) +170 <  year(now()) ) } UNION {  ?c a bio:Death ; bio:date ?d . FILTER ( year(xsd:dateTime(?d)) +70 <   year(now()) ) } }]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n38" />
+	<rdfs:range rdf:resource="#o16" />
+</flow:Map>
+
+<flow:Map rdf:ID="n38o17">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Birth ; bio:date ?y .  FILTER ( year(xsd:dateTime(?y)) +170 <  year(now()) ) } UNION {  ?c a bio:Death ; bio:date ?d . FILTER ( year(xsd:dateTime(?d)) +70 <   year(now()) ) } }]]></flow:sparql-not>
+	<rdfs:domain rdf:resource="#n38" />
+	<rdfs:range rdf:resource="#o17" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n39o29">
+	<flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"The presence of a work on bibliographica consitutes availability to the public"</flow:assumption>
+	<rdfs:domain rdf:resource="#n39" />
+	<rdfs:range rdf:resource="#o29" />
+</flow:Map>
+
+<flow:Map rdf:ID="n40o26">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {    ?c a bio:Death ; bio:date ?d . ?y a bibo:Document; dc:issued ?b . FILTER ( year(xsd:dateTime(?d)) +70 >   year(xsd:dateTime(?b)) ) } ]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n40" />
+	<rdfs:range rdf:resource="#o26" />
+</flow:Map>
+
+<flow:Map rdf:ID="n40o27">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {    ?c a bio:Death ; bio:date ?d . ?y a bibo:Document; dc:issued ?b . FILTER ( year(xsd:dateTime(?d)) +70 >   year(xsd:dateTime(?b)) ) } ]]></flow:sparql-not>
+	<rdfs:domain rdf:resource="#n40" />
+	<rdfs:range rdf:resource="#o27" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n64o59">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a bibo:Photo ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) < 1957 )  } }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the work was created"</flow:assumption>
+    <rdfs:domain rdf:resource="#n64" />
+    <rdfs:range rdf:resource="#o59" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n69o100">
+   <flow:sparql-not><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo } }. FILTER (year(now()) > 2039 ) } ]]></flow:sparql-not>
+  <rdfs:domain rdf:resource="#n69" />
+    <rdfs:range rdf:resource="#o100" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n69o101">
+   <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo } }. FILTER (year(now()) > 2039 ) } ]]></flow:sparql>
+  <rdfs:domain rdf:resource="#n69" />
+    <rdfs:range rdf:resource="#o101" />
+</flow:Map>
+
+
+
+
+
+
+<flow:Map rdf:ID="n63o47">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK { {?x a bio:Death; bio:date ?d . FILTER( year(xsd:dateTime(?d))  < 1970 )} UNION { ?y a foaf:Document; dc:issued ?b . FILTER( year(xsd:dateTime(?b)) <  1989 )} }]]></flow:sparql-not>
+	<rdfs:domain rdf:resource="#n63" />
+	<rdfs:range rdf:resource="#o47" />
+</flow:Map>
+
+<flow:Map rdf:ID="n67o79">
+      <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  >  1989 )   }]]></flow:sparql>
+	<flow:assumption>"Assuming that dc:issued represents the date of first publication or communication for the work (probably wrong assumption?)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n67" />
+    <rdfs:range rdf:resource="#o79" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n67o80">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  >  1989 )   }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the work was created"</flow:assumption>
+    <rdfs:domain rdf:resource="#n67" />
+    <rdfs:range rdf:resource="#o80" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n65o66">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  ?c a bio:Death ; bio:date ?d .  FILTER ( year(xsd:dateTime(?d)) +20 <   year(xsd:dateTime(?b)) ) } ]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n65" />
+	<rdfs:range rdf:resource="#o66" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n66o70">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.    FILTER ( year(xsd:dateTime(?b)) +50 <   year(now())  ) } ]]></flow:sparql-not>
+	<rdfs:domain rdf:resource="#n66" />
+	<rdfs:range rdf:resource="#o70" />
+</flow:Map>
+
+<flow:Map rdf:ID="n66o71">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.    FILTER ( year(xsd:dateTime(?b)) +50 <   year(now())  ) } ]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n66" />
+	<rdfs:range rdf:resource="#o71" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n65o67">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  ?c a bio:Death ; bio:date ?d .  FILTER ( year(xsd:dateTime(?d)) +20 <  year(xsd:dateTime(?b)) ) } ]]></flow:sparql-not>
+	<rdfs:domain rdf:resource="#n65" />
+	<rdfs:range rdf:resource="#o67" />
+</flow:Map>
+
+<flow:Map rdf:ID="n22o52">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is computer generated or not from the metadata provided   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n22" />
+        <rdfs:range rdf:resource="#o52" />
+</flow:Map>
+
+<flow:Map rdf:ID="n51o125">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.    FILTER ( year(xsd:dateTime(?b)) +50 <   year(now())  ) } ]]></flow:sparql-not>
+	<rdfs:domain rdf:resource="#n51" />
+	<rdfs:range rdf:resource="#o125" />
+</flow:Map>
+
+<flow:Map rdf:ID="n51o126">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.    FILTER ( year(xsd:dateTime(?b)) +50 <   year(now())  ) } ]]></flow:sparql>
+	<rdfs:domain rdf:resource="#n51" />
+	<rdfs:range rdf:resource="#o126" />
+</flow:Map>
+
+<flow:Map rdf:ID="n22o53">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is the work of Her Majesty or an officer or servant of the Crown in the course of their duties or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n22" />
+        <rdfs:range rdf:resource="#o53" />
+</flow:Map>
+
+<flow:Map rdf:ID="n52o137">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is  the work an Act of Parliament, Act of the Scottish Parliament, Measure of the National Assembly for Wales, Act of the National Assembly for Wales, Act of the Northern Ireland Assembly or Measure of the General Synod of the Church of England or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n52" />
+        <rdfs:range rdf:resource="#o137" />
+</flow:Map>
+
+<flow:Map rdf:ID="n53o147">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.    FILTER ( year(xsd:dateTime(?b)) +50 <   year(now())  ) } ]]></flow:sparql-not>
+<flow:assumption>"At this time there is no way to distinguish whether or not royal assent was given or not from the metadata provided    "</flow:assumption>
+	<rdfs:domain rdf:resource="#n53" />
+	<rdfs:range rdf:resource="#o147" />
+</flow:Map>
+
+<flow:Map rdf:ID="n53o148">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.    FILTER ( year(xsd:dateTime(?b)) +50 <   year(now())  ) } ]]></flow:sparql>
+<flow:assumption>"At this time there is no way to distinguish whether or not royal assent was given or not from the metadata provided    "</flow:assumption>
+	<rdfs:domain rdf:resource="#n53" />
+	<rdfs:range rdf:resource="#o148" />
+</flow:Map>
+
+<flow:Map rdf:ID="n52o138">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is  the work an Act of Parliament, Act of the Scottish Parliament, Measure of the National Assembly for Wales, Act of the National Assembly for Wales, Act of the Northern Ireland Assembly or Measure of the General Synod of the Church of England or not from the metadata provided     "</flow:assumption>
+        <rdfs:domain rdf:resource="#n52" />
+        <rdfs:range rdf:resource="#o138" />
+</flow:Map>
+<flow:Map rdf:ID="n79o2">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is a Measure of the National Assembly of Wales or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n79" />
+        <rdfs:range rdf:resource="#o2" />
+</flow:Map>
+
+<flow:Map rdf:ID="n83o32">
+      <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  >  1989 )   }]]></flow:sparql>
+	<flow:assumption>"Assuming that dc:issued represents the date of first publication or communication for the work (probably wrong assumption?)"</flow:assumption>
+    <rdfs:domain rdf:resource="#n83" />
+    <rdfs:range rdf:resource="#o32" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n54o157">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work was commercially published within 75 years of creation or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n54" />
+        <rdfs:range rdf:resource="#o157" />
+</flow:Map>
+
+<flow:Map rdf:ID="n55o165">
+       <flow:sparql-not><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.    FILTER ( year(xsd:dateTime(?b)) +125 <   year(now())  ) } ]]></flow:sparql-not>
+<flow:assumption>"At this time there is no way to distinguish whether or not royal assent was given or not from the metadata provided    "</flow:assumption>
+	<rdfs:domain rdf:resource="#n55" />
+	<rdfs:range rdf:resource="#o165" />
+</flow:Map>
+
+<flow:Map rdf:ID="n55o166">
+       <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.    FILTER ( year(xsd:dateTime(?b)) +125 <   year(now())  ) } ]]></flow:sparql>
+<flow:assumption>"At this time there is no way to distinguish whether or not royal assent was given or not from the metadata provided    "</flow:assumption>
+	<rdfs:domain rdf:resource="#n55" />
+	<rdfs:range rdf:resource="#o166" />
+</flow:Map>
+
+<flow:Map rdf:ID="n54o158">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work was commercially published within 75 years of creation or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n54" />
+        <rdfs:range rdf:resource="#o158" />
+</flow:Map>
+
+<flow:Map rdf:ID="n56o175">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work was commercially published within 50 years of creation or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n56" />
+        <rdfs:range rdf:resource="#o175" />
+</flow:Map>
+<flow:Map rdf:ID="n56o176">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work was commercially published within 50 years of creation or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n56" />
+        <rdfs:range rdf:resource="#o176" />
+</flow:Map>
+
+
+
+
+
+<flow:Map rdf:ID="n83o33">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  >  1989 )   }]]></flow:sparql-not>
+        <flow:assumption>"Assuming that dc:issued represents the date at which the work was created"</flow:assumption>
+    <rdfs:domain rdf:resource="#n83" />
+    <rdfs:range rdf:resource="#o33" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n84o42">
+       <flow:sparql><![CDATA[ prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK  { ?a a bibo:Photo } ]]></flow:sparql>
+
+	<rdfs:domain rdf:resource="#n84" />
+	<rdfs:range rdf:resource="#o42" />
+</flow:Map>
+
+<flow:Map rdf:ID="n85o48">
+       <flow:sparql><![CDATA[ prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK  { ?a a bibo:Photo } ]]></flow:sparql>
+
+	<rdfs:domain rdf:resource="#n85" />
+	<rdfs:range rdf:resource="#o48" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n86o60">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }} . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  <  1957)   }]]></flow:sparql-not>
+        
+    <rdfs:domain rdf:resource="#n86" />
+    <rdfs:range rdf:resource="#o60" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n87o68">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  <  1989)   }]]></flow:sparql-not>
+        
+    <rdfs:domain rdf:resource="#n87" />
+    <rdfs:range rdf:resource="#o68" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n88o77">
+   <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK {{{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. FILTER (year(now()) < 2039 ) } ]]></flow:sparql>
+  <rdfs:domain rdf:resource="#n88" />
+    <rdfs:range rdf:resource="#o77" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n88o78">
+   <flow:sparql-not><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK {{{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. FILTER (year(now()) < 2039 ) } ]]></flow:sparql-not>
+  <rdfs:domain rdf:resource="#n88" />
+    <rdfs:range rdf:resource="#o78" />
+</flow:Map>
+
+
+
+
+<flow:Map rdf:ID="n87o69">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }} . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  <  1989)   }]]></flow:sparql>
+        
+    <rdfs:domain rdf:resource="#n87" />
+    <rdfs:range rdf:resource="#o69" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n89o87">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }} . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()))   }]]></flow:sparql>
+        
+    <rdfs:domain rdf:resource="#n89" />
+    <rdfs:range rdf:resource="#o87" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n89o88">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()))   }]]></flow:sparql-not>
+        
+    <rdfs:domain rdf:resource="#n89" />
+    <rdfs:range rdf:resource="#o88" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n86o61">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }} . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  <  1957)   }]]></flow:sparql>
+        
+    <rdfs:domain rdf:resource="#n86" />
+    <rdfs:range rdf:resource="#o61" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n96o149">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()))   }]]></flow:sparql>
+        
+    <rdfs:domain rdf:resource="#n96" />
+    <rdfs:range rdf:resource="#o149" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n96o150">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }} . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()))   }]]></flow:sparql-not>
+        
+    <rdfs:domain rdf:resource="#n96" />
+    <rdfs:range rdf:resource="#o150" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n85o49">
+       <flow:sparql-not><![CDATA[ prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK  { ?a a bibo:Photo } ]]></flow:sparql-not>
+
+	<rdfs:domain rdf:resource="#n85" />
+	<rdfs:range rdf:resource="#o49" />
+</flow:Map>
+
+
+
+<flow:Map rdf:ID="n84o43">
+       <flow:sparql-not><![CDATA[ prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> ASK  { ?a a bibo:Photo } ]]></flow:sparql-not>
+
+	<rdfs:domain rdf:resource="#n84" />
+	<rdfs:range rdf:resource="#o43" />
+</flow:Map>
+
+<flow:Map rdf:ID="n91o95">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is Is the work an artistic work or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n91" />
+        <rdfs:range rdf:resource="#o95" />
+</flow:Map>
+
+<flow:Map rdf:ID="n91o96">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is Is the work an artistic work or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n91" />
+        <rdfs:range rdf:resource="#o96" />
+</flow:Map>
+
+<flow:Map rdf:ID="n92o111">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {  ?a a bibo:Photo . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  <  1989)   }]]></flow:sparql>
+        
+    <rdfs:domain rdf:resource="#n92" />
+    <rdfs:range rdf:resource="#o111" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n93o119">
+	<flow:sparql><![CDATA[ASK {}]]></flow:sparql>
+	<flow:assumption>"The presence of a work on bibliographica consitutes availability to the public"</flow:assumption>
+	<rdfs:domain rdf:resource="#n93" />
+	<rdfs:range rdf:resource="#o119" />
+</flow:Map>
+
+<flow:Map rdf:ID="n90o85">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {  ?a a bibo:Photo . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()))   }]]></flow:sparql-not>
+        
+    <rdfs:domain rdf:resource="#n90" />
+    <rdfs:range rdf:resource="#o85" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n90o86">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {  ?a a bibo:Photo . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()))   }]]></flow:sparql>
+        
+    <rdfs:domain rdf:resource="#n90" />
+    <rdfs:range rdf:resource="#o86" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n93o120">
+	<flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+	<flow:assumption>"The presence of a work on bibliographica consitutes availability to the public"</flow:assumption>
+	<rdfs:domain rdf:resource="#n93" />
+	<rdfs:range rdf:resource="#o120" />
+</flow:Map>
+
+
+<flow:Map rdf:ID="n92o112">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }} . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))  <  1989)   }]]></flow:sparql-not>
+        
+    <rdfs:domain rdf:resource="#n92" />
+    <rdfs:range rdf:resource="#o112" />
+  </flow:Map>
+
+
+<flow:Map rdf:ID="n79o3">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is a Measure of the National Assembly of Wales or not from the metadata provided    "</flow:assumption>
+        <rdfs:domain rdf:resource="#n79" />
+        <rdfs:range rdf:resource="#o3" />
+</flow:Map>
+
+<flow:Map rdf:ID="n22o54">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is  generated by an international organization or not from the metadata provided   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n22" />
+        <rdfs:range rdf:resource="#o54" />
+</flow:Map>
+
+<flow:Map rdf:ID="n59o20">
+       <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }} . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()))   }]]></flow:sparql>
+        
+    <rdfs:domain rdf:resource="#n59" />
+    <rdfs:range rdf:resource="#o20" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n59o21">
+       <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask {  {{ ?a a bibo:Book } UNION { ?a a bibo:Document } UNION { ?a a bibo:Photo }} . ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()))   }]]></flow:sparql-not>
+        
+    <rdfs:domain rdf:resource="#n59" />
+    <rdfs:range rdf:resource="#o21" />
+  </flow:Map>
+
+<flow:Map rdf:ID="n22o55">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether a work is  generated by the House of Commons or the House of Lords or not from the metadata provided   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n22" />
+        <rdfs:range rdf:resource="#o55" />
+</flow:Map>
+
+<flow:Map rdf:ID="n57o185">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether the work a Bill or not from the metadata provided   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n57" />
+        <rdfs:range rdf:resource="#o185" />
+</flow:Map>
+
+<flow:Map rdf:ID="n58o8">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether the a Bill has been accepted or not from the metadata provided   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n58" />
+        <rdfs:range rdf:resource="#o8" />
+</flow:Map>
+
+<flow:Map rdf:ID="n58o9">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether the a Bill has been accepted or not from the metadata provided   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n58" />
+        <rdfs:range rdf:resource="#o9" />
+</flow:Map>
+
+<flow:Map rdf:ID="n57o186">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish whether the work a Bill or not from the metadata provided   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n57" />
+        <rdfs:range rdf:resource="#o186" />
+</flow:Map>
+
+
+
+Start of Typographical arrangement
+
+<flow:Map rdf:ID="n0o110">
+        <flow:sparql-not><![CDATA[ ASK {  } ]]></flow:sparql-not>
+	<flow:assumption>"At this time there is no way to distinguish between the layer of rights invested into the typographical arrangement from the metadata provided   "</flow:assumption>
+        <rdfs:domain rdf:resource="#n0" />
+        <rdfs:range rdf:resource="#o110" />
+</flow:Map>
+
+<flow:Map rdf:ID="n48o102">
+        <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }]]></flow:sparql>
+	<flow:assumption>"Assuming that dc:issued represents the date of  publication "</flow:assumption>
+        <rdfs:domain rdf:resource="#n48" />
+        <rdfs:range rdf:resource="#o102" />
+</flow:Map>of Typographical arrangement
+
+<flow:Map rdf:ID="n48o103">
+        <flow:sparql-not><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix bibo: <http://purl.org/ontology/bibo/> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a bibo:Book } UNION { ?a a bibo:Document }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }]]></flow:sparql-not>
+	<flow:assumption>"Assuming that dc:issued represents the date of  publication "</flow:assumption>
+        <rdfs:domain rdf:resource="#n48" />
+        <rdfs:range rdf:resource="#o103" />
+</flow:Map>
+
+End of Typographical arrangement
+
+</rdf:RDF>
