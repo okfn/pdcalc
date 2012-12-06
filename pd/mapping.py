@@ -118,7 +118,7 @@ class Mapping:
   def choose_node(self, model, map_list):
     for m in map_list:
       # if the sparql query returns 'true', we have a result
-      query = RDF.Query(str(m.sparql), query_language="sparql11")
+      query = RDF.Query(str(m.sparql), query_language="sparql")
       #query = RDF.SPARQLQuery(str(m.sparql))
       result = query.execute(model)
 

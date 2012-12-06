@@ -39,7 +39,7 @@ def convert(record):
             e_inScheme.set('{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource', 'http://dewey.info/scheme/e22' )
             ET.SubElement(e_Concept, '{http://www.w3.org/2004/02/skos/core#}notation').text = subject.get('about', u'')
     for author in record.get('author', []):
-        e_agent = ET.SubElement(e_Document, '{http://xmlns.com/foaf/0.1/}Agent')
+        e_agent = ET.SubElement(e_RDF, '{http://xmlns.com/foaf/0.1/}Agent')
         ET.SubElement(e_agent, '{http://xmlns.com/foaf/0.1/}name').text = author.get('name')
         if 'birth' in author:
             e_1 = ET.SubElement(e_agent, '{http://purl.org/vocab/bio/0.1/}event')
@@ -55,4 +55,4 @@ if __name__ == '__main__':
     import sys, json
     for x in json.loads(sys.stdin.read()):
         if type(x) is dict:
-            print ET.tostring(JSON_to_RDF(x))
+            print ET.tostring(convert(x))

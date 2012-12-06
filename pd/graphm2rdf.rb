@@ -30,6 +30,9 @@ class Node
           confNode.elements.each do |labelNode|
             if labelNode.name == 'NodeLabel' and
                labelNode.namespace == 'http://www.yworks.com/xml/graphml'
+	      #print ">>>>>>  "
+	      #print labelNode.text
+	      #print "\n"
               @text = make_beauty labelNode.text
             end
           end
@@ -97,7 +100,7 @@ class Graphml2Rdf
       if ARGV[0].end_with?('z')
         gz = Zlib::GzipReader.new(StringIO.new(xml))
         xml = gz.read
-        print(xml)
+         print(xml)
       end
 
     begin

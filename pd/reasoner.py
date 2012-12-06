@@ -77,15 +77,15 @@ class Reasoner:
 
       # maybe this is already the answer:
       if n.is_question() == False:
-        print 'The solution is:',n.text
+        print 'The solution is:',n.text.encode('utf8')
         break
 
       # Let's think about this question:
-      print 'Question:', n.text
+      print 'Question:', n.text.encode('utf8')
       option = self.mapping.choose(self.model, n)
 
       # The option choosed is:
-      print 'Answer:', option.text, "\n"
+      print 'Answer:', option.text.encode('utf8'), "\n"
       n = self.flow.node(option.node)
 
 # int main(...) { ...
@@ -97,6 +97,9 @@ if __name__ == '__main__':
     a = Reasoner()
     a.parse_map(sys.argv[1])
     a.parse_flow(sys.argv[2])
-    a.parse_input(sys.argv[3])
+    if sys.argv[3].endswith('.json'):
+      a.parse_json_input(sys.argv[3])
+    else:
+      a.parse_input(sys.argv[3])
     a.info()
     a.run()
