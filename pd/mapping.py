@@ -2,7 +2,7 @@ import RDF
 import const
 from maps import Map
 from option import Option
-from rdflib.Graph import Graph
+from rdflib import Graph
 
 
 
