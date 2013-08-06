@@ -11,6 +11,9 @@ class Flow:
     self.questions = {}
     self.answers = {}
     self.root = None
+    self.parser = RDF.Parser('raptor')
+    if self.parser is None:
+      raise Exception("Failed to create RDF.Parser raptor")
 
   # A getter for the root node
   def root_node(self):
@@ -36,14 +39,10 @@ class Flow:
       raise Exception("new RDF.model failed")
 
     # parse the file
-    parser = RDF.Parser('raptor')
-    if parser is None:
-      raise Exception("Failed to create RDF.Parser raptor")
-
     uri = RDF.Uri(string = "file:" + filename)
 
     # all the triples in the model
-    for s in parser.parse_as_stream(uri, const.base_uri):
+    for s in self.parser.parse_as_stream(uri, const.base_uri):
       model.add_statement(s)
 
     self.get_root(model)

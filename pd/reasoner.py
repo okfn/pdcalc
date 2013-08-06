@@ -84,7 +84,7 @@ class Reasoner:
       print 'Question:', n.text.encode('utf8')
       option = self.mapping.choose(self.model, n)
 
-      # The option choosed is:
+      # The option chosen is:
       print 'Answer:', option.text.encode('utf8'), "\n"
       n = self.flow.node(option.node)
 
@@ -99,6 +99,8 @@ if __name__ == '__main__':
     a.parse_flow(sys.argv[2])
     if sys.argv[3].endswith('.json'):
       a.parse_json_input(sys.argv[3])
+    elif sys.argv[3].startswith('http'):
+      pass
     else:
       a.parse_input(sys.argv[3])
     a.info()

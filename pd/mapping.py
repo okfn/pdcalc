@@ -8,41 +8,36 @@ from rdflib import Graph
 
 # A class for a mapping RDF document
 class Mapping:
-
   def __init__(self):
     # We need just a list of 'mapping' objects - and a list of assumptions
     self.maps = []
     self.assumptions = []
-
-  def parse(self, filename):
-    # memory model
-    model = RDF.Model()
-    if model is None:
+    self.model = RDF.Model()
+    if self.model is None:
       raise Exception("new RDF.model failed")
-
-    # parse the file
-    parser = RDF.Parser('raptor')
-    if parser is None:
+    self.parser = RDF.Parser('raptor')
+    if self.parser is None:
       raise Exception("Failed to create RDF.Parser raptor")
 
+  def parse(self, filename):
+    # load the file
     uri = RDF.Uri(string = "file:" + filename)
 
     # all the triples in the model
-    for s in parser.parse_as_stream(uri, const.base_uri):
-      model.add_statement(s)
+    for s in self.parser.parse_as_stream(uri, const.base_uri):
+      self.model.add_statement(s)
 
     # Let's look for any mapping resource
     statement = RDF.Statement(None,
                               RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
                               RDF.Uri("http://okfnpad.org/flow/0.1/Map"))
-    for s in model.find_statements(statement):
+    for s in self.model.find_statements(statement):
       if s.subject.is_resource():
-        self.add_map(model, s.subject)
+        self.add_map(self.model, s.subject)
 
   # This method populates a Map object
   def add_map(self, model, subject):
     m = Map(subject.uri)
-
     statement = RDF.Statement(subject,
                               RDF.Uri("http://www.w3.org/2000/01/rdf-schema#domain"),
                               None)
@@ -121,7 +116,6 @@ class Mapping:
       query = RDF.Query(str(m.sparql), query_language="sparql")
       #query = RDF.SPARQLQuery(str(m.sparql))
       result = query.execute(model)
-
       mini = 0
       if result.is_boolean() == False:
 #        raise Exception('The mapping must use only boolean Sparql queries.')
