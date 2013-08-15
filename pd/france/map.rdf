@@ -3,7 +3,7 @@
          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
 
-Start of film
+<!--Start of film-->
 
 <flow:Map rdf:ID="n0o28">
     <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:Film}]]></flow:sparql>
@@ -58,11 +58,11 @@ Start of film
 </flow:Map>
 
 
-END OF FILM
+<!--END OF FILM-->
 
 
 
-START OF UNORIGONAL DATABASE
+<!--START OF UNORIGONAL DATABASE-->
 
 <flow:Map rdf:ID="n0o29">
     <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:Collection}]]></flow:sparql>
@@ -182,7 +182,7 @@ START OF UNORIGONAL DATABASE
     <rdfs:domain rdf:resource="#n11" />
     <rdfs:range rdf:resource="#o42" />
   </flow:Map>
-0
+
 <flow:Map rdf:ID="n12o52">
        <flow:sparql-not><![CDATA[ASK { } ]]></flow:sparql-not>
         <flow:assumption>"No information provided concerning whether its operations genuinely linked on an ongoing basis with the economy of an EEA state: assuming EEA"</flow:assumption>
@@ -205,12 +205,12 @@ START OF UNORIGONAL DATABASE
   </flow:Map>
 
 
-End of Databases
+<!--End of Databases-->
 
 
 
 
-start of Broadcast
+<!--start of Broadcast-->
 
 <flow:Map rdf:ID="n0o30">
     <flow:sparql><![CDATA[prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:AudioVisualDocument }]]></flow:sparql>
@@ -234,13 +234,13 @@ start of Broadcast
     <rdfs:range rdf:resource="#o78" />
   </flow:Map>
 
-End of broadcast
+<!--End of broadcast-->
 
 
 
 
 
-START OF PERFORMANCE 
+<!--START OF PERFORMANCE -->
 <flow:Map rdf:ID="n0o31">
     <flow:sparql><![CDATA[ prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:Performance}]]></flow:sparql>
     <rdfs:domain rdf:resource="#n0" />
@@ -289,9 +289,9 @@ START OF PERFORMANCE
     <rdfs:range rdf:resource="#o104" />
   </flow:Map>
 
-END OF PERFOMANCE
+<!--END OF PERFOMANCE-->
 
-START OF PHONOGRAM
+<!--START OF PHONOGRAM-->
 
 <flow:Map rdf:ID="n0o32">
     <flow:sparql><![CDATA[ prefix bibo: <http://purl.org/ontology/bibo/> ASK { ?x a bibo:AudioDocument }]]></flow:sparql>
@@ -375,10 +375,10 @@ START OF PHONOGRAM
 
 
 
-End of PHONOGRAM
+<!--End of PHONOGRAM-->
 
 
-START OF LITERARY ARTISTIC 
+<!--START OF LITERARY ARTISTIC -->
 
  <flow:Map rdf:ID="n0o33">
     <flow:sparql><![CDATA[prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bibo: <http://purl.org/ontology/bibo/> ASK {  { ?a a bibo:Book } UNION { ?a a bibo:Document }. }]]></flow:sparql>
@@ -823,13 +823,12 @@ Natural person path
 
 
 
-END OF LITERARY SECTION 
+<!--END OF LITERARY SECTION -->
 
 
 
 
 
-</rdf:RDF>
 <rdf:Description> This document is licensed under Creative Commons Attribution-ShareAlike 3.0 Netherlands License. You are free to distribute and build upon this work even for commercial purposes, as long as you credit outofcopyright.eu and license derivative works under identical terms. </rdf:Description>
 
 
