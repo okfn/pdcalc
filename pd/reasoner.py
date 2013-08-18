@@ -13,6 +13,9 @@ class Reasoner:
 
   # The variables:
   def __init__(self, mapping_filename, flow_filename):
+    self.parser = RDF.Parser('raptor')
+    if self.parser is None:
+      raise Exception("Failed to create RDF.Parser raptor")
     const.base_uri = RDF.Uri("baku")
 
     self.mapping_filename = mapping_filename
@@ -45,14 +48,10 @@ class Reasoner:
       if not type(data) is dict:
           raise Exception('The JSON data is not a dict')
       to_parse = json2rdf.convert(data)
-      op = parser.parse_string_as_stream
+      op = self.parser.parse_string_as_stream
     else:
       to_parse = RDF.Uri(string = "file:" + filename)
-      op = parser.parse_as_stream
-    # parse the file
-    parser = RDF.Parser('raptor')
-    if parser is None:
-      raise Exception("Failed to create RDF.Parser raptor")
+      op = self.parser.parse_as_stream
 
     # all the triples in the model
     for s in op(to_parse, const.base_uri):
