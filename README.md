@@ -18,17 +18,17 @@ instance to test
 
     -g GLOBAL, --global GLOBAL
     
-global mapping
+global mapping - Usable to test if a given global mapping works.
 
     -l, --list
 
-True if list
+True if the file contains a list of other files or ulrs
 
     -m {file,url}, --mode {file,url}
 
-instance definition mode
+instance definition mode - Valid values are "file" or "url"
 
     -f {rdf,json}, --format {rdf,json}
 
-format of the instances
+format of the instances - Valid values are "rdf" or "json".
 
