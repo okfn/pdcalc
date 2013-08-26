@@ -7,7 +7,8 @@ from option import Option
 class Flow:
 
   # list of variables
-  def __init__(self):
+  def __init__(self, globalities):
+    self.globalities = globalities
     self.questions = {}
     self.answers = {}
     self.root = None
@@ -47,6 +48,7 @@ class Flow:
 
     self.get_root(model)
     self.get_nodes(model)
+    print "parsed", filename
 
   # store the root node into the object
   def get_root(self, model):

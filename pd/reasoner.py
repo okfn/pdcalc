@@ -7,36 +7,42 @@ from mapping import Mapping
 from flow import Flow
 from node import Node
 from xml.etree import ElementTree as ET
-
+import json
 
 class Reasoner:
 
   # The variables:
-  def __init__(self, mapping_filename, flow_filename):
+  def __init__(self, mapping_filename, flow_filename, global_map=None):
     self.parser = RDF.Parser('raptor')
     if self.parser is None:
       raise Exception("Failed to create RDF.Parser raptor")
     const.base_uri = RDF.Uri("baku")
 
-    self.mapping_filename = mapping_filename
-    self.flow_filename = flow_filename
+    self.global_map = global_map
+    print self.global_map
+    fg = open(self.global_map, 'r')
+    fg = fg.read()
+    self.globalities = json.loads(fg)
+
+    self.mapping = Mapping(self.globalities)
+    self.flow = Flow(self.globalities)
 
     self.model = RDF.Model()
-
-    self.mapping = Mapping()
-    self.flow = Flow()
-
     if self.model is None:
       raise Exception("new RDF.model failed")
 
-    self.parse_map(self.mapping_filename)
-    self.parse_flow(self.flow_filename)
+    self.parse_map(mapping_filename)
+    self.parse_flow(flow_filename)
 
   def parse_map(self, filename):
-    self.mapping.parse(filename)
+    self.mapping_filename = filename
+    print "setting the local mapping", self.mapping_filename
+    self.mapping.parse(self.mapping_filename)
 
   def parse_flow(self, filename):
-    self.flow.parse(filename)
+    self.flow_filename = filename
+    print "setting the local flow", self.flow_filename
+    self.flow.parse(self.flow_filename)
 
   # Let's store all the RDF triples into the internal model
   def parse_input(self, filename):

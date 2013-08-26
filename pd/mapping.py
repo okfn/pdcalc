@@ -4,12 +4,13 @@ from maps import Map
 from option import Option
 from rdflib import Graph
 
-
+import re
 
 # A class for a mapping RDF document
 class Mapping:
-  def __init__(self):
+  def __init__(self, globalities):
     # We need just a list of 'mapping' objects - and a list of assumptions
+    self.globalities = globalities
     self.maps = []
     self.assumptions = []
     self.model = RDF.Model()
@@ -18,6 +19,8 @@ class Mapping:
     self.parser = RDF.Parser('raptor')
     if self.parser is None:
       raise Exception("Failed to create RDF.Parser raptor")
+
+    self.query_re= r'%\((.*?)\)'
 
   def parse(self, filename):
     # load the file
@@ -34,6 +37,7 @@ class Mapping:
     for s in self.model.find_statements(statement):
       if s.subject.is_resource():
         self.add_map(self.model, s.subject)
+    print "parsed", filename
 
   # This method populates a Map object
   def add_map(self, model, subject):
@@ -111,30 +115,44 @@ class Mapping:
 
   # The operation is simple:
   def choose_node(self, model, map_list):
-    for m in map_list:
+		for m in map_list:
       # if the sparql query returns 'true', we have a result
-      query = RDF.Query(str(m.sparql), query_language="sparql")
-      #query = RDF.SPARQLQuery(str(m.sparql))
-      result = query.execute(model)
-      mini = 0
-      if result.is_boolean() == False:
-#        raise Exception('The mapping must use only boolean Sparql queries.')
-	 for k in result:
-		print result 
-		mini = 1
-		print k
-      elif result.get_boolean() == True: mini = 1
-     
-      if(m.sparql_negate): 
-	#print "NEGATING"
-	if(mini): mini = 0
-	else: mini = 1
- 
-      if mini == 1:
-	if(m.assumption):
-		self.assumptions.append(m.assumption)  
-	#	print('ASSUMPTIONS so far: ' + "\n".join(self.assumptions))
-        	print("New assumption: " + m.assumption)
-	return m.range
 
-    return None
+			elements = re.findall(self.query_re, m.sparql)
+			replacement_dict = {}
+			prefixes = {}
+			prefixes_string = ""
+			for element in elements:
+				replacement_dict[element] = self.globalities['sameAs'][element][0]
+				prefixes[self.globalities['sameAs'][element][0].split(':')[0]] = self.globalities['namespaces'][self.globalities['sameAs'][element][0].split(':')[0]]
+			for p,u in prefixes.iteritems():
+				prefixes_string += "prefix %s: <%s>" % (p, u)
+			sparql = str(prefixes_string + " " + m.sparql % replacement_dict)
+			print "sparql query: "
+			print sparql
+			query = RDF.Query(sparql, query_language="sparql")
+			#query = RDF.SPARQLQuery(str(m.sparql))
+			result = query.execute(model)
+			print "result: "
+			print result
+			mini = 0
+			if result.is_boolean() == False:
+				#raise Exception('The mapping must use only boolean Sparql queries.')
+				for k in result:
+					print result 
+					mini = 1
+					print k
+			elif result.get_boolean() == True: mini = 1
+
+			if(m.sparql_negate): 
+				#print "NEGATING"
+				if(mini): mini = 0
+				else: mini = 1
+			if mini == 1:
+				if(m.assumption):
+					self.assumptions.append(m.assumption)  
+					print('ASSUMPTIONS so far: ' + "\n".join(self.assumptions))
+					print("New assumption: " + m.assumption)
+				return m.range
+
+		return None

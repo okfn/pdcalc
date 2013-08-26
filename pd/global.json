@@ -1,0 +1,60 @@
+{
+	"namespaces":{
+		"dc":"http://purl.org/dc/terms/",
+		"rdagroup1elements":"http://RDVocab.info/Elements/",
+		"rdarelationships":"http://rdvocab.info/RDARelationshipsWEMI/",
+		"rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"rdfs":"http://www.w3.org/2000/01/rdf-schema#",
+		"owl":"http://www.w3.org/2002/07/owl#",
+		"bibo":"http://purl.org/ontology/bibo/",
+		"flow":"http://okfnpad.org/flow/0.1/",
+	  	"OV":"http://open.vocab.org/terms/",
+		"foaf":"http://xmlns.com/foaf/0.1/",
+		"bio":"http://purl.org/vocab/bio/0.1/",
+		"ISBD":"http://iflastandards.info/ns/isbd/elements/",
+		"skos":"http://www.w3.org/2004/02/skos/core#"
+	},
+	"sameAs":{
+		"pdcalc:Film":[
+			"bibo:Film"
+		],
+		"pdcalc:Book":[
+			"bibo:Book"
+		],
+		"pdcalc:Performance":[
+			"bibo:Performance"
+		],
+		"pdcalc:Document":[
+			"bibo:Document"
+		],
+		"pdcalc:AudioVisual":[
+			"bibo:AudioVisualDocument"
+		],
+		"pdcalc:Audio":[
+			"bibo:Audio"
+		],
+		"pdcalc:Database":[
+			"bibo:Collection"
+		],
+		"pdcalc:publicationDate":[
+			"dc:issued"
+		]
+	},
+	"queries":{
+		"is:True":"ASK {}",
+		"is:Film": "ASK { ?x a %(pdcalc:Film)s}",
+		"is:Database":"ASK { ?x a %(pdcalc:Database)s}",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+		"":"",
+	}
+}
