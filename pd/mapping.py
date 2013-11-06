@@ -7,9 +7,9 @@ from rdflib import Graph
 import re
 
 # A class for a mapping RDF document
-class Mapping:
-  def __init__(self, globalities):
-    # We need just a list of 'mapping' objects - and a list of assumptions
+class Mapping(object):
+  def __init__(self, globalities = {}, localities = {}):
+    self.localities = localities
     self.globalities = globalities
     self.maps = []
     self.assumptions = []
@@ -70,7 +70,7 @@ class Mapping:
     for s in model.find_statements(statement):
       if s.object.is_literal():
         m.sparql = s.object.literal_value['string']
-	m.sparql_negate = 1
+        m.sparql_negate = 1
 
 
     statement = RDF.Statement(subject,
@@ -91,7 +91,7 @@ class Mapping:
   # This method chooses an answer
   def choose(self, model, node):
     uri = str(node.uri)
-
+    #print node.uri
     # Creating a list of the mapping object related to this URI
     map_list = []
     for m in self.maps:
@@ -115,6 +115,7 @@ class Mapping:
 
   # The operation is simple:
   def choose_node(self, model, map_list):
+		print map_list
 		for m in map_list:
       # if the sparql query returns 'true', we have a result
 
@@ -127,7 +128,7 @@ class Mapping:
 				prefixes[self.globalities['sameAs'][element][0].split(':')[0]] = self.globalities['namespaces'][self.globalities['sameAs'][element][0].split(':')[0]]
 			for p,u in prefixes.iteritems():
 				prefixes_string += "prefix %s: <%s>" % (p, u)
-			sparql = str(prefixes_string + " " + m.sparql % replacement_dict)
+			sparql = str(prefixes_string + " ASK " + m.sparql % replacement_dict)
 			print "sparql query: "
 			print sparql
 			query = RDF.Query(sparql, query_language="sparql")

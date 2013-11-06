@@ -168,7 +168,7 @@
       "type": "question",
       "text": "Is the right holder a company or firm?",
       "query":{
-        "template":"prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ",
+        "query":"prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ",
         "assumption":"Assuming that if the metadata of a Database contains a foaf:Agent bio:event is a not a firm or a company"
         },
       "options": [
@@ -280,7 +280,7 @@
       "type": "question",
       "text": "Was the programme first broadcast more than 50 years ago?",
       "query":{
-        "template":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:AudioVisual)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
+        "query":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:AudioVisual)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
         "assumption":"Assuming that dc:issued represents the date at which the programme was first broadcasted",
         "parameters":{}
         },
@@ -318,7 +318,7 @@
       "type": "question",
       "text": "Was the fixation published or communicated to the public more than 50 years ago?",
       "query":{
-        "template":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Performance)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
+        "query":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Performance)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
         "assumption":"Assuming the dc:issued represents the date of first communication to the public",
         "parameters":{}
         },
@@ -337,7 +337,7 @@
       "type": "question",
       "text": "Did the performance take place more than 50 years ago?",
       "query":{
-        "template":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Performance)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
+        "query":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Performance)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
         "assumption":"Assuming the dc:issued represents the date of first communication to the public",
         "parameters":{}
         },
@@ -375,7 +375,7 @@
       "type": "question",
       "text": "Was the phonogram published more than 50 years ago?",
       "query":{
-        "template":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
+        "query":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
         "assumption":"Assuming that dc:issued represents the date the phonogram was first published",
         "parameters":{}
         },
@@ -413,7 +413,7 @@
       "type": "question",
       "text": "Was the phonogram created more than 50 years ago?",
       "query":{
-        "template":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
+        "query":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
         "assumption":"Assuming that dc:issued represents the date the phonogram was created(which in this case it will not, more information is needed in the metadata to make a proper determination)",
         "parameters":{}
         },
@@ -443,7 +443,7 @@
             "template":"pdcalc:Agent",
             "assumption":"Assuming that a work with no Author + bio/event is an Anonymous/Pseudonymous/Legal entity work (we do not take into account works with an unknown author which would result in an undefinable copyright status)",
             "parameters":{}
-          },
+          }
         },
         {
           "text": "Unknown",
@@ -456,7 +456,7 @@
             "template":"pdcalc:Agent",
             "assumption":"Assuming that a work with no Author + bio/event is an Anonymous/Pseudonymous/Legal entity work (we do not take into account works with an unknown author which would result in an undefinable copyright status)",
             "parameters":{}
-          },
+          }
         }
       ]
     },
@@ -486,14 +486,23 @@
       "text": "What is the country of origin (9) of this work?",
       "options": [
         {
+          "query":{
+            "template":"is:False"
+            },
           "text": "Not Berne TRIPS WCT (10)",
           "node": "n36"
         },
         {
+          "query":{
+            "template":"is:True"
+          },
           "text": "EEA (8)",
           "node": "n27"
         },
         {
+          "query":{
+            "template":"is:False"
+          },
           "text": "Berne TRIPS WCT (10)",
           "node": "n37"
         }
@@ -636,21 +645,32 @@
     "n35": {
       "type": "question",
       "text": "What is the country of origin (9) of this work?",
-      "query":{
-        "template":"is:True",
-        "assumption":"Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
-        "parameters":{}
-        },
+      
       "options": [
         {
+          "query":{
+            "template":"is:False",
+            "assumption":"Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
+            "parameters":{}
+          },
           "text": "Not Berne TRIPS WCT (10)",
           "node": "n36"
         },
         {
+          "query":{
+            "template":"is:False",
+            "assumption":"Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
+            "parameters":{}
+          },
           "text": "Berne TRIPS WCT (10)",
           "node": "n37"
         },
         {
+          "query":{
+            "template":"is:True",
+            "assumption":"Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
+            "parameters":{}
+          },
           "text": "EEA (8)",
           "node": "n41"
         }

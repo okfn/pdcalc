@@ -302,36 +302,42 @@
           <flow:Option rdf:ID="o28">
             <flow:text>First fixation of a film (3) (4)</flow:text>
             <flow:node rdf:resource="#n1"/>
+            <flow:Function rdf:ID="a123">is:Film</flow:Function>
           </flow:Option>
         </rdf:li>
         <rdf:li>
           <flow:Option rdf:ID="o29">
             <flow:text>Unoriginal Database (5)</flow:text>
             <flow:node rdf:resource="#n8"/>
+            <flow:sparql-template  rdf:ID="a1234">is:Database</flow:sparql-template>
           </flow:Option>
         </rdf:li>
         <rdf:li>
           <flow:Option rdf:ID="o30">
             <flow:text>Broadcast (3)</flow:text>
             <flow:node rdf:resource="#n15"/>
+            <flow:sparql-template rdf:ID="a1235">is:Broadcast</flow:sparql-template>
           </flow:Option>
         </rdf:li>
         <rdf:li>
           <flow:Option rdf:ID="o31">
             <flow:text>Performance (3) (4)</flow:text>
             <flow:node rdf:resource="#n16"/>
+            <flow:sparql-template rdf:ID="a1236">is:Performance</flow:sparql-template>
           </flow:Option>
         </rdf:li>
         <rdf:li>
           <flow:Option rdf:ID="o32">
             <flow:text>Phonogram (3) (4)</flow:text>
             <flow:node rdf:resource="#n19"/>
+            <flow:sparql-template>is:Phonogram</flow:sparql-template>
           </flow:Option>
         </rdf:li>
         <rdf:li>
           <flow:Option rdf:ID="o33">
             <flow:text>Literary or artistic work (2)</flow:text>
             <flow:node rdf:resource="#n24"/>
+            <flow:sparql-template>is:Film</flow:sparql-template>
           </flow:Option>
         </rdf:li>
       </rdf:Alt>
@@ -486,6 +492,7 @@
           <flow:Option rdf:ID="o48">
             <flow:text>Yes</flow:text>
             <flow:node rdf:resource="#n23"/>
+            <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }]]></flow:sparql>
           </flow:Option>
         </rdf:li>
         <rdf:li>
@@ -519,7 +526,7 @@
   </flow:Question>
 
   <flow:Question rdf:ID="n23">
-    <flow:text>Copyright in the examined work has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any other relevant literary or artistic work, producers’ rights in any relevant phonogram, performers’ rights in any performance that may be fixated in such a phonogram, broadcasting organisations’ rights over a relevant broadcast, any relevant database rights or other sui generis rights have expired.  (12)</flow:text>
+    <flow:text><![CDATA[Copyright in the examined work has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any other relevant literary or artistic work, producers’ rights in any relevant phonogram, performers’ rights in any performance that may be fixated in such a phonogram, broadcasting organisations’ rights over a relevant broadcast, any relevant database rights or other sui generis rights have expired.  (12)]]></flow:text>
   </flow:Question>
 
   <flow:Question rdf:ID="n12">
@@ -544,10 +551,18 @@
 
   <flow:Question rdf:ID="n2">
     <flow:text>Was the film published or communicated to the public more than 50 years ago?</flow:text>
+    <flow:Function rdf:ID="f1">
+      <flow:Query>pdcalc:issued</flow:Query>
+      <flow:Param rdf:ID="p1">
+        <flow:key>pdcalc:years</flow:key>
+        <flow:value>50</flow:value>
+      </flow:Param>
+    </flow:Function>
     <flow:option>
       <rdf:Alt>
         <rdf:li>
           <flow:Option rdf:ID="o54">
+            <flow:value>True</flow:value>
             <flow:text>Yes</flow:text>
             <flow:node rdf:resource="#n58"/>
           </flow:Option>
@@ -1108,7 +1123,7 @@
     </flow:option>
   </flow:Question>
 
-<rdf:Description> This document is licensed under Creative Commons Attribution-ShareAlike 3.0 Netherlands License. You are free to distribute and build upon this work even for commercial purposes, as long as you credit outofcopyright.eu and license derivative works under identical terms. </rdf:Description>
+<rdf:Description rdf:about=""><![CDATA[ This document is licensed under Creative Commons Attribution-ShareAlike 3.0 Netherlands License. You are free to distribute and build upon this work even for commercial purposes, as long as you credit outofcopyright.eu and license derivative works under identical terms. ]]></rdf:Description>
 
 
 </rdf:RDF>

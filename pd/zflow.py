@@ -1,10 +1,7 @@
 import RDF
-
 import const
 from node import Node
 from option import Option
-import json
-import re
 
 # The flow class contains a flow RDF document
 class Flow(object):
@@ -35,57 +32,86 @@ class Flow(object):
     elif uri in self.answers:
       return self.answers[uri]
     else:
-      raise Exception('Node ' + uri + ' is not part of the flow.')
+      raise Exception('Uri ' + uri + ' is not part of the RDF document.')
 
   # Parser of a file:
   def parse(self, filename):
     # memory model
-    self.model = json.load(open(filename, "ro"))
+    model = RDF.Model()
+    if model is None:
+      raise Exception("new RDF.model failed")
 
-    self.get_root(self.model)
-    self.get_nodes(self.model)
+    # parse the file
+    uri = RDF.Uri(string = "file:" + filename)
+
+    # all the triples in the model
+    for s in self.parser.parse_as_stream(uri, const.base_uri):
+      model.add_statement(s)
+
+    self.get_root(model)
+    self.get_nodes(model)
     print "parsed", filename
 
   # store the root node into the object
   def get_root(self, model):
-    self.root = model["root"]
+    statement = RDF.Statement(None,
+                              RDF.Uri("http://okfnpad.org/flow/0.1/root"),
+                              None)
+    for s in model.find_statements(statement):
+      if s.object.is_resource():
+        self.root = str(s.object.uri)
 
   # Store all the nodes into this object
   def get_nodes(self, model):
-    self.questions = {key: self.get_node(key, value) for key, value in model["questions"].items()}
+    statement = RDF.Statement(None,
+                              RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
+                              None)
 
-  def get_node(self, key, node_model):
-    node = Node(key, node_model['type'] == "question")
-    
-    if "query" in node_model:
-      node.query = node_model['query']
-    node.text = node_model['text']
-    if "options" in node_model:
-      for o in node_model['options']:
-        self.get_options(node, o)
+    for s in model.find_statements(statement):
+      if s.subject.is_resource() and s.object.is_resource():
+        #if s.object.uri == RDF.Uri('http://okfnpad.org/flow/0.1/Answer'):
+        #  self.answers[str(s.subject.uri)] = self.get_node(model, s.subject, False)
+        if s.object.uri == RDF.Uri('http://okfnpad.org/flow/0.1/Question'):
+          self.questions[str(s.subject.uri)] = self.get_node(model, s.subject, True)
 
-#    statement = RDF.Statement(subject,
-#                              RDF.Uri("http://okfnpad.org/flow/0.1/query"),
-#                              None)
-#
-#    for s in model.find_statements(statement):
-#      if s.object.is_literal():
-#        node.query = s.object.literal_value['string']
-#
+  def get_node(self, model, subject, is_question):
+    node = Node(subject.uri, is_question)
+
+    statement = RDF.Statement(subject,
+                              RDF.Uri("http://okfnpad.org/flow/0.1/text"),
+                              None)
+
+    for s in model.find_statements(statement):
+      if s.object.is_literal():
+        node.text = s.object.literal_value['string']
+
+    statement = RDF.Statement(subject,
+                              RDF.Uri("http://okfnpad.org/flow/0.1/query"),
+                              None)
+
+    for s in model.find_statements(statement):
+      if s.object.is_literal():
+        node.query = s.object.literal_value['string']
+
+    statement = RDF.Statement(subject,
+                              RDF.Uri("http://okfnpad.org/flow/0.1/option"),
+                              None)
+
+    for s in model.find_statements(statement):
+      self.get_options(node, model, s.object)
+
     return node
 
-  def get_options(self, node, option):
-    node.add_options(Option(option, node))
-#    statement = RDF.Statement(option,
-#                              RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
-#                              None)
-#
-#    for s in model.find_statements(statement):
-#      if s.object.is_resource() and s.object.uri == RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt"):
-#        self.get_alt_options(node, model, s.subject)
-#      elif s.object.is_resource() and s.object.uri == RDF.Uri("http://okfnpad.org/flow/0.1/Option"):
-#        node.add_options(self.get_option(model, s.subject))
-    pass
+  def get_options(self, node, model, option):
+    statement = RDF.Statement(option,
+                              RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
+                              None)
+
+    for s in model.find_statements(statement):
+      if s.object.is_resource() and s.object.uri == RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt"):
+        self.get_alt_options(node, model, s.subject)
+      elif s.object.is_resource() and s.object.uri == RDF.Uri("http://okfnpad.org/flow/0.1/Option"):
+        node.add_options(self.get_option(model, s.subject))
 
   def get_alt_options(self, node, model, subject):
     statement = RDF.Statement(subject,
@@ -137,23 +163,4 @@ class Flow(object):
 
 
   def choose(self, model, node):
-    if node.is_binary():
-      sparql = node.render_query(self.globalities, self.localities)
-      print sparql
-      query = RDF.Query(sparql, query_language="sparql")
-      result = query.execute(model).get_boolean()
-      return node.get_option_for(result)
-    else:
-      for option in node.options:
-        print "Evaluating option: ", option.text
-        sparql = option.render_query(self.globalities, self.localities)
-
-        print sparql
-        query = RDF.Query(sparql, query_language="sparql")
-        result = query.execute(model).get_boolean()
-        if result:
-          break
-      if result is not None:
-        return option
-      else:
-        return None
+    pass

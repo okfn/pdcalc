@@ -23,7 +23,7 @@
 
 
 <flow:Map rdf:ID="n2o54">
-    <flow:sparql><![CDATA[ prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Film)s ; %(pdcalc:publicationDate)s ?b.  FILTER (year(xsd:dateTime(?b)) +50 < year(now()) )  } }]]></flow:sparql>
+    <flow:sparql-template>pdcalc:issued</flow:sparql-template>
         <flow:assumption>"Assuming that dc:issued represents the date at which the Film was first made public"</flow:assumption>
     <rdfs:domain rdf:resource="#n2" />
     <rdfs:range rdf:resource="#o54" />
@@ -38,7 +38,7 @@
 </flow:Map>
 
 <flow:Map rdf:ID="n1o45">
-    	 <flow:sparql-not><![CDATA[ASK {}]]></flow:sparql-not>
+    	 <flow:sparql><![CDATA[false]]></flow:sparql>
 	<flow:assumption>"No info provided on whether the Film was published/communicated to the public within 50 years from fixation: assuming yes."</flow:assumption>
     <rdfs:domain rdf:resource="#n1" />
     <rdfs:range rdf:resource="#o45" />
@@ -67,7 +67,7 @@
 <!--START OF UNORIGONAL DATABASE-->
 
 <flow:Map rdf:ID="n0o29">
-    <flow:sparql>is:Database</flow:sparql>
+    <flow:sparql-template>is:Database</flow:sparql-template>
     <flow:assumption>"Assuming that a pdcalc:Database is a Database"</flow:assumption>
     <rdfs:domain rdf:resource="#n0" />
     <rdfs:range rdf:resource="#o21" />
@@ -91,6 +91,7 @@
        <flow:sparql-template>is:True</flow:sparql-template>
         <flow:assumption>"Publication on Bibliographica is evidence that the Database has been communicated to the public since it's last substantial change"</flow:assumption>
     <rdfs:domain rdf:resource="#n7" />
+ 
     <rdfs:range rdf:resource="#o97" />
   </flow:Map>
 
@@ -292,6 +293,9 @@
   </flow:Map>
 
 <!--END OF PERFOMANCE-->
+
+
+<!--------------------------------------------- -->
 
 <!--START OF PHONOGRAM-->
 

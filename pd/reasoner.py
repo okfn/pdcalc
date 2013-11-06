@@ -1,5 +1,3 @@
-
-
 import RDF
 import sys
 import const
@@ -9,35 +7,33 @@ from node import Node
 from xml.etree import ElementTree as ET
 import json
 
-class Reasoner:
+class Reasoner(object):
 
   # The variables:
-  def __init__(self, mapping_filename, flow_filename, global_map=None):
+  def __init__(self, flow_filename, local_map, global_map=None):
     self.parser = RDF.Parser('raptor')
     if self.parser is None:
       raise Exception("Failed to create RDF.Parser raptor")
+
     const.base_uri = RDF.Uri("baku")
 
-    self.global_map = global_map
-    print self.global_map
-    fg = open(self.global_map, 'r')
-    fg = fg.read()
-    self.globalities = json.loads(fg)
+    self.globalities = json.load(open(global_map, 'r'))
+    self.localities = json.load(open(local_map, 'r'))
 
-    self.mapping = Mapping(self.globalities)
-    self.flow = Flow(self.globalities)
+    self.mapping = Mapping(self.globalities, self.localities)
+    self.flow = Flow(self.globalities, self.localities)
 
     self.model = RDF.Model()
     if self.model is None:
       raise Exception("new RDF.model failed")
 
-    self.parse_map(mapping_filename)
+#    self.parse_map(mapping_filename)
     self.parse_flow(flow_filename)
 
-  def parse_map(self, filename):
-    self.mapping_filename = filename
-    print "setting the local mapping", self.mapping_filename
-    self.mapping.parse(self.mapping_filename)
+#  def parse_map(self, filename):
+#    self.mapping_filename = filename
+#    print "setting the local mapping", self.mapping_filename
+#    self.mapping.parse(self.mapping_filename)
 
   def parse_flow(self, filename):
     self.flow_filename = filename
@@ -74,18 +70,21 @@ class Reasoner:
     # Let's start from the root node
     n = self.flow.root_node()
 
-    # Until we have a node...
-    while isinstance(n, Node):
+    resolved = False
+    # while we have a node...
+    while not resolved and isinstance(n, Node):
+
+      # maybe this is a question:
+      if n.is_question():
+        # Let's think about this question:
+        print '\n>> Question %s:'% n.uri, n.text.encode('utf8')
+        option = self.flow.choose(self.model, n)
+        
+        # The option chosen is:
+        print '\n>> Answer:', option.text.encode('utf8'), "\n"
+        n = self.flow.node(option.node)
 
       # maybe this is already the answer:
-      if n.is_question() == False:
-        print 'The solution is:',n.text.encode('utf8')
-        break
-
-      # Let's think about this question:
-      print 'Question:', n.text.encode('utf8')
-      option = self.mapping.choose(self.model, n)
-
-      # The option chosen is:
-      print 'Answer:', option.text.encode('utf8'), "\n"
-      n = self.flow.node(option.node)
+      else:
+        print '\n>> Response:', n.text.encode('utf8')
+        resolved = True
