@@ -1,0 +1,13 @@
+{
+	"sameAs":{
+		"pdcalc:publicationDate":[
+			"dc:date"
+		]
+	},
+	"queries":{
+		"is:Film":{
+			"query":"{ ?x bnf-onto:subject \"Audiovisuel\"}",
+			"prefixes":["bnf-onto"]
+			}
+	}
+}

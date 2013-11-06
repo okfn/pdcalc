@@ -1,0 +1,563 @@
+{
+  "root":"n0",
+  "questions":{    "n0":{
+      "type":"question",
+      "text":"Into which of the following categories does the examined item fall? (1)",
+    "options":[
+            {"text":"First fixation of a film (3) (4)",
+            "node":"n1"},
+            {"text":"Unoriginal Database (5)",
+            "node":"n8"},
+            {"text":"Broadcast (3)",
+            "node":"n15"},
+            {"text":"Performance (3) (4)",
+            "node":"n16"},
+            {"text":"Phonogram (3) (4)",
+            "node":"n19"},
+            {"text":"Literary or artistic work (2)",
+            "node":"n24"}
+     ]
+   },
+    "n1":{
+      "type":"question",
+      "text":"Was the film published or communicated to the public within 50 years from the fixation?",
+    "options":[
+            {"text":"Yes",
+            "node":"n2"},
+            {"text":"No",
+            "node":"n5"}
+     ]
+   },
+    "n2":{
+      "type":"question",
+      "text":"Was the film published or communicated to the public more than 50 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n58"},
+            {"text":"No",
+            "node":"n59"}
+     ]
+   },
+    "n3":{
+      "type":"question",
+      "text":"The related right of the producer of the phonogram has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or performers’ rights in any performance that may be fixated in the phonogram."   },
+    "n4":{
+      "type":"question",
+      "text":"The related right of the producer of the phonogram has not expired. Please contact the right-holder before use."   },
+    "n5":{
+      "type":"question",
+      "text":"Was the film first fixated more than 50 years ago?",
+    "options":[
+            {"text":"No",
+            "node":"n59"},
+            {"text":"Yes",
+            "node":"n58"}
+     ]
+   },
+    "n6":{
+      "type":"question",
+      "text":"Of which countries is the right-holder a national or resident?",
+    "options":[
+            {"text":"EEA (8)",
+            "node":"n7"},
+            {"text":"Not EEA (8)",
+            "node":"n13"}
+     ]
+   },
+    "n7":{
+      "type":"question",
+      "text":"Was the database made available to the public after its completion or last substantial change?",
+    "options":[
+            {"text":"Yes",
+            "node":"n39"},
+            {"text":"No",
+            "node":"n40"}
+     ]
+   },
+    "n8":{
+      "type":"question",
+      "text":"Is the right holder a company or firm?",
+    "options":[
+            {"text":"No",
+            "node":"n6"},
+            {"text":"Yes",
+            "node":"n9"}
+     ]
+   },
+    "n9":{
+      "type":"question",
+      "text":"According to the law of which country was it formed?",
+    "options":[
+            {"text":"EEA (8)",
+            "node":"n10"},
+            {"text":"Not EEA (8)",
+            "node":"n11"}
+     ]
+   },
+    "n10":{
+      "type":"question",
+      "text":"In which country does it have its registered office, central administration, or principal place of business?",
+    "options":[
+            {"text":"EEA (8)",
+            "node":"n7"},
+            {"text":"Not EEA (8)",
+            "node":"n13"}
+     ]
+   },
+    "n11":{
+      "type":"question",
+      "text":"In which country does it have its registered office?",
+    "options":[
+            {"text":"EEA (8)",
+            "node":"n12"},
+            {"text":"Not EEA (8)",
+            "node":"n13"}
+     ]
+   },
+    "n12":{
+      "type":"question",
+      "text":"Are its operations genuinely linked on an ongoing basis with the economy of an EEA state?",
+    "options":[
+            {"text":"Not EEA (8)",
+            "node":"n13"},
+            {"text":"EEA (8)",
+            "node":"n7"}
+     ]
+   },
+    "n13":{
+      "type":"question",
+      "text":"The sui generis database right has expired. Please note a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights, such as any underlying literary or artistic work (including any relevant original database), apply."   },
+    "n14":{
+      "type":"question",
+      "text":"The sui generis database right has not expired. Please contact the right-holder before use."   },
+    "n15":{
+      "type":"question",
+      "text":"Was the programme first broadcast more than 50 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n60"},
+            {"text":"No",
+            "node":"n61"}
+     ]
+   },
+    "n16":{
+      "type":"question",
+      "text":"Was a fixation of the performance published or communicated to the public within 50 years from the date of the performance?",
+    "options":[
+            {"text":"Yes",
+            "node":"n17"},
+            {"text":"No",
+            "node":"n18"}
+     ]
+   },
+    "n17":{
+      "type":"question",
+      "text":"Was the fixation published or communicated to the public more than 50 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n62"},
+            {"text":"No",
+            "node":"n63"}
+     ]
+   },
+    "n18":{
+      "type":"question",
+      "text":"Did the performance take place more than 50 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n62"},
+            {"text":"No",
+            "node":"n63"}
+     ]
+   },
+    "n19":{
+      "type":"question",
+      "text":"Was the phonogram published within 50 years of creation?",
+    "options":[
+            {"text":"Yes",
+            "node":"n20"},
+            {"text":"No",
+            "node":"n21"}
+     ]
+   },
+    "n20":{
+      "type":"question",
+      "text":"Was the phonogram published more than 50 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n3"},
+            {"text":"No",
+            "node":"n4"}
+     ]
+   },
+    "n21":{
+      "type":"question",
+      "text":"Was the phonogram communicated to the public within 50 years of creation?",
+    "options":[
+            {"text":"Yes",
+            "node":"n38"},
+            {"text":"No",
+            "node":"n22"}
+     ]
+   },
+    "n22":{
+      "type":"question",
+      "text":"Was the phonogram created more than 50 years ago?",
+    "options":[
+            {"text":"No",
+            "node":"n4"},
+            {"text":"Yes",
+            "node":"n3"}
+     ]
+   },
+    "n23":{
+      "type":"question",
+      "text":"Copyright in the examined work has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any other relevant literary or artistic work, producers’ rights in any relevant phonogram, performers’ rights in any performance that may be fixated in such a phonogram, broadcasting organisations’ rights over a relevant broadcast, any relevant database rights or other sui generis rights have expired.  (12)"   },
+    "n24":{
+      "type":"question",
+      "text":"What type of author (6) does this work have?",
+    "options":[
+            {"text":"Anonymous/pseudonymous (7)",
+            "node":"n25"},
+            {"text":"Unknown",
+            "node":"n29"},
+            {"text":"Natural person",
+            "node":"n34"}
+     ]
+   },
+    "n25":{
+      "type":"question",
+      "text":"What is the nationality, place of residence or place of establishment of the author?",
+    "options":[
+            {"text":"EEA (8)",
+            "node":"n27"},
+            {"text":"Not EEA (8)",
+            "node":"n26"}
+     ]
+   },
+    "n26":{
+      "type":"question",
+      "text":"What is the country of origin (9) of this work?",
+    "options":[
+            {"text":"Not Berne TRIPS WCT (10)",
+            "node":"n36"},
+            {"text":"EEA (8)",
+            "node":"n27"},
+            {"text":"Berne TRIPS WCT (10)",
+            "node":"n37"}
+     ]
+   },
+    "n27":{
+      "type":"question",
+      "text":"Has the work been make available to the public?",
+    "options":[
+            {"text":"No",
+            "node":"n31"},
+            {"text":"Yes",
+            "node":"n30"}
+     ]
+   },
+    "n28":{
+      "type":"question",
+      "text":"Copyright in the examined work has not expired. Please contact the right-holder before use."   },
+    "n29":{
+      "type":"question",
+      "text":"Due to lack of the necessary information, copyright status cannot be determined."   },
+    "n30":{
+      "type":"question",
+      "text":"Was the work published more than 70 years after creation?",
+    "options":[
+            {"text":"No",
+            "node":"n32"},
+            {"text":"Yes",
+            "node":"n33"}
+     ]
+   },
+    "n31":{
+      "type":"question",
+      "text":"Was the work created more than 70 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n23"},
+            {"text":"No",
+            "node":"n28"}
+     ]
+   },
+    "n32":{
+      "type":"question",
+      "text":"Was the work published more than 70 years ago?",
+    "options":[
+            {"text":"No",
+            "node":"n28"},
+            {"text":"Yes",
+            "node":"n23"}
+     ]
+   },
+    "n33":{
+      "type":"question",
+      "text":"Was the work published or communicated to the public more than 25 years ago?",
+    "options":[
+            {"text":"No",
+            "node":"n28"},
+            {"text":"Yes",
+            "node":"n23"}
+     ]
+   },
+    "n34":{
+      "type":"question",
+      "text":"What is the nationality or place of residence of the author?",
+    "options":[
+            {"text":"Not EEA (8)",
+            "node":"n35"},
+            {"text":"EEA (8)",
+            "node":"n41"}
+     ]
+   },
+    "n35":{
+      "type":"question",
+      "text":"What is the country of origin (9) of this work?",
+    "options":[
+            {"text":"Not Berne TRIPS WCT (10)",
+            "node":"n36"},
+            {"text":"Berne TRIPS WCT (10)",
+            "node":"n37"},
+            {"text":"EEA (8)",
+            "node":"n41"}
+     ]
+   },
+    "n36":{
+      "type":"question",
+      "text":"What is nationality or place of residence of the author?",
+    "options":[
+            {"text":"Berne TRIPS WCT (10)",
+            "node":"n37"},
+            {"text":"Not Berne TRIPS WCT (10)",
+            "node":"n23"}
+     ]
+   },
+    "n37":{
+      "type":"question",
+      "text":"The Rule of Shorter Term (Comparison of Terms) applies. This means that the term of protection is that established by the legislation of the selected country, unless (barring provisions to the contrary in the legislation of that country) the term fixed in the country of origin of the work is shorter. In such cases, the term of protection is that of the country of origin."   },
+    "n38":{
+      "type":"question",
+      "text":"Was the phonogram communicated to the public more than 50 years ago?",
+    "options":[
+            {"text":"No",
+            "node":"n4"},
+            {"text":"Yes",
+            "node":"n3"}
+     ]
+   },
+    "n39":{
+      "type":"question",
+      "text":"Was the database made available to the public in the last 15 years?",
+    "options":[
+            {"text":"Yes",
+            "node":"n14"},
+            {"text":"No",
+            "node":"n13"}
+     ]
+   },
+    "n40":{
+      "type":"question",
+      "text":"Was the database completed or sustantially changed within the last 15 years?",
+    "options":[
+            {"text":"Yes",
+            "node":"n14"},
+            {"text":"No",
+            "node":"n13"}
+     ]
+   },
+    "n41":{
+      "type":"question",
+      "text":"Is the work a collective work?",
+    "options":[
+            {"text":"No",
+            "node":"n43"},
+            {"text":"Yes",
+            "node":"n27"}
+     ]
+   },
+    "n42":{
+      "type":"question",
+      "text":"Did the last surviving author (11) die more than 70 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n23"},
+            {"text":"No",
+            "node":"n28"}
+     ]
+   },
+    "n43":{
+      "type":"question",
+      "text":"Has the work been made available to the public?",
+    "options":[
+            {"text":"No",
+            "node":"n42"},
+            {"text":"Yes",
+            "node":"n44"}
+     ]
+   },
+    "n44":{
+      "type":"question",
+      "text":"Was the work published within 70 years of the death of the last surviving author (11)?",
+    "options":[
+            {"text":"No",
+            "node":"n45"},
+            {"text":"Yes",
+            "node":"n46"}
+     ]
+   },
+    "n45":{
+      "type":"question",
+      "text":"Was the work published or communicated to the public more than 25 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n23"},
+            {"text":"No",
+            "node":"n28"}
+     ]
+   },
+    "n46":{
+      "type":"question",
+      "text":"Did the author die for France during WWI or WWII?",
+    "options":[
+            {"text":"Yes",
+            "node":"n47"},
+            {"text":"No",
+            "node":"n48"}
+     ]
+   },
+    "n47":{
+      "type":"question",
+      "text":"Is the work a musical work?",
+    "options":[
+            {"text":"No",
+            "node":"n49"},
+            {"text":"Yes",
+            "node":"n50"}
+     ]
+   },
+    "n48":{
+      "type":"question",
+      "text":"Is the work a musical work?",
+    "options":[
+            {"text":"Yes",
+            "node":"n54"},
+            {"text":"No",
+            "node":"n42"}
+     ]
+   },
+    "n49":{
+      "type":"question",
+      "text":"Did the last surviving author (11) die more than 100 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n23"},
+            {"text":"No",
+            "node":"n28"}
+     ]
+   },
+    "n50":{
+      "type":"question",
+      "text":"Was the work published before 1921 and not in the public domain on February 3th 1919?",
+    "options":[
+            {"text":"Yes",
+            "node":"n51"},
+            {"text":"No",
+            "node":"n52"}
+     ]
+   },
+    "n51":{
+      "type":"question",
+      "text":"Did the last surviving author (11) die more than 115 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n23"},
+            {"text":"No",
+            "node":"n28"}
+     ]
+   },
+    "n52":{
+      "type":"question",
+      "text":"Was the work published before 1948 and not in the public domain on August 13th 1941",
+    "options":[
+            {"text":"No",
+            "node":"n49"},
+            {"text":"Yes",
+            "node":"n53"}
+     ]
+   },
+    "n53":{
+      "type":"question",
+      "text":"Did the last surviving author (11) die more than 109 years ago?",
+    "options":[
+            {"text":"No",
+            "node":"n28"},
+            {"text":"Yes",
+            "node":"n23"}
+     ]
+   },
+    "n54":{
+      "type":"question",
+      "text":"Was the work published before 1921 and not in the public domain on February 3th 1919?",
+    "options":[
+            {"text":"No",
+            "node":"n56"},
+            {"text":"Yes",
+            "node":"n55"}
+     ]
+   },
+    "n55":{
+      "type":"question",
+      "text":"Did the last surviving author die more than 85 years ago?",
+    "options":[
+            {"text":"Yes",
+            "node":"n23"},
+            {"text":"No",
+            "node":"n28"}
+     ]
+   },
+    "n56":{
+      "type":"question",
+      "text":"Was the work published before 1948 and not in the public domain on August 13th 1941",
+    "options":[
+            {"text":"Yes",
+            "node":"n57"},
+            {"text":"No",
+            "node":"n42"}
+     ]
+   },
+    "n57":{
+      "type":"question",
+      "text":"Did the last surviving author die more than 79 years ago?",
+    "options":[
+            {"text":"No",
+            "node":"n28"},
+            {"text":"Yes",
+            "node":"n23"}
+     ]
+   },
+    "n58":{
+      "type":"question",
+      "text":"The related right of the film producer in the first fixation of the film has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any cinematographic or audiovisual work which might be fixated in the film."   },
+    "n59":{
+      "type":"question",
+      "text":"The related right of the producer of the film producer in the first fixation of the film has not expired. Please contact the right-holder before use."   },
+    "n60":{
+      "type":"question",
+      "text":"The related right of the broadcasting organisation in this broadcast has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work, producers’ rights in any relevant phonogram or performers’ rights in any performance that may be fixated in such a phonogram."   },
+    "n61":{
+      "type":"question",
+      "text":"The related right of the broadcasting organisation in this broadcast has not expired. Please contact the right- holder before use."   },
+    "n62":{
+      "type":"question",
+      "text":"The related rights of the performers in the fixation of the performance have expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or producers’ rights in any relevant phonogram."   },
+    "n63":{
+      "type":"question",
+      "text":"The related right of the performers in the fixation of the performance have not expired. Please contact the right- holder before use."   },
+    "n64":{
+      "type":"question",
+      "text":"This flowchart, intended to determine whether a certain work or other subject matter vested with copyright or neighbouring rights (related rights) has fallen into the public domain in France, is part of the research into public domain calculation by the Institute of Information Law for EuropeanaConnect.   This work is licensed under a Creative Commons Attribution-ShareAlike License   You are free:       * to Share — to copy, distribute and transmit the work     * to Remix — to adapt the work   Under the following conditions:       * Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).     * Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or a similar license to this one.   To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/nl/"   }
+  }
+}

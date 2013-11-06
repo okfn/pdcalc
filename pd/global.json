@@ -1,0 +1,87 @@
+{
+	"namespaces":{
+		"dc":"http://purl.org/dc/terms/",
+		"rdagroup1elements":"http://RDVocab.info/Elements/",
+		"rdarelationships":"http://rdvocab.info/RDARelationshipsWEMI/",
+		"rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"xsd":"http://www.w3.org/2001/XMLSchema#",
+		"rdfs":"http://www.w3.org/2000/01/rdf-schema#",
+		"owl":"http://www.w3.org/2002/07/owl#",
+		"bibo":"http://purl.org/ontology/bibo/",
+		"flow":"http://okfnpad.org/flow/0.1/",
+	  	"OV":"http://open.vocab.org/terms/",
+		"foaf":"http://xmlns.com/foaf/0.1/",
+		"bio":"http://purl.org/vocab/bio/0.1/",
+		"ISBD":"http://iflastandards.info/ns/isbd/elements/",
+		"skos":"http://www.w3.org/2004/02/skos/core#",
+		"bnf-onto":"http://data.bnf.fr/ontology/bnf-onto/"
+	},
+	"sameAs":{
+		"pdcalc:Film":[
+			"bibo:Film"
+		],
+		"pdcalc:Book":[
+			"bibo:Book"
+		],
+		"pdcalc:Performance":[
+			"bibo:Performance"
+		],
+		"pdcalc:Document":[
+			"bibo:Document"
+		],
+		"pdcalc:AudioVisual":[
+			"bibo:AudioVisualDocument"
+		],
+		"pdcalc:Audio":[
+			"bibo:Audio"
+		],
+		"pdcalc:Database":[
+			"bibo:Collection"
+		],
+		"pdcalc:publicationDate":[
+			"dc:issued"
+		]
+	},
+	"queries":{
+		"is:True":{
+			"query":"{}",
+			"prefixes":[]
+			},
+		"is:False":{
+			"query":"{rdf:Type a rdf:Resource}",
+			"prefixes":["rdf"]
+			},
+		"is:Film":{
+			"query":"{ ?x a %(pdcalc:Film)s}",
+			"prefixes":[]
+			},
+		"is:Database":{
+			"query":"{ ?x a %(pdcalc:Database)s}",
+			"prefixes":[]
+			},
+		"is:Broadcast":{
+			"query":"{ ?x a %(pdcalc:Audio)s}",
+			"prefixes":[]
+			},
+		"is:Phonogram":{
+			"query":"{ ?x a %(pdcalc:Audio)s}",
+			"prefixes":[]
+			},
+		"is:Book":{
+			"query":"{ ?x a %(pdcalc:Book)s}",
+			"prefixes":[]
+			},
+		"is:Performance":{
+			"query":"{ ?x a %(pdcalc:Performance)s}",
+			"prefixes":[]
+			},
+		"pdcalc:issued":{
+			"query":"{ {  ?a %(pdcalc:publicationDate)s ?b.  FILTER (year(xsd:dateTime(?b)) +%(pdcalc:years)s < year(now()) )  } }",
+			"prefixes":["xsd"]
+			},
+		"pdcalc:Agent":{
+			"query":"{ ?x a foaf:Agent ; bio:event ?y }",
+			"prefixes":["bio","foaf"]
+		}
+	}
+}
