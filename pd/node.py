@@ -9,6 +9,7 @@ class Node(object):
     self.text_value = None
     self.options_list = []
     self.query_value = query
+    self._public = None
 
   def is_binary(self):
     return len(self._get_options()) == 2 and self.query_value is not None
@@ -35,10 +36,19 @@ class Node(object):
   def _get_options(self):
     return self.options_list
 
+  def _get_is_public(self):
+    if self._public is None:
+      return "unknown"
+    return self._public
+
+  def _set_is_public(self, value):
+    self._public = value
+
   options = property(_get_options)
   uri = property(_get_uri)
   text = property(_get_text, _set_text)
   query = property(_get_query, _set_query)
+  is_public = property(_get_is_public, _set_is_public)
 
   def add_options(self, option):
     if isinstance(option, Option):

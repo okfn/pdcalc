@@ -44,7 +44,7 @@ class Flow(object):
 
     self.get_root(self.model)
     self.get_nodes(self.model)
-    print "parsed", filename
+    #print "parsed", filename
 
   # store the root node into the object
   def get_root(self, model):
@@ -59,32 +59,17 @@ class Flow(object):
     
     if "query" in node_model:
       node.query = node_model['query']
+    if "is_public" in node_model:
+      node.is_public = node_model.get('is_public')
     node.text = node_model['text']
     if "options" in node_model:
       for o in node_model['options']:
         self.get_options(node, o)
 
-#    statement = RDF.Statement(subject,
-#                              RDF.Uri("http://okfnpad.org/flow/0.1/query"),
-#                              None)
-#
-#    for s in model.find_statements(statement):
-#      if s.object.is_literal():
-#        node.query = s.object.literal_value['string']
-#
     return node
 
   def get_options(self, node, option):
     node.add_options(Option(option, node))
-#    statement = RDF.Statement(option,
-#                              RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
-#                              None)
-#
-#    for s in model.find_statements(statement):
-#      if s.object.is_resource() and s.object.uri == RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt"):
-#        self.get_alt_options(node, model, s.subject)
-#      elif s.object.is_resource() and s.object.uri == RDF.Uri("http://okfnpad.org/flow/0.1/Option"):
-#        node.add_options(self.get_option(model, s.subject))
     pass
 
   def get_alt_options(self, node, model, subject):
@@ -136,19 +121,32 @@ class Flow(object):
     print "The flow RDF document contains:", len(self.questions), "questions and", len(self.answers), "answers."
 
 
-  def choose(self, model, node):
+  def choose(self, model, node, detail=1, mode="cli",  out=None):
     if node.is_binary():
       sparql = node.render_query(self.globalities, self.localities)
-      print sparql
+      if detail >=3:
+        if mode=="cli":
+          out += "query: %s" % sparql
+        else:
+          out.append({"query":sparql})
+        
       query = RDF.Query(sparql, query_language="sparql")
       result = query.execute(model).get_boolean()
       return node.get_option_for(result)
     else:
       for option in node.options:
-        print "Evaluating option: ", option.text
+        if detail >=3:
+          if mode=="cli":
+            out += "Evaluating option: %s" % option.text
+          else:
+            out.append({"evaluation":option.text})
         sparql = option.render_query(self.globalities, self.localities)
-
-        print sparql
+        if detail >=3:
+          if mode=="cli":
+            out += "query: %s" % sparql
+          else:
+            out.append({"query":sparql})
+        
         query = RDF.Query(sparql, query_language="sparql")
         result = query.execute(model).get_boolean()
         if result:

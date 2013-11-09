@@ -270,10 +270,12 @@
     },
     "n13": {
       "type": "answer",
+      "is_public":true,
       "text": "The sui generis database right has expired. Please note a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights, such as any underlying literary or artistic work (including any relevant original database), apply."
     },
     "n14": {
       "type": "answer",
+      "is_public":false,
       "text": "The sui generis database right has not expired. Please contact the right-holder before use."
     },
     "n15": {
@@ -430,6 +432,7 @@
     },
     "n23": {
       "type": "answer",
+      "is_public":true,
       "text": "Copyright in the examined work has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any other relevant literary or artistic work, producers’ rights in any relevant phonogram, performers’ rights in any performance that may be fixated in such a phonogram, broadcasting organisations’ rights over a relevant broadcast, any relevant database rights or other sui generis rights have expired.  (12)"
     },
     "n24": {
@@ -531,6 +534,7 @@
     },
     "n28": {
       "type": "answer",
+      "is_public":false,
       "text": "Copyright in the examined work has not expired. Please contact the right-holder before use."
     },
     "n29": {
@@ -1120,30 +1124,37 @@
     },
     "n58": {
       "type": "question",
+      "is_public":true,
       "text": "The related right of the film producer in the first fixation of the film has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any cinematographic or audiovisual work which might be fixated in the film."
     },
     "n59": {
       "type": "question",
+      "is_public":false,
       "text": "The related right of the producer of the film producer in the first fixation of the film has not expired. Please contact the right-holder before use."
     },
     "n60": {
       "type": "question",
+      "is_public":true,
       "text": "The related right of the broadcasting organisation in this broadcast has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work, producers’ rights in any relevant phonogram or performers’ rights in any performance that may be fixated in such a phonogram."
     },
     "n61": {
       "type": "question",
+      "is_public":false,
       "text": "The related right of the broadcasting organisation in this broadcast has not expired. Please contact the right- holder before use."
     },
     "n62": {
       "type": "question",
+      "is_public":true,
       "text": "The related rights of the performers in the fixation of the performance have expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or producers’ rights in any relevant phonogram."
     },
     "n63": {
       "type": "question",
+      "is_public":false,
       "text": "The related right of the performers in the fixation of the performance have not expired. Please contact the right- holder before use."
     },
     "n64": {
       "type": "question",
+      "is_public":true,
       "text": "This flowchart, intended to determine whether a certain work or other subject matter vested with copyright or neighbouring rights (related rights) has fallen into the public domain in France, is part of the research into public domain calculation by the Institute of Information Law for EuropeanaConnect.   This work is licensed under a Creative Commons Attribution-ShareAlike License   You are free:       * to Share — to copy, distribute and transmit the work     * to Remix — to adapt the work   Under the following conditions:       * Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).     * Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or a similar license to this one.   To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/nl/"
     }
   }

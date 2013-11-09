@@ -7,10 +7,17 @@ from node import Node
 from xml.etree import ElementTree as ET
 import json
 
+
+detail_level =  {
+  "low":1,
+  "medium":2,
+  "high":3
+}
+
 class Reasoner(object):
 
   # The variables:
-  def __init__(self, flow_filename, local_map, global_map=None):
+  def __init__(self, flow_filename, local_map, global_map=None, detail="low", output="cli"):
     self.parser = RDF.Parser('raptor')
     if self.parser is None:
       raise Exception("Failed to create RDF.Parser raptor")
@@ -23,17 +30,14 @@ class Reasoner(object):
     self.mapping = Mapping(self.globalities, self.localities)
     self.flow = Flow(self.globalities, self.localities)
 
+    self.detail = detail_level[detail]
+    self.output = output
+
     self.model = RDF.Model()
     if self.model is None:
       raise Exception("new RDF.model failed")
 
-#    self.parse_map(mapping_filename)
     self.parse_flow(flow_filename)
-
-#  def parse_map(self, filename):
-#    self.mapping_filename = filename
-#    print "setting the local mapping", self.mapping_filename
-#    self.mapping.parse(self.mapping_filename)
 
   def parse_flow(self, filename):
     self.flow_filename = filename
@@ -72,19 +76,43 @@ class Reasoner(object):
 
     resolved = False
     # while we have a node...
+    self.out = []
     while not resolved and isinstance(n, Node):
-
       # maybe this is a question:
       if n.is_question():
         # Let's think about this question:
-        print '\n>> Question %s:'% n.uri, n.text.encode('utf8')
-        option = self.flow.choose(self.model, n)
+        if self.detail >= 2:
+          if self.output == "cli": 
+            self.out.append('>> Question %s: %s'% (n.uri, n.text.encode('utf8')))
+          elif self.output == "json":
+            self.out.append({"question":n.text.encode('utf8'), "id":n.uri})
+        
+        option = self.flow.choose(self.model, n, detail=self.detail, mode=self.output, out=self.out)
         
         # The option chosen is:
-        print '\n>> Answer:', option.text.encode('utf8'), "\n"
+        if self.detail >= 2: 
+          if self.output == "cli":
+            self.out.append('>> Answer: %s' % option.text.encode('utf8'))
+          elif self.output == "json":
+            self.out.append({"answer":option.text.encode('utf8')})
+        
         n = self.flow.node(option.node)
 
       # maybe this is already the answer:
       else:
-        print '\n>> Response:', n.text.encode('utf8')
+        if self.detail >= 1:
+          if self.output == "cli":
+            self.out.append('>> Response: %s - %s' % (n.is_public, n.text.encode('utf8')))
+          elif self.output == "json":
+            self.out.append({"response":n.text.encode('utf8'), "result":n.is_public})
+        
         resolved = True
+
+    if self.output == "json":
+      self.out = json.dumps(self.out)
+    elif self.output == "cli":
+      self.out = "\n".join(self.out)
+
+  def get_result(self):
+    print self.out
+    return self.out
