@@ -2,19 +2,22 @@
 	"namespaces":{
 		"dc":"http://purl.org/dc/terms/",
 		"rdagroup1elements":"http://RDVocab.info/Elements/",
+		"rdagroup2elements":"http://RDVocab.info/ElementsGr2/",
 		"rdarelationships":"http://rdvocab.info/RDARelationshipsWEMI/",
 		"rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
 		"xsd":"http://www.w3.org/2001/XMLSchema#",
 		"rdfs":"http://www.w3.org/2000/01/rdf-schema#",
 		"owl":"http://www.w3.org/2002/07/owl#",
 		"bibo":"http://purl.org/ontology/bibo/",
+		"mo":"http://musicontology.com/",
 		"flow":"http://okfnpad.org/flow/0.1/",
 	  	"OV":"http://open.vocab.org/terms/",
 		"foaf":"http://xmlns.com/foaf/0.1/",
 		"bio":"http://purl.org/vocab/bio/0.1/",
 		"ISBD":"http://iflastandards.info/ns/isbd/elements/",
 		"skos":"http://www.w3.org/2004/02/skos/core#",
-		"bnf-onto":"http://data.bnf.fr/ontology/bnf-onto/"
+		"bnf-onto":"http://data.bnf.fr/ontology/bnf-onto/",
+		"ore":"http://www.openarchives.org/ore/terms/"
 	},
 	"sameAs":{
 		"pdcalc:Film":[
@@ -33,6 +36,9 @@
 			"bibo:AudioVisualDocument"
 		],
 		"pdcalc:Audio":[
+			"bibo:Audio"
+		],
+		"pdcalc:Broadcast":[
 			"bibo:Audio"
 		],
 		"pdcalc:Database":[
@@ -60,7 +66,7 @@
 			"prefixes":[]
 			},
 		"is:Broadcast":{
-			"query":"{ ?x a %(pdcalc:Audio)s}",
+			"query":"{ ?x a %(pdcalc:Broadcast)s}",
 			"prefixes":[]
 			},
 		"is:Phonogram":{
@@ -76,10 +82,14 @@
 			"prefixes":[]
 			},
 		"pdcalc:issued":{
-			"query":"{ {  ?a %(pdcalc:publicationDate)s ?b.  FILTER (year(xsd:dateTime(?b)) +%(pdcalc:years)s < year(now()) )  } }",
+			"query":"{ {  ?a %(pdcalc:publicationDate)s ?b.  FILTER (year(xsd:date(?b)) +%(pdcalc:years)s < year(now()) )  } }",
 			"prefixes":["xsd"]
 			},
 		"pdcalc:Agent":{
+			"query":"{ ?x a foaf:Agent ; bio:event ?y }",
+			"prefixes":["bio","foaf"]
+		},
+		"pdcalc:Person":{
 			"query":"{ ?x a foaf:Agent ; bio:event ?y }",
 			"prefixes":["bio","foaf"]
 		}

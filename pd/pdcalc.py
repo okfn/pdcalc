@@ -4,6 +4,7 @@ import argparse
 import tempfile
 import requests
 import os
+import sys
 from os import path
 
 
@@ -18,6 +19,7 @@ if __name__ == '__main__':
   parser.add_argument('-f', '--format', dest='format',  help='format of the instances', choices=['rdf', 'json'], default="rdf")
   parser.add_argument('-d', '--detail', dest='detail',  help='detail levels', choices=['low', 'medium', 'high'], default="low")
   parser.add_argument('-o', '--output', dest='output',  help='output format', choices=["cli", "json"], default="cli")
+  parser.add_argument('-q', '--query', dest="query", help="one-shot query", default=None)
 
   args = parser.parse_args()
 
@@ -34,17 +36,20 @@ if __name__ == '__main__':
     f.close()
     args.instance = f.name
 
-  files = [ os.path.join(args.country,"flow.json"), os.path.join(args.country,args.flavor, "local.json"), args.globalmap, args.instance]
-  #print files
+  files = [ os.path.join(args.country,"flow.json"), os.path.join(args.country,args.flavor, "local.json"), os.path.join(args.country, "local.json"), args.globalmap, args.instance]
   files = map(path.isfile, files)
-  #print files
   if all(files):
     from reasoner import Reasoner
-    a = Reasoner(os.path.join(args.country,"flow.json"), local_map = os.path.join(args.country,args.flavor, "local.json"), global_map = args.globalmap, detail=args.detail, output=args.output)
+    a = Reasoner(os.path.join(args.country,"flow.json"), local_map = os.path.join(args.country, "local.json"), flavor_map = os.path.join(args.country,args.flavor, "local.json"), global_map = args.globalmap, detail=args.detail, output=args.output)
     a.parse_input(args.instance)
     a.info()
-    a.run()
+    if args.query is None:
+      a.run()
+    else:
+      a.query(args.query)
     a.get_result()
 
   if args.mode == "url":
     os.remove(args.instance)
+
+  sys.exit()

@@ -1,13 +1,33 @@
 {
-	"sameAs":{
-		"pdcalc:publicationDate":[
-			"dc:date"
-		]
-	},
 	"queries":{
 		"is:Film":{
-			"query":"{ ?x bnf-onto:subject \"Audiovisuel\"}",
-			"prefixes":["bnf-onto"]
-			}
+			"query":"{ ?x a bibo:Film}",
+			"prefixes":["bibo"]
+		},
+		"is:Database":{
+			"query":"{ ?x a bibo:Collection}",
+			"prefixes":["bibo"]
+		},
+		"is:Broadcast":{
+			"query":"{ ?x a bibo:AudioVisualDocument }",
+			"prefixes":["bibo"]
+			},
+		"is:Phonogram":{
+			"query":"{ ?x a %(pdcalc:Audio)s}",
+			"prefixes":["bibo"]
+			},
+		"is:Book":{
+			"query":"{ ?x a %(pdcalc:Book)s}",
+			"prefixes":["bibo"]
+			},
+		"is:Performance":{
+			"query":"{ ?x a %(pdcalc:Performance)s}",
+			"prefixes":["bibo"]
+			},
+		"is:collective":{
+			"query":"?count (count(?bio) as ?x) WHERE { ?a dc:creator ?bio } HAVING( count(?bio) > 1)",
+			"prefixes":["foaf","dc", "xsd"],
+			"mode":"SELECT"
+		}
 	}
 }

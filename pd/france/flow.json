@@ -96,11 +96,13 @@
     },
     "n3": {
       "type": "answer",
-      "text": "The related right of the producer of the phonogram has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or performers’ rights in any performance that may be fixated in the phonogram."
+      "text": "The related right of the producer of the phonogram has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or performers’ rights in any performance that may be fixated in the phonogram.",
+      "is_public": true
     },
     "n4": {
       "type": "answer",
-      "text": "The related right of the producer of the phonogram has not expired. Please contact the right-holder before use."
+      "text": "The related right of the producer of the phonogram has not expired. Please contact the right-holder before use.",
+      "is_public": false
     },
     "n5": {
       "type": "question",
@@ -449,17 +451,17 @@
           }
         },
         {
-          "text": "Unknown",
-          "node": "n29"
-        },
-        {
           "text": "Natural person",
           "node": "n34",
           "query":{
-            "template":"pdcalc:Agent",
+            "template":"pdcalc:Person",
             "assumption":"Assuming that a work with no Author + bio/event is an Anonymous/Pseudonymous/Legal entity work (we do not take into account works with an unknown author which would result in an undefinable copyright status)",
             "parameters":{}
           }
+        },
+        {
+          "text": "Unknown",
+          "node": "n29"
         }
       ]
     },
@@ -771,7 +773,7 @@
       "type": "question",
       "text": "Is the work a collective work?",
       "query":{
-        "template":"prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> SELECT  ?count (count(?bio) as ?x) WHERE { ?bio a bio:Birth } HAVING( count(?bio) > 1)",
+        "template":"is:collective",
         "assumption":"assuming that if there is not more than one bio:birth in the metadata then the work is not a collective work",
         "parameters":{}
         },

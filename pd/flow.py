@@ -8,14 +8,13 @@ import re
 
 # The flow class contains a flow RDF document
 class Flow(object):
-
   # list of variables
   def __init__(self, globalities = {}, localities = {}):
     self.parser = RDF.Parser('raptor')
     if self.parser is None:
       raise Exception("Failed to create RDF.Parser raptor")
 
-    self.localities = localities
+    self.localities = localities    
     self.globalities = globalities
     self.questions = {}
     self.answers = {}
@@ -118,37 +117,45 @@ class Flow(object):
 
   # Some information
   def info(self):
-    print "The flow RDF document contains:", len(self.questions), "questions and", len(self.answers), "answers."
-
+    #print "The flow RDF document contains:", len(self.questions), "questions and", len(self.answers), "answers."
+    pass
 
   def choose(self, model, node, detail=1, mode="cli",  out=None):
     if node.is_binary():
-      sparql = node.render_query(self.globalities, self.localities)
-      if detail >=3:
-        if mode=="cli":
-          out += "query: %s" % sparql
-        else:
-          out.append({"query":sparql})
-        
-      query = RDF.Query(sparql, query_language="sparql")
-      result = query.execute(model).get_boolean()
-      return node.get_option_for(result)
+      try:
+        a = __import__(node.uri)
+        result = a.evaluate_question(model)
+        return node.get_option_for(result)
+      except:
+        sparql = node.render_query(self.globalities, self.localities)
+        if detail >=3:
+          if mode=="cli":
+            out.append(">  Query: %s" % sparql)
+          else:
+            out.append({"query":sparql, "type":"query"})
+          
+        query = RDF.Query(sparql, query_language="sparql")
+        result = query.execute(model).get_boolean()
+        return node.get_option_for(result)
     else:
       for option in node.options:
         if detail >=3:
           if mode=="cli":
-            out += "Evaluating option: %s" % option.text
+            out.append( ">  Evaluating option: %s" % option.text)
           else:
-            out.append({"evaluation":option.text})
+            out.append({"evaluation":option.text, "type":"evaluation"})
         sparql = option.render_query(self.globalities, self.localities)
-        if detail >=3:
-          if mode=="cli":
-            out += "query: %s" % sparql
-          else:
-            out.append({"query":sparql})
         
-        query = RDF.Query(sparql, query_language="sparql")
-        result = query.execute(model).get_boolean()
+        if sparql is not None:
+          if detail >=3:
+            if mode=="cli":
+              out.append(">  Query: %s" % sparql)
+            else:
+              out.append({"query":sparql, "type":"query"})
+          query = RDF.Query(sparql, query_language="sparql")
+          result = query.execute(model).get_boolean()
+        else:
+          result = False
         if result:
           break
       if result is not None:

@@ -10,6 +10,7 @@ def render(query, globalities, localities):
 				q = localities['queries'][query["template"]] if query["template"] in localities['queries'] else globalities['queries'][query["template"]]
 			else:
 				q = globalities['queries'][query["template"]]
+			mode = q.get('mode', "ASK")
 			elements = re.findall(query_re, q['query'])
 			for element in elements:
 				if "parameters" in query and element in query['parameters']:
@@ -24,7 +25,7 @@ def render(query, globalities, localities):
 			#print "Assumptions:",query.get('assumptions')
 			for prefix in set(q['prefixes']):
 				ret += "prefix %s: <%s> " % (prefix, globalities['namespaces'][prefix] if prefix in globalities['namespaces'] else localities['namespaces'][prefix])
-			ret += "ASK "
+			ret += mode + " "
 			ret += q['query'] % replacement_dict
 		else:
 			ret = query['query'];

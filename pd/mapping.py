@@ -37,7 +37,7 @@ class Mapping(object):
     for s in self.model.find_statements(statement):
       if s.subject.is_resource():
         self.add_map(self.model, s.subject)
-    print "parsed", filename
+    #print "parsed", filename
 
   # This method populates a Map object
   def add_map(self, model, subject):
@@ -86,8 +86,9 @@ class Mapping(object):
 
   # Some information
   def info(self):
-    print "The map RDF document contains:", len(self.maps), "mapping objects"
-
+    pass
+    #print "The map RDF document contains:", len(self.maps), "mapping objects"
+    
   # This method chooses an answer
   def choose(self, model, node):
     uri = str(node.uri)

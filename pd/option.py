@@ -23,6 +23,8 @@ class Option(object):
       return self.text_value
 
   def render_query(self, globalities, localities):
+    if self.s_query is None:
+      return None
     return sparqler.render(self.s_query, globalities, localities)
 
 
