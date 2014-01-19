@@ -7,8 +7,6 @@ import os
 import sys
 from os import path
 
-
-# int main(...) { ...
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Public Domain Calculator')
   parser.add_argument('-c', '--country', dest='country',  help='country for which to test', required=True)
@@ -31,13 +29,16 @@ if __name__ == '__main__':
     data = requests.get(args.instance)
     #print data.encoding
     #print data.text
-
+    if data.status_code != 200:
+      raise Exception("Wrong Status ==> Network Error.")
     f.write(data.text.encode('ascii', 'ignore'))
     f.close()
     args.instance = f.name
 
   files = [ os.path.join(args.country,"flow.json"), os.path.join(args.country,args.flavor, "local.json"), os.path.join(args.country, "local.json"), args.globalmap, args.instance]
+  #print files
   files = map(path.isfile, files)
+  #print files
   if all(files):
     from reasoner import Reasoner
     a = Reasoner(os.path.join(args.country,"flow.json"), local_map = os.path.join(args.country, "local.json"), flavor_map = os.path.join(args.country,args.flavor, "local.json"), global_map = args.globalmap, detail=args.detail, output=args.output)
@@ -47,7 +48,7 @@ if __name__ == '__main__':
       a.run()
     else:
       a.query(args.query)
-    a.get_result()
+    print a.get_result()
 
   if args.mode == "url":
     os.remove(args.instance)

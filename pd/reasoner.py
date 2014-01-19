@@ -41,8 +41,8 @@ class Reasoner(object):
 
 
     if flavor_map is not None:
-      sys.path.append("/".join(flavor_map.split('/')[:-1])
-    sys.path.append("/".join(local_map.split('/')[:-1])
+      sys.path.append("/".join(flavor_map.split('/')[:-1]))
+    sys.path.append("/".join(local_map.split('/')[:-1]))
 
     self.localities = update(self.localities, self.flavor)
 
@@ -146,4 +146,4 @@ class Reasoner(object):
     self.out = str(result)
 
   def get_result(self):
-    print self.out
+    return self.out

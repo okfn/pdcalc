@@ -170,7 +170,7 @@
       "type": "question",
       "text": "Is the right holder a company or firm?",
       "query":{
-        "query":"prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> ASK { ?x a foaf:Agent ; bio:event ?y } ",
+        "query":"owner:Firm",
         "assumption":"Assuming that if the metadata of a Database contains a foaf:Agent bio:event is a not a firm or a company"
         },
       "options": [
@@ -284,7 +284,7 @@
       "type": "question",
       "text": "Was the programme first broadcast more than 50 years ago?",
       "query":{
-        "query":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:AudioVisual)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
+        "query":"op:firstBroadcast",
         "assumption":"Assuming that dc:issued represents the date at which the programme was first broadcasted",
         "parameters":{}
         },
@@ -318,6 +318,7 @@
         }
       ]
     },
+//FROM HERE
     "n17": {
       "type": "question",
       "text": "Was the fixation published or communicated to the public more than 50 years ago?",
