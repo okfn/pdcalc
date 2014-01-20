@@ -29,8 +29,13 @@ if __name__ == '__main__':
     data = requests.get(args.instance)
     #print data.encoding
     #print data.text
+<<<<<<< HEAD
     #if data.status_code != 200:
     #  raise Exception("Wrong Status ==> Network Error.")
+=======
+    if data.status_code != 200:
+      raise Exception("Wrong Status ==> Network Error. (%s)" % data.status_code)
+>>>>>>> d32abd1e01e957927ad86ca9ffa446a8ca9e787c
     f.write(data.text.encode('ascii', 'ignore'))
     f.close()
     args.instance = f.name

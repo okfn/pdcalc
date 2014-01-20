@@ -30,13 +30,14 @@
 			"mode":"SELECT"
 		},
 		"owner:Firm":{
-			"query":"?x a foaf:Agent ; bio:event ?y ",
+			"query":"?x a dc:creator ; bio:event ?y ",
 			"prefixes":["foaf","bio", "xsd"]
 
 		},
 		"op:firstBroadcast":{
 			"query":" {  ?a a %(pdcalc:AudioVisual)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +%(pdcalc:years)s <  year(now()) )  } ",
 			"prefixes":["xsd","dc"] 
-		}
+		},
+		
 	}
 }
