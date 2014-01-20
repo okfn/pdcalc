@@ -30,7 +30,7 @@ if __name__ == '__main__':
     #print data.encoding
     #print data.text
     if data.status_code != 200:
-      raise Exception("Wrong Status ==> Network Error.")
+      raise Exception("Wrong Status ==> Network Error. (%s)" % data.status_code)
     f.write(data.text.encode('ascii', 'ignore'))
     f.close()
     args.instance = f.name

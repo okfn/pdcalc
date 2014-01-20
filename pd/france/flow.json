@@ -317,14 +317,17 @@
           "node": "n18"
         }
       ]
-    },
+    },          
     "n17": {
       "type": "question",
       "text": "Was the fixation published or communicated to the public more than 50 years ago?",
       "query":{
-        "query":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Performance)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
+      "query":{
+        "template":"pdcalc:issued",
+        "parameters":{
+          "pdcalc:years":50
+        },
         "assumption":"Assuming the dc:issued represents the date of first communication to the public",
-        "parameters":{}
         },
       "options": [
         {          "value":true,
@@ -341,9 +344,12 @@
       "type": "question",
       "text": "Did the performance take place more than 50 years ago?",
       "query":{
-        "query":"prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Performance)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
+        "template":"pdcalc:issued",
+        "parameters":{
+          "pdcalc:years":50
+        },
         "assumption":"Assuming the dc:issued represents the date of first communication to the public",
-        "parameters":{}
+
         },
       "options": [
         {          "value":true,

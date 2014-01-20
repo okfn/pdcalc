@@ -6,7 +6,7 @@
 	},
 	"queries":{
 		"pdcalc:issued":{
-			"query":"{ {  ?a %(pdcalc:publicationDate)s ?b.  FILTER (xsd:decimal(?b) + %(pdcalc:years)s < 2013 )  } }",
+			"query":"{ {  ?a %(pdcalc:publicationDate)s ?b.  FILTER (xsd:decimal(?b) + %(pdcalc:years)s < year(now()) )  } }",
 			"prefixes":["xsd"]
 			},
 		"is:Film":{
