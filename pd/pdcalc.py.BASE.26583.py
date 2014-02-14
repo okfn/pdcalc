@@ -7,8 +7,6 @@ import os
 import sys
 from os import path
 
-sys.path.insert(0, "/usr/lib/python2.7/dist-packages") #to have redland librdf loaded
-
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Public Domain Calculator')
   parser.add_argument('-c', '--country', dest='country',  help='country for which to test', required=True)
@@ -20,7 +18,6 @@ if __name__ == '__main__':
   parser.add_argument('-d', '--detail', dest='detail',  help='detail levels', choices=['low', 'medium', 'high'], default="low")
   parser.add_argument('-o', '--output', dest='output',  help='output format', choices=["cli", "json"], default="cli")
   parser.add_argument('-q', '--query', dest="query", help="one-shot query", default=None)
-  parser.add_argument('-L', '--language', dest="language", help="language", default="en")
 
   args = parser.parse_args()
 
@@ -32,8 +29,8 @@ if __name__ == '__main__':
     data = requests.get(args.instance)
     #print data.encoding
     #print data.text
-    #if data.status_code != 200:
-    #  raise Exception("Wrong Status ==> Network Error.")
+    if data.status_code != 200:
+      raise Exception("Wrong Status ==> Network Error.")
     f.write(data.text.encode('ascii', 'ignore'))
     f.close()
     args.instance = f.name
@@ -44,7 +41,7 @@ if __name__ == '__main__':
   #print files
   if all(files):
     from reasoner import Reasoner
-    a = Reasoner(os.path.join(args.country,"flow.json"), local_map = os.path.join(args.country, "local.json"), flavor_map = os.path.join(args.country,args.flavor, "local.json"), global_map = args.globalmap, detail=args.detail, output=args.output, language=os.path.join(args.country, "i18n", args.language+".json"))
+    a = Reasoner(os.path.join(args.country,"flow.json"), local_map = os.path.join(args.country, "local.json"), flavor_map = os.path.join(args.country,args.flavor, "local.json"), global_map = args.globalmap, detail=args.detail, output=args.output)
     a.parse_input(args.instance)
     a.info()
     if args.query is None:

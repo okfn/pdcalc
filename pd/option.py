@@ -2,11 +2,11 @@ import re
 import sparqler
 # A container for an option and its properties
 class Option(object):
-  def __init__(self, obj, parent):
+  def __init__(self, obj, parent, text):
     self.parent = parent
 
     self.val = obj.get('value')
-    self.text_value = obj.get('text')
+    self.text_value = text
     self.node_value = obj.get('node')
 
     self.is_boolean = self.parent.is_binary()

@@ -35,9 +35,19 @@
 
 		},
 		"op:firstBroadcast":{
-			"query":" {  ?a a %(pdcalc:AudioVisual)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +%(pdcalc:years)s <  year(now()) )  } ",
+			"query":" {  ?a a %(pdcalc:AudioVisual)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +%(pdcalc:years)s <=  year(now()) )  } ",
 			"prefixes":["xsd","dc"] 
 		},
+		"pdcalc:lastDead":{
+			"query":"{ {  ?c bio:Death ?d . FILTER ( year(xsd:dateTime(?d)) + %(pdcalc:years)s <=   year(now()) ) } }",
+			"prefixes":["foaf", "bio", "xsd", "dc"]
+		},
+
+		"pdcalc:Publication":{
+			"query":" {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))<  1921 )  ",
+			"prefixes":["foaf", "bio", "xsd", "dc"]
+		}
+
 		
 	}
 }

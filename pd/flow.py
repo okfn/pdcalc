@@ -9,11 +9,12 @@ import re
 # The flow class contains a flow RDF document
 class Flow(object):
   # list of variables
-  def __init__(self, globalities = {}, localities = {}):
+  def __init__(self, globalities = {}, localities = {}, language="en"):
     self.parser = RDF.Parser('raptor')
     if self.parser is None:
       raise Exception("Failed to create RDF.Parser raptor")
 
+    self.language = language
     self.localities = localities    
     self.globalities = globalities
     self.questions = {}
@@ -60,15 +61,15 @@ class Flow(object):
       node.query = node_model['query']
     if "is_public" in node_model:
       node.is_public = node_model.get('is_public')
-    node.text = node_model['text']
+    node.text = self.language[key+".text"]
     if "options" in node_model:
-      for o in node_model['options']:
-        self.get_options(node, o)
+      for i, o in enumerate(node_model['options']):
+        self.get_options(node, o,self.language[key+".options."+str(i)+".text"])
 
     return node
 
-  def get_options(self, node, option):
-    node.add_options(Option(option, node))
+  def get_options(self, node, option, text):
+    node.add_options(Option(option, node, text))
     pass
 
   def get_alt_options(self, node, model, subject):
@@ -126,7 +127,7 @@ class Flow(object):
         a = __import__(node.uri)
         result = a.evaluate_question(model)
         return node.get_option_for(result)
-      except:
+      except Exception, e:
         sparql = node.render_query(self.globalities, self.localities)
         if detail >=3:
           if mode=="cli":
@@ -138,26 +139,32 @@ class Flow(object):
         result = query.execute(model).get_boolean()
         return node.get_option_for(result)
     else:
-      for option in node.options:
-        if detail >=3:
-          if mode=="cli":
-            out.append( ">  Evaluating option: %s" % option.text)
-          else:
-            out.append({"evaluation":option.text, "type":"evaluation"})
-        sparql = option.render_query(self.globalities, self.localities)
-        
-        if sparql is not None:
+      try:
+        a = __import__(node.uri)
+        result = a.evaluate_question(model)
+        return node.get_option_for(result)
+      except Exception, e:
+        for option in node.options:
+     
           if detail >=3:
             if mode=="cli":
-              out.append(">  Query: %s" % sparql)
+              out.append( ">  Evaluating option: %s" % option.text)
             else:
-              out.append({"query":sparql, "type":"query"})
-          query = RDF.Query(sparql, query_language="sparql")
-          result = query.execute(model).get_boolean()
-        else:
-          result = False
-        if result:
-          break
+              out.append({"evaluation":option.text, "type":"evaluation"})
+          sparql = option.render_query(self.globalities, self.localities)
+          
+          if sparql is not None:
+            if detail >=3:
+              if mode=="cli":
+                out.append(">  Query: %s" % sparql)
+              else:
+                out.append({"query":sparql, "type":"query"})
+            query = RDF.Query(sparql, query_language="sparql")
+            result = query.execute(model).get_boolean()
+          else:
+            result = False
+          if result:
+            break
       if result is not None:
         return option
       else:

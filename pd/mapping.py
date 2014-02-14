@@ -8,7 +8,7 @@ import re
 
 # A class for a mapping RDF document
 class Mapping(object):
-  def __init__(self, globalities = {}, localities = {}):
+  def __init__(self, globalities = {}, localities = {}, language= "en"):
     self.localities = localities
     self.globalities = globalities
     self.maps = []

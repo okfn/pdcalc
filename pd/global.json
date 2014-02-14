@@ -92,6 +92,10 @@
 		"pdcalc:Person":{
 			"query":"{ ?x a foaf:Agent ; bio:event ?y }",
 			"prefixes":["bio","foaf"]
+		},
+		"pdcalc:dewey":{
+			"query":"{ ?x a skos:Concept ;  skos:notation ?y . FILTER( xsd:float(?y) >= %(pdcalc:minDewey)s && xsd:float(?y) < %(pdcalc:maxDewey)s) }  ",
+			"prefixes":["xsd","skos", "rdfs", "foaf"]
 		}
 	}
 }

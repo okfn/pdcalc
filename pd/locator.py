@@ -19,14 +19,18 @@ for path in os.listdir('.'):
 	if "." in path or "-" in path:
 		pass
 	else:
-		os.chdir(path)
-		f_lpath = os.path.join("/Users/admin/Documents/prjs/pdcalc/pd", path, "flow.json")
-		
+		f_lpath = os.path.join(path,"flow.json")
+		ret = {}
 		try:
 			f = json.load(open(f_lpath))
-			k = get_keys(f)
-			print k
-		except:
+			
+			for key in f.get('questions'):
+				ret["%s.text" % key] = f.get('questions').get(key).get('text')
+				if f.get('questions').get(key).get('options') is not None:
+					for i, opt in enumerate(f.get('questions').get(key).get('options')):
+						ret["%s.options.%s.text" % (key, i)] = f.get('questions').get(key).get('options')[i].get('text')
+
+			print json.dumps(ret,indent = 3)
+		except Exception, e:
 			pass
-		os.chdir('..')
 

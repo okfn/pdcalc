@@ -28,7 +28,7 @@ def update(d, u):
 class Reasoner(object):
 
   # The variables:
-  def __init__(self, flow_filename, local_map, flavor_map=None, global_map=None, detail="low", output="cli"):
+  def __init__(self, flow_filename, local_map, flavor_map=None, global_map=None, detail="low", output="cli", language="en"):
     self.parser = RDF.Parser('raptor')
     if self.parser is None:
       raise Exception("Failed to create RDF.Parser raptor")
@@ -38,7 +38,7 @@ class Reasoner(object):
     self.globalities = json.load(open(global_map, 'r'))
     self.localities = json.load(open(local_map, 'r'))
     self.flavor = json.load(open(flavor_map, 'r'))
-
+    self.language= json.load(open(language, 'r'))
 
     if flavor_map is not None:
       sys.path.append("/".join(flavor_map.split('/')[:-1]))
@@ -46,8 +46,8 @@ class Reasoner(object):
 
     self.localities = update(self.localities, self.flavor)
 
-    self.mapping = Mapping(self.globalities, self.localities)
-    self.flow = Flow(self.globalities, self.localities)
+    self.mapping = Mapping(self.globalities, self.localities, self.language)
+    self.flow = Flow(self.globalities, self.localities, self.language)
 
     self.detail = detail_level[detail]
     self.output = output
@@ -57,6 +57,8 @@ class Reasoner(object):
       raise Exception("new RDF.model failed")
 
     self.parse_flow(flow_filename)
+
+
 
   def parse_flow(self, filename):
     self.flow_filename = filename
@@ -86,6 +88,12 @@ class Reasoner(object):
         #self.model.load(s.object.uri)
     #print self.model
        # pass
+
+    try:
+      a = __import__("prerun")
+      a.pre_run(self.model)
+    except Exception, e:
+      pass
     
   # Debug info
   def info(self):
@@ -132,8 +140,16 @@ class Reasoner(object):
               self.out.append({"response":n.text.encode('utf8'), "result":n.is_public, "type":"response"})
           
           resolved = True
-    except:
+    except Exception, e:
       pass
+
+    if self.output == "cli":
+      if self.out[-1].startswith(">> Response") == False:
+        self.out.append(">> Response: unknown - Not enough ifnormation to evaluate")
+    elif self.output == "json":
+      if self.out[-1]['type'] != "response":
+        self.out.append({"response":"Not enough data to evaluate", "result":"unknown", "type":"response"})
+
       
     if self.output == "json":
       self.out = json.dumps(self.out)
