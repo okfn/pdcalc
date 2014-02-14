@@ -1,5 +1,5 @@
 # A container of a map element
-class Map:
+class Map(object):
 
   # just few variables
   def __init__(self, subject):
@@ -28,7 +28,7 @@ class Map:
     return self.range_value
 
   def _set_range(self, value):
-    self.range_value = valeu
+    self.range_value = value
 
   def _get_sparql(self):
     return self.sparql_value
