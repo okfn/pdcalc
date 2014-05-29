@@ -1,5 +1,5 @@
 import RDF
-
+import sys
 import const
 from node import Node
 from option import Option
@@ -128,6 +128,7 @@ class Flow(object):
         result = a.evaluate_question(model)
         return node.get_option_for(result)
       except Exception, e:
+        print >> sys.stderr, e
         sparql = node.render_query(self.globalities, self.localities)
         if detail >=3:
           if mode=="cli":

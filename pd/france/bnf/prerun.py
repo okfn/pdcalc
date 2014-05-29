@@ -4,7 +4,7 @@ import json
 import urllib2
 import const
 import tempfile
-import requests
+import cacher 
 
 def pre_run(model, *args, **kwargs):
 	q = """
@@ -30,8 +30,8 @@ def pre_run(model, *args, **kwargs):
 		auth_url = auth_url +"rdf.xml"
 
 		f = tempfile.NamedTemporaryFile("w", delete=False)
-		data = requests.get(auth_url)
-		f.write(data.text.encode('ascii', 'ignore'))
+		data = cacher.get(auth_url)
+		f.write(data)
 		auth_url = f.name
 		f.close()
 		to_parse = RDF.Uri(string = "file:" + auth_url)

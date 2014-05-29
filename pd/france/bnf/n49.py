@@ -24,5 +24,5 @@ def evaluate_question(model, *args, **kwargs):
 		ct = str(row['date'])
 
 	year = int(ct.split('-')[0])
-	return ( year + 100) <= date.today().year
+	return ( year + 95) <= date.today().year 
 

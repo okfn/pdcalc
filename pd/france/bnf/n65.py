@@ -11,17 +11,15 @@ def evaluate_question(model, *args, **kwargs):
 	
 	#return True
 	q = """
-	prefix bio: <http://vocab.org/bio/0.1/> 
-	SELECT  ?x 
-	WHERE {
-		?c bio:Death ?x.
-	}
+	prefix dc: <http://purl.org/dc/terms/> 
+	SELECT ?date
+	WHERE { ?a dc:date ?date.} 
 	"""
 	#print model
 	que = RDF.Query(q, query_language="sparql")
 	result = que.execute(model)
 	#print >> sys.stderr, "PORCODIO", result
-	#print result
+	print result
 	for row in result:
 		date = str(row['x'])
 	d = parser.parse(date)

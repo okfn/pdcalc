@@ -159,7 +159,7 @@ class Reasoner(object):
   def query(self, q):
     que = RDF.Query(q, query_language="sparql")
     result = que.execute(self.model)
-    self.out = str(result)
+    self.out = result.decode("utf-8", "ignore")
 
   def get_result(self):
     return self.out

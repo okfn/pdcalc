@@ -1,1183 +1,1252 @@
 {
   "license": "This document is licensed under Creative Commons Attribution-ShareAlike 3.0 Netherlands License. You are free to distribute and build upon this work even for commercial purposes, as long as you credit outofcopyright.eu and license derivative works under identical terms.",
-  "root": "n0",
   "questions": {
     "n0": {
-      "type": "question",
-      "text": "Into which of the following categories does the examined item fall? (1)",
       "options": [
         {
-          "text": "First fixation of a film (3) (4)",
+          "node": "n1",
           "query": {
             "template": "is:Film"
           },
-          "node": "n1"
+          "text": "First fixation of a film (3) (4)"
         },
         {
-          "text": "Unoriginal Database (5)",
+          "node": "n8",
           "query": {
             "template": "is:Database"
           },
-          "node": "n8"
+          "text": "Unoriginal Database (5)"
         },
         {
-          "text": "Broadcast (3)",
+          "node": "n15",
           "query": {
             "template": "is:Broadcast"
           },
-          "node": "n15"
+          "text": "Broadcast (3)"
         },
         {
-          "text": "Performance (3) (4)",
+          "node": "n16",
           "query": {
             "template": "is:Performance"
           },
-          "node": "n16"
+          "text": "Performance (3) (4)"
         },
         {
-          "text": "Phonogram (3) (4)",
           "node": "n19",
           "query": {
             "template": "is:Phonogram"
-          }
+          },
+          "text": "Phonogram (3) (4)"
         },
         {
-          "text": "Literary or artistic work (2)",
           "node": "n24",
           "query": {
             "template": "is:Book"
-          }
+          },
+          "text": "Literary or artistic work (2)"
         }
-      ]
+      ],
+      "text": "Into which of the following categories does the examined item fall? (1)",
+      "type": "question"
     },
     "n1": {
-      "type": "question",
-      "text": "Was the film published or communicated to the public within 50 years from the fixation?",
-      "query": {
-        "template": "pdcalc:issued",
-        "parameters": {
-          "pdcalc:years": 50
-        }
-      },
       "options": [
         {
-          "value": true,
+          "node": "n2",
           "text": "Yes",
-          "node": "n2"
+          "value": true
         },
         {
-          "value": false,
+          "node": "n5",
           "text": "No",
-          "node": "n5"
+          "value": false
         }
-      ]
+      ],
+      "query": {
+        "parameters": {
+          "pdcalc:years": 50
+        },
+        "template": "pdcalc:issued"
+      },
+      "text": "Was the film published or communicated to the public within 50 years from the fixation?",
+      "type": "question"
+    },
+    "n10": {
+      "options": [
+        {
+          "node": "n7",
+          "text": "EEA (8)",
+          "value": true
+        },
+        {
+          "node": "n13",
+          "text": "Not EEA (8)",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "No information provided concerning the country of the companies  registered office, central administration, or principal place of business: assuming EEA",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "In which country does it have its registered office, central administration, or principal place of business?",
+      "type": "question"
+    },
+    "n11": {
+      "options": [
+        {
+          "node": "n12",
+          "text": "EEA (8)",
+          "value": true
+        },
+        {
+          "node": "n13",
+          "text": "Not EEA (8)",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "No information provided concerning the country in which the database was formed: assuming EEA.",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "In which country does it have its registered office?",
+      "type": "question"
+    },
+    "n12": {
+      "options": [
+        {
+          "node": "n13",
+          "text": "Not EEA (8)",
+          "value": false
+        },
+        {
+          "node": "n7",
+          "text": "EEA (8)",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "No information provided concerning the country in which the database was formed: assuming EEA.",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "Are its operations genuinely linked on an ongoing basis with the economy of an EEA state?",
+      "type": "question"
+    },
+    "n13": {
+      "is_public": true,
+      "text": "The sui generis database right has expired. Please note a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights, such as any underlying literary or artistic work (including any relevant original database), apply.",
+      "type": "answer"
+    },
+    "n14": {
+      "is_public": false,
+      "text": "The sui generis database right has not expired. Please contact the right-holder before use.",
+      "type": "answer"
+    },
+    "n15": {
+      "options": [
+        {
+          "node": "n60",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n61",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date at which the programme was first broadcasted",
+        "parameters": {},
+        "query": "op:firstBroadcast"
+      },
+      "text": "Was the programme first broadcast more than 50 years ago?",
+      "type": "question"
+    },
+    "n16": {
+      "options": [
+        {
+          "node": "n17",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n18",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "No information provided about the first communication of the Performance: assuming it has been communicated within 50 years from the date of the performance.",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "Was a fixation of the performance published or communicated to the public within 50 years from the date of the performance?",
+      "type": "question"
+    },
+    "n17": {
+      "options": [
+        {
+          "node": "n62",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n63",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming the dc:issued represents the date of first communication to the public",
+        "parameters": {
+          "pdcalc:years": 50
+        },
+        "template": "pdcalc:issued"
+      },
+      "text": "Was the fixation published or communicated to the public more than 50 years ago?",
+      "type": "question"
+    },
+    "n18": {
+      "options": [
+        {
+          "node": "n62",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n63",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming the dc:issued represents the date of first communication to the public",
+        "parameters": {
+          "pdcalc:years": 50
+        },
+        "template": "pdcalc:issued"
+      },
+      "text": "Did the performance take place more than 50 years ago?",
+      "type": "question"
+    },
+    "n19": {
+      "options": [
+        {
+          "node": "n20",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n21",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "No information provided about the date of creation: assuming that the Phonogram has been published within 50 years of its creation",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "Was the phonogram published within 50 years of creation?",
+      "type": "question"
     },
     "n2": {
-      "type": "question",
-      "text": "Was the film published or communicated to the public more than 50 years ago?",
-      "query": {
-        "template": "pdcalc:issued",
-        "parameters": {
-          "pdcalc:years": 50
-        }
-      },
       "options": [
         {
-          "value": true,
+          "node": "n58",
           "text": "Yes",
-          "node": "n58"
+          "value": true
         },
         {
-          "value": false,
+          "node": "n59",
           "text": "No",
-          "node": "n59"
+          "value": false
         }
-      ]
+      ],
+      "query": {
+        "parameters": {
+          "pdcalc:years": 50
+        },
+        "template": "pdcalc:issued"
+      },
+      "text": "Was the film published or communicated to the public more than 50 years ago?",
+      "type": "question"
+    },
+    "n20": {
+      "options": [
+        {
+          "node": "n3",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n4",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date the phonogram was first published",
+        "parameters": {},
+        "query": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }"
+      },
+      "text": "Was the phonogram published more than 50 years ago?",
+      "type": "question"
+    },
+    "n21": {
+      "options": [
+        {
+          "node": "n38",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n22",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "No information provided about the date of creation: assuming that the Phonogram has been published within 50 years of its creation",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "Was the phonogram communicated to the public within 50 years of creation?",
+      "type": "question"
+    },
+    "n22": {
+      "options": [
+        {
+          "node": "n4",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n3",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date the phonogram was created(which in this case it will not, more information is needed in the metadata to make a proper determination)",
+        "parameters": {},
+        "query": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }"
+      },
+      "text": "Was the phonogram created more than 50 years ago?",
+      "type": "question"
+    },
+    "n23": {
+      "is_public": true,
+      "text": "Copyright in the examined work has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any other relevant literary or artistic work, producers\u2019 rights in any relevant phonogram, performers\u2019 rights in any performance that may be fixated in such a phonogram, broadcasting organisations\u2019 rights over a relevant broadcast, any relevant database rights or other sui generis rights have expired.  (12)",
+      "type": "answer"
+    },
+    "n24": {
+      "options": [
+        {
+          "node": "n25",
+          "query": {
+            "assumption": "Assuming that a work with no Author + bio/event is an Anonymous/Pseudonymous/Legal entity work (we do not take into account works with an unknown author which would result in an undefinable copyright status)",
+            "parameters": {},
+            "template": "pdcalc:Agent"
+          },
+          "text": "Anonymous/pseudonymous (7)"
+        },
+        {
+          "node": "n34",
+          "query": {
+            "assumption": "Assuming that a work with no Author + bio/event is an Anonymous/Pseudonymous/Legal entity work (we do not take into account works with an unknown author which would result in an undefinable copyright status)",
+            "parameters": {},
+            "template": "pdcalc:Person"
+          },
+          "text": "Natural person"
+        },
+        {
+          "node": "n29",
+          "text": "Unknown"
+        }
+      ],
+      "text": "What type of author (6) does this work have?",
+      "type": "question"
+    },
+    "n25": {
+      "options": [
+        {
+          "node": "n27",
+          "text": "EEA (8)",
+          "value": true
+        },
+        {
+          "node": "n26",
+          "text": "Not EEA (8)",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that the author's place of residence or nationality is EEA since no info is provided in the metadata",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "What is the nationality, place of residence or place of establishment of the author?",
+      "type": "question"
+    },
+    "n26": {
+      "options": [
+        {
+          "node": "n36",
+          "query": {
+            "template": "is:False"
+          },
+          "text": "Not Berne TRIPS WCT (10)"
+        },
+        {
+          "node": "n27",
+          "query": {
+            "template": "is:True"
+          },
+          "text": "EEA (8)"
+        },
+        {
+          "node": "n37",
+          "query": {
+            "template": "is:False"
+          },
+          "text": "Berne TRIPS WCT (10)"
+        }
+      ],
+      "text": "What is the country of origin (9) of this work?",
+      "type": "question"
+    },
+    "n27": {
+      "options": [
+        {
+          "node": "n31",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n30",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "The presence of a work on bibliographica consitutes availablity to the public",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "Has the work been make available to the public?",
+      "type": "question"
+    },
+    "n28": {
+      "is_public": false,
+      "text": "Copyright in the examined work has not expired. Please contact the right-holder before use.",
+      "type": "answer"
+    },
+    "n29": {
+      "text": "Due to lack of the necessary information, copyright status cannot be determined.",
+      "type": "answer"
     },
     "n3": {
-      "type": "answer",
-      "text": "The related right of the producer of the phonogram has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or performers’ rights in any performance that may be fixated in the phonogram.",
-      "is_public": true
+      "is_public": true,
+      "text": "The related right of the producer of the phonogram has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or performers\u2019 rights in any performance that may be fixated in the phonogram.",
+      "type": "answer"
     },
-    "n4": {
-      "type": "answer",
-      "text": "The related right of the producer of the phonogram has not expired. Please contact the right-holder before use.",
-      "is_public": false
-    },
-    "n5": {
-      "type": "question",
-      "text": "Was the film first fixated more than 50 years ago?",
-      "query": {
-        "template": "pdcalc:issued",
-        "parameters": {
-          "pdcalc:years": 50
-        }
-      },
+    "n30": {
       "options": [
         {
-          "value": false,
+          "node": "n32",
           "text": "No",
-          "node": "n59"
+          "value": false
         },
         {
-          "value": true,
+          "node": "n33",
           "text": "Yes",
-          "node": "n58"
+          "value": true
         }
-      ]
+      ],
+      "query": {
+        "assumption": "since No info provided about the date of first publication nor the date of creation: assuming that the work was not published more than 70 years after its creation",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "Was the work published more than 70 years after creation?",
+      "type": "question"
+    },
+    "n31": {
+      "options": [
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the creation date of the work (probably wrong assumption?)",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )   }"
+      },
+      "text": "Was the work created more than 70 years ago?",
+      "type": "question"
+    },
+    "n32": {
+      "options": [
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date which the work was first made available to the public (probably wrong assumption?)",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )   }"
+      },
+      "text": "Was the work published more than 70 years ago?",
+      "type": "question"
+    },
+    "n33": {
+      "options": [
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date of first publication or communication for the work (probably wrong assumption?)",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }"
+      },
+      "text": "Was the work published or communicated to the public more than 25 years ago?",
+      "type": "question"
+    },
+    "n34": {
+      "options": [
+        {
+          "node": "n35",
+          "text": "Not EEA (8)",
+          "value": false
+        },
+        {
+          "node": "n41",
+          "text": "EEA (8)",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that the author place of residence or nationality is EEA since no info is provided in the metadata",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "What is the nationality or place of residence of the author?",
+      "type": "question"
+    },
+    "n35": {
+      "options": [
+        {
+          "node": "n36",
+          "query": {
+            "assumption": "Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
+            "parameters": {},
+            "template": "is:False"
+          },
+          "text": "Not Berne TRIPS WCT (10)"
+        },
+        {
+          "node": "n37",
+          "query": {
+            "assumption": "Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
+            "parameters": {},
+            "template": "is:False"
+          },
+          "text": "Berne TRIPS WCT (10)"
+        },
+        {
+          "node": "n41",
+          "query": {
+            "assumption": "Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
+            "parameters": {},
+            "template": "is:True"
+          },
+          "text": "EEA (8)"
+        }
+      ],
+      "text": "What is the country of origin (9) of this work?",
+      "type": "question"
+    },
+    "n36": {
+      "options": [
+        {
+          "node": "n37",
+          "text": "Berne TRIPS WCT (10)",
+          "value": true
+        },
+        {
+          "node": "n23",
+          "text": "Not Berne TRIPS WCT (10)",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that the nationality of the author is Berne Trips since no info is provided in the metadata",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "What is nationality or place of residence of the author?",
+      "type": "question"
+    },
+    "n37": {
+      "text": "The Rule of Shorter Term (Comparison of Terms) applies. This means that the term of protection is that established by the legislation of the selected country, unless (barring provisions to the contrary in the legislation of that country) the term fixed in the country of origin of the work is shorter. In such cases, the term of protection is that of the country of origin.",
+      "type": "answer"
+    },
+    "n38": {
+      "options": [
+        {
+          "node": "n4",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n3",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date the phonogram was first communicated to the public(which in this case it will not, more information is needed in the metadata to make a proper determination)",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }"
+      },
+      "text": "Was the phonogram communicated to the public more than 50 years ago?",
+      "type": "question"
+    },
+    "n39": {
+      "options": [
+        {
+          "node": "n14",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n13",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming the dc:issued represents the date at which the Database was communicated to the public",
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Database)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +15 >  year(now()) )  } }"
+      },
+      "text": "Was the database made available to the public in the last 15 years?",
+      "type": "question"
+    },
+    "n4": {
+      "is_public": false,
+      "text": "The related right of the producer of the phonogram has not expired. Please contact the right-holder before use.",
+      "type": "answer"
+    },
+    "n40": {
+      "options": [
+        {
+          "node": "n14",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n13",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "There is no metadata about dates of completion or substantial changes to a database so dc:issued is used in place of this data but this is almost certianly a bad assumption",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Database)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +15 >  year(now()) )  } }"
+      },
+      "text": "Was the database completed or sustantially changed within the last 15 years?",
+      "type": "question"
+    },
+    "n41": {
+      "options": [
+        {
+          "node": "n43",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n27",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "assuming that if there is not more than one bio:birth in the metadata then the work is not a collective work",
+        "parameters": {},
+        "template": "is:collective"
+      },
+      "text": "Is the work a collective work?",
+      "type": "question"
+    },
+    "n42": {
+      "options": [
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "",
+        "parameters": {
+          "pdcalc:years": 70
+        },
+        "template": "pdcalc:lastDead"
+      },
+      "text": "Did the last surviving author (11) die more than 70 years ago?",
+      "type": "question"
+    },
+    "n43": {
+      "options": [
+        {
+          "node": "n42",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n44",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "The presence of a work on bibliographica consitutes communication to the public",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "Has the work been made available to the public?",
+      "type": "question"
+    },
+    "n44": {
+      "options": [
+        {
+          "node": "n45",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n46",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "since No info provided about the date of first publication : assuming that the work was published within 70 years of the death of the last surviving author",
+        "parameters": {},
+        "template": "is:True"
+      },
+      "text": "Was the work published within 70 years of the death of the last surviving author (11)?",
+      "type": "question"
+    },
+    "n45": {
+      "options": [
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date of first publication or communication for the work (probably wrong assumption?)",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }"
+      },
+      "text": "Was the work published or communicated to the public more than 25 years ago?",
+      "type": "question"
+    },
+    "n46": {
+      "options": [
+        {
+          "node": "n47",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n48",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assumming that if the author died in the years 1936-1942 that they died for france in WWII( likely a bad assumption)",
+        "parameters": {},
+        "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask {   ?c a bio:Death ; bio:date ?d . FILTER (1939 <= year(xsd:dateTime(?d)) && 1945 >= year(xsd:dateTime(?d))) }"
+      },
+      "text": "Did the author die for France during WWI or WWII?",
+      "type": "question"
+    },
+    "n47": {
+      "options": [
+        {
+          "node": "n49",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n65",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that the work is a musical work if its dewey notation is within the range of 780 - 790",
+        "parameters": {
+          "pdcalc:maxDewey": 790,
+          "pdcalc:minDewey": 780
+        },
+        "template": "pdcalc:dewey"
+      },
+      "text": "Is the work a musical work?",
+      "type": "question"
+    },
+    "n48": {
+      "options": [
+        {
+          "node": "n54",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n42",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that the work is a musical work if its dewey notation is within the range of 780 - 790",
+        "parameters": {
+          "pdcalc:maxDewey": 790,
+          "pdcalc:minDewey": 780
+        },
+        "template": "pdcalc:dewey"
+      },
+      "text": "Is the work a musical work?",
+      "type": "question"
+    },
+    "n49": {
+      "options": [
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "parameters": {
+          "pdcalc:years": 100
+        },
+        "template": "pdcalc:lastDead"
+      },
+      "text": "Did the last surviving author (11) die more than 100 years ago?",
+      "type": "question"
+    },
+    "n5": {
+      "options": [
+        {
+          "node": "n59",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n58",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "parameters": {
+          "pdcalc:years": 50
+        },
+        "template": "pdcalc:issued"
+      },
+      "text": "Was the film first fixated more than 50 years ago?",
+      "type": "question"
+    },
+    "n50": {
+      "options": [
+        {
+          "node": "n51",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n52",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date of first publication and that the work was not in the public domain on or before feb 3 1919(probably wrong assumption?)",
+        "parameters": {},
+        "template": "pdcalc:Publication"
+      },
+      "text": "Was the work published before 1921 and not in the public domain on February 3th 1919?",
+      "type": "question"
+    },
+    "n51": {
+      "options": [
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "",
+        "parameters": {},
+        "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Death ; bio:date ?y . FILTER ( year(xsd:dateTime(?d)) +115 <   year(now()) ) } }"
+      },
+      "text": "Did the last surviving author (11) die more than 115 years ago?",
+      "type": "question"
+    },
+    "n52": {
+      "options": [
+        {
+          "node": "n49",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n53",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date of first publication and that the work was not in the public domain on or before August 13th 1941(probably wrong assumption?)",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))<  1948 )   }"
+      },
+      "text": "Was the work published before 1948 and not in the public domain on August 13th 1941",
+      "type": "question"
+    },
+    "n53": {
+      "options": [
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "",
+        "parameters": {},
+        "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Death ; bio:date ?y . FILTER ( year(xsd:dateTime(?d)) +109 <   year(now()) ) } }"
+      },
+      "text": "Did the last surviving author (11) die more than 109 years ago?",
+      "type": "question"
+    },
+    "n54": {
+      "options": [
+        {
+          "node": "n56",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n55",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date of first publication and that the work was not in the public domain on or before feb 3 1919(probably wrong assumption?)",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))<  1921 )   }"
+      },
+      "text": "Was the work published before 1921 and not in the public domain on February 3th 1919?",
+      "type": "question"
+    },
+    "n55": {
+      "options": [
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "",
+        "parameters": {},
+        "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Death ; bio:date ?y . FILTER ( year(xsd:dateTime(?d)) +85 <   year(now()) ) } }"
+      },
+      "text": "Did the last surviving author die more than 85 years ago?",
+      "type": "question"
+    },
+    "n56": {
+      "options": [
+        {
+          "node": "n57",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n42",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "Assuming that dc:issued represents the date of first publication and that the work was not in the public domain on or before August 13th 1941(probably wrong assumption?)",
+        "parameters": {},
+        "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))<  1948 )   }"
+      },
+      "text": "Was the work published before 1948 and not in the public domain on August 13th 1941",
+      "type": "question"
+    },
+    "n57": {
+      "options": [
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        }
+      ],
+      "query": {
+        "assumption": "",
+        "parameters": {},
+        "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Death ; bio:date ?y . FILTER ( year(xsd:dateTime(?d)) +79 <   year(now()) ) } }"
+      },
+      "text": "Did the last surviving author die more than 79 years ago?",
+      "type": "question"
+    },
+    "n58": {
+      "is_public": true,
+      "text": "The related right of the film producer in the first fixation of the film has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any cinematographic or audiovisual work which might be fixated in the film.",
+      "type": "question"
+    },
+    "n59": {
+      "is_public": false,
+      "text": "The related right of the producer of the film producer in the first fixation of the film has not expired. Please contact the right-holder before use.",
+      "type": "question"
     },
     "n6": {
-      "type": "question",
-      "text": "Of which countries is the right-holder a national or resident?",
+      "options": [
+        {
+          "node": "n7",
+          "text": "EEA (8)",
+          "value": true
+        },
+        {
+          "node": "n13",
+          "text": "Not EEA (8)",
+          "value": false
+        }
+      ],
       "query": {
         "assumption": "No information provided concerning the nationality of the right holder: assuming EEA.",
         "template": "is:True"
       },
-      "options": [
-        {
-          "value": true,
-          "text": "EEA (8)",
-          "node": "n7"
-        },
-        {
-          "value": false,
-          "text": "Not EEA (8)",
-          "node": "n13"
-        }
-      ]
+      "text": "Of which countries is the right-holder a national or resident?",
+      "type": "question"
+    },
+    "n60": {
+      "is_public": true,
+      "text": "The related right of the broadcasting organisation in this broadcast has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work, producers\u2019 rights in any relevant phonogram or performers\u2019 rights in any performance that may be fixated in such a phonogram.",
+      "type": "question"
+    },
+    "n61": {
+      "is_public": false,
+      "text": "The related right of the broadcasting organisation in this broadcast has not expired. Please contact the right- holder before use.",
+      "type": "question"
+    },
+    "n62": {
+      "is_public": true,
+      "text": "The related rights of the performers in the fixation of the performance have expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or producers\u2019 rights in any relevant phonogram.",
+      "type": "question"
+    },
+    "n63": {
+      "is_public": false,
+      "text": "The related right of the performers in the fixation of the performance have not expired. Please contact the right- holder before use.",
+      "type": "question"
+    },
+    "n64": {
+      "is_public": true,
+      "text": "This flowchart, intended to determine whether a certain work or other subject matter vested with copyright or neighbouring rights (related rights) has fallen into the public domain in France, is part of the research into public domain calculation by the Institute of Information Law for EuropeanaConnect.   This work is licensed under a Creative Commons Attribution-ShareAlike License   You are free:       * to Share \u2014 to copy, distribute and transmit the work     * to Remix \u2014 to adapt the work   Under the following conditions:       * Attribution \u2014 You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).     * Share Alike \u2014 If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or a similar license to this one.   To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/nl/",
+      "type": "question"
     },
     "n7": {
-      "type": "question",
-      "text": "Was the database made available to the public after its completion or last substantial change?",
+      "options": [
+        {
+          "node": "n39",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n40",
+          "text": "No",
+          "value": false
+        }
+      ],
       "query": {
         "assumption": "Publication on Bibliographica is evidence that the Database has been communicated to the public since it's last substantial change",
         "template": "is:True"
       },
-      "options": [
-        {
-          "value": true,
-          "text": "Yes",
-          "node": "n39"
-        },
-        {
-          "value": false,
-          "text": "No",
-          "node": "n40"
-        }
-      ]
+      "text": "Was the database made available to the public after its completion or last substantial change?",
+      "type": "question"
     },
     "n8": {
-      "type": "question",
-      "text": "Is the right holder a company or firm?",
-      "query": {
-        "query": "owner:Firm",
-        "assumption": "Assuming that if the metadata of a Database contains a foaf:Agent bio:event is a not a firm or a company"
-      },
       "options": [
         {
-          "value": false,
+          "node": "n6",
           "text": "No",
-          "node": "n6"
+          "value": false
         },
         {
-          "value": true,
+          "node": "n9",
           "text": "Yes",
-          "node": "n9"
+          "value": true
         }
-      ]
+      ],
+      "query": {
+        "assumption": "Assuming that if the metadata of a Database contains a foaf:Agent bio:event is a not a firm or a company",
+        "query": "owner:Firm"
+      },
+      "text": "Is the right holder a company or firm?",
+      "type": "question"
     },
     "n9": {
-      "type": "question",
+      "options": [
+        {
+          "node": "n10",
+          "text": "EEA (8)",
+          "value": true
+        },
+        {
+          "node": "n11",
+          "text": "Not EEA (8)",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "No information provided concerning the country in which the database was formed: assuming EEA.",
+        "parameters": {},
+        "template": "is:True"
+      },
       "text": "According to the law of which country was it formed?",
-      "query": {
-        "template": "is:True",
-        "assumption": "No information provided concerning the country in which the database was formed: assuming EEA.",
-        "parameters": {}
-      },
-      "options": [
-        {
-          "value": true,
-          "text": "EEA (8)",
-          "node": "n10"
-        },
-        {
-          "value": false,
-          "text": "Not EEA (8)",
-          "node": "n11"
-        }
-      ]
-    },
-    "n10": {
-      "type": "question",
-      "text": "In which country does it have its registered office, central administration, or principal place of business?",
-      "query": {
-        "template": "is:True",
-        "assumption": "No information provided concerning the country of the companies  registered office, central administration, or principal place of business: assuming EEA",
-        "parameters": {}
-      },
-      "options": [
-        {
-          "value": true,
-          "text": "EEA (8)",
-          "node": "n7"
-        },
-        {
-          "value": false,
-          "text": "Not EEA (8)",
-          "node": "n13"
-        }
-      ]
-    },
-    "n11": {
-      "type": "question",
-      "text": "In which country does it have its registered office?",
-      "query": {
-        "template": "is:True",
-        "assumption": "No information provided concerning the country in which the database was formed: assuming EEA.",
-        "parameters": {}
-      },
-      "options": [
-        {
-          "value": true,
-          "text": "EEA (8)",
-          "node": "n12"
-        },
-        {
-          "value": false,
-          "text": "Not EEA (8)",
-          "node": "n13"
-        }
-      ]
-    },
-    "n12": {
-      "type": "question",
-      "text": "Are its operations genuinely linked on an ongoing basis with the economy of an EEA state?",
-      "query": {
-        "template": "is:True",
-        "assumption": "No information provided concerning the country in which the database was formed: assuming EEA.",
-        "parameters": {}
-      },
-      "options": [
-        {
-          "value": false,
-          "text": "Not EEA (8)",
-          "node": "n13"
-        },
-        {
-          "value": true,
-          "text": "EEA (8)",
-          "node": "n7"
-        }
-      ]
-    },
-    "n13": {
-      "type": "answer",
-      "is_public": true,
-      "text": "The sui generis database right has expired. Please note a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights, such as any underlying literary or artistic work (including any relevant original database), apply."
-    },
-    "n14": {
-      "type": "answer",
-      "is_public": false,
-      "text": "The sui generis database right has not expired. Please contact the right-holder before use."
-    },
-    "n15": {
-      "type": "question",
-      "text": "Was the programme first broadcast more than 50 years ago?",
-      "query": {
-        "query": "op:firstBroadcast",
-        "assumption": "Assuming that dc:issued represents the date at which the programme was first broadcasted",
-        "parameters": {}
-      },
-      "options": [
-        {
-          "value": true,
-          "text": "Yes",
-          "node": "n60"
-        },
-        {
-          "value": false,
-          "text": "No",
-          "node": "n61"
-        }
-      ]
-    },
-    "n16": {
-      "type": "question",
-      "text": "Was a fixation of the performance published or communicated to the public within 50 years from the date of the performance?",
-      "query": {
-        "template": "is:True",
-        "assumption": "No information provided about the first communication of the Performance: assuming it has been communicated within 50 years from the date of the performance.",
-        "parameters": {}
-      },
-      "options": [
-        {
-          "value": true,
-          "text": "Yes",
-          "node": "n17"
-        },
-        {
-          "value": false,
-          "text": "No",
-          "node": "n18"
-        }
-      ]
-    },
-    "n17": {
-      "type": "question",
-      "text": "Was the fixation published or communicated to the public more than 50 years ago?",
-      "query": {
-          "template": "pdcalc:issued",
-          "parameters": {
-            "pdcalc:years": 50
-          },
-          "assumption": "Assuming the dc:issued represents the date of first communication to the public"
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n62"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n63"
-          }
-        ]
-      },
-      "n18": {
-        "type": "question",
-        "text": "Did the performance take place more than 50 years ago?",
-        "query": {
-          "template": "pdcalc:issued",
-          "parameters": {
-            "pdcalc:years": 50
-          },
-          "assumption": "Assuming the dc:issued represents the date of first communication to the public"
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n62"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n63"
-          }
-        ]
-      },
-      "n19": {
-        "type": "question",
-        "text": "Was the phonogram published within 50 years of creation?",
-        "query": {
-          "template": "is:True",
-          "assumption": "No information provided about the date of creation: assuming that the Phonogram has been published within 50 years of its creation",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n20"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n21"
-          }
-        ]
-      },
-      "n20": {
-        "type": "question",
-        "text": "Was the phonogram published more than 50 years ago?",
-        "query": {
-          "query": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
-          "assumption": "Assuming that dc:issued represents the date the phonogram was first published",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n3"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n4"
-          }
-        ]
-      },
-      "n21": {
-        "type": "question",
-        "text": "Was the phonogram communicated to the public within 50 years of creation?",
-        "query": {
-          "template": "is:True",
-          "assumption": "No information provided about the date of creation: assuming that the Phonogram has been published within 50 years of its creation",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n38"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n22"
-          }
-        ]
-      },
-      "n22": {
-        "type": "question",
-        "text": "Was the phonogram created more than 50 years ago?",
-        "query": {
-          "query": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
-          "assumption": "Assuming that dc:issued represents the date the phonogram was created(which in this case it will not, more information is needed in the metadata to make a proper determination)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n4"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n3"
-          }
-        ]
-      },
-      "n23": {
-        "type": "answer",
-        "is_public": true,
-        "text": "Copyright in the examined work has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any other relevant literary or artistic work, producers’ rights in any relevant phonogram, performers’ rights in any performance that may be fixated in such a phonogram, broadcasting organisations’ rights over a relevant broadcast, any relevant database rights or other sui generis rights have expired.  (12)"
-      },
-      "n24": {
-        "type": "question",
-        "text": "What type of author (6) does this work have?",
-        "options": [
-          {
-            "text": "Anonymous/pseudonymous (7)",
-            "node": "n25",
-            "query": {
-              "template": "pdcalc:Agent",
-              "assumption": "Assuming that a work with no Author + bio/event is an Anonymous/Pseudonymous/Legal entity work (we do not take into account works with an unknown author which would result in an undefinable copyright status)",
-              "parameters": {}
-            }
-          },
-          {
-            "text": "Natural person",
-            "node": "n34",
-            "query": {
-              "template": "pdcalc:Person",
-              "assumption": "Assuming that a work with no Author + bio/event is an Anonymous/Pseudonymous/Legal entity work (we do not take into account works with an unknown author which would result in an undefinable copyright status)",
-              "parameters": {}
-            }
-          },
-          {
-            "text": "Unknown",
-            "node": "n29"
-          }
-        ]
-      },
-      "n25": {
-        "type": "question",
-        "text": "What is the nationality, place of residence or place of establishment of the author?",
-        "query": {
-          "template": "is:True",
-          "assumption": "Assuming that the author's place of residence or nationality is EEA since no info is provided in the metadata",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "EEA (8)",
-            "node": "n27"
-          },
-          {
-            "value": false,
-            "text": "Not EEA (8)",
-            "node": "n26"
-          }
-        ]
-      },
-      "n26": {
-        "type": "question",
-        "text": "What is the country of origin (9) of this work?",
-        "options": [
-          {
-            "query": {
-              "template": "is:False"
-            },
-            "text": "Not Berne TRIPS WCT (10)",
-            "node": "n36"
-          },
-          {
-            "query": {
-              "template": "is:True"
-            },
-            "text": "EEA (8)",
-            "node": "n27"
-          },
-          {
-            "query": {
-              "template": "is:False"
-            },
-            "text": "Berne TRIPS WCT (10)",
-            "node": "n37"
-          }
-        ]
-      },
-      "n27": {
-        "type": "question",
-        "text": "Has the work been make available to the public?",
-        "query": {
-          "template": "is:True",
-          "assumption": "The presence of a work on bibliographica consitutes availablity to the public",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n31"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n30"
-          }
-        ]
-      },
-      "n28": {
-        "type": "answer",
-        "is_public": false,
-        "text": "Copyright in the examined work has not expired. Please contact the right-holder before use."
-      },
-      "n29": {
-        "type": "answer",
-        "text": "Due to lack of the necessary information, copyright status cannot be determined."
-      },
-      "n30": {
-        "type": "question",
-        "text": "Was the work published more than 70 years after creation?",
-        "query": {
-          "template": "is:True",
-          "assumption": "since No info provided about the date of first publication nor the date of creation: assuming that the work was not published more than 70 years after its creation",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n32"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n33"
-          }
-        ]
-      },
-      "n31": {
-        "type": "question",
-        "text": "Was the work created more than 70 years ago?",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )   }",
-          "assumption": "Assuming that dc:issued represents the creation date of the work (probably wrong assumption?)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          }
-        ]
-      },
-      "n32": {
-        "type": "question",
-        "text": "Was the work published more than 70 years ago?",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +70 <  year(now()) )   }",
-          "assumption": "Assuming that dc:issued represents the date which the work was first made available to the public (probably wrong assumption?)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          }
-        ]
-      },
-      "n33": {
-        "type": "question",
-        "text": "Was the work published or communicated to the public more than 25 years ago?",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }",
-          "assumption": "Assuming that dc:issued represents the date of first publication or communication for the work (probably wrong assumption?)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          }
-        ]
-      },
-      "n34": {
-        "type": "question",
-        "text": "What is the nationality or place of residence of the author?",
-        "query": {
-          "template": "is:True",
-          "assumption": "Assuming that the author place of residence or nationality is EEA since no info is provided in the metadata",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "Not EEA (8)",
-            "node": "n35"
-          },
-          {
-            "value": true,
-            "text": "EEA (8)",
-            "node": "n41"
-          }
-        ]
-      },
-      "n35": {
-        "type": "question",
-        "text": "What is the country of origin (9) of this work?",
-        "options": [
-          {
-            "query": {
-              "template": "is:False",
-              "assumption": "Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
-              "parameters": {}
-            },
-            "text": "Not Berne TRIPS WCT (10)",
-            "node": "n36"
-          },
-          {
-            "query": {
-              "template": "is:False",
-              "assumption": "Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
-              "parameters": {}
-            },
-            "text": "Berne TRIPS WCT (10)",
-            "node": "n37"
-          },
-          {
-            "query": {
-              "template": "is:True",
-              "assumption": "Assuming that the country of origin of the work is EEA since no info is provided in the metadata",
-              "parameters": {}
-            },
-            "text": "EEA (8)",
-            "node": "n41"
-          }
-        ]
-      },
-      "n36": {
-        "type": "question",
-        "text": "What is nationality or place of residence of the author?",
-        "query": {
-          "template": "is:True",
-          "assumption": "Assuming that the nationality of the author is Berne Trips since no info is provided in the metadata",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Berne TRIPS WCT (10)",
-            "node": "n37"
-          },
-          {
-            "value": false,
-            "text": "Not Berne TRIPS WCT (10)",
-            "node": "n23"
-          }
-        ]
-      },
-      "n37": {
-        "type": "answer",
-        "text": "The Rule of Shorter Term (Comparison of Terms) applies. This means that the term of protection is that established by the legislation of the selected country, unless (barring provisions to the contrary in the legislation of that country) the term fixed in the country of origin of the work is shorter. In such cases, the term of protection is that of the country of origin."
-      },
-      "n38": {
-        "type": "question",
-        "text": "Was the phonogram communicated to the public more than 50 years ago?",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Audio)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +50 <  year(now()) )  } }",
-          "assumption": "Assuming that dc:issued represents the date the phonogram was first communicated to the public(which in this case it will not, more information is needed in the metadata to make a proper determination)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n4"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n3"
-          }
-        ]
-      },
-      "n39": {
-        "type": "question",
-        "text": "Was the database made available to the public in the last 15 years?",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Database)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +15 >  year(now()) )  } }",
-          "assumption": "Assuming the dc:issued represents the date at which the Database was communicated to the public"
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n14"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n13"
-          }
-        ]
-      },
-      "n40": {
-        "type": "question",
-        "text": "Was the database completed or sustantially changed within the last 15 years?",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {  ?a a %(pdcalc:Database)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +15 >  year(now()) )  } }",
-          "assumption": "There is no metadata about dates of completion or substantial changes to a database so dc:issued is used in place of this data but this is almost certianly a bad assumption",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n14"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n13"
-          }
-        ]
-      },
-      "n41": {
-        "type": "question",
-        "text": "Is the work a collective work?",
-        "query": {
-          "template": "is:collective",
-          "assumption": "assuming that if there is not more than one bio:birth in the metadata then the work is not a collective work",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n43"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n27"
-          }
-        ]
-      },
-      "n42": {
-        "type": "question",
-        "text": "Did the last surviving author (11) die more than 70 years ago?",
-        "query": {
-          "template": "pdcalc:lastDead",
-          "assumption": "",
-          "parameters": {"pdcalc:years":70}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          }
-        ]
-      },
-      "n43": {
-        "type": "question",
-        "text": "Has the work been made available to the public?",
-        "query": {
-          "template": "is:True",
-          "assumption": "The presence of a work on bibliographica consitutes communication to the public",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n42"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n44"
-          }
-        ]
-      },
-      "n44": {
-        "type": "question",
-        "text": "Was the work published within 70 years of the death of the last surviving author (11)?",
-        "query": {
-          "template": "is:True",
-          "assumption": "since No info provided about the date of first publication : assuming that the work was published within 70 years of the death of the last surviving author",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n45"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n46"
-          }
-        ]
-      },
-      "n45": {
-        "type": "question",
-        "text": "Was the work published or communicated to the public more than 25 years ago?",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +25 <  year(now()) )   }",
-          "assumption": "Assuming that dc:issued represents the date of first publication or communication for the work (probably wrong assumption?)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          }
-        ]
-      },
-      "n46": {
-        "type": "question",
-        "text": "Did the author die for France during WWI or WWII?",
-        "query": {
-          "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask {   ?c a bio:Death ; bio:date ?d . FILTER (1939 <= year(xsd:dateTime(?d)) && 1945 >= year(xsd:dateTime(?d))) }",
-          "assumption": "Assumming that if the author died in the years 1936-1942 that they died for france in WWII( likely a bad assumption)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n47"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n48"
-          }
-        ]
-      },
-      "n47": {
-        "type": "question",
-        "text": "Is the work a musical work?",
-        "query": {
-          "template": "pdcalc:dewey",
-          "assumption": "Assuming that the work is a musical work if its dewey notation is within the range of 780 - 790",
-          "parameters": {"pdcalc:minDewey":780, "pdcalc:maxDewey":790}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n49"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n50"
-          }
-        ]
-      },
-      "n48": {
-        "type": "question",
-        "text": "Is the work a musical work?",
-        "query": {
-          "template": "pdcalc:dewey",
-          "assumption": "Assuming that the work is a musical work if its dewey notation is within the range of 780 - 790",
-          "parameters": {"pdcalc:minDewey":780, "pdcalc:maxDewey":790}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n54"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n42"
-          }
-        ]
-      },
-      "n49": {
-        "type": "question",
-        "text": "Did the last surviving author (11) die more than 100 years ago?",
-        "query": {
-          "template": "pdcalc:lastDead",
-          "parameters": {"pdcalc:years":100}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          }
-        ]
-      },
-      "n50": {
-        "type": "question",
-        "text": "Was the work published before 1921 and not in the public domain on February 3th 1919?",
-        "query": {
-          "template": "pdcalc:Publication",
-          "assumption": "Assuming that dc:issued represents the date of first publication and that the work was not in the public domain on or before feb 3 1919(probably wrong assumption?)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n51"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n52"
-          }
-        ]
-      },
-      "n51": {
-        "type": "question",
-        "text": "Did the last surviving author (11) die more than 115 years ago?",
-        "query": {
-          "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Death ; bio:date ?y . FILTER ( year(xsd:dateTime(?d)) +115 <   year(now()) ) } }",
-          "assumption": "",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          }
-        ]
-      },
-      "n52": {
-        "type": "question",
-        "text": "Was the work published before 1948 and not in the public domain on August 13th 1941",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))<  1948 )   }",
-          "assumption": "Assuming that dc:issued represents the date of first publication and that the work was not in the public domain on or before August 13th 1941(probably wrong assumption?)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n49"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n53"
-          }
-        ]
-      },
-      "n53": {
-        "type": "question",
-        "text": "Did the last surviving author (11) die more than 109 years ago?",
-        "query": {
-          "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Death ; bio:date ?y . FILTER ( year(xsd:dateTime(?d)) +109 <   year(now()) ) } }",
-          "assumption": "",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          }
-        ]
-      },
-      "n54": {
-        "type": "question",
-        "text": "Was the work published before 1921 and not in the public domain on February 3th 1919?",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))<  1921 )   }",
-          "assumption": "Assuming that dc:issued represents the date of first publication and that the work was not in the public domain on or before feb 3 1919(probably wrong assumption?)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n56"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n55"
-          }
-        ]
-      },
-      "n55": {
-        "type": "question",
-        "text": "Did the last surviving author die more than 85 years ago?",
-        "query": {
-          "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Death ; bio:date ?y . FILTER ( year(xsd:dateTime(?d)) +85 <   year(now()) ) } }",
-          "assumption": "",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          }
-        ]
-      },
-      "n56": {
-        "type": "question",
-        "text": "Was the work published before 1948 and not in the public domain on August 13th 1941",
-        "query": {
-          "template": "prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))<  1948 )   }",
-          "assumption": "Assuming that dc:issued represents the date of first publication and that the work was not in the public domain on or before August 13th 1941(probably wrong assumption?)",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n57"
-          },
-          {
-            "value": false,
-            "text": "No",
-            "node": "n42"
-          }
-        ]
-      },
-      "n57": {
-        "type": "question",
-        "text": "Did the last surviving author die more than 79 years ago?",
-        "query": {
-          "template": "prefix foaf: <http://xmlns.com/foaf/0.1/> prefix bio: <http://purl.org/vocab/bio/0.1/> prefix xsd: <http://www.w3.org/2001/XMLSchema#> prefix dc: <http://purl.org/dc/terms/> Ask { { ?x a bio:Death ; bio:date ?y . FILTER ( year(xsd:dateTime(?d)) +79 <   year(now()) ) } }",
-          "assumption": "",
-          "parameters": {}
-        },
-        "options": [
-          {
-            "value": false,
-            "text": "No",
-            "node": "n28"
-          },
-          {
-            "value": true,
-            "text": "Yes",
-            "node": "n23"
-          }
-        ]
-      },
-      "n58": {
-        "type": "question",
-        "is_public": true,
-        "text": "The related right of the film producer in the first fixation of the film has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any cinematographic or audiovisual work which might be fixated in the film."
-      },
-      "n59": {
-        "type": "question",
-        "is_public": false,
-        "text": "The related right of the producer of the film producer in the first fixation of the film has not expired. Please contact the right-holder before use."
-      },
-      "n60": {
-        "type": "question",
-        "is_public": true,
-        "text": "The related right of the broadcasting organisation in this broadcast has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work, producers’ rights in any relevant phonogram or performers’ rights in any performance that may be fixated in such a phonogram."
-      },
-      "n61": {
-        "type": "question",
-        "is_public": false,
-        "text": "The related right of the broadcasting organisation in this broadcast has not expired. Please contact the right- holder before use."
-      },
-      "n62": {
-        "type": "question",
-        "is_public": true,
-        "text": "The related rights of the performers in the fixation of the performance have expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or producers’ rights in any relevant phonogram."
-      },
-      "n63": {
-        "type": "question",
-        "is_public": false,
-        "text": "The related right of the performers in the fixation of the performance have not expired. Please contact the right- holder before use."
-      },
-      "n64": {
-        "type": "question",
-        "is_public": true,
-        "text": "This flowchart, intended to determine whether a certain work or other subject matter vested with copyright or neighbouring rights (related rights) has fallen into the public domain in France, is part of the research into public domain calculation by the Institute of Information Law for EuropeanaConnect.   This work is licensed under a Creative Commons Attribution-ShareAlike License   You are free:       * to Share — to copy, distribute and transmit the work     * to Remix — to adapt the work   Under the following conditions:       * Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).     * Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or a similar license to this one.   To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/nl/"
-      }
+      "type": "question"
     }
-  }
+  },
+  "root": "n0",
+
+
+
+  "n65":{
+      "text": "Was the work published before 1921 and not in the public domain on Feb. 3rd 1919?",
+      "type": "question",
+      "options": [
+        {
+          "node": "n66",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n70",
+          "text": "Yes",
+          "value": true
+        }
+      ]
+  },
+    "n66":{
+      "text": "Was the work published before 1948 and not in the public domain on Aug. 13th 1941?",
+      "type": "question",
+      "options": [
+        {
+          "node": "n68",
+          "text": "No",
+          "value": false
+        },
+        {
+          "node": "n69",
+          "text": "Yes",
+          "value": true
+        }
+      ]
+  },
+   
+    "n70": {
+      "options": [
+        {
+          "node": "n23",
+          "text": "Yes",
+          "value": true
+        },
+        {
+          "node": "n28",
+          "text": "No",
+          "value": false
+        }
+      ],
+      "query": {
+        "assumption": "",
+        "parameters": {
+          "pdcalc:years": 95
+        },
+        "template": "pdcalc:lastDead"
+      },
+      "text": "Did the last surviving author (11) die more than 95 years ago?",
+      "type": "question"
+    }	
+}

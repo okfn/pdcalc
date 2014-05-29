@@ -7,6 +7,8 @@ import os
 import sys
 from os import path
 
+import cacher
+
 sys.path.insert(0, "/usr/lib/python2.7/dist-packages") #to have redland librdf loaded
 
 if __name__ == '__main__':
@@ -29,12 +31,12 @@ if __name__ == '__main__':
 
   if args.mode == "url":
     f = tempfile.NamedTemporaryFile("w", delete=False)
-    data = requests.get(args.instance)
+    data = cacher.get(args.instance)
     #print data.encoding
     #print data.text
     #if data.status_code != 200:
     #  raise Exception("Wrong Status ==> Network Error.")
-    f.write(data.text.encode('ascii', 'ignore'))
+    f.write(data)
     f.close()
     args.instance = f.name
 
