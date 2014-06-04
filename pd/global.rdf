@@ -1,0 +1,53 @@
+<rdf:RDF
+	xmlns:dc="http://purl.org/dc/terms/"
+	xmlns:rdagroup1elements="http://RDVocab.info/Elements/"
+	xmlns:rdarelationships="http://rdvocab.info/RDARelationshipsWEMI/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:bibo="http://purl.org/ontology/bibo/"
+	xmlns:flow="http://okfnpad.org/flow/0.1/"
+	xmlns:pdcalc="http://okfnpad.org/pdcalc/0.1/"
+  	xmlns:OV="http://open.vocab.org/terms/"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:bio="http://purl.org/vocab/bio/0.1/"
+	xmlns:ISBD="http://iflastandards.info/ns/isbd/elements/"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+
+	
+
+	<rdf:Description rdf:about="http://purl.org/ontology/bibo/Film">
+		<owl:sameAs rdf:resource="http://okfnpad.org/pdcalc/0.1/Film" />
+	</rdf:Description>
+
+	<rdf:Description rdf:about="pdcalc:Book">
+		<owl:sameAs rdf:resource="bibo:Book"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="pdcalc:Audio">
+		<owl:sameAs rdf:resource="bibo:AudioDocument"/>
+	</rdf:Description>
+
+
+	<rdf:Description rdf:about="pdcalc:Performance">
+		<owl:sameAs rdf:resource="bibo:Performance"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="pdcalc:AudioVisual">
+		<owl:sameAs rdf:resource="bibo:AudioVisualDocument"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="pdcalc:published">
+		<owl:sameAs rdf:resource="dc:issued"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="pdcalc:Database">
+		<owl:sameAs rdf:resource="bibo:Collection"/>
+	</rdf:Description>
+
+	<rdf:Description rdf:about="pdcalc:Document">
+		<owl:sameAs rdf:resource="bibo:Document"/>
+		<owl:sameAs rdf:resource="foaf:Document"/>
+	</rdf:Description>
+</rdf:RDF>
