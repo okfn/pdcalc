@@ -1,0 +1,53 @@
+{
+	"queries":{
+		"is:Film":{
+			"query":"{ ?x a bibo:Film}",
+			"prefixes":["bibo"]
+		},
+		"is:Database":{
+			"query":"{ ?x a bibo:Collection}",
+			"prefixes":["bibo"]
+		},
+		"is:Broadcast":{
+			"query":"{ ?x a bibo:AudioVisualDocument }",
+			"prefixes":["bibo"]
+			},
+		"is:Phonogram":{
+			"query":"{ ?x a %(pdcalc:Audio)s}",
+			"prefixes":["bibo"]
+			},
+		"is:Book":{
+			"query":"{ ?x a %(pdcalc:Book)s}",
+			"prefixes":["bibo"]
+			},
+		"is:Performance":{
+			"query":"{ ?x a %(pdcalc:Performance)s}",
+			"prefixes":["bibo"]
+			},
+		"is:collective":{
+			"query":"?count (count(?bio) as ?x) WHERE { ?a dc:creator ?bio } HAVING( count(?bio) > 1)",
+			"prefixes":["foaf","dc", "xsd"],
+			"mode":"SELECT"
+		},
+		"owner:Firm":{
+			"query":"?x a dc:creator ; bio:event ?y ",
+			"prefixes":["foaf","bio", "xsd"]
+
+		},
+		"op:firstBroadcast":{
+			"query":" {  ?a a %(pdcalc:AudioVisual)s ; dc:issued ?b.  FILTER (year(xsd:dateTime(?b)) +%(pdcalc:years)s <=  year(now()) )  } ",
+			"prefixes":["xsd","dc"] 
+		},
+		"pdcalc:lastDead":{
+			"query":"{ {  ?c bio:Death ?d . FILTER ( year(xsd:dateTime(?d)) + %(pdcalc:years)s <=   year(now()) ) } }",
+			"prefixes":["foaf", "bio", "xsd", "dc"]
+		},
+
+		"pdcalc:Publication":{
+			"query":" {{ ?a a %(pdcalc:Book)s } UNION { ?a a %(pdcalc:Document)s }}. ?a dc:issued ?b.  FILTER (year(xsd:dateTime(?b))<  1921 )  ",
+			"prefixes":["foaf", "bio", "xsd", "dc"]
+		}
+
+		
+	}
+}
