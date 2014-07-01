@@ -31,4 +31,7 @@ instance definition mode - Valid values are "file" or "url"
     -f {rdf,json}, --format {rdf,json}
 
 format of the instances - Valid values are "rdf" or "json".
+    
+    -V 
 
+lists the valid country/flavor combinations
