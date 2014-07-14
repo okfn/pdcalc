@@ -20,7 +20,7 @@ def evaluate_question(model, *args, **kwargs):
 
 
 	#Query to get creator uri
-	ids = json.load(open('france/bnf/morts.json', 'r'))
+	ids = json.load(open('flavours/bnf/morts.json', 'r'))
 
 	author_id = author.split('#')[0].split('/')[5][2:-1]
 

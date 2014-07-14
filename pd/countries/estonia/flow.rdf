@@ -1,0 +1,928 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:flow="http://okfnpad.org/flow/0.1/">
+
+  <rdf:Description rdf:about="">
+    <flow:root rdf:resource="#n0"/>
+  </rdf:Description>
+
+  <flow:Question rdf:ID="n52">
+    <flow:text>The rights in the critical and scientific publication of this work have expired. Please note that additional rights might also apply, as a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether other relevant copyright, related rights or sui generis rights protection has expired.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n41">
+    <flow:text>Was the work published within 70 years of the death of the last surviving author (11)?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o0">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n42"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o1">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n39"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n30">
+    <flow:text>Due to lack of the necessary information, copyright status cannot be determined.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n19">
+    <flow:text>Was the phonogram published within 50 years of creation?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o2">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n20"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o3">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n21"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n9">
+    <flow:text>According to the law of which country was it formed?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o4">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n10"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o5">
+            <flow:text>Not EEA (8)</flow:text>
+            <flow:node rdf:resource="#n11"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n53">
+    <flow:text>The rights in the critical and scientific publication of this work have not expired. Please contact the right- holder before use.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n42">
+    <flow:text>Was the work published or communicated to the public more than 25 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o6">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n23"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o7">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n29"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n31">
+    <flow:text>What is the nationality or place of residence of the author?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o8">
+            <flow:text>Not EEA (8)</flow:text>
+            <flow:node rdf:resource="#n32"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o9">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n38"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n20">
+    <flow:text>Was the phonogram published more than 50 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o10">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n3"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o11">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n4"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n54">
+    <flow:text>The related right of the broadcasting organisation in this broadcast has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work, producers’ rights in any relevant phonogram or performers’ rights in any performance that may be fixated in such a phonogram.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n43">
+    <flow:text>What type of work is it?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o12">
+            <flow:text>Other</flow:text>
+            <flow:node rdf:resource="#n24"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o13">
+            <flow:text>An official legislative or administrative document</flow:text>
+            <flow:node rdf:resource="#n23"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n32">
+    <flow:text>What is the country of origin (9) of this work?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o14">
+            <flow:text>Not Berne TRIPS WCT (10)</flow:text>
+            <flow:node rdf:resource="#n33"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o15">
+            <flow:text>Berne TRIPS WCT (10)</flow:text>
+            <flow:node rdf:resource="#n34"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o16">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n38"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n21">
+    <flow:text>Was the phonogram communicated to the public within 50 years of creation?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o17">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n35"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o18">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n22"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n10">
+    <flow:text>In which country does it have its registered office, central administration, or principal place of business?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o19">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n7"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o20">
+            <flow:text>Not EEA (8)</flow:text>
+            <flow:node rdf:resource="#n13"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n0">
+    <flow:text>Into which of the following categories does the examined item fall? (1)</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o21">
+            <flow:text>First fixation of a film (3)</flow:text>
+            <flow:node rdf:resource="#n1"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o22">
+            <flow:text>Unoriginal Database (4)</flow:text>
+            <flow:node rdf:resource="#n8"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o23">
+            <flow:text>Broadcast (3)</flow:text>
+            <flow:node rdf:resource="#n15"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o24">
+            <flow:text>Performance (3)</flow:text>
+            <flow:node rdf:resource="#n16"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o25">
+            <flow:text>Phonogram (3)</flow:text>
+            <flow:node rdf:resource="#n19"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o26">
+            <flow:text>Literary or artistic work  (2)</flow:text>
+            <flow:node rdf:resource="#n43"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o27">
+            <flow:text>Critical or scientific edition of an out-of-copyright work (5)</flow:text>
+            <flow:node rdf:resource="#n44"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n55">
+    <flow:text>The related right of the broadcasting organisation in this broadcast has not expired. Please contact the right-holder before use.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n44">
+    <flow:text>Was the edition first published more than 30 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o28">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n53"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o29">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n52"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n33">
+    <flow:text>What is nationality or place of residence of the author?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o30">
+            <flow:text>Berne TRIPS WCT (10)</flow:text>
+            <flow:node rdf:resource="#n34"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o31">
+            <flow:text>Not Berne TRIPS WCT (10)</flow:text>
+            <flow:node rdf:resource="#n23"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n22">
+    <flow:text>Was the phonogram created more than 50 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o32">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n4"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o33">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n3"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n11">
+    <flow:text>In which country does it have its registered office?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o34">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n12"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o35">
+            <flow:text>Not EEA (8)</flow:text>
+            <flow:node rdf:resource="#n13"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n1">
+    <flow:text>Was the film published or communicated to the public within 50 years from the fixation?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o36">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n2"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o37">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n5"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n56">
+    <flow:text>This flowchart, intended to determine whether a certain work or other subject matter vested with copyright or neighbouring rights (related rights) has fallen into the public domain in Estonia, is part of the research into public domain calculation by the Institute of Information Law for EuropeanaConnect.   This work is licensed under a Creative Commons Attribution-ShareAlike License   You are free:       * to Share — to copy, distribute and transmit the work     * to Remix — to adapt the work   Under the following conditions:       * Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).     * Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or a similar license to this one.   To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/nl/</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n45">
+    <flow:text>Was the work made available to the public more than 70 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o38">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n29"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o39">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n23"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n34">
+    <flow:text>The Rule of Shorter Term (Comparison of Terms) applies. This means that the term of protection is that established by the legislation of the selected country, unless (barring provisions to the contrary in the legislation of that country) the term fixed in the country of origin of the work is shorter. In such cases, the term of protection is that of the country of origin.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n23">
+    <flow:text>Copyright in the examined work has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any other relevant literary or artistic work, producers’ rights in any relevant phonogram, performers’ rights in any performance that may be fixated in such a phonogram, broadcasting organisations’ rights over a relevant broadcast, any relevant database rights or other sui generis rights have expired.  (12)</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n12">
+    <flow:text>Are its operations genuinely linked on an ongoing basis with the economy of an EEA state?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o40">
+            <flow:text>Not EEA (8)</flow:text>
+            <flow:node rdf:resource="#n13"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o41">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n7"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n2">
+    <flow:text>Was the film published or communicated to the public more than 50 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o42">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n50"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o43">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n51"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n46">
+    <flow:text>Was the work published within 70 years of the death of the last surviving author?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o44">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n47"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o45">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n45"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n35">
+    <flow:text>Was the phonogram communicated to the public more than 50 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o46">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n4"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o47">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n4"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n24">
+    <flow:text>What type of author (6) does this work have?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o48">
+            <flow:text>Anonymous/pseudonymous (7)</flow:text>
+            <flow:node rdf:resource="#n25"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o49">
+            <flow:text>Unknown</flow:text>
+            <flow:node rdf:resource="#n30"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o50">
+            <flow:text>Natural person</flow:text>
+            <flow:node rdf:resource="#n31"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n13">
+    <flow:text>The sui generis database right has expired. Please note a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights, such as any underlying literary or artistic work (including any relevant original database), apply.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n3">
+    <flow:text>The related right of the producer of the phonogram has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or performers’ rights in any performance that may be fixated in the phonogram.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n47">
+    <flow:text>Was the work published or communicated to the public more than 25 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o51">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n29"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o52">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n23"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n36">
+    <flow:text>Was the database made available to the public in the last 15 years?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o53">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n14"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o54">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n13"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n25">
+    <flow:text>What is the nationality, place of residence or place of establishment of the author?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o55">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n27"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o56">
+            <flow:text>Not EEA (8)</flow:text>
+            <flow:node rdf:resource="#n26"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n14">
+    <flow:text>The sui generis database right has not expired. Please contact the right- holder before use.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n4">
+    <flow:text>The related right of the producer of the phonogram has not expired. Please contact the right-holder before use.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n48">
+    <flow:text>The related rights of the performers in the fixation of the performance have expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any underlying literary or artistic work or producers’ rights in any relevant phonogram.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n37">
+    <flow:text>Was the database completed or sustantially changed within the last 15 years?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o57">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n14"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o58">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n13"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n26">
+    <flow:text>What is the country of origin (9) of this work?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o59">
+            <flow:text>Not Berne TRIPS WCT (10)</flow:text>
+            <flow:node rdf:resource="#n28"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o60">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n27"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o61">
+            <flow:text>Berne TRIPS WCT (10)</flow:text>
+            <flow:node rdf:resource="#n34"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n15">
+    <flow:text>Was the programme first broadcast more than 50 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o62">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n54"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o63">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n55"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n5">
+    <flow:text>Was the film first fixated more than 50 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o64">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n51"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o65">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n50"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n49">
+    <flow:text>The related right of the performers in the fixation of the performance have not expired. Please contact the right-holder before use.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n38">
+    <flow:text>Is the work a collective work or a work created in the execution of duties?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o66">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n40"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o67">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n27"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n27">
+    <flow:text>Has the work been make available to the public?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o68">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n45"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o69">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n46"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n16">
+    <flow:text>Was a fixation of the performance published or communicated to the  public within 50 years from the date of the performance?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o70">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n17"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o71">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n18"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n6">
+    <flow:text>Of which countries is the right-holder a national or resident?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o72">
+            <flow:text>EEA (8)</flow:text>
+            <flow:node rdf:resource="#n7"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o73">
+            <flow:text>Not EEA (8)</flow:text>
+            <flow:node rdf:resource="#n13"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n50">
+    <flow:text>The related right of the film producer in the first fixation of the film has expired. Please note that a single item might be protected by multiple layers of rights. You may need to apply the Public Domain Calculator again to examine whether additional rights apply, such as copyright protection in any cinematographic or audiovisual work which might be fixated in the film.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n39">
+    <flow:text>Did the last surviving author die more than 70 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o74">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n23"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o75">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n29"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n28">
+    <flow:text>What is nationality or place of residence or place of establishment of the author?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o76">
+            <flow:text>Not Berne TRIPS WCT (10)</flow:text>
+            <flow:node rdf:resource="#n23"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o77">
+            <flow:text>Berne TRIPS WCT (10)</flow:text>
+            <flow:node rdf:resource="#n34"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n17">
+    <flow:text>Was the fixation published or communicated to the public more than 50 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o78">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n48"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o79">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n49"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n7">
+    <flow:text>Was the database made available to the public after its completion or last substantial change?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o80">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n36"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o81">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n37"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n51">
+    <flow:text>The related right of the producer of the film producer in the first fixation of the film has not expired. Please contact the right-holder before use.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n40">
+    <flow:text>Has the work been published or communicated to the public?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o82">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n39"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o83">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n41"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n29">
+    <flow:text>Copyright in the examined work has not expired. Please contact the right- holder before use.</flow:text>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n18">
+    <flow:text>Did the performance take place more than 50 years ago?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o84">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n48"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o85">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n49"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+  <flow:Question rdf:ID="n8">
+    <flow:text>Is the right holder a company or firm?</flow:text>
+    <flow:option>
+      <rdf:Alt>
+        <rdf:li>
+          <flow:Option rdf:ID="o86">
+            <flow:text>No</flow:text>
+            <flow:node rdf:resource="#n6"/>
+          </flow:Option>
+        </rdf:li>
+        <rdf:li>
+          <flow:Option rdf:ID="o87">
+            <flow:text>Yes</flow:text>
+            <flow:node rdf:resource="#n9"/>
+          </flow:Option>
+        </rdf:li>
+      </rdf:Alt>
+    </flow:option>
+  </flow:Question>
+
+<rdf:Description> This document is licensed under Creative Commons Attribution-ShareAlike 3.0 Netherlands License. You are free to distribute and build upon this work even for commercial purposes, as long as you credit outofcopyright.eu and license derivative works under identical terms. </rdf:Description>
+
+
+</rdf:RDF>
