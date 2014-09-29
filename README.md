@@ -3,6 +3,8 @@ pdcalc
 
 Public Domain Calculator - determine what is public domain and what's not.
 
+All the code is released under <a href="http://opensource.org/licenses/MIT" target"_BLANK">The MIT License (MIT)<a>.
+
 CLI Usage
 ---------
 
