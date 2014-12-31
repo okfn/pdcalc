@@ -1,5 +1,5 @@
 
-import RDF
+import rdflib
 
 import json
 
@@ -12,9 +12,7 @@ def evaluate_question(model, *args, **kwargs):
 	WHERE { ?a dc:creator ?bio. ?a dc:title ?b } 
 	"""
 
-	que = RDF.Query(q, query_language="sparql")
-	result = que.execute(model)
-	columns = result.get_bindings_count()
+	result = model.query(q)
 	ct =0
 	for row in result:
 		ct += 1

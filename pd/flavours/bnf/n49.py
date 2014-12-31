@@ -1,4 +1,4 @@
-import RDF
+import rdflib
 
 import json
 import urllib2
@@ -16,9 +16,7 @@ def evaluate_question(model, *args, **kwargs):
 	WHERE { ?a dc:creator ?bio. ?bio bio:Death ?date } 
 	"""
 
-	que = RDF.Query(q, query_language="sparql")
-	result = que.execute(model)
-	columns = result.get_bindings_count()
+	result = model.query(q)
 	ct = "" 
 	for row in result:
 		ct = str(row['date'])

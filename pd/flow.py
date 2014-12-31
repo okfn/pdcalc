@@ -1,19 +1,16 @@
-import RDF
+import rdflib
 import sys
 import const
 from node import Node
 from option import Option
 import json
 import re
+import traceback
 
 # The flow class contains a flow RDF document
 class Flow(object):
   # list of variables
   def __init__(self, globalities = {}, localities = {}, language="en"):
-    self.parser = RDF.Parser('raptor')
-    if self.parser is None:
-      raise Exception("Failed to create RDF.Parser raptor")
-
     self.language = language
     self.localities = localities    
     self.globalities = globalities
@@ -121,14 +118,13 @@ class Flow(object):
     #print "The flow RDF document contains:", len(self.questions), "questions and", len(self.answers), "answers."
     pass
 
-  def choose(self, model, node, detail=1, mode="cli",  out=None):
+  def choose(self, model, node, detail=1, mode="cli",  out=None, res_context=None):
     if node.is_binary():
       try:
         a = __import__(node.uri)
-        result = a.evaluate_question(model)
+        result = a.evaluate_question(model, context = {"g":self.globalities, "l":self.localities, "node":node}, res_context = res_context)
         return node.get_option_for(result)
-      except Exception, e:
-        print >> sys.stderr, e
+      except ImportError, e:
         sparql = node.render_query(self.globalities, self.localities)
         if detail >=3:
           if mode=="cli":
@@ -136,17 +132,19 @@ class Flow(object):
           else:
             out.append({"query":sparql, "type":"query"})
           
-        query = RDF.Query(sparql, query_language="sparql")
-        result = query.execute(model).get_boolean()
+        result = model.query(sparql)
+        print str(result)
         return node.get_option_for(result)
+      except Exception, e:
+        print >> sys.stderr, e
+        traceback.print_exc(file=sys.stderr)
     else:
       try:
         a = __import__(node.uri)
-        result = a.evaluate_question(model)
+        result = a.evaluate_question(model, context = {"g":self.globalities, "l":self.localities, "node":node}, res_context = res_context)
         return node.get_option_for(result)
-      except Exception, e:
+      except ImportError, e:
         for option in node.options:
-     
           if detail >=3:
             if mode=="cli":
               out.append( ">  Evaluating option: %s" % option.text)
@@ -160,12 +158,14 @@ class Flow(object):
                 out.append(">  Query: %s" % sparql)
               else:
                 out.append({"query":sparql, "type":"query"})
-            query = RDF.Query(sparql, query_language="sparql")
-            result = query.execute(model).get_boolean()
+            result = model.query(sparql)
           else:
             result = False
           if result:
             break
+      except Exception, e:
+        print >> sys.stderr, e
+        traceback.print_exc(file=sys.stderr)
       if result is not None:
         return option
       else:

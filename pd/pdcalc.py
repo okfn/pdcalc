@@ -10,8 +10,6 @@ import json
 
 import cacher
 
-sys.path.insert(0, "/usr/lib/python2.7/dist-packages") #to have redland librdf loaded
-
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Public Domain Calculator')
   parser.add_argument('-c', '--country', dest='country',  help='country for which to test')

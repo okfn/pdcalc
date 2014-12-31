@@ -1,6 +1,7 @@
 import re
 
 def render(query, globalities, localities):
+	"""transforms json to sparql"""
 	query_re= r'%\((.*?)\)'
 	ret = ""
 	if query is not None:

@@ -1,4 +1,4 @@
-import RDF
+import rdflib
 
 import json
 import urllib2
@@ -11,9 +11,7 @@ def evaluate_question(model, *args, **kwargs):
 	WHERE {?a dc:creator ?x }
 	"""
 
-	que = RDF.Query(q, query_language="sparql")
-	result = que.execute(model)
-	columns = result.get_bindings_count()
+	result = model.query(q)
 	for row in result:
 		author =  str(row['x'])
 	

@@ -1,4 +1,4 @@
-import RDF
+import rdflib
 
 import json
 import urllib2
@@ -6,21 +6,25 @@ import const
 import tempfile
 import cacher 
 
+import sys
+
+import re
+
 def pre_run(model, *args, **kwargs):
 	q = """
-	prefix dc: <http://purl.org/dc/terms/> 
-	SELECT ?x
-	WHERE {?a dc:creator ?x. }
+	prefix dcterms: <http://purl.org/dc/terms/> 
+	SELECT ?a ?x
+	WHERE {?a dcterms:creator ?x. }
 	"""
 
-	que = RDF.Query(q, query_language="sparql")
-	result = que.execute(model)
-	columns = result.get_bindings_count()
+	result = model.query(q)
 	author = ""
+
+	rc = kwargs.get("res_context", None)
+
 	for row in result:
 		author =  str(row['x'])
 
-	parser = RDF.Parser('raptor')	
 	auth_url =  author.split('#')[0]
 	if auth_url != "":
 		var = urllib2.urlopen(auth_url)
@@ -28,14 +32,29 @@ def pre_run(model, *args, **kwargs):
 		auth_url = var.geturl()
 
 		auth_url = auth_url +"rdf.xml"
-
 		f = tempfile.NamedTemporaryFile("w", delete=False)
 		data = cacher.get(auth_url)
 		f.write(data)
 		auth_url = f.name
 		f.close()
-		to_parse = RDF.Uri(string = "file:" + auth_url)
 
-		op = parser.parse_as_stream
-		for s in op(to_parse, const.base_uri):
-			model.add_statement(s)
+		model.parse(auth_url)
+
+	
+
+	bnf_code = row["a"].split("#")[0].split("/")[-1]
+	bnf_code = bnf_code[2:]
+	#bnf_code = re.findall(r'\d+', bnf_code)[0]
+
+	
+	rc["bnf_code"] = bnf_code
+
+	q2 = """
+	prefix foaf: <http://xmlns.com/foaf/0.1/> 
+	SELECT ?x
+	WHERE {?a foaf:familyName ?x. }
+	"""
+
+	result = model.query(q2)
+	for row in result:
+		rc["author"] = row["x"]
