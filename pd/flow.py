@@ -133,7 +133,7 @@ class Flow(object):
             out.append({"query":sparql, "type":"query"})
           
         result = model.query(sparql)
-        print str(result)
+        
         return node.get_option_for(result)
       except Exception, e:
         print >> sys.stderr, e

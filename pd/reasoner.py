@@ -137,7 +137,7 @@ class Reasoner(object):
 
       
     if self.output == "json":
-      self.out.append({"type":"context", "data":self.res_context})
+      self.out.insert(0, {"type":"context", "data":self.res_context})
       self.out = json.dumps(self.out)
     elif self.output == "cli":
       self.out = "\n".join(self.out)
