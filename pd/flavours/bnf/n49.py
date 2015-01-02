@@ -20,10 +20,16 @@ def evaluate_question(model, *args, **kwargs):
 	"""
 
 	result = model.query(q)
+
+	rc = kwargs.get("res_context", None)
+
 	ct = "" 
 	for row in result:
 		ct = str(row['date'])
 
 	year = int(ct.split('-')[0])
+
+	rc["fromyear"] = year+95+1
+
 	return ( year + 95) <= date.today().year 
 
