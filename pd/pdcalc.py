@@ -10,8 +10,6 @@ import json
 
 import cacher
 
-sys.path.insert(0, "/usr/lib/python2.7/dist-packages") #to have redland librdf loaded
-
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Public Domain Calculator')
   parser.add_argument('-c', '--country', dest='country',  help='country for which to test')
@@ -25,16 +23,27 @@ if __name__ == '__main__':
   parser.add_argument('-q', '--query', dest="query", help="one-shot query", default=None)
   parser.add_argument('-L', '--language', dest="language", help="language", default="en")
 
-  parser.add_argument('-V', '--valid', dest="valid", help="valid country and flavors", default=False,action='store_true')
+  parser.add_argument('-C', '--countries', dest="countries", help="valid countries", default=False,action='store_true')
+  parser.add_argument('-F', '--flavours', dest="flavours", help="valid flavours", default=False,action='store_true')
 
   args = parser.parse_args()
 
-  if args.valid:
+  if args.countries:
 
     itms = []
-    for x in os.walk('.'):
-      if not x[0].endswith("i18n") and not x[0] == ".":
-        itms.append(x[0][2:])
+    for x in os.walk('./countries/'):
+      if not x[0].endswith("i18n") and not x[0] == "." and not len(x[0]) <= 12:
+        itms.append(x[0][12:])
+    if args.output == "json":
+      print json.dumps(itms)
+    else:
+      print ", ".join(itms)
+
+  elif args.flavours:
+    itms = []
+    for x in os.walk('./flavours/'):
+      if not x[0] == "." and not len(x[0]) == 11:
+        itms.append(x[0][11:])
     if args.output == "json":
       print json.dumps(itms)
     else:
@@ -56,13 +65,13 @@ if __name__ == '__main__':
       f.close()
       args.instance = f.name
 
-    files = [ os.path.join(args.country,"flow.json"), os.path.join(args.country,args.flavor, "local.json"), os.path.join(args.country, "local.json"), args.globalmap, args.instance]
+    files = [ os.path.join("countries", args.country,"flow.json"), os.path.join("flavours",args.flavor, "local.json"), os.path.join("countries", args.country, "local.json"), os.path.join("mappings", args.country+"-"+args.flavor+".json"), args.globalmap, args.instance]
     #print files
     files = map(path.isfile, files)
     #print files
     if all(files):
       from reasoner import Reasoner
-      a = Reasoner(os.path.join(args.country,"flow.json"), local_map = os.path.join(args.country, "local.json"), flavor_map = os.path.join(args.country,args.flavor, "local.json"), global_map = args.globalmap, detail=args.detail, output=args.output, language=os.path.join(args.country, "i18n", args.language+".json"))
+      a = Reasoner(os.path.join("countries",args.country,"flow.json"), local_map = os.path.join("countries", args.country, "local.json"), flavor_map = os.path.join("flavours",args.flavor, "local.json"),  global_map = args.globalmap, mapping=os.path.join("mappings", args.country+"-"+args.flavor+".json"),detail=args.detail, output=args.output, language=os.path.join("countries", args.country, "i18n", args.language+".json"))
       a.parse_input(args.instance)
       a.info()
       if args.query is None:

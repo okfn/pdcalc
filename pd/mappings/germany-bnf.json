@@ -1,0 +1,19 @@
+{
+	"n0":[{
+			"query":{"template":"is:Film"}
+		},{
+			"query":{"template":"is:Database"}
+		},{
+			"query":{"template":"is:Broadcast"}
+		},{
+			"query":{"template":"is:Performance"}
+		},{
+			"query":{"template":"is:Phonogram"}
+		},{
+			"query":{"template":"is:Database"}
+		},{
+			"query":{"template":"is:Database"}
+		},{
+			"query":{"template":"is:Book"}
+		}]
+} 

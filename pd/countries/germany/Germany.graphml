@@ -1,0 +1,2482 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yFiles for Java HEAD-Current-->
+  <key for="graphml" id="d0" yfiles.type="resources"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d7"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d8"/>
+  <key for="edge" id="d9" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <node id="n0">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="163.84765625" x="4369.020616319444" y="101.33150482177734"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="159.84765625" x="2.0" y="2.0">Into which of the following
+categories does the
+examined item fall? (1)</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n1">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="168.072265625" x="5758.890057663691" y="431.1942596435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="164.072265625" x="2.0" y="2.0">Was the film published or
+communicated to the
+public within 50 years from
+the fixation?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n2">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="147.939453125" x="5916.577892485119" y="734.2567596435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="143.939453125" x="2.0" y="2.0">Was the film published
+or communicated to the
+public more than 50
+years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n3">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="191.7265625" width="201.53515625" x="4039.260993303571" y="1380.3778533935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="187.7265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="197.53515625" x="2.0" y="2.0">The related right of the producer
+of the phonogram has expired.
+Please note that a single item
+might be protected by multiple
+layers of rights. You may need to
+apply the Public Domain
+Calculator again to examine
+whether additional rights apply,
+such as copyright protection in
+any underlying literary or artistic
+work or performers’ rights in any
+performance that may be fixated
+in the phonogram. </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n4">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="106.9296875" width="114.154296875" x="3875.10658172123" y="1422.7762908935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="102.9296875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="110.154296875" x="2.0" y="2.0">The related right
+of the producer of
+the phonogram
+has not expired.
+Please contact the
+right-holder
+before use.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n5">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="131.33984375" x="5735.238014632937" y="741.3231658935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="127.33984375" x="2.0" y="2.0">Was the film first
+fixated more than 50
+years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n6">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="157.419921875" x="5606.527737475199" y="1451.0419158935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="153.419921875" x="2.0" y="2.0">Of which countries is the
+right-holder a national or
+resident?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n7">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="78.6640625" width="132.67578125" x="5441.127188740079" y="1705.2372283935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="74.6640625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="128.67578125" x="2.0" y="2.0">Was the database
+made available to the
+public after its
+completion or last
+substantial change?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n8">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="123.2421875" x="5391.692398313492" y="445.3270721435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="119.2421875" x="2.0" y="2.0">Is the right holder a
+company or firm?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n9">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="143.59765625" x="5350.703949652778" y="741.3231658935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="139.59765625" x="2.0" y="2.0">According to the law of
+which country was it
+formed?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n10">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="196.25" x="5360.277380952381" y="1443.9755096435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="192.25" x="2.0" y="2.0">In which country does it have its
+registered office, central
+administration, or principal
+place of business?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n11">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="135.857421875" x="5130.2367652529765" y="1081.1825408935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="131.857421875" x="2.0" y="2.0">In which country does
+it have its registered
+office?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n12">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="156.294921875" x="5153.982300967262" y="1443.9755096435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="152.294921875" x="2.0" y="2.0">Are its operations
+genuinely linked on an
+ongoing basis with the
+economy of an EEA state?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n13">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="163.4609375" width="202.384765625" x="5184.243728298611" y="2342.8270721435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="159.4609375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="198.384765625" x="2.0" y="2.0">The sui generis database right
+has expired. Please note a single
+item might be protected by
+multiple layers of rights. You
+may need to apply the Public
+Domain Calculator again to
+examine whether additional
+rights, such as any underlying
+literary or artistic work (including
+any relevant original database),
+apply.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n14">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="92.796875" width="103.103515625" x="5436.628797743056" y="2378.1591033935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="99.103515625" x="2.0" y="2.0">The sui generis
+database right
+has not expired.
+Please contact
+the right-holder
+before use.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n15">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="117.728515625" x="4402.320662822421" y="431.1942596435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="113.728515625" x="2.0" y="2.0">Was the
+programme first
+broadcast more
+than 25 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n16">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="219.640625" x="4780.7201636904765" y="431.1942596435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="215.640625" x="2.0" y="2.0">Was a fixation of the performance
+published or communicated to the 
+public within 50 years from the date
+of the performance?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n17">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="78.6640625" width="131.861328125" x="4951.062986731151" y="727.1903533935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="74.6640625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="127.861328125" x="2.0" y="2.0">Was the fixation
+published or
+communicated to the
+public more than 50
+years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n18">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="130.865234375" x="4770.197541542659" y="741.3231658935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="126.865234375" x="2.0" y="2.0">Did the performance
+take place more than
+50 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n19">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="124.63671875" x="4158.800291418651" y="438.2606658935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="120.63671875" x="2.0" y="2.0">Was the phonogram
+published within 50
+years of creation?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n20">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="129.06640625" x="4187.744574652777" y="1081.1825408935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="125.06640625" x="2.0" y="2.0">Was the phonogram
+published more than
+50 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n21">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="133.841796875" x="3822.0414031498017" y="1081.1825408935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="129.841796875" x="2.0" y="2.0">Was the phonogram
+created more than 50
+years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n22">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="234.125" width="233.509765625" x="1640.5165457589285" y="2744.4208221435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="230.125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="229.509765625" x="2.0" y="2.0">Copyright in the examined work has
+expired. Please note that a single item
+might be protected by multiple layers
+of rights. You may need to apply the
+Public Domain Calculator again to
+examine whether additional rights
+apply, such as copyright protection in
+any other relevant literary or artistic
+work, producers’ rights in any relevant
+phonogram, performers’ rights in any
+performance that may be fixated in
+such a phonogram, broadcasting
+organisations’ rights over a relevant
+broadcast, any relevant database
+rights or other sui generis rights have
+expired. </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n23">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="174.001953125" x="2611.70656312004" y="748.3895721435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="170.001953125" x="2.0" y="2.0">What type of author (7) does
+this work have?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n24">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="175.671875" x="2610.87160218254" y="1074.1161346435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="171.671875" x="2.0" y="2.0">What is the nationality, place
+of residence or place of
+establishment of the
+author?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n25">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="147.224609375" x="2581.1773778521824" y="1458.1083221435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="143.224609375" x="2.0" y="2.0">What is the country of
+origin (10) of this work?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n26">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="151.8125" x="2795.3473214285714" y="1726.4364471435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="147.8125" x="2.0" y="2.0">Has the work been make
+available to the public?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n27">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="181.115234375" x="2564.2320653521824" y="1719.3700408935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="177.115234375" x="2.0" y="2.0">What is nationality or place of
+residence or place of
+establishment of the author?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n28">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="92.796875" width="103.103515625" x="2727.8454644097224" y="2815.0848846435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="99.103515625" x="2.0" y="2.0">Copyright in the
+examined work
+has not expired.
+Please contact
+the right-holder
+before use.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n29">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="92.796875" width="92.71484375" x="2836.5437686011905" y="1059.9833221435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="88.71484375" x="2.0" y="2.0">Due to lack of
+the necessary
+information,
+copyright
+status cannot
+be determined</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n30">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="180.822265625" x="2911.495613219246" y="2050.6981658935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="176.822265625" x="2.0" y="2.0">Was the work published more
+than 70 years after creation?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n31">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="166.625" x="2654.428373015873" y="2406.4247283935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="162.625" x="2.0" y="2.0">Was the work created more
+than 70 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n32">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="151.6953125" x="3092.3487723214284" y="2399.3583221435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="147.6953125" x="2.0" y="2.0">Was the work made
+available to the public 
+more than 70 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n33">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="171.294921875" x="2871.0537295386903" y="2399.3583221435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="167.294921875" x="2.0" y="2.0">Was the work published or
+communicated to the public
+more than 25 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n34">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="153.67578125" x="1951.6966331845238" y="1081.1825408935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="149.67578125" x="2.0" y="2.0">What is the nationality or
+place of residence of the
+author?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n35">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="147.224609375" x="1993.3412667410716" y="1458.1083221435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="143.224609375" x="2.0" y="2.0">What is the country of
+origin (10) of this work?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n36">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="181.115234375" x="1976.3959542410716" y="1726.4364471435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="177.115234375" x="2.0" y="2.0">What is nationality or place of
+residence of the author?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n37">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="191.7265625" width="195.787109375" x="2327.4215246775793" y="1972.9676971435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="187.7265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="191.787109375" x="2.0" y="2.0">The Rule of Shorter Term
+(Comparison of Terms) applies.
+This means that the term of
+protection is that established by
+the legislation of the selected
+country, unless (barring
+provisions to the contrary in the
+legislation of that country) the
+term fixed in the country of
+origin of the work is shorter. In
+such cases, the term of
+protection is that of the country
+of origin.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n38">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="150.95703125" x="5318.5706907242065" y="2043.6317596435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="146.95703125" x="2.0" y="2.0">Was the database made
+available to the public in
+the last 15 years?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n39">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="155.064453125" x="5519.5280908978175" y="2036.5653533935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="151.064453125" x="2.0" y="2.0">Was the database
+completed or sustantially
+changed within the last
+15 years?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n40">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="173.57421875" x="1704.1482080853175" y="2399.3583221435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="169.57421875" x="2.0" y="2.0">Did the last surviving author
+(12) die more than 70 years
+ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n41">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="131.861328125" x="1794.5344153025794" y="1712.3036346435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="127.861328125" x="2.0" y="2.0">Has the work been
+published or
+communicated to the
+public?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n42">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="171.541015625" x="1807.6600477430557" y="2036.5653533935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="167.541015625" x="2.0" y="2.0">Was the work published
+within 70 years of the death
+of the last-surviving author
+(12)?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n43">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="171.294921875" x="1927.7227771577382" y="2399.3583221435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="167.294921875" x="2.0" y="2.0">Was the work published or
+communicated to the public
+more than 25 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n44">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="81.201171875" x="1321.0232235863095" y="445.3270721435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="77.201171875" x="2.0" y="2.0">What type of
+work is this?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n45">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="96.259765625" x="3641.9371806795634" y="438.2606658935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="92.259765625" x="2.0" y="2.0">Has the edition
+been
+published?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n46">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="99.259765625" x="3512.9514663938494" y="734.2567596435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="95.259765625" x="2.0" y="2.0">Was the edition
+published more
+than 25 years
+ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n47">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="50.3984375" width="103.841796875" x="3662.2112444196428" y="741.3231658935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="46.3984375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="99.841796875" x="2.0" y="2.0">Was the edition
+made more than
+25 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n48">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="36.265625" width="124.02734375" x="3172.6629154265875" y="445.3270721435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="32.265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="120.02734375" x="2.0" y="2.0">Has the photograph
+been published?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n49">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="78.6640625" width="99.259765625" x="3058.988767981151" y="727.1903533935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="74.6640625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="95.259765625" x="2.0" y="2.0">Was the
+photograph
+published more
+than 50 years
+ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n50">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="114.869140625" x="3208.2487630208334" y="734.2567596435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="110.869140625" x="2.0" y="2.0">Was the
+photograph
+created more than
+50 years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n51">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="151.958984375" x="3957.844714161706" y="734.2567596435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="147.958984375" x="2.0" y="2.0">Was the phonogram
+communicated to the
+public within 50 years of
+creation?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n52">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="64.53125" width="131.861328125" x="4005.883224826389" y="1074.1161346435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="127.861328125" x="2.0" y="2.0">Was the phonogram
+communicated to the
+public more than 50
+years ago?</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n53">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="177.59375" width="199.1796875" x="3395.0661086309524" y="1017.5848846435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="173.59375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="195.1796875" x="2.0" y="2.0">The rights in the critical and
+scientific publication of this
+work have expired. Please note
+that additional rights might also
+apply, as a single item might be
+protected by multiple layers of
+rights. You may need to apply
+the Public Domain Calculator
+again to examine whether other
+relevant copyright, related rights
+or sui generis rights protection
+has expired.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n54">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="106.9296875" width="121.109375" x="4959.127058531746" y="1052.9169158935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="102.9296875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="117.109375" x="2.0" y="2.0">The related right of
+the performers in
+the fixation of the
+performance have
+not expired. Please
+contact the right-
+holder before use.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n55">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="191.7265625" width="198.5703125" x="5914.691034226191" y="1010.5184783935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="187.7265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="194.5703125" x="2.0" y="2.0">The related right of the film
+producer in the first fixation of
+the film has expired. Please note
+that a single item might be
+protected by multiple layers of
+rights. You may need to apply
+the Public Domain Calculator
+again to examine whether
+additional rights apply, such as
+copyright protection in any
+cinematographic or audiovisual
+work which might be fixated in
+the film. </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n56">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="106.9296875" width="127.794921875" x="3644.246189856151" y="1052.9169158935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="102.9296875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="123.794921875" x="2.0" y="2.0">The rights in the
+critical and scientific
+publication of this
+work have not
+expired. Please
+contact the right-
+holder before use.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n57">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="163.4609375" width="202.66015625" x="3142.4056361607145" y="1024.6512908935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="159.4609375" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="198.66015625" x="2.0" y="2.0">The rights in the unoriginal
+photograph have expired. Please
+note that additional rights might
+also apply, as a single item
+might be protected by multiple
+layers of rights. You may need to
+apply the Public Domain
+Calculator again to examine
+whether other relevant copyright,
+related rights or sui generis
+rights protection has expired.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n58">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="121.0625" width="129.453125" x="5735.237723214285" y="1045.8505096435547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="117.0625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="125.453125" x="2.0" y="2.0">The related right of
+the producer of the
+film producer in the
+first fixation of the
+film has not expired.
+Please contact the
+right-holder before
+use.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n59">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="191.7265625" width="204.541015625" x="4704.5858413938495" y="1010.5184783935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="187.7265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="200.541015625" x="2.0" y="2.0">The related rights of the
+performers in the fixation of the
+performance have expired. Please
+note that a single item might be
+protected by multiple layers of
+rights. You may need to apply
+the Public Domain Calculator
+again to examine whether
+additional rights apply, such as
+copyright protection in any
+underlying literary or artistic
+work or producers’ rights in any
+relevant phonogram. </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n60">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="106.9296875" width="113.146484375" x="2979.258900669643" y="1052.9169158935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="102.9296875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="109.146484375" x="2.0" y="2.0">The rights in the
+unoriginal
+photograph have
+not expired.
+Please contact the
+right-holder
+before use.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n61">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="191.7265625" width="234.669921875" x="4314.417816840278" y="670.6591033935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="187.7265625" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="230.669921875" x="2.0" y="2.0">The related right of the broadcasting
+organisation in this broadcast has
+expired. Please note that a single item
+might be protected by multiple layers
+of rights. You may need to apply the
+Public Domain Calculator again to
+examine whether additional rights
+apply, such as copyright protection in
+any underlying literary or artistic work,
+producers’ rights in any relevant
+phonogram or performers’ rights in
+any performance that may be fixated
+in such a phonogram. </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n62">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="106.9296875" width="121.109375" x="4599.08777281746" y="713.0575408935547"/>
+          <y:Fill color="#FFFFFF" color2="#FFFFFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="102.9296875" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="117.109375" x="2.0" y="2.0">The related right of
+the broadcasting
+organisation in this
+broadcast has not
+expired. Please
+contact the right-
+holder before use.</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+          <y:DropShadow color="#C0C0C0" offsetX="5" offsetY="5"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n63">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="253.0614471435547" width="1265.4510498046875" x="3053.5693163674973" y="0.0"/>
+          <y:Fill hasColor="false" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="3.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="node_size" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="253.0614471435547" modelName="internal" modelPosition="c" textColor="#000000" visible="true" width="1265.4510498046875" x="0.0" y="0.0">This flowchart, intended to determine whether a certain work or other subject matter vested with copyright or neighbouring rights (related rights) has fallen into the public domain in Germany,
+is part of the research into public domain calculation by the Institute of Information Law for EuropeanaConnect.
+ 
+This work is licensed under a Creative Commons Attribution-ShareAlike License
+ 
+You are free:
+ 
+    * to Share — to copy, distribute and transmit the work
+    * to Remix — to adapt the work
+ 
+Under the following conditions:
+ 
+    * Attribution — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).
+    * Share Alike — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or a similar license to this one.
+ 
+To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/nl/</y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <edge id="e0" source="n0" target="n1">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="71.683349609375" sy="25.19921875" tx="0.0" ty="-32.265625">
+            <y:Point x="4522.627794053819" y="201.72994232177734"/>
+            <y:Point x="5842.926190476191" y="201.72994232177734"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.976779687425535" textColor="#000000" visible="true" width="149.400390625" x="1245.5980654761906" y="217.83874638875324">First fixation of a film (3)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e1" source="n1" target="n2">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="42.01806640625" sy="32.265625" tx="0.0" ty="-32.265625">
+            <y:Point x="5884.944256882441" y="545.7255096435547"/>
+            <y:Point x="5990.547619047619" y="545.7255096435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6559245141861252" textColor="#000000" visible="true" width="24.279296875" x="93.46363467261926" y="110.72752380371094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e2" source="n2" target="n55">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="36.98486328125" sy="32.265625" tx="49.642578125" ty="-95.86328125">
+            <y:Point x="6027.53253968254" y="945.5184783935547"/>
+            <y:Point x="6063.618768601191" y="945.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.4995115803941635" textColor="#000000" visible="true" width="24.279296875" x="-12.139835186350865" y="108.01886494954431">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e3" source="n2" target="n58">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-36.98486328125" sy="32.265625" tx="32.36328125" ty="-60.53125">
+            <y:Point x="5953.562698412698" y="960.5184783935547"/>
+            <y:Point x="5832.327566964285" y="960.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.32696722182898497" textColor="#000000" visible="true" width="20.236328125" x="-10.118438616722415" y="109.47947692871094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="n1" target="n5">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-42.01806640625" sy="32.265625" tx="0.0" ty="-25.19921875"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="20.236328125" x="-10.11833689856121" y="113.73240661621094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="n5" target="n58">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-32.8349609375" sy="25.19921875" tx="-32.36328125" ty="-60.53125"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="20.236328125" x="-10.353927951388869" y="117.99803161621094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="n5" target="n55">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="32.8349609375" sy="25.19921875" tx="-49.642578125" ty="-95.86328125">
+            <y:Point x="5833.742897445437" y="841.7216033935547"/>
+            <y:Point x="5840.330952380952" y="841.7216033935547"/>
+            <y:Point x="5840.330952380952" y="945.5184783935547"/>
+            <y:Point x="5964.333612351191" y="945.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.37842490555415426" textColor="#000000" visible="true" width="24.279296875" x="-5.551371837797888" y="113.74803161621094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="n6" target="n7">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-39.35498046875" sy="25.19921875" tx="44.22526041666697" ty="-39.33203125">
+            <y:Point x="5645.88253968254" y="1655.2372283935547"/>
+            <y:Point x="5551.690339781746" y="1655.2372283935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.43097266935671263" textColor="#000000" visible="true" width="44.4765625" x="-22.238518341529016" y="113.90759785970045">EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e8" source="n0" target="n8">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="51.202392578125" sy="25.19921875" tx="0.0" ty="-18.1328125">
+            <y:Point x="4502.146837022569" y="216.72994232177734"/>
+            <y:Point x="5453.313492063492" y="216.72994232177734"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.9552650503136527" textColor="#000000" visible="true" width="140.705078125" x="880.813980344742" y="215.50448036193848">Unoriginal Database (4)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e9" source="n8" target="n6">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="30.810546875" sy="18.1328125" tx="0.0" ty="-25.19921875">
+            <y:Point x="5484.124038938492" y="531.5926971435547"/>
+            <y:Point x="5685.237698412699" y="531.5926971435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5655014104467185" textColor="#000000" visible="true" width="20.236328125" x="190.9955109126986" y="451.5861175537109">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="n8" target="n9">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-30.810546875" sy="18.1328125" tx="0.0" ty="-25.19921875"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="24.279296875" x="-12.139716641864652" y="120.79881286621094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e11" source="n9" target="n10">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="35.8994140625" sy="25.19921875" tx="0.0" ty="-32.265625"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="44.4765625" x="-22.238338603670854" y="317.06053161621094">EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e12" source="n10" target="n7">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="49.0625" sy="32.265625" tx="0.0" ty="-39.33203125"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.625" textColor="#000000" visible="true" width="59.177734375" x="-29.588710816060484" y="109.09233093261719">In EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e13" source="n9" target="n11">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-35.8994140625" sy="25.19921875" tx="0.0" ty="-25.19921875">
+            <y:Point x="5386.603363715278" y="841.7216033935547"/>
+            <y:Point x="5198.1654761904765" y="841.7216033935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6659247597154606" textColor="#000000" visible="true" width="68.998046875" x="-222.9370628720235" y="121.06769307454431">Not EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e14" source="n11" target="n12">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="33.96435546875" sy="25.19921875" tx="0.0" ty="-32.265625"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.375" textColor="#000000" visible="true" width="44.4765625" x="-22.238359632508036" y="112.87944030761719">EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e15" source="n6" target="n13">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="39.35498046875" sy="25.19921875" tx="84.32698567708303" ty="-81.73046875">
+            <y:Point x="5724.592857142857" y="2292.8270721435547"/>
+            <y:Point x="5369.763096788194" y="2292.8270721435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.33203904042523374" textColor="#000000" visible="true" width="68.998046875" x="-34.499027835135166" y="391.1894989013672">Not EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e16" source="n10" target="n13">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-49.0625" sy="32.265625" tx="-16.86539713541697" ty="-81.73046875">
+            <y:Point x="5409.339880952381" y="1558.5067596435547"/>
+            <y:Point x="5343.442063492063" y="1558.5067596435547"/>
+            <y:Point x="5343.442063492063" y="1759.5692596435547"/>
+            <y:Point x="5297.410317460318" y="1759.5692596435547"/>
+            <y:Point x="5297.410317460318" y="1917.0341033935547"/>
+            <y:Point x="5268.570634920635" y="1917.0341033935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5138257478899971" textColor="#000000" visible="true" width="68.998046875" x="-146.42854972718214" y="372.2280731201172">Not EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e17" source="n11" target="n13">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-33.96435546875" sy="25.19921875" tx="-84.32698567708303" ty="-81.73046875">
+            <y:Point x="5164.2011207217265" y="1181.5809783935547"/>
+            <y:Point x="5103.982142857143" y="1181.5809783935547"/>
+            <y:Point x="5103.982142857143" y="2253.7606658935547"/>
+            <y:Point x="5201.109125434028" y="2253.7606658935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5115687568533906" textColor="#000000" visible="true" width="68.998046875" x="-94.71805245535688" y="629.6258270263672">Not EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e18" source="n12" target="n13">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-39.07373046875" sy="32.265625" tx="-50.59619140625" ty="-81.73046875">
+            <y:Point x="5193.0559523809525" y="2238.7606658935547"/>
+            <y:Point x="5234.839919704861" y="2238.7606658935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.4203096745044079" textColor="#000000" visible="true" width="68.998046875" x="-34.499184366690315" y="360.6230926513672">Not EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e19" source="n12" target="n7">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="39.07373046875" sy="32.265625" tx="-44.22526041666697" ty="-39.33203125">
+            <y:Point x="5271.203571428571" y="1655.2372283935547"/>
+            <y:Point x="5463.239818948412" y="1655.2372283935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.3094900146821736" textColor="#000000" visible="true" width="44.4765625" x="-22.238339074832766" y="108.01892598470045">EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e20" source="n0" target="n15">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="10.240478515625" sy="25.19921875" tx="0.0" ty="-32.265625"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.8571428571428571" textColor="#000000" visible="true" width="79.931640625" x="-39.96595782511304" y="216.76628221784318">Broadcast (3)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e21" source="n15" target="n61">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-29.43212890625" sy="32.265625" tx="0.0" ty="-95.86328125"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.75" textColor="#000000" visible="true" width="24.279296875" x="-12.139796094244957" y="112.53807067871094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e22" source="n15" target="n62">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="29.43212890625" sy="32.265625" tx="0.0" ty="-53.46484375">
+            <y:Point x="4490.617049541171" y="545.7255096435547"/>
+            <y:Point x="4659.64246031746" y="545.7255096435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.7313844186714696" textColor="#000000" visible="true" width="20.236328125" x="158.90710875496006" y="102.77781677246094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e23" source="n0" target="n16">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="30.721435546875" sy="25.19921875" tx="0.0" ty="-32.265625">
+            <y:Point x="4481.665879991319" y="231.72994232177734"/>
+            <y:Point x="4890.5404761904765" y="231.72994232177734"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.9431898324293554" textColor="#000000" visible="true" width="96.220703125" x="360.7641090029765" y="217.16519622802736">Performance (3)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e24" source="n16" target="n17">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="54.91015625" sy="32.265625" tx="0.0" ty="-39.33203125">
+            <y:Point x="4945.4506324404765" y="545.7255096435547"/>
+            <y:Point x="5016.993650793651" y="545.7255096435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.62174037426674" textColor="#000000" visible="true" width="24.279296875" x="59.403318762400886" y="108.07762145996094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e25" source="n16" target="n18">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-54.91015625" sy="32.265625" tx="0.0" ty="-25.19921875"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="20.236328125" x="-10.118295820931962" y="113.73240661621094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e26" source="n18" target="n59">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-32.71630859375" sy="25.19921875" tx="-51.13525390625" ty="-95.86328125">
+            <y:Point x="4802.913850136409" y="841.7216033935547"/>
+            <y:Point x="4755.721031746032" y="841.7216033935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6777426483119106" textColor="#000000" visible="true" width="24.279296875" x="-59.33264913227049" y="120.76951599121094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e27" source="n18" target="n54">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="32.71630859375" sy="25.19921875" tx="-30.27734375" ty="-53.46484375">
+            <y:Point x="4868.346428571429" y="945.5184783935547"/>
+            <y:Point x="4989.404402281746" y="945.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.331205514896581" textColor="#000000" visible="true" width="20.236328125" x="-10.118407412064698" y="113.90753682454431">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e28" source="n17" target="n59">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-32.96533203125" sy="39.33203125" tx="51.13525390625" ty="-95.86328125">
+            <y:Point x="4984.028318762401" y="855.8544158935547"/>
+            <y:Point x="4977.70119047619" y="855.8544158935547"/>
+            <y:Point x="4977.70119047619" y="960.5184783935547"/>
+            <y:Point x="4857.9916031125995" y="960.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.4023039273755462" textColor="#000000" visible="true" width="24.279296875" x="-18.466778273809723" y="114.39842224121094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e29" source="n17" target="n54">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="32.96533203125" sy="39.33203125" tx="30.27734375" ty="-53.46484375"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="20.236328125" x="-10.118112134176044" y="114.46482849121094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e30" source="n0" target="n19">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-10.240478515625" sy="25.19921875" tx="0.0" ty="-25.19921875">
+            <y:Point x="4440.703965928819" y="313.0614471435547"/>
+            <y:Point x="4221.118650793651" y="313.0614471435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.8810388410539434" textColor="#000000" visible="true" width="89.681640625" x="-264.4262710813491" y="210.3022003173828">Phonogram (3)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e31" source="n19" target="n20">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="31.1591796875" sy="25.19921875" tx="0.0" ty="-25.19921875"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.45" textColor="#000000" visible="true" width="24.279296875" x="-12.139673874819891" y="259.48826599121094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e32" source="n20" target="n3">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="32.2666015625" sy="25.19921875" tx="67.17838541666697" ty="-95.86328125">
+            <y:Point x="4284.544444444445" y="1330.3778533935547"/>
+            <y:Point x="4207.206956845238" y="1330.3778533935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.43123434843892533" textColor="#000000" visible="true" width="24.279296875" x="-12.139657540212283" y="128.80238952636728">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e33" source="n20" target="n4">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-32.2666015625" sy="25.19921875" tx="38.051432291666515" ty="-53.46484375">
+            <y:Point x="4220.011176215277" y="1181.5809783935547"/>
+            <y:Point x="4212.286507936508" y="1181.5809783935547"/>
+            <y:Point x="4212.286507936508" y="1315.3778533935547"/>
+            <y:Point x="3970.2351624503967" y="1315.3778533935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.26361577005107495" textColor="#000000" visible="true" width="20.236328125" x="-17.842886594741685" y="126.77608744303393">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e34" source="n19" target="n51">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-31.1591796875" sy="25.19921875" tx="0.0" ty="-32.265625">
+            <y:Point x="4189.959471106151" y="538.6591033935547"/>
+            <y:Point x="4033.824206349206" y="538.6591033935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.7082436071566958" textColor="#000000" visible="true" width="20.236328125" x="-166.25343036954382" y="117.53592224121098">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e35" source="n21" target="n4">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-33.46044921875" sy="25.19921875" tx="-38.051432291666515" ty="-53.46484375">
+            <y:Point x="3855.501984126984" y="1285.3778533935547"/>
+            <y:Point x="3894.1322978670637" y="1285.3778533935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.38693622247736903" textColor="#000000" visible="true" width="20.236328125" x="-10.118159466638645" y="113.90759785970045">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e36" source="n21" target="n3">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="33.46044921875" sy="25.19921875" tx="-67.17838541666652" ty="-95.86328125">
+            <y:Point x="3922.4227508060517" y="1181.5809783935547"/>
+            <y:Point x="3927.7599206349205" y="1181.5809783935547"/>
+            <y:Point x="3927.7599206349205" y="1285.3778533935547"/>
+            <y:Point x="4072.8501860119045" y="1285.3778533935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.3256382983194726" textColor="#000000" visible="true" width="24.279296875" x="-6.802579365079509" y="113.74809265136719">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e37" source="n23" target="n24">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="18.1328125" tx="0.0" ty="-32.265625"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="187.017578125" x="-93.50876891121015" y="135.66404724121094">Anonymous/pseudonymous (8)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e38" source="n24" target="n26">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="43.91796875" sy="32.265625" tx="37.953125" ty="-18.1328125">
+            <y:Point x="2742.62550843254" y="1188.6473846435547"/>
+            <y:Point x="2909.206746031746" y="1188.6473846435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6768207206173518" textColor="#000000" visible="true" width="44.4765625" x="144.34294977450418" y="330.69223327636723">EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e39" source="n24" target="n25">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-43.91796875" sy="32.265625" tx="0.0" ty="-18.1328125"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.375" textColor="#000000" visible="true" width="68.998046875" x="-34.49895975735035" y="115.52934265136719">Not EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e40" source="n25" target="n27">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="18.1328125" tx="0.0" ty="-25.19921875"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6000000000000001" textColor="#000000" visible="true" width="153.408203125" x="-76.70421394469258" y="122.09301452636714">Not Berne TRIPS WCT (11)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e41" source="n25" target="n26">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="49.074869791666515" sy="18.1328125" tx="-37.953125" ty="-18.1328125">
+            <y:Point x="2703.864552331349" y="1544.3739471435547"/>
+            <y:Point x="2833.300396825397" y="1544.3739471435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.7480869132014096" textColor="#000000" visible="true" width="44.4765625" x="107.19763718079957" y="127.40238952636719">EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e42" source="n27" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="45.27880859375" sy="25.19921875" tx="48.64786783854174" ty="-117.0625">
+            <y:Point x="2700.0684911334324" y="1819.7684783935547"/>
+            <y:Point x="2677.622619047619" y="1819.7684783935547"/>
+            <y:Point x="2677.622619047619" y="2083.8309783935547"/>
+            <y:Point x="2611.036507936508" y="2083.8309783935547"/>
+            <y:Point x="2611.036507936508" y="2247.8270721435547"/>
+            <y:Point x="2604.4281746031747" y="2247.8270721435547"/>
+            <y:Point x="2604.4281746031747" y="2634.4208221435547"/>
+            <y:Point x="1805.9192964099702" y="2634.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.2904356101703255" textColor="#000000" visible="true" width="153.408203125" x="-165.73619714161714" y="440.9429168701172">Not Berne TRIPS WCT (11)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e43" source="n23" target="n29">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="58.000651041666515" sy="18.1328125" tx="0.0" ty="-46.3984375">
+            <y:Point x="2756.7081907242064" y="834.6551971435547"/>
+            <y:Point x="2882.9011904761905" y="834.6551971435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.66154018233452" textColor="#000000" visible="true" width="58.287109375" x="97.04938383556555" y="129.42810974121096">Unknown</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e44" source="n26" target="n31">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-37.953125" sy="18.1328125" tx="0.0" ty="-18.1328125">
+            <y:Point x="2833.3004464285714" y="1812.7020721435547"/>
+            <y:Point x="2737.740873015873" y="1812.7020721435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5540716521258524" textColor="#000000" visible="true" width="20.236328125" x="-105.67782815600185" y="305.0092254638671">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e45" source="n31" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-41.65625" sy="18.1328125" tx="68.10701497395826" ty="-117.0625">
+            <y:Point x="2696.084523809524" y="2649.4208221435547"/>
+            <y:Point x="1825.3784435453867" y="2649.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.10272453907150766" textColor="#000000" visible="true" width="24.279296875" x="-12.13980252774445" y="116.60851745605487">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e46" source="n31" target="n28">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="41.65625" sy="18.1328125" tx="0.0" ty="-46.3984375"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.3333333333333333" textColor="#000000" visible="true" width="20.236328125" x="-10.118223070513977" y="121.46216328938817">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e47" source="n26" target="n30">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="37.953125" sy="18.1328125" tx="0.0" ty="-18.1328125">
+            <y:Point x="2909.2066964285714" y="1812.7020721435547"/>
+            <y:Point x="3001.906746031746" y="1812.7020721435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5790250994118344" textColor="#000000" visible="true" width="24.279296875" x="80.56031048487102" y="120.57947285970045">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e48" source="n30" target="n32">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="45.20556640625" sy="18.1328125" tx="0.0" ty="-25.19921875">
+            <y:Point x="3047.112312437996" y="2136.9637908935547"/>
+            <y:Point x="3168.1964285714284" y="2136.9637908935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5933653536896991" textColor="#000000" visible="true" width="20.236328125" x="110.96595982142844" y="128.71216328938817">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e49" source="n30" target="n33">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-45.20556640625" sy="18.1328125" tx="0.0" ty="-25.19921875"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.4375" textColor="#000000" visible="true" width="24.279296875" x="-12.139635856501172" y="130.0050506591797">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e50" source="n32" target="n28">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="37.923828125" sy="25.19921875" tx="41.24140625000018" ty="-46.3984375">
+            <y:Point x="3206.120238095238" y="2709.4208221435547"/>
+            <y:Point x="2820.6386284722225" y="2709.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.1425020665316636" textColor="#000000" visible="true" width="20.236328125" x="-10.118276946188416" y="106.1275278727212">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e51" source="n32" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-37.923828125" sy="25.19921875" tx="107.02530924479174" ty="-117.0625">
+            <y:Point x="3130.272619047619" y="2694.4208221435547"/>
+            <y:Point x="1864.2967378162202" y="2694.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.06362935419835557" textColor="#000000" visible="true" width="24.279296875" x="-12.139744786458778" y="99.8775278727212">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e52" source="n33" target="n28">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="42.82373046875" sy="25.19921875" tx="20.62070312500009" ty="-46.3984375">
+            <y:Point x="2999.525" y="2679.4208221435547"/>
+            <y:Point x="2800.0179253472224" y="2679.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.2017426218639902" textColor="#000000" visible="true" width="20.236328125" x="-10.118104363274142" y="110.32804870605469">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e53" source="n33" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-42.82373046875" sy="25.19921875" tx="87.566162109375" ty="-117.0625">
+            <y:Point x="2913.877380952381" y="2664.4208221435547"/>
+            <y:Point x="1844.8375906808035" y="2664.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.07638279903714651" textColor="#000000" visible="true" width="24.279296875" x="-12.139671044086754" y="102.82804870605469">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e54" source="n34" target="n35">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="38.4189453125" sy="25.19921875" tx="0.0" ty="-18.1328125"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.375" textColor="#000000" visible="true" width="68.998046875" x="-34.49888358789758" y="118.17924499511719">Not EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e55" source="n35" target="n36">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="18.1328125" tx="0.0" ty="-18.1328125"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6000000000000001" textColor="#000000" visible="true" width="153.408203125" x="-76.70414341517835" y="126.33285827636723">Not Berne TRIPS WCT (11)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e56" source="n23" target="n34">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-58.000651041666515" sy="18.1328125" tx="0.0" ty="-25.19921875">
+            <y:Point x="2640.7068886408733" y="834.6551971435547"/>
+            <y:Point x="2028.5345238095238" y="834.6551971435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.8222603391955542" textColor="#000000" visible="true" width="90.314453125" x="-657.3294898623512" y="123.42316182454431">Natural person</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e57" source="n41" target="n40">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-32.96533203125" sy="32.265625" tx="-43.3935546875" ty="-25.19921875">
+            <y:Point x="1827.4997473338294" y="1826.8348846435547"/>
+            <y:Point x="1747.5416666666667" y="1826.8348846435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5471282272189959" textColor="#000000" visible="true" width="20.236328125" x="-90.0762105277538" y="295.469577026367">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e58" source="n40" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-43.3935546875" sy="25.19921875" tx="-9.729573567708258" ty="-117.0625"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.3571428571428571" textColor="#000000" visible="true" width="24.279296875" x="-12.139599055669805" y="101.65394156319735">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e59" source="n40" target="n28">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="43.3935546875" sy="25.19921875" tx="-41.24140625000018" ty="-46.3984375">
+            <y:Point x="1834.3289682539682" y="2604.4208221435547"/>
+            <y:Point x="2738.155815972222" y="2604.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.0872602629741115" textColor="#000000" visible="true" width="20.236328125" x="-10.11807896697087" y="104.17961120605469">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e60" source="n41" target="n42">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="32.96533203125" sy="32.265625" tx="0.0" ty="-32.265625"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.41666666666666663" textColor="#000000" visible="true" width="24.279296875" x="-12.139595121387629" y="102.35323588053393">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e61" source="n42" target="n43">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="42.88525390625" sy="32.265625" tx="0.0" ty="-25.19921875">
+            <y:Point x="1936.3158094618057" y="2151.0966033935547"/>
+            <y:Point x="2012.195238095238" y="2151.0966033935547"/>
+            <y:Point x="2012.195238095238" y="2247.8270721435547"/>
+            <y:Point x="2013.3702380952382" y="2247.8270721435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5301602562526087" textColor="#000000" visible="true" width="20.236328125" x="65.76127813430048" y="108.44816589355469">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e62" source="n42" target="n40">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-42.88525390625" sy="32.265625" tx="43.3935546875" ty="-25.19921875">
+            <y:Point x="1850.5453016493057" y="2151.0966033935547"/>
+            <y:Point x="1834.3289682539682" y="2151.0966033935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.3945457300090288" textColor="#000000" visible="true" width="24.279296875" x="-28.35599336133282" y="105.75090026855469">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e63" source="n43" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-42.82373046875" sy="25.19921875" tx="9.729573567708258" ty="-117.0625">
+            <y:Point x="1970.5464285714286" y="2589.4208221435547"/>
+            <y:Point x="1767.0010021391367" y="2589.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.22664944561329847" textColor="#000000" visible="true" width="24.279296875" x="-12.139712541498511" y="102.13013203938817">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e64" source="n43" target="n28">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="42.82373046875" sy="25.19921875" tx="-20.62070312500009" ty="-46.3984375">
+            <y:Point x="2056.1940476190475" y="2589.4208221435547"/>
+            <y:Point x="2758.7765190972223" y="2589.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.10363592998378354" textColor="#000000" visible="true" width="20.236328125" x="-10.117980213337887" y="102.13013203938817">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e65" source="n35" target="n37">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="49.074869791666515" sy="18.1328125" tx="-24.473388671875" ty="-95.86328125">
+            <y:Point x="2116.028441220238" y="1544.3739471435547"/>
+            <y:Point x="2271.954761904762" y="1544.3739471435547"/>
+            <y:Point x="2271.954761904762" y="1907.9676971435547"/>
+            <y:Point x="2400.8416906932043" y="1907.9676971435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5324755500722084" textColor="#000000" visible="true" width="128.88671875" x="91.48308221726211" y="239.90356140136714">Berne TRIPS WCT (11)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e66" source="n36" target="n37">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="45.27880859375" sy="18.1328125" tx="-73.420166015625" ty="-95.86328125">
+            <y:Point x="2112.2323800223216" y="1812.7020721435547"/>
+            <y:Point x="2158.5642857142857" y="1812.7020721435547"/>
+            <y:Point x="2158.5642857142857" y="1922.9676971435547"/>
+            <y:Point x="2351.8949133494543" y="1922.9676971435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.4148806768897868" textColor="#000000" visible="true" width="128.88671875" x="-18.11149553571431" y="126.11072285970045">Berne TRIPS WCT (11)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e67" source="n36" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-45.27880859375" sy="18.1328125" tx="29.188720703125" ty="-117.0625">
+            <y:Point x="2021.6747628348216" y="1812.7020721435547"/>
+            <y:Point x="2044.120634920635" y="1812.7020721435547"/>
+            <y:Point x="2044.120634920635" y="2083.8309783935547"/>
+            <y:Point x="2149.0178571428573" y="2083.8309783935547"/>
+            <y:Point x="2149.0178571428573" y="2619.4208221435547"/>
+            <y:Point x="1786.4601492745535" y="2619.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.3944244329579729" textColor="#000000" visible="true" width="153.408203125" x="50.63895089285734" y="450.9932098388672">Not Berne TRIPS WCT (11)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e68" source="n25" target="n37">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-49.074869791666515" sy="18.1328125" tx="24.473388671875" ty="-95.86328125">
+            <y:Point x="2605.714812748016" y="1544.3739471435547"/>
+            <y:Point x="2449.788492063492" y="1544.3739471435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6596713275933763" textColor="#000000" visible="true" width="128.88671875" x="-220.36972281900762" y="250.6680145263672">Berne TRIPS WCT (11)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e69" source="n27" target="n37">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-45.27880859375" sy="25.19921875" tx="73.420166015625" ty="-95.86328125">
+            <y:Point x="2609.5108739459324" y="1819.7684783935547"/>
+            <y:Point x="2563.1789682539684" y="1819.7684783935547"/>
+            <y:Point x="2563.1789682539684" y="1917.0341033935547"/>
+            <y:Point x="2498.7352453807043" y="1917.0341033935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5415714164567494" textColor="#000000" visible="true" width="128.88671875" x="-110.77537744915662" y="108.84965515136719">Berne TRIPS WCT (11)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e70" source="n0" target="n44">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-71.683349609375" sy="25.19921875" tx="0.0" ty="-18.1328125">
+            <y:Point x="4379.261094835069" y="268.0614471435547"/>
+            <y:Point x="1361.6238095238095" y="268.0614471435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.9808524042551678" textColor="#000000" visible="true" width="162.671875" x="-3098.9733584449405" y="209.8363800048828">Literary or artistic work (2) </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e71" source="n7" target="n38">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-33.1689453125" sy="39.33203125" tx="0.0" ty="-25.19921875">
+            <y:Point x="5474.296134052579" y="1833.9012908935547"/>
+            <y:Point x="5394.0492063492065" y="1833.9012908935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5635316430214191" textColor="#000000" visible="true" width="24.279296875" x="-92.38634052579346" y="105.14184265136714">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e72" source="n38" target="n14">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="37.7392578125" sy="25.19921875" tx="-25.77587890625" ty="-46.3984375">
+            <y:Point x="5431.7884641617065" y="2144.0301971435547"/>
+            <y:Point x="5462.4047619047615" y="2144.0301971435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.4940808412867862" textColor="#000000" visible="true" width="24.279296875" x="18.476510715758195" y="119.29028828938817">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e73" source="n38" target="n13">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-37.7392578125" sy="25.19921875" tx="16.86539713541697" ty="-81.73046875">
+            <y:Point x="5356.309920634921" y="2247.8270721435547"/>
+            <y:Point x="5302.301508246528" y="2247.8270721435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.42367828389279166" textColor="#000000" visible="true" width="20.236328125" x="-10.118296429444854" y="113.90747578938817">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e74" source="n7" target="n39">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="33.1689453125" sy="39.33203125" tx="0.0" ty="-32.265625">
+            <y:Point x="5540.634024677579" y="1833.9012908935547"/>
+            <y:Point x="5597.0603174603175" y="1833.9012908935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5341865690602097" textColor="#000000" visible="true" width="20.236328125" x="46.30836433531749" y="103.0219207763671">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e75" source="n39" target="n14">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="38.76611328125" sy="32.265625" tx="25.77587890625" ty="-46.3984375">
+            <y:Point x="5635.8264307415675" y="2151.0966033935547"/>
+            <y:Point x="5630.551984126984" y="2151.0966033935547"/>
+            <y:Point x="5630.551984126984" y="2277.8270721435547"/>
+            <y:Point x="5513.956434461806" y="2277.8270721435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.34316373108272824" textColor="#000000" visible="true" width="24.279296875" x="-17.41432446676572" y="122.0650278727212">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e76" source="n39" target="n13">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-38.76611328125" sy="32.265625" tx="50.59619140625" ty="-81.73046875">
+            <y:Point x="5558.294047619048" y="2262.8270721435547"/>
+            <y:Point x="5336.032302517361" y="2262.8270721435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.25677195923071794" textColor="#000000" visible="true" width="20.236328125" x="-10.11850823322311" y="109.47941589355469">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e77" source="n34" target="n41">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-38.4189453125" sy="25.19921875" tx="-32.96533203125" ty="-32.265625">
+            <y:Point x="1990.1155784970238" y="1181.5809783935547"/>
+            <y:Point x="1846.6976190476191" y="1181.5809783935547"/>
+            <y:Point x="1846.6976190476191" y="1646.1708221435547"/>
+            <y:Point x="1827.4997473338294" y="1646.1708221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6706441576830584" textColor="#000000" visible="true" width="44.4765625" x="-165.65626278831837" y="339.8971160888673">EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e78" source="n35" target="n41">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-49.07486979166674" sy="18.1328125" tx="32.96533203125" ty="-32.265625">
+            <y:Point x="2017.878701636905" y="1544.3739471435547"/>
+            <y:Point x="1918.9361111111111" y="1544.3739471435547"/>
+            <y:Point x="1918.9361111111111" y="1655.2372283935547"/>
+            <y:Point x="1893.4304113963294" y="1655.2372283935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.7163949864888786" textColor="#000000" visible="true" width="44.4765625" x="-121.18083224826387" y="126.60876973470045">EEA (9)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e79" source="n44" target="n23">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="33.83382161458326" sy="18.1328125" tx="0.0" ty="-18.1328125">
+            <y:Point x="1395.4576311383928" y="531.5926971435547"/>
+            <y:Point x="2698.70753968254" y="531.5926971435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.919703967477353" textColor="#000000" visible="true" width="36.853515625" x="1284.8231402684773" y="126.01560974121094">Other</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e80" source="n44" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-6.7667643229167425" sy="18.1328125" tx="-68.10701497395826" ty="-117.0625">
+            <y:Point x="1354.8570452008928" y="561.5926971435547"/>
+            <y:Point x="1091.3305555555555" y="561.5926971435547"/>
+            <y:Point x="1091.3305555555555" y="2619.4208221435547"/>
+            <y:Point x="1689.1644135974702" y="2619.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.43893836408349685" textColor="#000000" visible="true" width="387.630859375" x="-457.341929796007" y="1099.847640991211">An act of parliament which has entered the parliamentary process</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e81" source="n44" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="6.7667643229167425" sy="18.1328125" tx="-48.64786783854174" ty="-117.0625">
+            <y:Point x="1368.3904761904762" y="2604.4208221435547"/>
+            <y:Point x="1708.6235607328867" y="2604.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.44975691627235104" textColor="#000000" visible="true" width="139.421875" x="-69.71104250680219" y="1161.588656616211">A government directive</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e82" source="n44" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="20.30029296875" sy="18.1328125" tx="-29.188720703125" ty="-117.0625">
+            <y:Point x="1381.9241024925595" y="546.5926971435547"/>
+            <y:Point x="1624.16626984127" y="546.5926971435547"/>
+            <y:Point x="1624.16626984127" y="2589.4208221435547"/>
+            <y:Point x="1728.0827078683035" y="2589.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5487522600926417" textColor="#000000" visible="true" width="345.0625" x="69.71094757564492" y="1178.482406616211">An official decision or announcement by a public authority</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e83" source="n44" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-20.30029296875" sy="18.1328125" tx="-87.566162109375" ty="-117.0625">
+            <y:Point x="1341.3235165550595" y="546.5926971435547"/>
+            <y:Point x="729.0019841269841" y="546.5926971435547"/>
+            <y:Point x="729.0019841269841" y="2634.4208221435547"/>
+            <y:Point x="1669.7052664620535" y="2634.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.4508398118721857" textColor="#000000" visible="true" width="309.958984375" x="-767.3009943886409" y="1099.847640991211">A court decision or officially issued decision formula</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e84" source="n44" target="n22">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-33.83382161458326" sy="18.1328125" tx="-107.02530924479174" ty="-117.0625">
+            <y:Point x="1327.7899879092263" y="531.5926971435547"/>
+            <y:Point x="280.24444444444447" y="531.5926971435547"/>
+            <y:Point x="280.24444444444447" y="2649.4208221435547"/>
+            <y:Point x="1650.2461193266367" y="2649.4208221435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.46059135004362506" textColor="#000000" visible="true" width="560.48828125" x="-1327.7897352430555" y="1099.847640991211">Any kind of official work which the official body publishing it intends it to be generally received</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e85" source="n0" target="n45">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-30.721435546875" sy="25.19921875" tx="0.0" ty="-25.19921875">
+            <y:Point x="4420.223008897569" y="298.0614471435547"/>
+            <y:Point x="3690.0670634920634" y="298.0614471435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.9343602740050294" textColor="#000000" visible="true" width="289.36328125" x="-874.8377216641866" y="202.8022003173828">Scientific edition of an out-of-copyright work (5)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e86" source="n45" target="n46">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-24.06494140625" sy="25.19921875" tx="0.0" ty="-32.265625">
+            <y:Point x="3666.0021220858134" y="538.6591033935547"/>
+            <y:Point x="3562.5813492063494" y="538.6591033935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6617464549308353" textColor="#000000" visible="true" width="24.279296875" x="-115.56049649677561" y="117.53592224121098">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e87" source="n45" target="n47">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="24.06494140625" sy="25.19921875" tx="0.0" ty="-25.19921875"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="20.236328125" x="-10.11817026289691" y="117.26560974121094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e88" source="n46" target="n53">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-24.81494140625" sy="32.265625" tx="-49.794921875" ty="-88.796875">
+            <y:Point x="3537.7664078000994" y="848.7880096435547"/>
+            <y:Point x="3523.688888888889" y="848.7880096435547"/>
+            <y:Point x="3523.688888888889" y="945.5184783935547"/>
+            <y:Point x="3444.8610305059524" y="945.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.43448421157765826" textColor="#000000" visible="true" width="24.279296875" x="-26.21711697048613" y="108.44822692871094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e89" source="n46" target="n56">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="24.81494140625" sy="32.265625" tx="-31.94873046875" ty="-53.46484375">
+            <y:Point x="3587.3962906125994" y="848.7880096435547"/>
+            <y:Point x="3595.576587301587" y="848.7880096435547"/>
+            <y:Point x="3595.576587301587" y="960.5184783935547"/>
+            <y:Point x="3676.194920324901" y="960.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.3805076180878707" textColor="#000000" visible="true" width="20.236328125" x="-1.9378169952879034" y="112.06508890787757">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e90" source="n47" target="n53">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-25.96044921875" sy="25.19921875" tx="49.794921875" ty="-88.796875">
+            <y:Point x="3688.1716936383928" y="841.7216033935547"/>
+            <y:Point x="3667.834523809524" y="841.7216033935547"/>
+            <y:Point x="3667.834523809524" y="945.5184783935547"/>
+            <y:Point x="3544.4508742559524" y="945.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.3958050921574242" textColor="#000000" visible="true" width="24.279296875" x="-32.476755487351056" y="113.74803161621094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e91" source="n47" target="n56">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="25.96044921875" sy="25.19921875" tx="31.94873046875" ty="-53.46484375"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="20.236328125" x="-10.118206690228362" y="121.53123474121094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e92" source="n0" target="n48">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-51.202392578125" sy="25.19921875" tx="0.0" ty="-18.1328125">
+            <y:Point x="4399.742051866319" y="283.0614471435547"/>
+            <y:Point x="3234.6765873015875" y="283.0614471435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.960131052311814" textColor="#000000" visible="true" width="170.107421875" x="-1250.1193111359125" y="215.4613800048828">Non-original photograph (6)</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e93" source="n48" target="n49">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-31.0068359375" sy="18.1328125" tx="0.0" ty="-39.33203125">
+            <y:Point x="3203.6697513640875" y="531.5926971435547"/>
+            <y:Point x="3108.618650793651" y="531.5926971435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6529651824547364" textColor="#000000" visible="true" width="24.279296875" x="-107.19067537822411" y="117.53592224121098">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e94" source="n49" target="n57">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="24.81494140625" sy="39.33203125" tx="-50.6650390625" ty="-81.73046875">
+            <y:Point x="3133.43373015873" y="960.5184783935547"/>
+            <y:Point x="3193.0706752232145" y="960.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.4195276126238988" textColor="#000000" visible="true" width="24.279296875" x="-12.139548973192177" y="104.17967224121094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e95" source="n49" target="n60">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-24.81494140625" sy="39.33203125" tx="-28.28662109375" ty="-53.46484375">
+            <y:Point x="3083.803709387401" y="855.8544158935547"/>
+            <y:Point x="3007.5456349206347" y="855.8544158935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5687678163324801" textColor="#000000" visible="true" width="20.236328125" x="-86.37627476674334" y="101.34139099121091">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e96" source="n48" target="n50">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="31.0068359375" sy="18.1328125" tx="0.0" ty="-32.265625"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5" textColor="#000000" visible="true" width="20.236328125" x="-10.118135385664573" y="117.26560974121094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e97" source="n50" target="n57">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="28.71728515625" sy="32.265625" tx="50.6650390625" ty="-81.73046875"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.6000000000000001" textColor="#000000" visible="true" width="24.279296875" x="-12.139586090127068" y="122.61326599121094">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e98" source="n50" target="n60">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-28.71728515625" sy="32.265625" tx="28.28662109375" ty="-53.46484375">
+            <y:Point x="3236.9660481770834" y="848.7880096435547"/>
+            <y:Point x="3205.6916666666666" y="848.7880096435547"/>
+            <y:Point x="3205.6916666666666" y="945.5184783935547"/>
+            <y:Point x="3064.118763950893" y="945.5184783935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.35401996848877215" textColor="#000000" visible="true" width="20.236328125" x="-41.392561848958394" y="108.44822692871094">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e99" source="n51" target="n21">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-37.98974609375" sy="32.265625" tx="0.0" ty="-25.19921875">
+            <y:Point x="3995.834460255456" y="848.7880096435547"/>
+            <y:Point x="3888.9623015873017" y="848.7880096435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5988149368711637" textColor="#000000" visible="true" width="20.236328125" x="-116.99033513144832" y="118.71222432454431">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e100" source="n51" target="n52">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="37.98974609375" sy="32.265625" tx="0.0" ty="-32.265625"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.42857142857142855" textColor="#000000" visible="true" width="24.279296875" x="-12.13968870860208" y="111.67297581263949">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e101" source="n52" target="n3">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="32.96533203125" sy="32.265625" tx="0.0" ty="-95.86328125">
+            <y:Point x="4104.779220920139" y="1188.6473846435547"/>
+            <y:Point x="4140.028571428571" y="1188.6473846435547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.5765340015154465" textColor="#000000" visible="true" width="24.279296875" x="23.109626116071013" y="115.98910827636723">Yes</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e102" source="n52" target="n4">
+      <data key="d9">
+        <y:PolyLineEdge>
+          <y:Path sx="-32.96533203125" sy="32.265625" tx="0.0" ty="-53.46484375">
+            <y:Point x="4038.848556857639" y="1188.6473846435547"/>
+            <y:Point x="4000.0178571428573" y="1188.6473846435547"/>
+            <y:Point x="4000.0178571428573" y="1300.3778533935547"/>
+            <y:Point x="3932.18373015873" y="1300.3778533935547"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="center_slider" preferredPlacement="on_edge" ratio="0.413891485063834" textColor="#000000" visible="true" width="20.236328125" x="-48.94893973214266" y="112.06514994303393">No</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+  </graph>
+  <data key="d0">
+    <y:Resources/>
+  </data>
+</graphml>

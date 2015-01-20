@@ -1,4 +1,4 @@
-import RDF
+import rdflib
 import const
 from maps import Map
 from option import Option
@@ -8,36 +8,18 @@ import re
 
 # A class for a mapping RDF document
 class Mapping(object):
-  def __init__(self, globalities = {}, localities = {}, language= "en"):
+  def __init__(self, globalities = {}, localities = {}, mapping={}, language= "en"):
     self.localities = localities
     self.globalities = globalities
     self.maps = []
     self.assumptions = []
-    self.model = RDF.Model()
+    self.model = rdflib.Graph()
     if self.model is None:
       raise Exception("new RDF.model failed")
-    self.parser = RDF.Parser('raptor')
-    if self.parser is None:
-      raise Exception("Failed to create RDF.Parser raptor")
-
     self.query_re= r'%\((.*?)\)'
 
   def parse(self, filename):
-    # load the file
-    uri = RDF.Uri(string = "file:" + filename)
-
-    # all the triples in the model
-    for s in self.parser.parse_as_stream(uri, const.base_uri):
-      self.model.add_statement(s)
-
-    # Let's look for any mapping resource
-    statement = RDF.Statement(None,
-                              RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
-                              RDF.Uri("http://okfnpad.org/flow/0.1/Map"))
-    for s in self.model.find_statements(statement):
-      if s.subject.is_resource():
-        self.add_map(self.model, s.subject)
-    #print "parsed", filename
+    self.model.parse(filename)
 
   # This method populates a Map object
   def add_map(self, model, subject):

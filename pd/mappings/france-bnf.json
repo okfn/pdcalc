@@ -1,0 +1,35 @@
+{
+	"n0":[{
+      	"query": {
+			"template": "is:Film"
+		}
+	},{
+		"query": {
+            "template": "is:Database"
+          }
+	},{
+		"query": {
+            "template": "is:Broadcast"
+          }
+	},{
+		"query": {
+            "template": "is:Performance"
+          }
+	},{
+		"query": {
+            "template": "is:Phonogram"
+          }
+	},{
+		"query": {
+            "template": "is:Book"
+          }
+	}],
+	"n1":{
+		"query": {
+        "parameters": {
+          "pdcalc:years": 50
+        },
+        "template": "pdcalc:issued"
+      }
+	}
+}

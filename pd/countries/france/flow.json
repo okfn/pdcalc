@@ -5,44 +5,26 @@
       "options": [
         {
           "node": "n1",
-          "query": {
-            "template": "is:Film"
-          },
           "text": "First fixation of a film (3) (4)"
         },
         {
-          "node": "n8",
-          "query": {
-            "template": "is:Database"
-          },
+          "node": "n8",  
           "text": "Unoriginal Database (5)"
         },
         {
-          "node": "n15",
-          "query": {
-            "template": "is:Broadcast"
-          },
+          "node": "n15",          
           "text": "Broadcast (3)"
         },
         {
-          "node": "n16",
-          "query": {
-            "template": "is:Performance"
-          },
+          "node": "n16",          
           "text": "Performance (3) (4)"
         },
         {
-          "node": "n19",
-          "query": {
-            "template": "is:Phonogram"
-          },
+          "node": "n19",          
           "text": "Phonogram (3) (4)"
         },
         {
-          "node": "n24",
-          "query": {
-            "template": "is:Book"
-          },
+          "node": "n24",          
           "text": "Literary or artistic work (2)"
         }
       ],
@@ -62,12 +44,7 @@
           "value": false
         }
       ],
-      "query": {
-        "parameters": {
-          "pdcalc:years": 50
-        },
-        "template": "pdcalc:issued"
-      },
+      
       "text": "Was the film published or communicated to the public within 50 years from the fixation?",
       "type": "question"
     },

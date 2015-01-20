@@ -1,12 +1,13 @@
-import RDF
+import rdflib
 import sys
 import const
+import json
+import sys
+import traceback
 from mapping import Mapping
 from flow import Flow
 from node import Node
 from xml.etree import ElementTree as ET
-import json
-import sys
 
 detail_level =  {
   "low":1,
@@ -28,16 +29,11 @@ def update(d, u):
 class Reasoner(object):
 
   # The variables:
-  def __init__(self, flow_filename, local_map, flavor_map=None, global_map=None, detail="low", output="cli", language="en"):
-    self.parser = RDF.Parser('raptor')
-    if self.parser is None:
-      raise Exception("Failed to create RDF.Parser raptor")
-
-    const.base_uri = RDF.Uri("baku")
-
+  def __init__(self, flow_filename, local_map, flavor_map=None, global_map=None, mapping=None, detail="low", output="cli", language="en"):
     self.globalities = json.load(open(global_map, 'r'))
     self.localities = json.load(open(local_map, 'r'))
     self.flavor = json.load(open(flavor_map, 'r'))
+    self.map= json.load(open(mapping, 'r'))
     self.language= json.load(open(language, 'r'))
 
     if flavor_map is not None:
@@ -46,15 +42,17 @@ class Reasoner(object):
 
     self.localities = update(self.localities, self.flavor)
 
-    self.mapping = Mapping(self.globalities, self.localities, self.language)
-    self.flow = Flow(self.globalities, self.localities, self.language)
+    self.mapping = Mapping(self.globalities, self.localities, self.map, self.language)
+    self.flow = Flow(self.globalities, self.localities, self.map, self.language)
 
     self.detail = detail_level[detail]
     self.output = output
 
-    self.model = RDF.Model()
+    self.res_context = {}
+
+    self.model = rdflib.Graph()
     if self.model is None:
-      raise Exception("new RDF.model failed")
+      raise Exception("new rdflib.Graph failed")
 
     self.parse_flow(flow_filename)
 
@@ -67,33 +65,16 @@ class Reasoner(object):
 
   # Let's store all the RDF triples into the internal model
   def parse_input(self, filename):
-    if filename.endswith('.json'):
-      import json2rdf, json
-      data = json.loads(open(filename).read())
-      if type(data) is list:
-          data = data[0]
-      if not type(data) is dict:
-          raise Exception('The JSON data is not a dict')
-      to_parse = json2rdf.convert(data)
-      op = self.parser.parse_string_as_stream
-    else:
-      to_parse = RDF.Uri(string = "file:" + filename)
-      op = self.parser.parse_as_stream
-
-    # all the triples in the model
-    for s in op(to_parse, const.base_uri):
-      self.model.add_statement(s)
-      #if s.object.is_resource():
-     #   print "yay",s.object.uri
-        #self.model.load(s.object.uri)
-    #print self.model
-       # pass
+    self.model.parse(filename)
 
     try:
       a = __import__("prerun")
-      a.pre_run(self.model)
-    except Exception, e:
+      a.pre_run(self.model, res_context = self.res_context)
+    except ImportError, e:
       pass
+    except Exception, e:
+      print >> sys.stderr, e
+      traceback.print_exc(file=sys.stderr)
     
   # Debug info
   def info(self):
@@ -105,6 +86,8 @@ class Reasoner(object):
 
     # Let's start from the root node
     n = self.flow.root_node()
+
+
 
     resolved = False
     # while we have a node...
@@ -120,16 +103,18 @@ class Reasoner(object):
             elif self.output == "json":
               self.out.append({"question":n.text.encode('utf8'), "id":n.uri, "type":"question"})
           
-          option = self.flow.choose(self.model, n, detail=self.detail, mode=self.output, out=self.out)
-          
+          option = self.flow.choose(self.model, n, detail=self.detail, mode=self.output, out=self.out, res_context = self.res_context)
+                   
+
           # The option chosen is:
           if self.detail >= 2: 
             if self.output == "cli":
               self.out.append('>> Answer: %s' % option.text.encode('utf8'))
             elif self.output == "json":
               self.out.append({"answer":option.text.encode('utf8'), "type":"answer"})
-          
+
           n = self.flow.node(option.node)
+
 
         # maybe this is already the answer:
         else:
@@ -140,25 +125,28 @@ class Reasoner(object):
               self.out.append({"response":n.text.encode('utf8'), "result":n.is_public, "type":"response"})
           
           resolved = True
-    except Exception, e:
-      pass
+    except Exception, ex:
+      print >>sys.stderr, "XX",str(ex)
+      traceback.print_exc(file=sys.stderr)
 
     if self.output == "cli":
-      if self.out[-1].startswith(">> Response") == False:
-        self.out.append(">> Response: unknown - Not enough ifnormation to evaluate")
+      if len(self.out)>0:
+        if self.out[-1].startswith(">> Response") == False:
+          self.out.append(">> Response: unknown - Not enough ifnormation to evaluate")
     elif self.output == "json":
-      if self.out[-1]['type'] != "response":
-        self.out.append({"response":"Not enough data to evaluate", "result":"unknown", "type":"response"})
+      if len(self.out) > 0:
+        if self.out[-1]['type'] != "response":
+          self.out.append({"response":"Not enough data to evaluate", "result":"unknown", "type":"response"})
 
       
     if self.output == "json":
+      self.out.insert(0, {"type":"context", "data":self.res_context})
       self.out = json.dumps(self.out)
     elif self.output == "cli":
       self.out = "\n".join(self.out)
-
+      print >>sys.stderr, self.res_context
   def query(self, q):
-    que = RDF.Query(q, query_language="sparql")
-    result = que.execute(self.model)
+    result = self.model.query(q)
     self.out = result.decode("utf-8", "ignore")
 
   def get_result(self):

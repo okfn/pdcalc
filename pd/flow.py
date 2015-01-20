@@ -1,22 +1,20 @@
-import RDF
+import rdflib
 import sys
 import const
 from node import Node
 from option import Option
 import json
 import re
+import traceback
 
 # The flow class contains a flow RDF document
 class Flow(object):
   # list of variables
-  def __init__(self, globalities = {}, localities = {}, language="en"):
-    self.parser = RDF.Parser('raptor')
-    if self.parser is None:
-      raise Exception("Failed to create RDF.Parser raptor")
-
+  def __init__(self, globalities = {}, localities = {}, mapping={},  language="en"):
     self.language = language
     self.localities = localities    
     self.globalities = globalities
+    self.mapping = mapping
     self.questions = {}
     self.answers = {}
     self.root = None
@@ -31,8 +29,11 @@ class Flow(object):
   def node(self, node_uri):
     uri = str(node_uri)
     if uri in self.questions:
+      print >>sys.stderr, "q", uri
+      print >>sys.stderr, self.questions[uri]
       return self.questions[uri]
     elif uri in self.answers:
+      print >>sys.stderr, "e", uri
       return self.answers[uri]
     else:
       raise Exception('Node ' + uri + ' is not part of the flow.')
@@ -54,81 +55,43 @@ class Flow(object):
   def get_nodes(self, model):
     self.questions = {key: self.get_node(key, value) for key, value in model["questions"].items()}
 
-  def get_node(self, key, node_model):
+  def get_node(self, key, node_model):  
     node = Node(key, node_model['type'] == "question")
-    
     if "query" in node_model:
       node.query = node_model['query']
+    elif key in self.mapping:
+      if "query" in self.mapping[key]:
+        node.query = self.mapping[key]["query"]
     if "is_public" in node_model:
       node.is_public = node_model.get('is_public')
     node.text = self.language[key+".text"]
     if "options" in node_model:
-      for i, o in enumerate(node_model['options']):
-        self.get_options(node, o,self.language[key+".options."+str(i)+".text"])
-
+      if len(node_model.get("options", [])) == 2: #binary
+        for i, o in enumerate(node_model['options']):
+          self.get_options(node, o, text=self.language[key+".options."+str(i)+".text"])	
+      else:
+        for i, o in enumerate(node_model['options']):
+          if key in self.mapping:
+            self.get_options(node, o, mapping=self.mapping[key][i]["query"], text=self.language[key+".options."+str(i)+".text"])
+          else:
+            self.get_options(node, o, text=self.language[key+".options."+str(i)+".text"])
     return node
 
-  def get_options(self, node, option, text):
-    node.add_options(Option(option, node, text))
-    pass
-
-  def get_alt_options(self, node, model, subject):
-    statement = RDF.Statement(subject,
-                              None,
-                              None)
-    for s in model.find_statements(statement):
-      if str(s.predicate.uri).startswith('http://www.w3.org/1999/02/22-rdf-syntax-ns#_'):
-        statement2 = RDF.Statement(s.object,
-                                   RDF.Uri("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),
-                                   RDF.Uri("http://okfnpad.org/flow/0.1/Option"))
-        for ss in model.find_statements(statement2):
-          node.add_options(self.get_option(model, ss.subject))
-
-  def get_option(self, model, subject):
-    option = Option(subject.uri)
-
-    statement = RDF.Statement(subject,
-                              RDF.Uri("http://okfnpad.org/flow/0.1/node"),
-                              None)
-
-    uri = None
-    for s in model.find_statements(statement):
-      if s.object.is_resource():
-        uri = s.object.uri
-
-    option.node = uri
-
-    statement = RDF.Statement(subject,
-                              RDF.Uri("http://okfnpad.org/flow/0.1/text"),
-                              None)
-
-    for s in model.find_statements(statement):
-      if s.object.is_literal():
-        option.text = s.object.literal_value['string']
-
-    statement = RDF.Statement(subject,
-                              RDF.Uri("http://okfnpad.org/flow/0.1/query"),
-                              None)
-
-    for s in model.find_statements(statement):
-      if s.object.is_literal():
-        option.query = s.object.literal_value['string']
-
-    return option
-
+  def get_options(self, node, option, mapping={}, text=""):
+      node.add_options(Option(option, node, mapping, text))
+    
   # Some information
   def info(self):
     #print "The flow RDF document contains:", len(self.questions), "questions and", len(self.answers), "answers."
     pass
 
-  def choose(self, model, node, detail=1, mode="cli",  out=None):
+  def choose(self, model, node, detail=1, mode="cli",  out=None, res_context=None):
     if node.is_binary():
       try:
         a = __import__(node.uri)
-        result = a.evaluate_question(model)
+        result = a.evaluate_question(model, context = {"g":self.globalities, "l":self.localities, "node":node}, res_context = res_context)
         return node.get_option_for(result)
-      except Exception, e:
-        print >> sys.stderr, e
+      except ImportError, e:
         sparql = node.render_query(self.globalities, self.localities)
         if detail >=3:
           if mode=="cli":
@@ -136,23 +99,27 @@ class Flow(object):
           else:
             out.append({"query":sparql, "type":"query"})
           
-        query = RDF.Query(sparql, query_language="sparql")
-        result = query.execute(model).get_boolean()
+        result = model.query(sparql)
+        
         return node.get_option_for(result)
+      except Exception, e:
+        print >> sys.stderr, e
+        traceback.print_exc(file=sys.stderr)
     else:
       try:
         a = __import__(node.uri)
-        result = a.evaluate_question(model)
+        result = a.evaluate_question(model, context = {"g":self.globalities, "l":self.localities, "node":node}, res_context = res_context)
+        
         return node.get_option_for(result)
-      except Exception, e:
+      except ImportError, e:
         for option in node.options:
-     
           if detail >=3:
             if mode=="cli":
               out.append( ">  Evaluating option: %s" % option.text)
             else:
               out.append({"evaluation":option.text, "type":"evaluation"})
           sparql = option.render_query(self.globalities, self.localities)
+
           
           if sparql is not None:
             if detail >=3:
@@ -160,12 +127,14 @@ class Flow(object):
                 out.append(">  Query: %s" % sparql)
               else:
                 out.append({"query":sparql, "type":"query"})
-            query = RDF.Query(sparql, query_language="sparql")
-            result = query.execute(model).get_boolean()
+            result = model.query(sparql)
           else:
             result = False
           if result:
             break
+      except Exception, e:
+        print >> sys.stderr, e
+        traceback.print_exc(file=sys.stderr)
       if result is not None:
         return option
       else:

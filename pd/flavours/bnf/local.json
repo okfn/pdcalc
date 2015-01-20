@@ -1,5 +1,26 @@
 {
+	"sameAs":{
+		"pdcalc:publicationDate":[
+			"dc:date"
+		]
+	},
 	"queries":{
+		"pdcalc:issued":{
+			"query":"{ {  ?a %(pdcalc:publicationDate)s ?b.  FILTER (xsd:decimal(?b) + %(pdcalc:years)s < year(now()) )  } }",
+			"prefixes":["xsd"]
+			},
+		"is:Film":{
+			"query":"{ ?x bnf-onto:subject \"Audiovisuel\"}",
+			"prefixes":["bnf-onto"]
+		},
+		"is:Book":{
+			"query":"{ ?x bnf-onto:subject \"Littératures\"}",
+			"prefixes":["bnf-onto"]
+		},
+		"pdcalc:Person":{
+			"query":"{ ?x dc:creator ?y }",
+			"prefixes":["dc"]
+		},
 		"is:Film":{
 			"query":"{ ?x a bibo:Film}",
 			"prefixes":["bibo"]
