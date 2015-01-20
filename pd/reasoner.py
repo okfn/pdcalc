@@ -29,10 +29,11 @@ def update(d, u):
 class Reasoner(object):
 
   # The variables:
-  def __init__(self, flow_filename, local_map, flavor_map=None, global_map=None, detail="low", output="cli", language="en"):
+  def __init__(self, flow_filename, local_map, flavor_map=None, global_map=None, mapping=None, detail="low", output="cli", language="en"):
     self.globalities = json.load(open(global_map, 'r'))
     self.localities = json.load(open(local_map, 'r'))
     self.flavor = json.load(open(flavor_map, 'r'))
+    self.map= json.load(open(mapping, 'r'))
     self.language= json.load(open(language, 'r'))
 
     if flavor_map is not None:
@@ -41,8 +42,8 @@ class Reasoner(object):
 
     self.localities = update(self.localities, self.flavor)
 
-    self.mapping = Mapping(self.globalities, self.localities, self.language)
-    self.flow = Flow(self.globalities, self.localities, self.language)
+    self.mapping = Mapping(self.globalities, self.localities, self.map, self.language)
+    self.flow = Flow(self.globalities, self.localities, self.map, self.language)
 
     self.detail = detail_level[detail]
     self.output = output
@@ -103,15 +104,17 @@ class Reasoner(object):
               self.out.append({"question":n.text.encode('utf8'), "id":n.uri, "type":"question"})
           
           option = self.flow.choose(self.model, n, detail=self.detail, mode=self.output, out=self.out, res_context = self.res_context)
-          
+                   
+
           # The option chosen is:
           if self.detail >= 2: 
             if self.output == "cli":
               self.out.append('>> Answer: %s' % option.text.encode('utf8'))
             elif self.output == "json":
               self.out.append({"answer":option.text.encode('utf8'), "type":"answer"})
-          
+
           n = self.flow.node(option.node)
+
 
         # maybe this is already the answer:
         else:

@@ -1,5 +1,5 @@
 from option import Option
-
+import sys
 import sparqler
 # A container for a node with its properties
 class Node(object):
@@ -12,11 +12,11 @@ class Node(object):
     self._public = None
 
   def is_binary(self):
-    return len(self._get_options()) == 2 and self.query_value is not None
+    return len(self.options) == 2 and self.query_value is not None
 
   def is_question(self):
-#    return self.question
-     return len(self._get_options())
+    return self.question
+    #return len(self._get_options())>0
 
   def _get_text(self):
     return self.text_value
@@ -35,7 +35,7 @@ class Node(object):
 
   def _get_options(self):
     return self.options_list
-
+ 
   def _get_is_public(self):
     if self._public is None:
       return "unknown"
@@ -55,7 +55,8 @@ class Node(object):
       self.options_list.append(option)
 
   def render_query(self, globalities, localities):
-    return sparqler.render(self.query, globalities, localities)
+    q = sparqler.render(self.query, globalities, localities)
+    return q
 
   def get_option_for(self, value):
     if self.is_binary():
@@ -63,3 +64,5 @@ class Node(object):
         return self.options_list[0]
       else:
         return self.options_list[1]
+    else:
+      pass

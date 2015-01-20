@@ -65,13 +65,13 @@ if __name__ == '__main__':
       f.close()
       args.instance = f.name
 
-    files = [ os.path.join("countries", args.country,"flow.json"), os.path.join("flavours",args.flavor, "local.json"), os.path.join("countries", args.country, "local.json"), args.globalmap, args.instance]
+    files = [ os.path.join("countries", args.country,"flow.json"), os.path.join("flavours",args.flavor, "local.json"), os.path.join("countries", args.country, "local.json"), os.path.join("mappings", args.country+"-"+args.flavor+".json"), args.globalmap, args.instance]
     #print files
     files = map(path.isfile, files)
     #print files
     if all(files):
       from reasoner import Reasoner
-      a = Reasoner(os.path.join("countries",args.country,"flow.json"), local_map = os.path.join("countries", args.country, "local.json"), flavor_map = os.path.join("flavours",args.flavor, "local.json"), global_map = args.globalmap, detail=args.detail, output=args.output, language=os.path.join("countries", args.country, "i18n", args.language+".json"))
+      a = Reasoner(os.path.join("countries",args.country,"flow.json"), local_map = os.path.join("countries", args.country, "local.json"), flavor_map = os.path.join("flavours",args.flavor, "local.json"),  global_map = args.globalmap, mapping=os.path.join("mappings", args.country+"-"+args.flavor+".json"),detail=args.detail, output=args.output, language=os.path.join("countries", args.country, "i18n", args.language+".json"))
       a.parse_input(args.instance)
       a.info()
       if args.query is None:

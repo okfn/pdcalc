@@ -2,7 +2,7 @@ import re
 import sparqler
 # A container for an option and its properties
 class Option(object):
-  def __init__(self, obj, parent, text):
+  def __init__(self, obj, parent, mapping={}, text=""):
     self.parent = parent
 
     self.val = obj.get('value')
@@ -13,6 +13,8 @@ class Option(object):
 
     if "query" in obj:
       self.s_query = obj['query']
+    elif mapping != {}:
+      self.s_query = mapping
     else:
       self.s_query = None
 

@@ -14,8 +14,8 @@ def get_keys(dm, path = ""):
 	else:
 		print str(typeof(dm))
 
-
 for path in os.listdir('.'):
+	print path
 	if "." in path or "-" in path:
 		pass
 	else:
@@ -29,8 +29,13 @@ for path in os.listdir('.'):
 				if f.get('questions').get(key).get('options') is not None:
 					for i, opt in enumerate(f.get('questions').get(key).get('options')):
 						ret["%s.options.%s.text" % (key, i)] = f.get('questions').get(key).get('options')[i].get('text')
-
 			print json.dumps(ret,indent = 3)
+			try:
+				os.mkdir(os.path.join(path, "i18n"))
+			except:
+				pass
+			with open(os.path.join(path, "i18n", "en.json"), "wb") as en_lang:
+				json.dump(ret, en_lang)
 		except Exception, e:
 			pass
 
