@@ -35,3 +35,5 @@ format of the instances - Valid values are "rdf" or "json".
     -V 
 
 lists the valid country/flavor combinations
+
+Download the latest version from https://github.com/okfn/pdcalc/ .
