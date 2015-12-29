@@ -22,5 +22,10 @@ setup(
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
+    entry_points={
+        'console_scripts': [
+            'pdcalc = pd.pdcalc:pdcalc',
+        ],
+    }
 )
 
