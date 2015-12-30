@@ -1,3 +1,4 @@
 python_dateutil
 redis
 requests
+rdflib
