@@ -50,6 +50,9 @@ def pdcalc():
       print ", ".join(itms)
 
   else:
+    if not args.instance:
+      print "error: No -i argument provided, did you forget to specify input file?"
+      sys.exit(1)
 
     if args.instance.startswith("http"):
       args.mode = "url"
@@ -79,6 +82,9 @@ def pdcalc():
       else:
         a.query(args.query)
       print a.get_result()
+    else:
+      print "error: unable to process input, as some data files are missing"
+      sys.exit(1)
 
     if args.mode == "url":
       os.remove(args.instance)
