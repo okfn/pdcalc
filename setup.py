@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
-from pd import __version__
+from pd import __version__, __author__
 
 setup(
-    name = 'pdw2',
+    name = 'pd',
     version = __version__,
     packages = find_packages(),
     install_requires = open('./requirements.txt').readlines(),
     # metadata for upload to PyPI
-    author = 'Open Knowledge Foundation',
-    author_email = 'info@okfn.org',
+    author = __author__.split("<")[0].strip(),
+    author_email = __author__.split("<")[1].split(">")[0].strip(),
     description = 'PublicDomainWorks.net web app and API.',
     license = 'MIT',
     url = 'http://publicdomain.okfn.org/',
@@ -22,5 +22,10 @@ setup(
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
+    entry_points={
+        'console_scripts': [
+            'pdcalc = pd.pdcalc:pdcalc',
+        ],
+    }
 )
 

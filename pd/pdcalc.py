@@ -10,7 +10,7 @@ import json
 
 import cacher
 
-if __name__ == '__main__':
+def pdcalc():
   parser = argparse.ArgumentParser(description='Public Domain Calculator')
   parser.add_argument('-c', '--country', dest='country',  help='country for which to test')
   parser.add_argument('-i', '--instance', dest='instance',  help='instance to test')
@@ -84,3 +84,6 @@ if __name__ == '__main__':
       os.remove(args.instance)
 
     sys.exit()
+
+if __name__ == '__main__':
+  pdcalc()
